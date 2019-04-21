@@ -61,9 +61,9 @@ if(isset($updates['error'])) {
 $build = explode('.', $files['build']);
 $build = @$build[0];
 if($build < 17107) {
-    $disableVE = 'disabled';
+    $disableVE = 1;
 } else {
-    $disableVE = '';
+    $disableVE = 0;
 }
 
 $updateTitle = "{$files['updateName']} {$files['arch']}";
@@ -125,7 +125,8 @@ if(preg_grep('/^ProfessionalN_.*\.esd/i', $filesKeys)) {
 styleUpper('downloads', "Summary for $updateTitle, $selectedLangName, $selectedEditionName");
 ?>
 
-<form class="ui normal mini modal virtual-editions form" action="<?php echo $url; ?>&autodl=3" method="post">
+<form class="ui normal mini modal virtual-editions form"
+action="<?php echo $url; ?>&autodl=3" method="post">
     <div class="header">
         Select virtual editions
     </div>
@@ -251,7 +252,8 @@ if(!file_exists('packs/'.$updateId.'.json.gz')) {
 
 <div class="ui two columns mobile reversed stackable centered grid">
     <div class="column">
-        <a class="ui top attached fluid labeled icon large button" href="<?php echo $url; ?>">
+        <a class="ui top attached fluid labeled icon large button"
+        href="<?php echo $url; ?>">
             <i class="list icon"></i>
             Browse a list of files
         </a>
@@ -259,7 +261,8 @@ if(!file_exists('packs/'.$updateId.'.json.gz')) {
             Opens a page with list of files in UUP set for manual download.
         </div>
 
-        <a class="ui top attached fluid labeled icon large button" href="<?php echo $url; ?>&autodl=1">
+        <a class="ui top attached fluid labeled icon large button"
+        href="<?php echo $url; ?>&autodl=1">
             <i class="archive icon"></i>
             Download using aria2
         </a>
@@ -267,7 +270,8 @@ if(!file_exists('packs/'.$updateId.'.json.gz')) {
             Easily download the selected UUP set using aria2.
         </div>
 
-        <a class="ui top attached fluid labeled icon large blue button" href="<?php echo $url; ?>&autodl=2">
+        <a class="ui top attached fluid labeled icon large blue button"
+        href="<?php echo $url; ?>&autodl=2">
             <i class="archive icon"></i>
             Download using aria2 and convert
         </a>
@@ -275,7 +279,9 @@ if(!file_exists('packs/'.$updateId.'.json.gz')) {
             Easily download the selected UUP set using aria2 and convert it to ISO.
         </div>
 
-        <a class="ui top attached fluid labeled icon large <?php echo $disableVE; ?> button" href="javascript:void(0)" onClick="getVirtualEditions();">
+        <a class="ui top attached fluid labeled icon large disabled button"
+        href="javascript:void(0)" onClick="getVirtualEditions();"
+        id="VEConvertBtn">
             <i class="archive icon"></i>
             Download using aria2, convert and create virtual editions
         </a>
@@ -283,7 +289,15 @@ if(!file_exists('packs/'.$updateId.'.json.gz')) {
             Easily download the selected UUP set using aria2, create virtual
             editions and convert it to ISO. Creation process of virtual editions
             takes a lot of time and is only supported on Windows.
-            <a href="javascript:void(0)" onClick="learnMoreVE();">Learn more</a>
+
+            <span id="VEConvertMsgNoJs">JavaScript is required to configure
+            and use this option.</span>
+
+            <span id="VEConvertLearnMoreLink" style="display: none;">
+                <a href="javascript:void(0)" onClick="learnMoreVE();">
+                    Learn more
+                </a>
+            </span>
         </div>
     </div>
 
@@ -304,14 +318,26 @@ if(!file_exists('packs/'.$updateId.'.json.gz')) {
 if($hasUpdates) {
     echo <<<INFO
 <h4>Additional updates</h4>
-<p>This UUP set contains additional updates which will be integrated during
-the conversion process significantly increasing the creation time.
-<a href="javascript:void(0)" onClick="learnMoreUpdates();">Learn more</a></p>
+<p>
+    This UUP set contains additional updates which will be integrated during
+    the conversion process significantly increasing the creation time.
 
-<a class="ui tiny labeled icon button" href="./get.php?id=$updateId&pack=0&edition=updateOnly">
+    <a href="javascript:void(0)" onClick="learnMoreUpdates();"
+    id="LearnMoreUpdatesLink" style="display: none;">
+        Learn more
+    </a>
+</p>
+
+<a class="ui tiny labeled icon button"
+href="./get.php?id=$updateId&pack=0&edition=updateOnly">
     <i class="folder open icon"></i>
     Browse the list of updates
 </a>
+
+<script>
+document.getElementById('LearnMoreUpdatesLink').style.display = "inline";
+</script>
+
 INFO;
 }
 ?>
@@ -325,9 +351,9 @@ INFO;
     <p>Download using aria2 options create an archive which needs to be downloaded.
     The downloaded archive contains all needed files to achieve the selected task.</p>
 
-    <p><b>To start the download process use a script for your platform:</b><br>
-    - Windows: <code>aria2_download_windows.cmd</code></br>
-    - Linux: <code>aria2_download_linux.sh</code></br>
+    <p><b>To start the download process use a script for your platform:</b><br/>
+    - Windows: <code>aria2_download_windows.cmd</code><br/>
+    - Linux: <code>aria2_download_linux.sh</code><br/>
     </p>
 
     <p>Aria2 is an open source project. You can find it here:
@@ -344,24 +370,26 @@ INFO;
       <div class="completed step">
             <i class="world icon"></i>
             <div class="content">
-                  <div class="title">Choose language</div>
-                  <div class="description">Choose your desired language</div>
+                <div class="title">Choose language</div>
+                <div class="description">Choose your desired language</div>
             </div>
       </div>
 
       <div class="completed step">
             <i class="archive icon"></i>
             <div class="content">
-                  <div class="title">Choose edition</div>
-                  <div class="description">Choose your desired edition</div>
+                <div class="title">Choose edition</div>
+                <div class="description">Choose your desired edition</div>
             </div>
       </div>
 
       <div class="active step">
             <i class="briefcase icon"></i>
             <div class="content">
-                  <div class="title">Summary</div>
-                  <div class="description">Review your selection and choose download method</div>
+                <div class="title">Summary</div>
+                <div class="description">
+                    Review your selection and choose download method
+                </div>
             </div>
       </div>
 </div>
@@ -380,6 +408,15 @@ function learnMoreUpdates() {
 }
 
 $('.ui.checkbox').checkbox();
+
+<?php
+if(!$disableVE) {
+    echo "document.getElementById('VEConvertBtn').classList.remove(\"disabled\");";
+}
+?>
+
+document.getElementById('VEConvertMsgNoJs').style.display = "none";
+document.getElementById('VEConvertLearnMoreLink').style.display = "inline";
 </script>
 
 <?php

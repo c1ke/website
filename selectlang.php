@@ -138,24 +138,26 @@ if($containsCU) {
       <div class="active step">
             <i class="world icon"></i>
             <div class="content">
-                  <div class="title">Choose language</div>
-                  <div class="description">Choose your desired language</div>
+                <div class="title">Choose language</div>
+                <div class="description">Choose your desired language</div>
             </div>
       </div>
 
       <div class="step">
             <i class="archive icon"></i>
             <div class="content">
-                  <div class="title">Choose edition</div>
-                  <div class="description">Choose your desired edition</div>
+                <div class="title">Choose edition</div>
+                <div class="description">Choose your desired edition</div>
             </div>
       </div>
 
       <div class="step">
             <i class="briefcase icon"></i>
             <div class="content">
-                  <div class="title">Summary</div>
-                  <div class="description">Review your selection and choose download method</div>
+                <div class="title">Summary</div>
+                <div class="description">
+                    Review your selection and choose download method
+                </div>
             </div>
       </div>
 </div>
