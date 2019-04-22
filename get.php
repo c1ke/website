@@ -151,6 +151,10 @@ styleUpper('downloads', "List of files for $updateName $updateArch");
 if(!file_exists('packs/'.$updateId.'.json.gz')) {
     styleNoPackWarn();
 }
+
+if($updateArch == 'arm64') {
+    styleCluelessUserArm64Warn();
+}
 ?>
 
 <table class="ui celled striped table">

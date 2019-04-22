@@ -81,6 +81,10 @@ styleUpper('downloads', "Select edition for $updateTitle, $selectedLangName");
 if(!file_exists('packs/'.$updateId.'.json.gz')) {
     styleNoPackWarn();
 }
+
+if($updateArch == 'arm64') {
+    styleCluelessUserArm64Warn();
+}
 ?>
 
 <div class="ui top attached segment">

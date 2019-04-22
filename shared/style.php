@@ -334,3 +334,20 @@ function styleNoPackWarn() {
 
 INFO;
 }
+
+function styleCluelessUserArm64Warn() {
+    echo <<<INFO
+<div class="ui small icon error message">
+    <i class="bomb icon"></i>
+    <div class="content">
+        <p>You have selected an ARM64 build which is <b>only compatible with
+        ARM64 based devices</b> and will not work with regular Intel or AMD
+        based PCs. For <b>64-bit</b> PCs please use <b>amd64</b> builds. For
+        <b>32-bit</b> PCs please use <b>x86</b> builds. If you are absolutely
+        sure that the destination device is ARM64 based, you can safely ignore
+        this message.</p>
+    </div>
+</div>
+
+INFO;
+}

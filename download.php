@@ -67,6 +67,7 @@ if($build < 17107) {
 }
 
 $updateTitle = "{$files['updateName']} {$files['arch']}";
+$updateArch = $files['arch'];
 $files = $files['files'];
 
 $totalSize = 0;
@@ -247,6 +248,10 @@ EOD;
 <?php
 if(!file_exists('packs/'.$updateId.'.json.gz')) {
     styleNoPackWarn();
+}
+
+if($updateArch == 'arm64') {
+    styleCluelessUserArm64Warn();
 }
 ?>
 
