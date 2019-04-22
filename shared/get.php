@@ -33,10 +33,12 @@ function createUupConvertPackage(
     $desiredVE = array('Enterprise')
 ) {
     $currDir = dirname(__FILE__).'/..';
+    $time = gmdate("Y-m-d H:i:s T", time());
     $cmdScript = <<<SCRIPT
 @echo off
-cd /d "%~dp0"
+rem Generated on $time
 
+cd /d "%~dp0"
 if NOT "%cd%"=="%cd: =%" (
     echo Current directory contains spaces in its path.
     echo Please move or rename the directory to one not containing spaces.
@@ -51,7 +53,9 @@ IF %ERRORLEVEL% EQU 0 goto :START_PROCESS
 set "command="""%~f0""" %*"
 set "command=%command:'=''%"
 
-powershell Start-Process -FilePath '%COMSPEC%' -ArgumentList '/c """%command%"""' -Verb RunAs 2>NUL
+powershell -NoProfile Start-Process -FilePath '%COMSPEC%' ^
+-ArgumentList '/c """%command%"""' -Verb RunAs 2>NUL
+
 IF %ERRORLEVEL% GTR 0 (
     echo =====================================================
     echo This script needs to be executed as an administrator.
@@ -120,6 +124,7 @@ SCRIPT;
 
 $shellScript = <<<SCRIPT
 #!/bin/bash
+#Generated on $time
 
 if ! which aria2c >/dev/null \\
 || ! which cabextract >/dev/null \\
@@ -203,6 +208,13 @@ vAutoEditions=$desiredVirtualEditions
 
 CONFIG;
 
+    $cmdScript = str_replace(["\r\n", "\r"], "\n", $cmdScript);
+    $convertConfig = str_replace(["\r\n", "\r"], "\n", $convertConfig);
+    $shellScript = str_replace(["\r\n", "\r"], "\n", $shellScript);
+
+    $cmdScript = str_replace("\n", "\r\n", $cmdScript);
+    $convertConfig = str_replace("\n", "\r\n", $convertConfig);
+
     $zip = new ZipArchive;
     $archive = @tempnam($currDir.'/tmp', 'zip');
     $open = $zip->open($archive, ZipArchive::CREATE+ZipArchive::OVERWRITE);
@@ -256,14 +268,16 @@ CONFIG;
 //Create aria2 download package only
 function createAria2Package($url, $archiveName) {
     $currDir = dirname(__FILE__).'/..';
+    $time = gmdate("Y-m-d H:i:s T", time());
     $cmdScript = <<<SCRIPT
 @echo off
-cd /d "%~dp0"
+rem Generated on $time
 
 set "aria2=files\\aria2c.exe"
 set "aria2Script=files\\aria2_script.txt"
 set "destDir=UUPs"
 
+cd /d "%~dp0"
 if NOT EXIST %aria2% goto :NO_ARIA2_ERROR
 
 echo Retrieving updated aria2 script...
@@ -298,6 +312,7 @@ SCRIPT;
 
 $shellScript = <<<SCRIPT
 #!/bin/bash
+#Generated on $time
 
 if ! which aria2c >/dev/null; then
   echo "One of required applications is not installed."
@@ -335,6 +350,10 @@ if [ $? != 0 ]; then
 fi
 
 SCRIPT;
+
+    $cmdScript = str_replace(["\r\n", "\r"], "\n", $cmdScript);
+    $shellScript = str_replace(["\r\n", "\r"], "\n", $shellScript);
+    $cmdScript = str_replace("\n", "\r\n", $cmdScript);
 
     $zip = new ZipArchive;
     $archive = @tempnam($currDir.'/tmp', 'zip');
