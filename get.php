@@ -18,6 +18,7 @@ limitations under the License.
 $updateId = isset($_GET['id']) ? $_GET['id'] : null;
 $simple = isset($_GET['simple']) ? $_GET['simple'] : 0;
 $aria2 = isset($_GET['aria2']) ? $_GET['aria2'] : 0;
+$renameScript = isset($_GET['renscript']) ? $_GET['renscript'] : 0;
 $autoDl = isset($_GET['autodl']) ? $_GET['autodl'] : 0;
 $usePack = isset($_GET['pack']) ? $_GET['pack'] : 0;
 $desiredEdition = isset($_GET['edition']) ? $_GET['edition'] : 0;
@@ -45,7 +46,7 @@ if(checkIfUserIsRateLimited($resource)) {
     die();
 }
 
-if($autoDl) {
+if($autoDl && !$aria2) {
     $files = uupGetFiles($updateId, $usePack, $desiredEdition, 2);
     if(isset($files['error'])) {
         fancyError($files['error'], 'downloads');
@@ -116,6 +117,31 @@ $files = $files['files'];
 $filesKeys = array_keys($files);
 
 $request = explode('?', $_SERVER['REQUEST_URI'], 2);
+
+if($renameScript) {
+    if($renameScript == 2) {
+        header('Content-Type: application/sh');
+        header('Content-Disposition: attachment; filename="rename_script.sh"');
+
+        echo "#!/bin/bash\n\n";
+        foreach($filesKeys as $val) {
+            echo 'mv "'.$files[$val]['uuid'].'" "'.$val."\" 2>/dev/null\n";
+        }
+
+        die();
+    }
+
+    header('Content-Type: application/cmd');
+    header('Content-Disposition: attachment; filename="rename_script.cmd"');
+
+    echo "@echo off\r\ncd /d \"%~dp0\"\r\n\r\n";
+    foreach($filesKeys as $val) {
+        echo "IF EXIST \"{$files[$val]['uuid']}\" ";
+        echo 'RENAME "'.$files[$val]['uuid'].'" "'.$val."\"\r\n";
+    }
+
+    die();
+}
 
 if($simple) {
     header('Content-Type: text/plain');

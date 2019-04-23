@@ -138,6 +138,58 @@ if(count($filesKeys)+3 > 30) {
     Total size of files: <?php echo $totalSize ?>
 </div>
 
+<div class="ui divider"></div>
+
+<div class="ui icon message">
+    <i class="terminal icon"></i>
+    <div class="content">
+        <div class="header">File renaming script</div>
+        <p>If you want to quickly rename files downloaded from this page, you
+        can generate a renaming script, which will automatically do this for
+        you.</p>
+
+        <div class="ui two columns stackable grid">
+            <div class="column">
+                <a class="ui fluid labeled icon button"
+                href="./get.php?id=<?php echo $updateId; ?>&renscript=1">
+                    <i class="windows icon"></i>
+                    Generate renaming script (Windows)
+                </a>
+            </div>
+
+            <div class="column">
+                <a class="ui fluid labeled icon button"
+                href="./get.php?id=<?php echo $updateId; ?>&renscript=2">
+                    <i class="linux icon"></i>
+                    Generate renaming script (Linux)
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ui divider"></div>
+
+<div class="ui icon message">
+    <i class="check circle outline icon"></i>
+    <div class="content">
+        <div class="header">SHA-1 checksums file</div>
+        <p>You can use this file to quickly verify that files were downloaded correctly.</p>
+    </div>
+</div>
+
+<div class="ui form">
+    <div class="field">
+        <textarea readonly rows="<?php echo $filesRows ?>" style="font-family: monospace;">
+<?php
+foreach($filesKeys as $val) {
+    echo $files[$val]['sha1'].' *'.$val."\n";
+}
+?>
+</textarea>
+    </div>
+</div>
+
 <?php
 styleLower();
 ?>
