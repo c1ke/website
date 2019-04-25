@@ -129,7 +129,7 @@ styleUpper('downloads', "Summary for $updateTitle, $selectedLangName, $selectedE
 <form class="ui normal mini modal virtual-editions form"
 action="<?php echo $url; ?>&autodl=3" method="post">
     <div class="header">
-        Select virtual editions
+        Select additional editions
     </div>
     <div class="content">
 <?php
@@ -146,7 +146,7 @@ EOD;
 }
 
 if(!count($virtualEditions)) echo <<<EOL
-<p>No virtual editions are available for this selection.</p>
+<p>No additional editions are available for this selection.</p>
 
 EOL;
 ?>
@@ -173,10 +173,10 @@ EOD;
         Learn more
     </div>
     <div class="content">
-        <p>This option enables automatical creation of selected additional
+        <p>This option enables automatic creation of selected additional
         editions. This process may take a lot of time to complete.</p>
 
-        <p>The Virtual Editions creation process can be done only on the
+        <p>The additional editions creation process can be done only on the
         following systems:</p>
         <ul>
             <li>Windows 10</li>
@@ -186,8 +186,9 @@ EOD;
         <p>If you run the conversion script on any other system, then the
         resulting image will only contain base editions.</p>
 
-        <h4>Editions which can be created from base editions available in UUP
-        sets</h4>
+        <p><b>List of additional editions is determined by selected base
+        editions. Below you can check a list of base editions which are needed
+        to create desired additional editions:</b></p>
 
         <p><b>Windows 10 Home</b></p>
         <ul>
@@ -288,12 +289,12 @@ if($updateArch == 'arm64') {
         href="javascript:void(0)" onClick="getVirtualEditions();"
         id="VEConvertBtn">
             <i class="archive icon"></i>
-            Download using aria2, convert and create virtual editions
+            Download using aria2, convert and create additional editions
         </a>
         <div class="ui bottom attached segment">
-            Easily download the selected UUP set using aria2, create virtual
-            editions and convert it to ISO. Creation process of virtual editions
-            takes a lot of time and is only supported on Windows.
+            Easily download the selected UUP set using aria2, create additional
+            editions and convert it to ISO. The creation process of additional
+            editions takes a lot of time and is only supported on Windows.
 
             <span id="VEConvertMsgNoJs">JavaScript is required to configure
             and use this option.</span>
