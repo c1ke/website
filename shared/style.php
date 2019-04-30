@@ -89,7 +89,7 @@ function styleUpper($pageType = 'home', $subtitle = '') {
             break;
     }
 
-    $navbarRight = $darkSwitch.'<a class="item" href="https://gitlab.com/uup-dump"><i class="code icon"></i>Source code</a>';
+    $navbarRight = $darkSwitch.'<a class="item" href="https://github.com/uup-dump"><i class="code icon"></i>Source code</a>';
 
     echo <<<HTML
 <!DOCTYPE html>
