@@ -173,8 +173,11 @@ EOD;
         Learn more
     </div>
     <div class="content">
-        <p>This option enables automatic creation of selected additional
-        editions. This process may take a lot of time to complete.</p>
+        <p>
+            This option enables automatic creation of selected additional
+            editions. This process may take a lot of time to complete on
+            Windows.
+        </p>
 
         <p>The additional editions creation process can be done only on the
         following systems:</p>
@@ -182,6 +185,7 @@ EOD;
             <li>Windows 10</li>
             <li>Windows 8.1 with Windows 10 ADK installed</li>
             <li>Windows 7 with Windows 10 ADK installed</li>
+            <li>Any Linux distribution</li>
         </ul>
         <p>If you run the conversion script on any other system, then the
         resulting image will only contain base editions.</p>
@@ -294,7 +298,8 @@ if($updateArch == 'arm64') {
         <div class="ui bottom attached segment">
             Easily download the selected UUP set using aria2, create additional
             editions and convert it to ISO. The creation process of additional
-            editions takes a lot of time and is only supported on Windows.
+            editions takes a lot of time on Windows. On Linux this process is
+            quick.
 
             <span id="VEConvertMsgNoJs">JavaScript is required to configure
             and use this option.</span>
@@ -367,7 +372,7 @@ INFO;
     <br>UUP Conversion script (Windows version) has been created by
     <a href="https://forums.mydigitallife.net/members/abbodi1406.204274/">abbodi1406</a>.
     <br>UUP Conversion script (Linux version) is open source. You can find it here:
-    <a href="https://github.com/uup-dump/converter">https://github.com/uup-dump/converter</a>.
+    <a href="https://gitlab.com/uup-dump/converter">https://gitlab.com/uup-dump/converter</a>.
     </p>
 </div>
 

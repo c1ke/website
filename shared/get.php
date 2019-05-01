@@ -172,16 +172,22 @@ fi
 echo ""
 if [ -e ./files/convert.sh ]; then
   chmod +x ./files/convert.sh
-  ./files/convert.sh wim "\$destDir"
+  ./files/convert.sh wim "\$destDir" $virtualEditions
 fi
 
 SCRIPT;
 
 $desiredVirtualEditions = '';
+$desiredVirtualEditionsLinux = '';
 $index = 0;
 foreach($desiredVE as $edition) {
-    if($index > 0) $desiredVirtualEditions .= ',';
+    if($index > 0) {
+        $desiredVirtualEditions .= ',';
+        $desiredVirtualEditionsLinux .= ' ';
+    }
     $desiredVirtualEditions .= $edition;
+    $desiredVirtualEditionsLinux .= $edition;
+
     $index++;
 }
 
@@ -208,9 +214,15 @@ vAutoEditions=$desiredVirtualEditions
 
 CONFIG;
 
+$convertConfigLinux = <<<CONFIG
+VIRTUAL_EDITIONS_LIST='$desiredVirtualEditionsLinux'
+
+CONFIG;
+
     $cmdScript = str_replace(["\r\n", "\r"], "\n", $cmdScript);
     $convertConfig = str_replace(["\r\n", "\r"], "\n", $convertConfig);
     $shellScript = str_replace(["\r\n", "\r"], "\n", $shellScript);
+    $convertConfigLinux = str_replace(["\r\n", "\r"], "\n", $convertConfigLinux);
 
     $cmdScript = str_replace("\n", "\r\n", $cmdScript);
     $convertConfig = str_replace("\n", "\r\n", $convertConfig);
@@ -224,7 +236,11 @@ CONFIG;
     }
 
     if(!file_exists($currDir.'/autodl_files/convert.sh')) {
-        die('aria2c.exe does not exist');
+        die('convert.sh does not exist');
+    }
+
+    if(!file_exists($currDir.'/autodl_files/convert_ve_plugin')) {
+        die('convert_ve_plugin does not exist');
     }
 
     if(!file_exists($currDir.'/autodl_files/7zr.exe')) {
@@ -239,8 +255,10 @@ CONFIG;
         $zip->addFromString('aria2_download_windows.cmd', $cmdScript);
         $zip->addFromString('aria2_download_linux.sh', $shellScript);
         $zip->addFromString('files/ConvertConfig.ini', $convertConfig);
+        $zip->addFromString('files/convert_config_linux', $convertConfigLinux);
         $zip->addFile($currDir.'/autodl_files/aria2c.exe', 'files/aria2c.exe');
         $zip->addFile($currDir.'/autodl_files/convert.sh', 'files/convert.sh');
+        $zip->addFile($currDir.'/autodl_files/convert_ve_plugin', 'files/convert_ve_plugin');
         $zip->addFile($currDir.'/autodl_files/7zr.exe', 'files/7zr.exe');
         $zip->addFile($currDir.'/autodl_files/uup-converter-wimlib.7z', 'files/uup-converter-wimlib.7z');
         $zip->close();
