@@ -372,7 +372,7 @@ INFO;
     <br>UUP Conversion script (Windows version) has been created by
     <a href="https://forums.mydigitallife.net/members/abbodi1406.204274/">abbodi1406</a>.
     <br>UUP Conversion script (Linux version) is open source. You can find it here:
-    <a href="https://gitlab.com/uup-dump/converter">https://gitlab.com/uup-dump/converter</a>.
+    <a href="https://github.com/uup-dump/converter">https://github.com/uup-dump/converter</a>.
     </p>
 </div>
 
