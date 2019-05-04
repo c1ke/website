@@ -286,9 +286,10 @@ if($updateArch == 'arm64') {
             Download using aria2, convert and create additional editions
         </a>
         <div class="ui bottom attached segment">
-            Easily download the selected UUP set using aria2, create additional
-            editions and create ISO image. On 2019-05-04 this process has been
-            updated to make it quick and work on all Windows and Linux machines.
+            Easily download the selected UUP set using aria2, convert, create
+            additional editions and finally create an ISO image. On 2019-05-04
+            this process has been updated to make it quick and work on all
+            Windows and Linux machines.
 
             <span id="VEConvertMsgNoJs">JavaScript is required to configure
             and use this option.</span>
