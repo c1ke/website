@@ -114,6 +114,7 @@ if(preg_grep('/^Professional_.*\.esd/i', $filesKeys)) {
     $virtualEditions['Education'] = 'Education';
     $virtualEditions['Enterprise'] = 'Enterprise';
     $virtualEditions['ServerRdsh'] = 'Enterprise for Virtual Desktops';
+    $virtualEditions['IoTEnterprise'] = 'IoT Enterprise';
 }
 
 if(preg_grep('/^ProfessionalN_.*\.esd/i', $filesKeys)) {
@@ -137,7 +138,7 @@ foreach($virtualEditions as $key => $val) {
     echo <<<EOD
 <div class="field">
     <div class="ui checkbox">
-        <input type="checkbox" name="virtualEditions[]" value="$key">
+        <input type="checkbox" name="virtualEditions[]" value="$key" checked>
         <label>Windows 10 $val</label>
     </div>
 </div>
@@ -175,20 +176,8 @@ EOD;
     <div class="content">
         <p>
             This option enables automatic creation of selected additional
-            editions. This process may take a lot of time to complete on
-            Windows.
+            editions.
         </p>
-
-        <p>The additional editions creation process can be done only on the
-        following systems:</p>
-        <ul>
-            <li>Windows 10</li>
-            <li>Windows 8.1 with Windows 10 ADK installed</li>
-            <li>Windows 7 with Windows 10 ADK installed</li>
-            <li>Any Linux distribution</li>
-        </ul>
-        <p>If you run the conversion script on any other system, then the
-        resulting image will only contain base editions.</p>
 
         <p><b>List of additional editions is determined by selected base
         editions. Below you can check a list of base editions which are needed
@@ -205,6 +194,7 @@ EOD;
             <li>Windows 10 Education</li>
             <li>Windows 10 Enterprise</li>
             <li>Windows 10 Enterprise for Virtual Desktops</li>
+            <li>Windows 10 IoT Enterprise</li>
         </ul>
         <p><b>Windows 10 Pro N</b></p>
         <ul>
@@ -297,9 +287,8 @@ if($updateArch == 'arm64') {
         </a>
         <div class="ui bottom attached segment">
             Easily download the selected UUP set using aria2, create additional
-            editions and convert it to ISO. The creation process of additional
-            editions takes a lot of time on Windows. On Linux this process is
-            quick.
+            editions and create ISO image. On 2019-05-04 this process has been
+            updated to make it quick and work on all Windows and Linux machines.
 
             <span id="VEConvertMsgNoJs">JavaScript is required to configure
             and use this option.</span>
