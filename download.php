@@ -114,7 +114,10 @@ if(preg_grep('/^Professional_.*\.esd/i', $filesKeys)) {
     $virtualEditions['Education'] = 'Education';
     $virtualEditions['Enterprise'] = 'Enterprise';
     $virtualEditions['ServerRdsh'] = 'Enterprise for Virtual Desktops';
-    $virtualEditions['IoTEnterprise'] = 'IoT Enterprise';
+
+    if($build >= 18277) {
+        $virtualEditions['IoTEnterprise'] = 'IoT Enterprise';
+    }
 }
 
 if(preg_grep('/^ProfessionalN_.*\.esd/i', $filesKeys)) {
