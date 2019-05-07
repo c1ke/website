@@ -38,6 +38,22 @@ function createUupConvertPackage(
 @echo off
 rem Generated on $time
 
+:: Proxy configuration
+:: If you need to configure a proxy to be able to connect to the internet,
+:: then you can do this by configuring the all_proxy environment variable.
+:: By default this variable is empty, configuring aria2c to not use any proxy.
+::
+:: Usage: set "all_proxy=proxy_address"
+:: For example: set "all_proxy=127.0.0.1:8888"
+::
+:: More information how to use this can be found at:
+:: https://aria2.github.io/manual/en/html/aria2c.html#cmdoption-all-proxy
+:: https://aria2.github.io/manual/en/html/aria2c.html#environment
+
+set "all_proxy="
+
+:: End of proxy configuration
+
 cd /d "%~dp0"
 if NOT "%cd%"=="%cd: =%" (
     echo Current directory contains spaces in its path.
@@ -125,6 +141,22 @@ SCRIPT;
 $shellScript = <<<SCRIPT
 #!/bin/bash
 #Generated on $time
+
+# Proxy configuration
+# If you need to configure a proxy to be able to connect to the internet,
+# then you can do this by configuring the all_proxy environment variable.
+# By default this variable is empty, configuring aria2c to not use any proxy.
+#
+# Usage: export all_proxy="proxy_address"
+# For example: export all_proxy="127.0.0.1:8888"
+#
+# More information how to use this can be found at:
+# https://aria2.github.io/manual/en/html/aria2c.html#cmdoption-all-proxy
+# https://aria2.github.io/manual/en/html/aria2c.html#environment
+
+export all_proxy=""
+
+# End of proxy configuration
 
 if ! which aria2c >/dev/null \\
 || ! which cabextract >/dev/null \\
@@ -291,6 +323,22 @@ function createAria2Package($url, $archiveName) {
 @echo off
 rem Generated on $time
 
+:: Proxy configuration
+:: If you need to configure a proxy to be able to connect to the internet,
+:: then you can do this by configuring the all_proxy environment variable.
+:: By default this variable is empty, configuring aria2c to not use any proxy.
+::
+:: Usage: set "all_proxy=proxy_address"
+:: For example: set "all_proxy=127.0.0.1:8888"
+::
+:: More information how to use this can be found at:
+:: https://aria2.github.io/manual/en/html/aria2c.html#cmdoption-all-proxy
+:: https://aria2.github.io/manual/en/html/aria2c.html#environment
+
+set "all_proxy="
+
+:: End of proxy configuration
+
 set "aria2=files\\aria2c.exe"
 set "aria2Script=files\\aria2_script.txt"
 set "destDir=UUPs"
@@ -331,6 +379,22 @@ SCRIPT;
 $shellScript = <<<SCRIPT
 #!/bin/bash
 #Generated on $time
+
+# Proxy configuration
+# If you need to configure a proxy to be able to connect to the internet,
+# then you can do this by configuring the all_proxy environment variable.
+# By default this variable is empty, configuring aria2c to not use any proxy.
+#
+# Usage: export all_proxy="proxy_address"
+# For example: export all_proxy="127.0.0.1:8888"
+#
+# More information how to use this can be found at:
+# https://aria2.github.io/manual/en/html/aria2c.html#cmdoption-all-proxy
+# https://aria2.github.io/manual/en/html/aria2c.html#environment
+
+export all_proxy=""
+
+# End of proxy configuration
 
 if ! which aria2c >/dev/null; then
   echo "One of required applications is not installed."

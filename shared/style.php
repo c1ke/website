@@ -21,7 +21,7 @@ function styleUpper($pageType = 'home', $subtitle = '') {
     global $websiteVersion;
 
     if($subtitle) {
-        $title = "UUP dump: $subtitle";
+        $title = "$subtitle - UUP dump";
     } else {
         $title = 'UUP dump';
     }
