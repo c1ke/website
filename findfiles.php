@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 UUP dump authors
+Copyright 2019 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -54,6 +54,9 @@ if($search) {
     }
 
     $removeKeys = preg_grep('/.*'.$searchSafe.'.*/i', $filesKeys, PREG_GREP_INVERT);
+    if($search == "Windows10 KB") {
+        $removeKeys = array_merge($removeKeys, preg_grep('/Windows10\.0-KB.*-EXPRESS/i', $filesKeys));
+    }
 
     foreach($removeKeys as $value) {
         unset($files[$value]);
