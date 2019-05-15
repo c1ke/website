@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 UUP dump authors
+Copyright 2019 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -169,7 +169,8 @@ function styleLower() {
                     <p><i>
                         <b>UUP dump</b> v$websiteVersion
                         (<b>API</b> v$api)
-                        &copy; $year UUP dump authors.
+                        &copy; $year <a href="https://github.com/whatever127">whatever127</a>
+                        and 0 other contributors.
 
                         <span class="info">
                             This project is not affiliated with Microsoft Corporation.
@@ -239,6 +240,13 @@ function fancyError($errorCode = 'ERROR', $pageType = 'home', $moreText = 0) {
         case 'NO_FILES':
             $errorFancy = 'There are no files available for your selection.';
             break;
+        case 'NOT_FOUND':
+            $errorNumber = 404;
+            $errorFancy = 'Specified selection cannot be found.';
+            break;
+        case 'MISSING_FILES':
+            $errorFancy = 'The selected UUP set has some files missing.';
+            break;
         case 'NO_METADATA_ESD':
             $errorFancy = 'There are no metadata ESD files available for your selection.';
             break;
@@ -283,7 +291,7 @@ function fancyError($errorCode = 'ERROR', $pageType = 'home', $moreText = 0) {
             break;
         case 'UNSPECIFIED_VE':
             $errorNumber = 400;
-            $errorFancy = 'You have not selected any virtual edition. If do not wish to create virtual editions, please use <i>Download using aria2 and convert</i> option.';
+            $errorFancy = 'You have not selected any additional edition. If do not wish to create additional editions, please use <i>Download using aria2 and convert</i> option.';
             break;
         default:
             $errorFancy = '<i>Error message is not available.</i><br><br>'.$errorCode;
@@ -308,8 +316,8 @@ function fancyError($errorCode = 'ERROR', $pageType = 'home', $moreText = 0) {
 <div class="ui negative icon message">
     <i class="remove circle icon"></i>
     <div class="content">
-        <div class="header">An error has occurred</div>
-        <p>We have encountered an error while processing your request.<br>
+        <div class="header">Error</div>
+        <p>An error has occurred while attempting to process your request.<br>
         $errorFancy</p>
     </div>
 </div>

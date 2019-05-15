@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 UUP dump authors
+Copyright 2019 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -106,6 +106,13 @@ if($autoDl && !$aria2) {
 
 $files = uupGetFiles($updateId, $usePack, $desiredEdition, 1);
 if(isset($files['error'])) {
+    if($files['error'] == 'EMPTY_FILELIST') {
+        $files = uupGetFiles($updateId, $usePack, $desiredEdition, 2);
+        if(isset($files['error'])) {
+            $files['error'] = 'NOT_FOUND';
+        }
+    }
+
     fancyError($files['error'], 'downloads');
     die();
 }
