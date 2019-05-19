@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 UUP dump authors
+Copyright 2019 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -53,10 +53,14 @@ if(isset($updateArch['error'])) {
 $updateTitle = $updateTitle.' '.$updateArch;
 
 if($selectedLang) {
-    $langs = uupListLangs($updateId);
-    $langs = $langs['langFancyNames'];
+    if(isset($s['lang_'.strtolower($selectedLang)])) {
+        $selectedLangName = $s['lang_'.strtolower($selectedLang)];
+    } else {
+        $langs = uupListLangs($updateId);
+        $langs = $langs['langFancyNames'];
 
-    $selectedLangName = $langs[strtolower($selectedLang)];
+        $selectedLangName = $langs[strtolower($selectedLang)];
+    }
 
     $editions = uupListEditions($selectedLang, $updateId);
     if(isset($editions['error'])) {
@@ -67,14 +71,14 @@ if($selectedLang) {
     asort($editions);
 } else {
     $editions = array();
-    $selectedLangName = 'All languages';
+    $selectedLangName = $s['allLangs'];
 }
 
-styleUpper('downloads', "Select edition for $updateTitle, $selectedLangName");
+styleUpper('downloads', sprintf($s['selectEditionFor'], "$updateTitle, $selectedLangName"));
 ?>
 
 <div class="ui horizontal divider">
-    <h3><i class="archive icon"></i>Choose edition</h3>
+    <h3><i class="archive icon"></i><?php echo $s['chooseEdition']; ?></h3>
 </div>
 
 <?php
@@ -90,21 +94,21 @@ if($updateArch == 'arm64') {
 <div class="ui top attached segment">
     <form class="ui form" action="./download.php" method="get">
         <div class="field">
-            <label>Update</label>
+            <label><?php echo $s['update']; ?></label>
             <input type="text" disabled value="<?php echo $updateTitle; ?>">
             <input type="hidden" name="id" value="<?php echo $updateId; ?>">
         </div>
 
         <div class="field">
-            <label>Language</label>
+            <label><?php echo $s['lang']; ?></label>
             <input type="text" disabled value="<?php echo $selectedLangName; ?>">
             <input type="hidden" name="pack" value="<?php echo $selectedLang; ?>">
         </div>
 
         <div class="field">
-            <label>Edition</label>
+            <label><?php echo $s['edition']; ?></label>
             <select class="ui search dropdown" name="edition">
-                <option value="0">All editions</option>
+                <option value="0"><?php echo $s['allEditions']; ?></option>
 <?php
 foreach($editions as $key => $val) {
     echo '<option value="'.$key.'">'.$val."</option>\n";
@@ -114,39 +118,37 @@ foreach($editions as $key => $val) {
         </div>
         <button class="ui fluid right labeled icon primary button" type="submit">
             <i class="right arrow icon"></i>
-            Next
+            <?php echo $s['next']; ?>
         </button>
     </form>
 </div>
 <div class="ui bottom attached info message">
     <i class="info icon"></i>
-    Click <i>Next</i> button to open summary page of your selection.
+    <?php echo $s['selectEditionInfoText']; ?>
 </div>
 
 <div class="ui fluid tiny three steps">
       <div class="completed step">
             <i class="world icon"></i>
             <div class="content">
-                <div class="title">Choose language</div>
-                <div class="description">Choose your desired language</div>
+                <div class="title"><?php echo $s['chooseLang']; ?></div>
+                <div class="description"><?php echo $s['chooseLangDesc']; ?></div>
             </div>
       </div>
 
       <div class="active step">
             <i class="archive icon"></i>
             <div class="content">
-                <div class="title">Choose edition</div>
-                <div class="description">Choose your desired edition</div>
+                <div class="title"><?php echo $s['chooseEdition']; ?></div>
+                <div class="description"><?php echo $s['chooseEditionDesc']; ?></div>
             </div>
       </div>
 
       <div class="step">
             <i class="briefcase icon"></i>
             <div class="content">
-                <div class="title">Summary</div>
-                <div class="description">
-                    Review your selection and choose download method
-                </div>
+                <div class="title"><?php echo $s['summary']; ?></div>
+                <div class="description"><?php echo $s['summaryDesc']; ?></div>
             </div>
       </div>
 </div>

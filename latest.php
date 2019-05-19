@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 UUP dump authors
+Copyright 2019 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@ limitations under the License.
 
 require_once 'api/listid.php';
 require_once 'shared/style.php';
-styleUpper('downloads', 'Fetch the latest build');
+styleUpper('downloads', $s['latestFetchLatest']);
 
 $builds = array(
     '15063.0',
@@ -47,36 +47,32 @@ sort($builds);
 <div class="ui basic modal">
     <div class="ui icon header">
         <i class="exclamation triangle icon"></i>
-        Testing purposes only
+        <?php echo $s['latestTestingOnly']; ?>
     </div>
     <div class="content">
-        <p><b>This page is provided for testing purposes only.</b>
-        Builds retrieved by this page that were not processed by the backend
-        server will be provided using fallback packs, which may provide
-        incomplete results. If you want to download an already known build,
-        for the best experience please use the known builds page instead.</p>
-        <p>Would you like to continue by browsing the list of known builds?</p>
+        <p><?php echo $s['latestTestingOnlyWarn']; ?></p>
+        <p><?php echo $s['latestDoYouWantKnown']; ?></p>
     </div>
     <div class="actions">
         <div class="ui red ok inverted button">
             <i class="close icon icon"></i>
-            No
+            <?php echo $s['no']; ?>
         </div>
         <a class="ui green inverted button" href="./known.php">
             <i class="checkmark icon"></i>
-            Yes (recommended)
+            <?php echo $s['yesRecommended']; ?>
         </a>
     </div>
 </div>
 
 <div class="ui horizontal divider">
-    <h3><i class="options icon"></i>Choose options</h3>
+    <h3><i class="options icon"></i><?php echo $s['chooseOptions']; ?></h3>
 </div>
 
 <div class="ui top attached segment">
     <form class="ui form" action="./fetchupd.php" method="get" id="optionsForm">
         <div class="field">
-            <label>Architecture</label>
+            <label><?php echo $s['arch']; ?></label>
             <select class="ui dropdown" name="arch">
                 <option value="amd64">x64</option>
                 <option value="x86">x86</option>
@@ -85,7 +81,7 @@ sort($builds);
         </div>
 
         <div class="field">
-            <label>Ring</label>
+            <label><?php echo $s['ring']; ?></label>
             <select class="ui dropdown" name="ring" onchange="checkRing()">
                 <option value="wif">Insider Fast</option>
                 <option value="wis">Insider Slow</option>
@@ -95,7 +91,7 @@ sort($builds);
         </div>
 
         <div class="field">
-            <label>Build number of pretended Windows Update client</label>
+            <label><?php echo $s['buildOfPretendedClient']; ?></label>
             <select class="ui search dropdown" name="build">
 <?php
 foreach($builds as $val) {
@@ -110,7 +106,7 @@ foreach($builds as $val) {
         </div>
 
         <div class="field">
-            <label>Edition of pretended system</label>
+            <label><?php echo $s['editionOfPretendedClient']; ?></label>
             <select class="ui dropdown" name="sku">
                 <option value="101">Windows 10 Home</option>
                 <option value="48" selected>Windows 10 Pro</option>
@@ -126,23 +122,23 @@ foreach($builds as $val) {
         </div>
 
         <div class="field">
-            <label>Skip ahead flight</label>
+            <label><?php echo $s['skipAheadLabel']; ?></label>
             <div class="ui checkbox">
                 <input type="checkbox" name="flight" value="skip">
-                <label>Use skip ahead flighting (Insider Fast only)</label>
+                <label><?php echo $s['skipAheadOption']; ?></label>
             </div>
         </div>
 
         <button class="ui fluid right labeled icon red button" type="submit">
             <i class="right arrow icon"></i>
-            Fetch updates
+            <?php echo $s['fetchUpdates']; ?>
         </button>
     </form>
 </div>
 
 <div class="ui bottom attached warning message">
     <i class="warning icon"></i>
-    Click <i>Fetch updates</i> button to send your request to the Windows Update servers.
+    <?php echo $s['fetchUpdatesInfo']; ?>
 </div>
 
 <script>

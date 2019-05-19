@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 UUP dump authors
+Copyright 2019 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -39,26 +39,28 @@ if(isset($fetchUpd['error'])) {
 }
 
 $updateArray = $fetchUpd['updateArray'];
-styleUpper('downloads', 'Response from the server');
+styleUpper('downloads', $s['responseFromServer']);
 ?>
 
 <div class="ui horizontal divider">
-    <h3><i class="wizard icon"></i>Response from the server</h3>
+    <h3><i class="wizard icon"></i><?php echo $s['responseFromServer']; ?></h3>
 </div>
 
 <div class="ui icon info message">
     <i class="check info circle icon"></i>
     <div class="content">
-        <div class="header">Found <?php echo count($updateArray); ?> update(s)</div>
-        <p>The following updates were found. Click on the name of desired update to continue.</p>
+        <div class="header">
+            <?php printf($s['foundUpdates'], count($updateArray)); ?>
+        </div>
+        <p><?php echo $s['foundTheseUpdates']; ?></p>
     </div>
 </div>
 <table class="ui celled striped table">
     <thead>
         <tr>
-            <th>Update</th>
-            <th>Architecture</th>
-            <th>Update ID</th>
+            <th><?php echo $s['update']; ?></th>
+            <th><?php echo $s['arch']; ?></th>
+            <th><?php echo $s['updateid']; ?></th>
         </tr>
     </thead>
 <?php
@@ -67,8 +69,8 @@ foreach($updateArray as $update) {
     echo '<a href="./selectlang.php?id='.$update['updateId'].'"><big><b>';
     echo $update['updateTitle'];
     echo "</b></big></a>";
-    echo '<p><i>Build number: ';
-    echo $update['foundBuild'];
+    echo '<p><i>';
+    printf($s['buildNumber'], $update['foundBuild']);
     echo '</i></p>';
     echo '</td><td>';
     echo $update['arch'];

@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 UUP dump authors
+Copyright 2019 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -84,12 +84,16 @@ $totalSize = round($totalSize, 2);
 $totalSize = "$totalSize {$prefix}B";
 
 if($usePack) {
-    $langs = uupListLangs($updateId);
-    $langs = $langs['langFancyNames'];
+    if(isset($s['lang_'.strtolower($usePack)])) {
+        $selectedLangName = $s['lang_'.strtolower($usePack)];
+    } else {
+        $langs = uupListLangs($updateId);
+        $langs = $langs['langFancyNames'];
 
-    $selectedLangName = $langs[strtolower($usePack)];
+        $selectedLangName = $langs[strtolower($usePack)];
+    }
 } else {
-    $selectedLangName = 'All languages';
+    $selectedLangName = $s['allLanguages'];
 }
 
 if($usePack && $desiredEdition) {
@@ -98,7 +102,7 @@ if($usePack && $desiredEdition) {
 
     $selectedEditionName = $editions[strtoupper($desiredEdition)];
 } else {
-    $selectedEditionName = 'All editions';
+    $selectedEditionName = $s['allEditions'];
 }
 
 $filesKeys = array_keys($files);
@@ -127,13 +131,13 @@ if(preg_grep('/^ProfessionalN_.*\.esd/i', $filesKeys)) {
     $virtualEditions['EnterpriseN'] = 'Enterprise N';
 }
 
-styleUpper('downloads', "Summary for $updateTitle, $selectedLangName, $selectedEditionName");
+styleUpper('downloads', sprintf($s['summaryFor'], "$updateTitle, $selectedLangName, $selectedEditionName"));
 ?>
 
 <form class="ui normal mini modal virtual-editions form"
 action="<?php echo $url; ?>&autodl=3" method="post">
     <div class="header">
-        Select additional editions
+        <?php echo $s['selAdditionalEditions']; ?>
     </div>
     <div class="content">
 <?php
@@ -150,7 +154,7 @@ EOD;
 }
 
 if(!count($virtualEditions)) echo <<<EOL
-<p>No additional editions are available for this selection.</p>
+<p>{$s['noAdditionalEditions']}</p>
 
 EOL;
 ?>
@@ -158,13 +162,13 @@ EOL;
     <div class="actions">
         <div class="ui ok button">
             <i class="close icon"></i>
-            Cancel
+            <?php echo $s['cancel']; ?>
         </div>
 <?php
 if(count($virtualEditions)) echo <<<EOD
 <button type="submit" class="ui primary ok button">
     <i class="checkmark icon"></i>
-    OK
+    {$s['ok']}
 </button>
 
 EOD;
@@ -174,17 +178,12 @@ EOD;
 
 <div class="ui normal modal virtual-editions-info">
     <div class="header">
-        Learn more
+        <?php echo $s['learnMore']; ?>
     </div>
     <div class="content">
-        <p>
-            This option enables automatic creation of selected additional
-            editions.
-        </p>
+        <p><?php echo $s['learnMoreAdditionalEditions1']; ?></p>
 
-        <p><b>List of additional editions is determined by selected base
-        editions. Below you can check a list of base editions which are needed
-        to create desired additional editions:</b></p>
+        <p><b><?php echo $s['learnMoreAdditionalEditions2']; ?></b></p>
 
         <p><b>Windows 10 Home</b></p>
         <ul>
@@ -210,37 +209,34 @@ EOD;
     <div class="actions">
         <div class="ui primary ok button">
             <i class="checkmark icon"></i>
-            OK
+            <?php echo $s['ok']; ?>
         </div>
     </div>
 </div>
 
 <div class="ui normal tiny modal updates">
     <div class="header">
-        Learn more
+        <?php echo $s['learnMore']; ?>
     </div>
     <div class="content">
-        <p>Updates will be integrated to the converted image only when the
-        conversion script is run on the following systems:</p>
+        <p><?php echo $s['learnMoreUpdates1']; ?></p>
         <ul>
             <li>Windows 10</li>
-            <li>Windows 8.1 with Windows 10 ADK installed</li>
-            <li>Windows 7 with Windows 10 ADK installed</li>
+            <li><?php printf($s['systemWithAdk'], 'Windows 8.1'); ?></li>
+            <li><?php printf($s['systemWithAdk'], 'Windows 7'); ?></li>
         </ul>
-        <p>If you run the conversion script on any other system, then updates
-        will not be integrated to the resulting image.</p>
+        <p><?php echo $s['learnMoreUpdates2']; ?></p>
     </div>
     <div class="actions">
         <div class="ui primary ok button">
             <i class="checkmark icon"></i>
-            OK
+            <?php echo $s['ok']; ?>
         </div>
     </div>
 </div>
 
-
 <div class="ui horizontal divider">
-    <h3><i class="briefcase icon"></i>Summary of your selection</h3>
+    <h3><i class="briefcase icon"></i><?php echo $s['summaryOfSelection']; ?></h3>
 </div>
 
 <?php
@@ -258,84 +254,77 @@ if($updateArch == 'arm64') {
         <a class="ui top attached fluid labeled icon large button"
         href="<?php echo $url; ?>">
             <i class="list icon"></i>
-            Browse a list of files
+            <?php echo $s['browseList']; ?>
         </a>
         <div class="ui bottom attached segment">
-            Opens a page with list of files in UUP set for manual download.
+            <?php echo $s['browseListDesc']; ?>
         </div>
 
         <a class="ui top attached fluid labeled icon large button"
         href="<?php echo $url; ?>&autodl=1">
             <i class="archive icon"></i>
-            Download using aria2
+            <?php echo $s['aria2Opt1']; ?>
         </a>
         <div class="ui bottom attached segment">
-            Easily download the selected UUP set using aria2.
+            <?php echo $s['aria2Opt1Desc']; ?>
         </div>
 
         <a class="ui top attached fluid labeled icon large blue button"
         href="<?php echo $url; ?>&autodl=2">
             <i class="archive icon"></i>
-            Download using aria2 and convert
+            <?php echo $s['aria2Opt2']; ?>
         </a>
         <div class="ui bottom attached segment">
-            Easily download the selected UUP set using aria2 and convert it to ISO.
+            <?php echo $s['aria2Opt2Desc']; ?>
         </div>
 
         <a class="ui top attached fluid labeled icon large disabled button"
         href="javascript:void(0)" onClick="getVirtualEditions();"
         id="VEConvertBtn">
             <i class="archive icon"></i>
-            Download using aria2, convert and create additional editions
+            <?php echo $s['aria2Opt3']; ?>
         </a>
         <div class="ui bottom attached segment">
-            Easily download the selected UUP set using aria2, convert, create
-            additional editions and finally create an ISO image. On 2019-05-04
-            this process has been updated to make it quick and work on all
-            Windows and Linux machines.
-
-            <span id="VEConvertMsgNoJs">JavaScript is required to configure
-            and use this option.</span>
-
+            <?php echo $s['aria2Opt3Desc']; ?>
+            <span id="VEConvertMsgNoJs"><?php echo $s['jsRequiredToConf']; ?></span>
             <span id="VEConvertLearnMoreLink" style="display: none;">
                 <a href="javascript:void(0)" onClick="learnMoreVE();">
-                    Learn more
+                    <?php echo $s['learnMore']; ?>
                 </a>
             </span>
         </div>
     </div>
 
     <div class="column">
-        <h4>Update</h4>
+        <h4><?php echo $s['update']; ?></h4>
         <p><?php echo $updateTitle; ?></p>
 
-        <h4>Language</h4>
+        <h4><?php echo $s['lang']; ?></h4>
         <p><?php echo $selectedLangName; ?></p>
 
-        <h4>Edition</h4>
+        <h4><?php echo $s['edition']; ?></h4>
         <p><?php echo $selectedEditionName; ?></p>
 
-        <h4>Total download size</h4>
+        <h4><?php echo $s['totalDlSize']; ?></h4>
         <p><?php echo $totalSize; ?></p>
 
 <?php
 if($hasUpdates) {
     echo <<<INFO
-<h4>Additional updates</h4>
+<h4>{$s['additionalUpdates']}</h4>
 <p>
-    This UUP set contains additional updates which will be integrated during
-    the conversion process significantly increasing the creation time.
+    {$s['additionalUpdatesDesc']}
 
     <a href="javascript:void(0)" onClick="learnMoreUpdates();"
     id="LearnMoreUpdatesLink" style="display: none;">
-        Learn more
+        {$s['learnMore']}
     </a>
 </p>
 
 <a class="ui tiny labeled icon button"
 href="./get.php?id=$updateId&pack=0&edition=updateOnly">
     <i class="folder open icon"></i>
-    Browse the list of updates
+    {$s['browseUpdatesList']}
 </a>
 
 <script>
@@ -350,50 +339,48 @@ INFO;
 
 <div class="ui positive message">
     <div class="header">
-        Download using aria2 options notice
+        <?php echo $s['aria2NoticeTitle']; ?>
     </div>
-    <p>Download using aria2 options create an archive which needs to be downloaded.
-    The downloaded archive contains all needed files to achieve the selected task.</p>
+    <p><?php echo $s['aria2NoticeText1']; ?></p>
 
-    <p><b>To start the download process use a script for your platform:</b><br/>
+    <p><b><?php echo $s['aria2NoticeText2']; ?></b><br/>
     - Windows: <code>aria2_download_windows.cmd</code><br/>
     - Linux: <code>aria2_download_linux.sh</code><br/>
     </p>
 
-    <p>Aria2 is an open source project. You can find it here:
-    <a href="https://aria2.github.io/">https://aria2.github.io/</a>.
-    <br>UUP Conversion script (Windows version) has been created by
-    <a href="https://forums.mydigitallife.net/members/abbodi1406.204274/">abbodi1406</a>.
-    <br>UUP Conversion script (Linux version) is open source. You can find it here:
-    <a href="https://github.com/uup-dump/converter">https://github.com/uup-dump/converter</a>.
+    <p>
+<?php
+    printf($s['aria2NoticeText3'], '<a href="https://aria2.github.io/">https://aria2.github.io/</a>');
+    echo '<br>';
+    printf($s['aria2NoticeText4'], '<a href="https://forums.mydigitallife.net/members/abbodi1406.204274/">abbodi1406</a>');
+    echo '<br>';
+    printf($s['aria2NoticeText5'], '<a href="https://github.com/uup-dump/converter">https://github.com/uup-dump/converter</a>');
+?>
     </p>
 </div>
-
 
 <div class="ui fluid tiny three steps">
       <div class="completed step">
             <i class="world icon"></i>
             <div class="content">
-                <div class="title">Choose language</div>
-                <div class="description">Choose your desired language</div>
+                <div class="title"><?php echo $s['chooseLang']; ?></div>
+                <div class="description"><?php echo $s['chooseLangDesc']; ?></div>
             </div>
       </div>
 
       <div class="completed step">
             <i class="archive icon"></i>
             <div class="content">
-                <div class="title">Choose edition</div>
-                <div class="description">Choose your desired edition</div>
+                <div class="title"><?php echo $s['chooseEdition']; ?></div>
+                <div class="description"><?php echo $s['chooseEditionDesc']; ?></div>
             </div>
       </div>
 
       <div class="active step">
             <i class="briefcase icon"></i>
             <div class="content">
-                <div class="title">Summary</div>
-                <div class="description">
-                    Review your selection and choose download method
-                </div>
+                <div class="title"><?php echo $s['summary']; ?></div>
+                <div class="description"><?php echo $s['summaryDesc']; ?></div>
             </div>
       </div>
 </div>

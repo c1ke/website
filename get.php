@@ -173,7 +173,7 @@ if($aria2) {
     die();
 }
 
-styleUpper('downloads', "List of files for $updateName $updateArch");
+styleUpper('downloads', sprintf($s['listOfFilesFor'], "$updateName $updateArch"));
 ?>
 
 <div class="ui horizontal divider">
@@ -193,10 +193,10 @@ if($updateArch == 'arm64') {
 <table class="ui celled striped table">
     <thead>
         <tr>
-            <th>File</th>
-            <th>Expires</th>
-            <th>SHA-1</th>
-            <th>Size</th>
+            <th><?php echo $s['file']; ?></th>
+            <th><?php echo $s['expires']; ?></th>
+            <th><?php echo $s['sha1']; ?></th>
+            <th><?php echo $s['size']; ?></th>
         </tr>
     </thead>
 <?php
@@ -214,7 +214,7 @@ foreach($filesKeys as $val) {
     $size = round($size);
     $size = "$size {$prefix}B";
 
-    echo '<tr><td><a href="'.$files[$val]['url'].'">'.$val.'</a></td><td>'.gmdate("Y-m-d H:i:s T", $files[$val]['expire']).'</td>';
+    echo '<tr><td><a href="'.$files[$val]['url'].'">'.$val.'</a></td><td>'.date("Y-m-d H:i:s T", $files[$val]['expire']).'</td>';
     echo '<td><code>'.$files[$val]['sha1'].'</code></td><td>'.$size.'</td></tr>'."\n";
 }
 
@@ -234,7 +234,7 @@ if(count($filesKeys)+3 > 30) {
 </table>
 <div class="ui info message">
     <i class="info icon"></i>
-    Total size of files: <?php echo $totalSize ?>
+    <?php printf($s['totalSizeOfFiles'], $totalSize); ?>
 </div>
 
 <div class="ui divider"></div>
@@ -242,9 +242,11 @@ if(count($filesKeys)+3 > 30) {
 <div class="ui icon positive message">
     <i class="terminal icon"></i>
     <div class="content">
-        <div class="header">File renaming script</div>
-        <p>The script that can be found below can be used to quickly rename downloaded files.<br>
-        Simply copy contents of the form below to new file with <code>cmd</code> extension, put it in folder with downloaded files and run.</p>
+        <div class="header"><?php echo $s['fileRenamingScript']; ?></div>
+        <p>
+            <?php echo $s['fileRenamingScriptDesc1']; ?><br>
+            <?php echo $s['fileRenamingScriptDesc2']; ?>
+        </p>
     </div>
 </div>
 
@@ -267,8 +269,8 @@ foreach($filesKeys as $val) {
 <div class="ui icon positive message">
     <i class="check circle outline icon"></i>
     <div class="content">
-        <div class="header">SHA-1 checksums file</div>
-        <p>You can use this file to quickly verify that files were downloaded correctly.</p>
+        <div class="header"><?php echo $s['sha1File']; ?></div>
+        <p><?php echo $s['sha1FileDesc']; ?></p>
     </div>
 </div>
 

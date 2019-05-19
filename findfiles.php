@@ -72,7 +72,7 @@ if($search) {
 }
 
 $urlBase = "./getfile.php?id=$updateId";
-styleUpper('downloads', "Find files in $updateName $updateArch");
+styleUpper('downloads', sprintf($s['findFilesIn'], "$updateName $updateArch"));
 ?>
 
 <div class="ui horizontal divider">
@@ -84,7 +84,7 @@ styleUpper('downloads', "Find files in $updateName $updateArch");
         <div class="field">
             <div class="ui big action input">
                 <input type="hidden" name="id" value="<?php echo htmlentities($updateId); ?>">
-                <input type="text" name="q" value="<?php echo htmlentities($search); ?>" placeholder="Search for files...">
+                <input type="text" name="q" value="<?php echo htmlentities($search); ?>" placeholder="<?php echo $s['searchForFiles']; ?>">
                 <button class="ui big blue icon button" type="submit"><i class="search icon"></i></button>
             </div>
         </div>
@@ -92,15 +92,15 @@ styleUpper('downloads', "Find files in $updateName $updateArch");
 </div>
 <div class="ui bottom attached success message">
     <i class="search icon"></i>
-    We have found <b><?php echo count($files); ?></b> files for your query.
+    <?php printf($s['weFoundFiles'], count($files)); ?>
 </div>
 
 <table class="ui celled striped table">
     <thead>
         <tr>
-            <th>File</th>
-            <th>SHA-1</th>
-            <th>Size</th>
+            <th><?php echo $s['file']; ?></th>
+            <th><?php echo $s['sha1']; ?></th>
+            <th><?php echo $s['size']; ?></th>
         </tr>
     </thead>
 <?php
@@ -138,7 +138,7 @@ if(count($filesKeys)+3 > 30) {
 </table>
 <div class="ui info message">
     <i class="info icon"></i>
-    Total size of files: <?php echo $totalSize ?>
+    <?php printf($s['totalSizeOfFiles'], $totalSize); ?>
 </div>
 
 <div class="ui divider"></div>
@@ -146,17 +146,15 @@ if(count($filesKeys)+3 > 30) {
 <div class="ui icon message">
     <i class="terminal icon"></i>
     <div class="content">
-        <div class="header">File renaming script</div>
-        <p>If you want to quickly rename files downloaded from this page, you
-        can generate a renaming script, which will automatically do this for
-        you.</p>
+        <div class="header"><?php echo $s['fileRenamingScript']; ?></div>
+        <p><?php echo $s['fileRenamingScriptDescFindFiles']; ?></p>
 
         <div class="ui two columns stackable grid">
             <div class="column">
                 <a class="ui fluid labeled icon button"
                 href="./get.php?id=<?php echo $updateId; ?>&renscript=1">
                     <i class="windows icon"></i>
-                    Generate renaming script (Windows)
+                    <?php echo $s['fileRenamingScriptGenW']; ?>
                 </a>
             </div>
 
@@ -164,7 +162,7 @@ if(count($filesKeys)+3 > 30) {
                 <a class="ui fluid labeled icon button"
                 href="./get.php?id=<?php echo $updateId; ?>&renscript=2">
                     <i class="linux icon"></i>
-                    Generate renaming script (Linux)
+                    <?php echo $s['fileRenamingScriptGenL']; ?>
                 </a>
             </div>
         </div>
@@ -176,8 +174,8 @@ if(count($filesKeys)+3 > 30) {
 <div class="ui icon message">
     <i class="check circle outline icon"></i>
     <div class="content">
-        <div class="header">SHA-1 checksums file</div>
-        <p>You can use this file to quickly verify that files were downloaded correctly.</p>
+        <div class="header"><?php echo $s['sha1File']; ?></div>
+        <p><?php echo $s['sha1FileDesc']; ?></p>
     </div>
 </div>
 

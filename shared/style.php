@@ -18,12 +18,12 @@ limitations under the License.
 require_once dirname(__FILE__).'/main.php';
 
 function styleUpper($pageType = 'home', $subtitle = '') {
-    global $websiteVersion;
+    global $websiteVersion, $s, $languageCoreSelectorModal;
 
     if($subtitle) {
-        $title = "$subtitle - UUP dump";
+        $title = sprintf($s['uupdumpSub'], "$subtitle");
     } else {
-        $title = 'UUP dump';
+        $title = $s['uupdump'];
     }
 
     $enableDarkMode = 0;
@@ -44,52 +44,33 @@ function styleUpper($pageType = 'home', $subtitle = '') {
         }
     }
 
-    $baseUrl = '';
-    if(isset($_SERVER['HTTPS'])) {
-        $baseUrl .= 'https://';
-    } else {
-        $baseUrl .= 'http://';
-    }
-
-    $baseUrl .=  $_SERVER['HTTP_HOST'];
-
-    $params = '';
-    $separator = '?';
-    foreach($_GET as $key => $val) {
-        if($key == 'dark') continue;
-        $params .= $separator.$key.'='.$val;
-        $separator = '&';
-    }
-    $params .= $separator;
-
-    $shelf = explode('?', $_SERVER['REQUEST_URI']);
-    $url = $baseUrl.$shelf[0].$params;
-    unset($key, $val, $index, $params, $shelf);
+    $baseUrl = getBaseUrl();
+    $url = getUrlWithoutParam('dark');
 
     if($enableDarkMode) {
         $darkMode = '<link rel="stylesheet" href="shared/darkmode.css">'."\n";
-        $darkSwitch = '<a class="item" href="'.$url.'dark=0"><i class="eye slash icon"></i>Light mode</a>';
+        $darkSwitch = '<a class="item" href="'.$url.'dark=0"><i class="eye slash icon"></i>'.$s['lightMode'].'</a>';
     } else {
         $darkMode = '';
-        $darkSwitch = '<a class="item" href="'.$url.'dark=1"><i class="eye icon"></i>Dark mode</a>';
+        $darkSwitch = '<a class="item" href="'.$url.'dark=1"><i class="eye icon"></i>'.$s['darkMode'].'</a>';
     }
-
 
     switch ($pageType) {
         case 'home':
-            $navbarLink = '<a class="active item" href="./"><i class="home icon"></i>Home</a>'.
-                          '<a class="item" href="./known.php"><i class="download icon"></i>Downloads</a>';
+            $navbarLink = '<a class="active item" href="./"><i class="home icon"></i>'.$s['home'].'</a>'.
+                          '<a class="item" href="./known.php"><i class="download icon"></i>'.$s['downloads'].'</a>';
             break;
         case 'downloads':
-            $navbarLink = '<a class="item" href="./"><i class="home icon"></i>Home</a>'.
-                          '<a class="active item"><i class="download icon"></i>Downloads</a>';
+            $navbarLink = '<a class="item" href="./"><i class="home icon"></i>'.$s['home'].'</a>'.
+                          '<a class="active item"><i class="download icon"></i>'.$s['downloads'].'</a>';
             break;
         default:
-            $navbarLink = '<a class="active item" href="./">Home</a>';
+            $navbarLink = '<a class="active item" href="./">'.$s['home'].'</a>';
             break;
     }
 
-    $navbarRight = $darkSwitch.'<a class="item" href="https://github.com/uup-dump"><i class="code icon"></i>Source code</a>';
+    $navbarRight = '<a class="item" onClick="openLanguageSelector();"><i class="globe icon"></i>'.$s['currentLanguage'].'</a>';
+    $navbarRight .= $darkSwitch.'<a class="item" href="https://github.com/uup-dump"><i class="code icon"></i>'.$s['sourceCode'].'</a>';
 
     echo <<<HTML
 <!DOCTYPE html>
@@ -97,11 +78,11 @@ function styleUpper($pageType = 'home', $subtitle = '') {
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta property="description" content="Download UUP files from Windows Update servers with ease. This project is not affiliated with Microsoft Corporation.">
+        <meta property="description" content="{$s['websiteDesc']}">
 
         <meta property="og:title" content="$title">
         <meta property="og:type" content="website">
-        <meta property="og:description" content="Download UUP files from Windows Update servers with ease. This project is not affiliated with Microsoft Corporation.">
+        <meta property="og:description" content="{$s['websiteDesc']}">
         <meta property="og:image" content="$baseUrl/shared/img/icon.png">
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css">
@@ -113,6 +94,10 @@ function styleUpper($pageType = 'home', $subtitle = '') {
         <title>$title</title>
 
         <script>
+            function openLanguageSelector() {
+                $('.ui.modal.select-language').modal('show');
+            }
+
             function sidebar() {
                 $('.ui.sidebar').sidebar('toggle');
             }
@@ -128,7 +113,7 @@ function styleUpper($pageType = 'home', $subtitle = '') {
             <div class="page-header">
                 <div class="ui title container">
                     <h1>
-                        <img src="shared/img/logo.svg" class="logo" alt="">UUP dump
+                        <img src="shared/img/logo.svg" class="logo" alt="">{$s['uupdump']}
                         <span class="version">
                             v$websiteVersion
                         </span>
@@ -136,7 +121,7 @@ function styleUpper($pageType = 'home', $subtitle = '') {
                 </div>
 
                 <div class="ui one column grid page-header-menu">
-                    <div class="ui attached secondary inverted menu tablet computer only column">
+                    <div class="ui attached secondary inverted menu computer only column">
                         <div class="ui container">
                             $navbarLink
                             <div class="right menu">
@@ -144,9 +129,9 @@ function styleUpper($pageType = 'home', $subtitle = '') {
                             </div>
                         </div>
                     </div>
-                    <div class="ui attached secondary inverted menu mobile only column">
+                    <div class="ui attached secondary inverted menu mobile tablet only column">
                         <div class="ui container">
-                            <a class="item" href="javascript:void(0)" onClick="sidebar();"><i class="bars icon"></i>Menu</a>
+                            <a class="item" onClick="sidebar();"><i class="bars icon"></i>Menu</a>
                         </div>
                     </div>
                 </div>
@@ -154,28 +139,30 @@ function styleUpper($pageType = 'home', $subtitle = '') {
                 <div class="shadow"></div>
             </div>
 
+            $languageCoreSelectorModal
+
             <div class="ui container">
 HTML;
 }
 
 function styleLower() {
-    global $websiteVersion;
+    global $websiteVersion, $s;
     $api = uupApiVersion();
-    $year = date('Y');
+
+    $copyright = sprintf(
+        $s['copyright'],
+        date('Y'),
+        '<a href="https://github.com/whatever127">whatever127</a>'
+    );
 
     echo <<<HTML
                 <div class="footer">
                     <div class="ui divider"></div>
                     <p><i>
-                        <b>UUP dump</b> v$websiteVersion
+                        <b>{$s['uupdump']}</b> v$websiteVersion
                         (<b>API</b> v$api)
-                        &copy; $year <a href="https://github.com/whatever127">whatever127</a>
-                        and 0 other contributors.
-
-                        <span class="info">
-                            This project is not affiliated with Microsoft Corporation.
-                            Windows is a registered trademark of Microsoft Corporation.
-                        </span>
+                        $copyright
+                        <span class="info">{$s['notAffiliated']}</span>
                     </i></p>
                 </div>
             </div>
@@ -186,115 +173,117 @@ HTML;
 }
 
 function fancyError($errorCode = 'ERROR', $pageType = 'home', $moreText = 0) {
+    global $s;
+
     $errorNumber = 500;
     switch ($errorCode) {
         case 'ERROR':
-            $errorFancy = 'Generic error.';
+            $errorFancy = $s['error_ERROR'];
             break;
         case 'UNSUPPORTED_API':
-            $errorFancy = 'Installed API version is not compatible with this version of UUP dump.';
+            $errorFancy = $s['error_UNSUPPORTED_API'];
             break;
         case 'NO_FILEINFO_DIR':
-            $errorFancy = 'The <i>fileinfo</i> directory does not exist.';
+            $errorFancy = $s['error_NO_FILEINFO_DIR'];
             break;
         case 'NO_BUILDS_IN_FILEINFO':
-            $errorFancy = 'The <i>fileinfo</i> database does not contain any build.';
+            $errorFancy = $s['error_NO_BUILDS_IN_FILEINFO'];
             break;
         case 'SEARCH_NO_RESULTS':
             $errorNumber = 400;
-            $errorFancy = 'No items could be found for specified query.';
+            $errorFancy = $s['error_SEARCH_NO_RESULTS'];
             break;
         case 'UNKNOWN_ARCH':
             $errorNumber = 400;
-            $errorFancy = 'Unknown processor architecture.';
+            $errorFancy = $s['error_UNKNOWN_ARCH'];
             break;
         case 'UNKNOWN_RING':
             $errorNumber = 400;
-            $errorFancy = 'Unknown ring.';
+            $errorFancy = $s['error_UNKNOWN_RING'];
             break;
         case 'UNKNOWN_FLIGHT':
             $errorNumber = 400;
-            $errorFancy = 'Unknown flight.';
+            $errorFancy = $s['error_UNKNOWN_FLIGHT'];
             break;
         case 'UNKNOWN_COMBINATION':
             $errorNumber = 400;
-            $errorFancy = 'The flight and ring combination is not correct. Skip ahead is only supported for Insider Fast ring.';
+            $errorFancy = $s['error_UNKNOWN_COMBINATION'];
             break;
         case 'ILLEGAL_BUILD':
             $errorNumber = 400;
-            $errorFancy = 'Specified build number is less than 9841 or larger than '. (PHP_INT_MAX-1) .'.';
+            $errorFancy = sprintf($s['error_ILLEGAL_BUILD'], 9841, PHP_INT_MAX-1);
             break;
         case 'ILLEGAL_MINOR':
             $errorNumber = 400;
-            $errorFancy = 'Specified build minor is incorrect.';
+            $errorFancy = $s['error_ILLEGAL_MINOR'];
             break;
         case 'NO_UPDATE_FOUND':
-            $errorFancy = 'Server did not return any updates.';
+            $errorFancy = $s['error_NO_UPDATE_FOUND'];
             break;
         case 'XML_PARSE_ERROR':
-            $errorFancy = 'Parsing of response XML has failed. This may indicate a temporary problem with Microsoft servers. Try again later.';
+            $errorFancy = $s['error_XML_PARSE_ERROR'];
             break;
         case 'EMPTY_FILELIST':
-            $errorFancy = 'Server has returned an empty list of files.';
+            $errorFancy = $s['error_EMPTY_FILELIST'];
             break;
         case 'NO_FILES':
-            $errorFancy = 'There are no files available for your selection.';
+            $errorFancy = $s['error_NO_FILES'];
             break;
         case 'NOT_FOUND':
             $errorNumber = 404;
-            $errorFancy = 'Specified selection cannot be found.';
+            $errorFancy = $s['error_NOT_FOUND'];
             break;
         case 'MISSING_FILES':
-            $errorFancy = 'The selected UUP set has some files missing.';
+            $errorFancy = $s['error_MISSING_FILES'];
             break;
         case 'NO_METADATA_ESD':
-            $errorFancy = 'There are no metadata ESD files available for your selection.';
+            $errorFancy = $s['error_NO_METADATA_ESD'];
             break;
         case 'UNSUPPORTED_LANG':
             $errorNumber = 400;
-            $errorFancy = 'Specified language is not supported.';
+            $errorFancy = $s['error_UNSUPPORTED_LANG'];
             break;
         case 'UNSPECIFIED_LANG':
             $errorNumber = 400;
-            $errorFancy = 'Language was not specified.';
+            $errorFancy = $s['error_UNSPECIFIED_LANG'];
             break;
         case 'UNSUPPORTED_EDITION':
             $errorNumber = 400;
-            $errorFancy = 'Specified edition is not supported.';
+            $errorFancy = $s['error_UNSUPPORTED_EDITION'];
             break;
         case 'UNSUPPORTED_COMBINATION':
             $errorNumber = 400;
-            $errorFancy = 'The language and edition combination is not correct.';
+            $errorFancy = $s['error_UNSUPPORTED_COMBINATION'];
             break;
         case 'NOT_CUMULATIVE_UPDATE':
             $errorNumber = 400;
-            $errorFancy = 'Selected update does not contain Cumulative Update.';
+            $errorFancy = $s['error_NOT_CUMULATIVE_UPDATE'];
             break;
         case 'UPDATE_INFORMATION_NOT_EXISTS':
-            $errorFancy = 'Information about specified update doest not exist in database.';
+            $errorFancy = $s['error_UPDATE_INFORMATION_NOT_EXISTS'];
             break;
         case 'KEY_NOT_EXISTS':
             $errorNumber = 400;
-            $errorFancy = 'Specified key does not exist in update information';
+            $errorFancy = $s['error_KEY_NOT_EXISTS'];
             break;
         case 'UNSPECIFIED_UPDATE':
             $errorNumber = 400;
-            $errorFancy = 'Update ID was not specified.';
+            $errorFancy = $s['error_UNSPECIFIED_UPDATE'];
             break;
         case 'INCORRECT_ID':
             $errorNumber = 400;
-            $errorFancy = 'Specified Update ID is not a correct Update ID. Please make sure that Update ID is a correct Update ID.';
+            $errorFancy = $s['error_INCORRECT_ID'];
             break;
         case 'RATE_LIMITED':
             $errorNumber = 429;
-            $errorFancy = 'You are being rate limited. Please try again in a few seconds.';
+            $errorFancy = $s['error_RATE_LIMITED'];
             break;
         case 'UNSPECIFIED_VE':
             $errorNumber = 400;
-            $errorFancy = 'You have not selected any additional edition. If do not wish to create additional editions, please use <i>Download using aria2 and convert</i> option.';
+            $errorFancy = $s['error_UNSPECIFIED_VE'];
             break;
         default:
-            $errorFancy = '<i>Error message is not available.</i><br><br>'.$errorCode;
+            $errorFancy = "<i>{$s['error_errorNoMessage']}</i><br><br>$errorCode";
             break;
     }
 
@@ -311,13 +300,13 @@ function fancyError($errorCode = 'ERROR', $pageType = 'home', $moreText = 0) {
 
     echo <<<ERROR
 <div class="ui horizontal divider">
-    <h3><i class="warning icon"></i>Request not successful</h3>
+    <h3><i class="warning icon"></i>{$s['requestNotSuccessful']}</h3>
 </div>
 <div class="ui negative icon message">
     <i class="remove circle icon"></i>
     <div class="content">
-        <div class="header">Error</div>
-        <p>An error has occurred while attempting to process your request.<br>
+        <div class="header">{$s['error']}</div>
+        <p>{$s['anErrorHasOccurred']}<br>
         $errorFancy</p>
     </div>
 </div>
@@ -327,16 +316,14 @@ ERROR;
 }
 
 function styleNoPackWarn() {
+    global $s;
+
     echo <<<INFO
 <div class="ui icon warning message">
     <i class="warning circle icon"></i>
     <div class="content">
-        <div class="header">Generated pack not available</div>
-        <p>The update you are attempting to download does not have a generated
-        pack that provides full information about available languages, editions
-        and files. The fallback pack will be used that may not provide the
-        correct information. If download fails because of this, please wait for
-        the automatically generated pack to become available.</p>
+        <div class="header">{$s['generatedPackNotAvailable']}</div>
+        <p>{$s['generatedPackNotAvailableDesc']}</p>
     </div>
 </div>
 
@@ -344,16 +331,13 @@ INFO;
 }
 
 function styleCluelessUserArm64Warn() {
+    global $s;
+
     echo <<<INFO
 <div class="ui small icon error message">
     <i class="bomb icon"></i>
     <div class="content">
-        <p>You have selected an ARM64 build which is <b>only compatible with
-        ARM64 based devices</b> and will not work with regular Intel or AMD
-        based PCs. For <b>64-bit</b> PCs please use <b>amd64</b> builds. For
-        <b>32-bit</b> PCs please use <b>x86</b> builds. If you are absolutely
-        sure that the destination device is ARM64 based, you can safely ignore
-        this message.</p>
+        <p>{$s['arm64Warning']}</p>
     </div>
 </div>
 

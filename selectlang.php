@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 UUP dump authors
+Copyright 2019 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -51,8 +51,19 @@ if(isset($updateArch['error'])) {
 $updateTitle = $updateTitle.' '.$updateArch;
 
 $langs = uupListLangs($updateId);
-$langs = $langs['langFancyNames'];
-asort($langs);
+$langsTemp = array();
+
+foreach($langs['langList'] as $lang) {
+    if(isset($s["lang_$lang"])) {
+        $langsTemp[$lang] = $s["lang_$lang"];
+    } else {
+        $langsTemp[$lang] = $langs['fancyLangNames'][$lang];
+    }
+}
+
+$langs = $langsTemp;
+unset($langsTemp);
+uasort($langs, "strcoll");
 
 if(isset($updateInfo['containsCU']) && $updateInfo['containsCU'] = 1) {
     $containsCU = 1;
@@ -60,11 +71,17 @@ if(isset($updateInfo['containsCU']) && $updateInfo['containsCU'] = 1) {
     $containsCU = 0;
 }
 
-styleUpper('downloads', "Select language for $updateTitle");
+if(in_array(strtolower($s['code']), array_keys($langs))) {
+    $defaultLang = strtolower($s['code']);
+} else {
+    $defaultLang = 'en-us';
+}
+
+styleUpper('downloads', sprintf($s['selectLangFor'], $updateTitle));
 ?>
 
 <div class="ui horizontal divider">
-    <h3><i class="world icon"></i>Choose language</h3>
+    <h3><i class="world icon"></i><?php echo $s['chooseLang']; ?></h3>
 </div>
 
 <?php
@@ -80,18 +97,18 @@ if($updateArch == 'arm64') {
 <div class="ui top attached segment">
     <form class="ui form" action="./selectedition.php" method="get" id="langForm">
         <div class="field">
-            <label>Update</label>
+            <label><?php echo $s['update']; ?></label>
             <input type="text" disabled value="<?php echo $updateTitle; ?>">
             <input type="hidden" name="id" value="<?php echo $updateId; ?>">
         </div>
 
         <div class="field">
-            <label>Language</label>
+            <label><?php echo $s['lang']; ?></label>
             <select class="ui search dropdown" name="pack" onchange="checkLanguage()">
-                <option value="0">All languages</option>
+                <option value="0"><?php echo $s['allLangs']; ?></option>
 <?php
 foreach($langs as $key => $val) {
-    if($key == 'en-us') {
+    if($key == $defaultLang) {
         echo '<option value="'.$key.'" selected>'.$val."</option>\n";
     } else {
         echo '<option value="'.$key.'">'.$val."</option>\n";
@@ -102,66 +119,66 @@ foreach($langs as $key => $val) {
         </div>
 
         <div class="grouped fields" id="filesSelection" style="display: none;">
-            <label>Files</label>
+            <label><?php echo $s['selLangFiles']; ?></label>
             <div class="field">
                 <div class="ui radio checkbox">
                     <input type="radio" name="q" value="" checked disabled>
-                    <label>All files</label>
+                    <label><?php echo $s['allFiles']; ?></label>
                 </div>
             </div>
             <div class="field">
                 <div class="ui radio checkbox">
                     <input type="radio" name="q" value="WindowsUpdateBox.exe" disabled>
-                    <label>WindowsUpdateBox only</label>
+                    <label><?php echo $s['wubOnly']; ?></label>
                 </div>
             </div>
 <?php
 if($containsCU) {
-    echo '<div class="field">
+    echo <<<EOD
+<div class="field">
     <div class="ui radio checkbox">
         <input type="radio" name="q" value="Windows10 KB" disabled>
-        <label>Update only</label>
+        <label>${s['updateOnly']}</label>
     </div>
-</div>';
+</div>
+EOD;
 }
 ?>
         </div>
 
         <button class="ui fluid right labeled icon blue button" id="submitForm" type="submit">
             <i class="right arrow icon"></i>
-            Next
+            <?php echo $s['next']; ?>
         </button>
     </form>
 </div>
 <div class="ui bottom attached info message" id="userMessage">
     <i class="info icon"></i>
-    <i>All languages</i> option does not support edition selection.
+    <?php echo $s['allLangsWarn']; ?>
 </div>
 
 <div class="ui fluid tiny three steps">
       <div class="active step">
             <i class="world icon"></i>
             <div class="content">
-                <div class="title">Choose language</div>
-                <div class="description">Choose your desired language</div>
+                <div class="title"><?php echo $s['chooseLang']; ?></div>
+                <div class="description"><?php echo $s['chooseLangDesc']; ?></div>
             </div>
       </div>
 
       <div class="step">
             <i class="archive icon"></i>
             <div class="content">
-                <div class="title">Choose edition</div>
-                <div class="description">Choose your desired edition</div>
+                <div class="title"><?php echo $s['chooseEdition']; ?></div>
+                <div class="description"><?php echo $s['chooseEditionDesc']; ?></div>
             </div>
       </div>
 
       <div class="step">
             <i class="briefcase icon"></i>
             <div class="content">
-                <div class="title">Summary</div>
-                <div class="description">
-                    Review your selection and choose download method
-                </div>
+                <div class="title"><?php echo $s['summary']; ?></div>
+                <div class="description"><?php echo $s['summaryDesc']; ?></div>
             </div>
       </div>
 </div>
@@ -180,8 +197,7 @@ if($containsCU) {
             form.action = './findfiles.php';
             msg.className = "ui bottom attached info message";
             msg.innerHTML = '<i class="info icon"></i>' +
-                            'Click <i>Next</i> button to open page which ' +
-                            'allows finding files.';
+                            '<?php echo $s['clickNextToOpenFindFiles']; ?>';
 
             file.style.display = "block";
             radioCount = form.q.length;
@@ -193,11 +209,12 @@ if($containsCU) {
             msg.className = "ui bottom attached icon info message";
             msg.innerHTML = '<i class="paper plane icon"></i>' +
                             '<div class="content">' +
-                            '<p class="header">Information</p>' +
-                            'Click <i>Next</i> button to select edition you ' +
-                            'want to download.' +
-                            '<br>WindowsUpdateBox.exe and Cumulative update ' +
-                            'can be found in <i>All languages</i> language.' +
+                            '<p class="header">' +
+                            '<?php echo $s['information']; ?>' +
+                            '</p>' +
+                            '<?php echo $s['selectLangInfoText1']; ?>' +
+                            '<br/>' +
+                            '<?php echo $s['selectLangInfoText2']; ?>' +
                             '</div>';
 
             file.style.display = "none";

@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 UUP dump authors
+Copyright 2019 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -32,17 +32,17 @@ if(empty($ids)) {
     die();
 }
 
-styleUpper('downloads', 'Browse known builds');
+styleUpper('downloads', $s['browseKnown']);
 ?>
 <div class="ui horizontal divider">
-    <h3><i class="cubes icon"></i>Choose build</h3>
+    <h3><i class="cubes icon"></i><?php echo $s['chooseBuild']; ?></h3>
 </div>
 
 <div class="ui top attached segment">
     <form class="ui form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
         <div class="field">
             <div class="ui big action input">
-                <input type="text" name="q" value="<?php echo htmlentities($search); ?>" placeholder="Search for builds...">
+                <input type="text" name="q" value="<?php echo htmlentities($search); ?>" placeholder="<?php echo $s['seachForBuilds']; ?>">
                 <button class="ui big blue icon button" type="submit"><i class="search icon"></i></button>
             </div>
         </div>
@@ -50,15 +50,15 @@ styleUpper('downloads', 'Browse known builds');
 </div>
 <div class="ui bottom attached success message">
     <i class="search icon"></i>
-    We have found <b><?php echo count($ids); ?></b> builds for your query.
+    <?php printf($s['weFoundBuilds'], count($ids)); ?>
 </div>
 
 <table class="ui celled striped table">
     <thead>
         <tr>
-            <th>Build</th>
-            <th>Architecture</th>
-            <th>Update ID</th>
+            <th><?php echo $s['build']; ?></th>
+            <th><?php echo $s['arch']; ?></th>
+            <th><?php echo $s['updateid']; ?></th>
         </tr>
     </thead>
 <?php

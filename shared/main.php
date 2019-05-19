@@ -16,10 +16,11 @@ limitations under the License.
 */
 
 // Website information
-$websiteVersion = '3.25.11';
+$websiteVersion = '3.26.0';
 $requiredApi = '1.20.0';
 
 require_once dirname(__FILE__).'/../api/shared/main.php';
+require_once dirname(__FILE__).'/lang.php';
 function checkApi() {
     global $requiredApi;
     $apiVer = parseSemVer(uupApiVersion());
@@ -80,6 +81,36 @@ function checkUpdateIdValidity($updateId) {
         '/^[\da-fA-F]{8}-([\da-fA-F]{4}-){3}[\da-fA-F]{12}(_rev\.\d+)?$/',
         $updateId
     );
+}
+
+function getBaseUrl() {
+    $baseUrl = '';
+    if(isset($_SERVER['HTTPS'])) {
+        $baseUrl .= 'https://';
+    } else {
+        $baseUrl .= 'http://';
+    }
+
+    $baseUrl .=  $_SERVER['HTTP_HOST'];
+    return $baseUrl;
+}
+
+function getUrlWithoutParam($param = null) {
+    $baseUrl = getBaseUrl();
+
+    $params = '';
+    $separator = '?';
+    foreach($_GET as $key => $val) {
+        if($key == $param) continue;
+        $params .= $separator.$key.'='.$val;
+        $separator = '&';
+    }
+    $params .= $separator;
+
+    $shelf = explode('?', $_SERVER['REQUEST_URI']);
+    $url = $baseUrl.$shelf[0].$params;
+
+    return $url;
 }
 
 // Do check of API

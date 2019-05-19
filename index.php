@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 UUP dump authors
+Copyright 2019 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -35,52 +35,52 @@ styleUpper('home');
 ?>
 
 <div class="welcome-text">
-    <p class="header">UUP dump</p>
-    <p class="sub"><i>Download UUP files from Windows Update servers with ease.</i></p>
+    <p class="header"><?php echo $s['uupdump']; ?></p>
+    <p class="sub"><i><?php echo $s['slogan']; ?></i></p>
 </div>
 
 <form class="ui form" action="./known.php" method="get">
     <div class="field">
         <div class="ui big action input">
-            <input type="text" name="q" placeholder="Search for builds...">
+            <input type="text" name="q" placeholder="<?php echo $s['seachForBuilds']; ?>">
             <button class="ui big blue icon button" type="submit"><i class="search icon"></i></button>
         </div>
         </div>
 </form>
 
-<div class="ui horizontal section divider"><h3><i class="ui user md icon"></i>Advanced options</h3></div>
+<div class="ui horizontal section divider"><h3><i class="ui user md icon"></i><?php echo $s['advOptions']; ?></h3></div>
 
 <div class="ui two columns stackable centered grid">
     <div class="column">
         <a class="ui top attached fluid labeled icon large blue button" href="./known.php">
             <i class="server icon"></i>
-            Browse a full list of known builds
+            <?php echo $s['browseBuilds']; ?>
         </a>
         <div class="ui bottom attached segment">
-            Choose a build that is already known in the local database and download it.
+            <?php echo $s['browseBuildsSub']; ?>
         </div>
     </div>
 
     <div class="column">
         <a class="ui top attached fluid labeled icon large button" href="./latest.php">
             <i class="fire icon"></i>
-            Fetch the latest build
+            <?php echo $s['fetchLatest']; ?>
         </a>
         <div class="ui bottom attached segment">
-            Retrieve the latest build information from Windows Update servers.
+            <?php echo $s['fetchLatestSub']; ?>
         </div>
     </div>
 </div>
 <?php
 if($buildsAvailable) {
     echo <<<EOD
-<div class="ui horizontal section divider"><h3><i class="ui star outline icon"></i>Newly added builds</h3></div>
+<div class="ui horizontal section divider"><h3><i class="ui star outline icon"></i>${s['newlyAdded']}</h3></div>
 <table class="ui celled striped table">
     <thead>
         <tr>
-            <th>Build</th>
-            <th>Architecture</th>
-            <th>Date added</th>
+            <th>${s['build']}</th>
+            <th>${s['arch']}</th>
+            <th>${s['dateAdded']}</th>
         </tr>
     </thead>
 EOD;
@@ -104,7 +104,7 @@ EOD;
         if($val['created'] == null) {
             echo 'Unknown';
         } else {
-            echo gmdate("Y-m-d H:i:s T", $val['created']);
+            echo date("Y-m-d H:i:s T", $val['created']);
         }
 
         echo "</td></tr>\n";
