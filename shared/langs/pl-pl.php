@@ -43,6 +43,7 @@ $s['downloads'] = 'Pobrania';
 $s['lightMode'] = 'Tryb jasny';
 $s['darkMode'] = 'Tryb ciemny';
 $s['sourceCode'] = 'Kod źródłowy';
+$s['menu'] = 'Menu';
 $s['websiteDesc'] = 'Pobieraj pliki UUP z serwerów Windows Update z łatwością. Ten projekt nie jest powiązany z Microsoft Corporation.';
 $s['notAffiliated'] = 'Ten projekt nie jest powiązany z Microsoft Corporation. Windows jest zarejestrowanym znakiem towarowym firmy Microsoft Corporation.';
 $s['copyright'] = '© %d %s i współtwórcy.'; //© 2019 whatever127 and contributors.
@@ -51,7 +52,7 @@ $s['selectLanguage'] = 'Proszę wybrać swój język';
 //index.php
 $s['slogan'] = 'Pobieraj pliki UUP z serwerów Windows Update z łatwością.';
 $s['advOptions'] = 'Opcje zaawansowane';
-$s['browseBuilds'] = 'Przeglądaj pełną listę znanych kompilacji';
+$s['browseBuilds'] = 'Przeglądaj listę znanych kompilacji';
 $s['browseBuildsSub'] = 'Wybierz kompilację znaną w lokalnej bazie danych i pobierz ją.';
 $s['fetchLatest'] = 'Odszukaj najnowszą kompilację';
 $s['fetchLatestSub'] = 'Uzyskaj informacje o najnowszej kompilacji z serwerów Windows Update.';

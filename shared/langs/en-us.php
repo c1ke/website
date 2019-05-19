@@ -43,6 +43,7 @@ $s['downloads'] = 'Downloads';
 $s['lightMode'] = 'Light mode';
 $s['darkMode'] = 'Dark mode';
 $s['sourceCode'] = 'Source code';
+$s['menu'] = 'Menu';
 $s['websiteDesc'] = 'Download UUP files from Windows Update servers with ease. This project is not affiliated with Microsoft Corporation.';
 $s['notAffiliated'] = 'This project is not affiliated with Microsoft Corporation. Windows is a registered trademark of Microsoft Corporation.';
 $s['copyright'] = '© %d %s and contributors.'; //© 2019 whatever127 and contributors.

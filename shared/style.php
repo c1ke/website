@@ -69,8 +69,11 @@ function styleUpper($pageType = 'home', $subtitle = '') {
             break;
     }
 
-    $navbarRight = '<a class="item" onClick="openLanguageSelector();"><i class="globe icon"></i>'.$s['currentLanguage'].'</a>';
-    $navbarRight .= $darkSwitch.'<a class="item" href="https://github.com/uup-dump"><i class="code icon"></i>'.$s['sourceCode'].'</a>';
+    $langSelect = '<a class="item" onClick="openLanguageSelector();"><i class="globe icon"></i>'.$s['currentLanguage'].'</a>';
+    $sourceCodeLink = '<a class="item" href="https://github.com/uup-dump"><i class="code icon"></i>'.$s['sourceCode'].'</a>';
+
+    $navbarRight = $langSelect.$darkSwitch.$sourceCodeLink;
+    $navbarMobile = $darkSwitch.$sourceCodeLink.$langSelect;
 
     echo <<<HTML
 <!DOCTYPE html>
@@ -96,9 +99,12 @@ function styleUpper($pageType = 'home', $subtitle = '') {
         <script>
             function openLanguageSelector() {
                 $('.ui.modal.select-language').modal('show');
+                $('.ui.sidebar').sidebar('hide');
             }
 
             function sidebar() {
+                $('.ui.sidebar').sidebar('setting', 'transition', 'overlay');
+                $('.ui.sidebar').sidebar('setting', 'mobileTransition', 'overlay');
                 $('.ui.sidebar').sidebar('toggle');
             }
         </script>
@@ -106,7 +112,7 @@ function styleUpper($pageType = 'home', $subtitle = '') {
     <body>
         <div class="ui sidebar inverted vertical menu">
             <div class="ui container">
-                $navbarLink $navbarRight
+                $navbarLink $navbarMobile
             </div>
         </div>
         <div class="pusher">
@@ -131,7 +137,7 @@ function styleUpper($pageType = 'home', $subtitle = '') {
                     </div>
                     <div class="ui attached secondary inverted menu mobile tablet only column">
                         <div class="ui container">
-                            <a class="item" onClick="sidebar();"><i class="bars icon"></i>Menu</a>
+                            <a class="item" onClick="sidebar();"><i class="bars icon"></i>{$s['menu']}</a>
                         </div>
                     </div>
                 </div>
