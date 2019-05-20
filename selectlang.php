@@ -63,7 +63,7 @@ foreach($langs['langList'] as $lang) {
 
 $langs = $langsTemp;
 unset($langsTemp);
-uasort($langs, "strcoll");
+locasort($langs, $s['code']);
 
 if(isset($updateInfo['containsCU']) && $updateInfo['containsCU'] = 1) {
     $containsCU = 1;

@@ -6,7 +6,7 @@ Translation information:
 English language name: English (United States)
 Localized language name: English (United States)
 Language code: en-US
-Author: whatever127 and mspaintmsi
+Authors: whatever127 and mspaintmsi
 */
 
 //Language information

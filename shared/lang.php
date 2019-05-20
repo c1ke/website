@@ -26,7 +26,7 @@ if(isset($_GET['lang'])) {
     setcookie('Page-Language', $lang, time()+2592000);
 }
 
-$supportedLangs = array('en-us', 'qps-ploc', 'pl-pl');
+$supportedLangs = array('en-us', 'qps-ploc', 'pl-pl', 'de-de');
 if(in_array("$lang", $supportedLangs)) {
     require_once "langs/$lang.php";
 } else {
@@ -40,6 +40,7 @@ $languageCoreSelectorModal = <<<EOD
         {$s['selectLanguage']}
     </div>
     <div class="content">
+        <p><a href="{$url}lang=de-de"><i class="de flag"></i>Deutsch</a></p>
         <p><a href="{$url}lang=en-us"><i class="us flag"></i>English (United States)</a></p>
         <p><a href="{$url}lang=pl-pl"><i class="pl flag"></i>polski</a></p>
     </div>
@@ -54,5 +55,4 @@ $languageCoreSelectorModal = <<<EOD
 EOD;
 
 $s['currentLanguage'] = $s["lang_$lang"];
-setlocale(LC_COLLATE, $s['code']);
 date_default_timezone_set($s['timeZone']);
