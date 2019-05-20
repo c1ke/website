@@ -43,7 +43,7 @@ $s['downloads'] = 'Downloads';
 $s['lightMode'] = 'Heller Modus';
 $s['darkMode'] = 'Dunkler Modus';
 $s['sourceCode'] = 'Quellcode';
-$s['menu'] = 'Menu';
+$s['menu'] = 'Menü';
 $s['websiteDesc'] = 'Laden Sie UUP-Dateien von Windows Update-Servern mit Leichtigkeit herunter. Dieses Projekt ist nicht mit der Microsoft Corporation verbunden.';
 $s['notAffiliated'] = 'Dieses Projekt ist nicht mit der Microsoft Corporation verbunden. Windows ist ein eingetragenes Warenzeichen der Microsoft Corporation.';
 $s['copyright'] = '© %d %s und Mitwirkende.'; //© 2019 whatever127 and contributors.
@@ -52,7 +52,7 @@ $s['selectLanguage'] = 'Bitte wählen Sie Ihre Sprache aus';
 //index.php
 $s['slogan'] = 'Laden Sie UUP-Dateien von Windows Update-Servern mit Leichtigkeit herunter.';
 $s['advOptions'] = 'Erweiterte Optionen';
-$s['browseBuilds'] = 'Durchsuche die vollständige Liste der bekannten Builds.';
+$s['browseBuilds'] = 'Durchsuche die vollständige Liste der Builds.';
 $s['browseBuildsSub'] = 'Wählen Sie ein Build, das in der lokalen Datenbank bereits bekannt ist, und laden Sie es herunter.';
 $s['fetchLatest'] = 'Hole den aktuellen Build';
 $s['fetchLatestSub'] = 'Abrufen der neuesten Buildinformationen von Windows Update-Servern.';

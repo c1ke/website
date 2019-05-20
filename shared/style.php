@@ -289,7 +289,7 @@ function fancyError($errorCode = 'ERROR', $pageType = 'home', $moreText = 0) {
             $errorFancy = $s['error_UNSPECIFIED_VE'];
             break;
         default:
-            $errorFancy = "<i>{$s['error_errorNoMessage']}</i><br><br>$errorCode";
+            $errorFancy = "<i>{$s['errorNoMessage']}</i><br><br>$errorCode";
             break;
     }
 
