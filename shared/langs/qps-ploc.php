@@ -6,7 +6,7 @@ Translation information:
 English language name: Pseudo
 Localized language name: [972d] Ƥşḗŭḓǿ
 Language code: qps-ploc
-Author: whatever127 and mspaintmsi
+Authors: whatever127 and mspaintmsi
 */
 
 //Language information
