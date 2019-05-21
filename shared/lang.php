@@ -26,7 +26,16 @@ if(isset($_GET['lang'])) {
     setcookie('Page-Language', $lang, time()+2592000);
 }
 
-$supportedLangs = array('en-us', 'qps-ploc', 'pl-pl', 'de-de', 'pt-br');
+$supportedLangs = array(
+    'en-us',
+    'qps-ploc',
+    'pl-pl',
+    'de-de',
+    'pt-br',
+    'pt-pt',
+    'nl-nl',
+);
+
 if(in_array("$lang", $supportedLangs)) {
     require_once "langs/$lang.php";
 } else {
@@ -42,8 +51,10 @@ $languageCoreSelectorModal = <<<EOD
     <div class="content">
         <p><a href="{$url}lang=de-de"><i class="de flag"></i>Deutsch</a></p>
         <p><a href="{$url}lang=en-us"><i class="us flag"></i>English (United States)</a></p>
+        <p><a href="{$url}lang=nl-nl"><i class="nl flag"></i>Nederlands</a></p>
         <p><a href="{$url}lang=pl-pl"><i class="pl flag"></i>polski</a></p>
         <p><a href="{$url}lang=pt-br"><i class="br flag"></i>Português (Brasil)</a></p>
+        <p><a href="{$url}lang=pt-pt"><i class="pt flag"></i>Português (Portugal)</a></p>
     </div>
     <div class="actions">
         <div class="ui ok button">
