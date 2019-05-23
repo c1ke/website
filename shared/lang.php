@@ -34,6 +34,7 @@ $supportedLangs = array(
     'pt-br',
     'pt-pt',
     'nl-nl',
+    'fr-fr',
 );
 
 if(in_array("$lang", $supportedLangs)) {
@@ -51,6 +52,7 @@ $languageCoreSelectorModal = <<<EOD
     <div class="content">
         <p><a href="{$url}lang=de-de"><i class="de flag"></i>Deutsch</a></p>
         <p><a href="{$url}lang=en-us"><i class="us flag"></i>English (United States)</a></p>
+        <p><a href="{$url}lang=fr-fr"><i class="fr flag"></i>Français (France)</a></p>
         <p><a href="{$url}lang=nl-nl"><i class="nl flag"></i>Nederlands</a></p>
         <p><a href="{$url}lang=pl-pl"><i class="pl flag"></i>polski</a></p>
         <p><a href="{$url}lang=pt-br"><i class="br flag"></i>Português (Brasil)</a></p>
