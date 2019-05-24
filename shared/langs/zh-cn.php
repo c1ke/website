@@ -67,7 +67,7 @@ $s['weFoundBuilds'] = '在您的查询中我们找到了 <b>%d</b> 个补丁。'
 //latest.php
 $s['latestFetchLatest'] = '获取最新补丁';
 $s['latestTestingOnly'] = '仅用于测试目的';
-$s['latestTestingOnlyWarn'] = '<b>此页面仅供测试目的。</b> 此页面检索到的补丁未被后端服务器处理，仅提供fallback packs，并且可能只有不完整的检索结果。 如果要下载已知的补丁，请使用已知补丁的下载页面。';
+$s['latestTestingOnlyWarn'] = '<b>此页面仅供测试目的。</b> 此页面检索到的补丁未被后端服务器处理，仅提供替代包，并且可能只有不完整的检索结果。 如果要下载已知的补丁，请使用已知补丁的下载页面。';
 $s['latestDoYouWantKnown'] = '您想继续浏览已知补丁的列表吗？';
 $s['chooseOptions'] = '选择选项';
 $s['buildOfPretendedClient'] = '虚构的 Windows Update 客户端版本号';
@@ -158,7 +158,7 @@ $s['error'] = '错误';
 $s['requestNotSuccessful'] = '请求未成功';
 $s['anErrorHasOccurred'] = '尝试处理您的请求时发生错误。';
 $s['generatedPackNotAvailable'] = '生成的包不可用';
-$s['generatedPackNotAvailableDesc'] = '您尝试下载的更新没有提供包含有关可用语言，版本和文件的完整信息用以生成包。因此将提供 fallback pack，它可能无法提供正确的信息。如果因此导致下载失败，请等待自动生成的可用包。';
+$s['generatedPackNotAvailableDesc'] = '您尝试下载的更新没有提供包含有关可用语言，版本和文件的完整信息用以生成包。因此将提供替代包，它可能无法提供正确的信息。如果因此导致下载失败，请等待自动生成的可用包。';
 $s['arm64Warning'] = '您选择的ARM64版本 <b>仅与基于ARM64的设备兼容</b> ，并且不适用于常规的基于Intel或AMD的PC。对于 <b>64位</b> PC，请使用 <b>amd64</b> 版本。对于 <b>32位</b> PC，请使用 <b>x86</b> 版本。如果您确定目标设备是基于ARM64的，则可以放心地忽略此消息。';
 
 //Error messages
