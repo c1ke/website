@@ -35,6 +35,7 @@ $supportedLangs = array(
     'pt-pt',
     'nl-nl',
     'fr-fr',
+    'zh-cn',
 );
 
 if(in_array("$lang", $supportedLangs)) {
@@ -57,6 +58,7 @@ $languageCoreSelectorModal = <<<EOD
         <p><a href="{$url}lang=pl-pl"><i class="pl flag"></i>polski</a></p>
         <p><a href="{$url}lang=pt-br"><i class="br flag"></i>Português (Brasil)</a></p>
         <p><a href="{$url}lang=pt-pt"><i class="pt flag"></i>Português (Portugal)</a></p>
+        <p><a href="{$url}lang=zh-cn"><i class="cn flag"></i>中文（中国）</a></p>
     </div>
     <div class="actions">
         <div class="ui ok button">

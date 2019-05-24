@@ -6,7 +6,7 @@ Translation information:
 English language name: Chinese (China)
 Localized language name: 中文（中国）
 Language code: zh-CN
-Authors: whatever127 and wordlesswind
+Author: wordlesswind
 */
 
 //Language information
