@@ -16,14 +16,14 @@ $s['timeZone'] = 'Asia/Shanghai'; //Supported timezones: https://www.php.net/man
 //shared strings
 $s['uupdump'] = 'UUP dump';
 $s['uupdumpSub'] = '%s - UUP dump'; //Browse known builds - UUP dump
-$s['build'] = '补丁';
+$s['build'] = '内部版本';
 $s['arch'] = '体系结构';
 $s['ring'] = '环';
 $s['updateid'] = '更新 ID';
 $s['update'] = '更新';
 $s['lang'] = '语言';
 $s['edition'] = '版本';
-$s['seachForBuilds'] = '正在查找内部版本……';
+$s['seachForBuilds'] = '查找内部版本……';
 $s['no'] = '否';
 $s['yes'] = '是';
 $s['yesRecommended'] = '是（推荐）';
@@ -54,28 +54,28 @@ $s['slogan'] = '轻松地从 Windows Update 服务器下载 UUP 文件。';
 $s['advOptions'] = '高级选项';
 $s['browseBuilds'] = '浏览已知内部版本列表';
 $s['browseBuildsSub'] = '选择本地数据库中已知的内部版本并下载它。';
-$s['fetchLatest'] = '获取最新补丁';
-$s['fetchLatestSub'] = '从 Windows Update 服务器检索最新的补丁信息。';
+$s['fetchLatest'] = '获取最新内部版本';
+$s['fetchLatestSub'] = '从 Windows Update 服务器检索最新的内部版本信息。';
 $s['newlyAdded'] = '新增的内部版本';
 $s['dateAdded'] = '添加日期';
 
 //known.php
 $s['browseKnown'] = '浏览已知补丁';
 $s['chooseBuild'] = '选择补丁';
-$s['weFoundBuilds'] = '在您的查询中我们找到了 <b>%d</b> 个补丁。'; //We have found <b>692</b> builds for your query.
+$s['weFoundBuilds'] = '在你的查询中，我们找到了 <b>%d</b> 个内部版本。'; //We have found <b>692</b> builds for your query.
 
 //latest.php
 $s['latestFetchLatest'] = '获取最新内部版本';
 $s['latestTestingOnly'] = '仅用于测试目的';
-$s['latestTestingOnlyWarn'] = '<b>此页面仅供测试目的。</b> 此页面检索到的补丁未被后端服务器处理，仅提供替代包，并且可能只有不完整的检索结果。 如果要下载已知的补丁，请使用已知补丁的下载页面。';
-$s['latestDoYouWantKnown'] = '您想继续浏览已知内部版本列表吗？';
+$s['latestTestingOnlyWarn'] = '<b>此页面仅供测试目的。</b> 此页面检索到的内部版本未被后端服务器处理，因此仅提供替代包，并且可能只有不完整的检索结果。 如果要下载已知的内部版本，请使用已知内部版本的下载页面。';
+$s['latestDoYouWantKnown'] = '你想继续浏览已知内部版本列表吗？';
 $s['chooseOptions'] = '选择选项';
 $s['buildOfPretendedClient'] = '虚构的 Windows Update 客户端版本号';
 $s['editionOfPretendedClient'] = '虚构的系统版本';
 $s['skipAheadLabel'] = '跳跃预览通道';
 $s['skipAheadOption'] = '使用跳跃预览通道(仅限快速环)';
 $s['fetchUpdates'] = '获取更新';
-$s['fetchUpdatesInfo'] = '点击 <i>获取更新</i> 按钮将您的请求发送到 Windows Update 服务器。';
+$s['fetchUpdatesInfo'] = '点击 <i>获取更新</i> 按钮将你的请求发送到 Windows Update 服务器。';
 
 //fetchupd.php
 $s['responseFromServer'] = '来自服务器的响应';
