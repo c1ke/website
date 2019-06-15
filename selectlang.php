@@ -210,11 +210,11 @@ EOD;
             msg.innerHTML = '<i class="paper plane icon"></i>' +
                             '<div class="content">' +
                             '<p class="header">' +
-                            '<?php echo $s['information']; ?>' +
+                            "<?php echo $s['information']; ?>" +
                             '</p>' +
-                            '<?php echo $s['selectLangInfoText1']; ?>' +
+                            "<?php echo $s['selectLangInfoText1']; ?>" +
                             '<br/>' +
-                            '<?php echo $s['selectLangInfoText2']; ?>' +
+                            "<?php echo $s['selectLangInfoText2']; ?>" +
                             '</div>';
 
             file.style.display = "none";
