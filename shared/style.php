@@ -327,13 +327,11 @@ function styleNoPackWarn() {
     global $s;
 
     echo <<<INFO
-<div class="ui icon warning message">
-    <i class="warning circle icon"></i>
-    <div class="content">
-        <div class="header">{$s['generatedPackNotAvailable']}</div>
-        <p>{$s['generatedPackNotAvailableDesc']}</p>
-    </div>
-</div>
+<table class="ui very basic very compact table">
+    <td class="center aligned"><i class="big red exclamation icon"></i></td>
+    <td><p>{$s['generatedPackNotAvailableDesc']}</p></td>
+</table>
+<div class="ui divider"></div>
 
 INFO;
 }
@@ -342,12 +340,11 @@ function styleCluelessUserArm64Warn() {
     global $s;
 
     echo <<<INFO
-<div class="ui small icon error message">
-    <i class="bomb icon"></i>
-    <div class="content">
-        <p>{$s['arm64Warning']}</p>
-    </div>
-</div>
+<table class="ui very basic very compact table">
+    <td class="center aligned"><i class="big bomb icon"></i></td>
+    <td><p>{$s['arm64Warning']}</p></td>
+</table>
+<div class="ui divider"></div>
 
 INFO;
 }

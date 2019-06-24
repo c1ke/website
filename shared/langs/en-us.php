@@ -98,6 +98,7 @@ $s['selectLangInfoText1'] = 'Click the <i>Next</i> button to select the edition 
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe and Cumulative updates can be found in the <i>All languages</i> language.';
 $s['allLangsWarn'] = 'The <i>All languages</i> option does not support edition selection.';
 $s['clickNextToOpenFindFiles'] = 'Click the <i>Next</i> button to open the page, which allows finding files.';
+$s['noLangsAvailable'] = 'There are no languages available for this build.';
 $s['browseFiles'] = 'Browse files';
 $s['browseFilesDesc'] = 'Quickly browse files in selected build';
 $s['searchFiles'] = 'Search files';
