@@ -36,6 +36,8 @@ $s['file'] = 'Plik';
 $s['expires'] = 'Wygasa';
 $s['sha1'] = 'SHA-1';
 $s['size'] = 'Rozmiar';
+$s['additionalEdition'] = 'Dodatkowa edycja';
+$s['requiredEdition'] = 'Wymagana edycja';
 
 //global
 $s['home'] = 'Strona główna';
@@ -96,6 +98,10 @@ $s['selectLangInfoText1'] = 'Kliknij przycisk <i>Dalej</i> w celu przejścia do 
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe i aktualizacje kumulacyjne mogą zostać znalezione w opcji języka <i>Wszystkie języki</i>.';
 $s['allLangsWarn'] = 'Opcja <i>Wszystkie języki</i> nie obsługuje wyboru edycji.';
 $s['clickNextToOpenFindFiles'] = 'Kliknij przycisk <i>Dalej</i> aby otworzyć stronę umożliwiającą wyszukiwanie plików.';
+$s['browseFiles'] = 'Przeglądaj pliki';
+$s['browseFilesDesc'] = 'Szybko przejżyj pliki w wybranej kompilacji';
+$s['searchFiles'] = 'Przeszukaj pliki';
+$s['toSearchForCUUseQuery'] = 'Aby wyszukać aktualizacje kulminacyjne użyj frazy <i>%s</i>.'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.
 
 //selectedition.php
 $s['selectEditionFor'] = 'Wybierz edycję dla %s'; //Select edition for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
@@ -103,6 +109,7 @@ $s['chooseEdition'] = 'Wybierz edycję';
 $s['chooseEditionDesc'] = 'Wybierz żądaną edycję';
 $s['allEditions'] = 'Wszystkie edycje';
 $s['selectEditionInfoText'] = 'Kliknij przycisk <i>Dalej</i> w celu otworzenia strony z podsumowaniem wyboru.';
+$s['additionalEditionsInfo'] = 'Jeżeli potrzebujesz dodatkowej edycji, która znajduje się w tabeli z prawej strony, proszę wybrać wskazaną wymaganą edycję i kliknąć przycisk <i>Dalej</i>. Na stronie podsumowania będzie można wybrać żądane dodatkowe edycje używając odpowiedniej opcji pobrania.';
 
 //download.php
 $s['summary'] = 'Podsumowanie';

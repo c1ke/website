@@ -34,18 +34,16 @@ if(!checkUpdateIdValidity($updateId)) {
 $updateInfo = uupUpdateInfo($updateId);
 $updateInfo = isset($updateInfo['info']) ? $updateInfo['info'] : array();
 
-$updateTitle = uupParseUpdateInfo($updateInfo, 'title');
-if(isset($updateTitle['error'])) {
+if(!isset($updateInfo['title'])) {
     $updateTitle = 'Unknown update: '.$updateId;
 } else {
-    $updateTitle = $updateTitle['info'];
+    $updateTitle = $updateInfo['title'];
 }
 
-$updateArch = uupParseUpdateInfo($updateInfo, 'arch');
-if(isset($updateArch['error'])) {
+if(!isset($updateInfo['arch'])) {
     $updateArch = '';
 } else {
-    $updateArch = $updateArch['info'];
+    $updateArch = $updateInfo['arch'];
 }
 
 $updateTitle = $updateTitle.' '.$updateArch;
@@ -77,11 +75,13 @@ if(in_array(strtolower($s['code']), array_keys($langs))) {
     $defaultLang = 'en-us';
 }
 
+$findFilesUrl = "./findfiles.php?id=".htmlentities($updateId);
+
 styleUpper('downloads', sprintf($s['selectLangFor'], $updateTitle));
 ?>
 
 <div class="ui horizontal divider">
-    <h3><i class="world icon"></i><?php echo $s['chooseLang']; ?></h3>
+    <h3><i class="cubes icon"></i><?php echo $updateTitle; ?></h3>
 </div>
 
 <?php
@@ -94,67 +94,106 @@ if($updateArch == 'arm64') {
 }
 ?>
 
-<div class="ui top attached segment">
-    <form class="ui form" action="./selectedition.php" method="get" id="langForm">
-        <div class="field">
-            <label><?php echo $s['update']; ?></label>
-            <input type="text" disabled value="<?php echo $updateTitle; ?>">
-            <input type="hidden" name="id" value="<?php echo $updateId; ?>">
-        </div>
-
-        <div class="field">
-            <label><?php echo $s['lang']; ?></label>
-            <select class="ui search dropdown" name="pack" onchange="checkLanguage()">
-                <option value="0"><?php echo $s['allLangs']; ?></option>
-<?php
-foreach($langs as $key => $val) {
-    if($key == $defaultLang) {
-        echo '<option value="'.$key.'" selected>'.$val."</option>\n";
-    } else {
-        echo '<option value="'.$key.'">'.$val."</option>\n";
-    }
-}
-?>
-            </select>
-        </div>
-
-        <div class="grouped fields" id="filesSelection" style="display: none;">
-            <label><?php echo $s['selLangFiles']; ?></label>
-            <div class="field">
-                <div class="ui radio checkbox">
-                    <input type="radio" name="q" value="" checked disabled>
-                    <label><?php echo $s['allFiles']; ?></label>
-                </div>
+<div class="ui two columns mobile stackable centered grid">
+    <div class="column">
+        <h3 class="ui header">
+            <i class="globe icon"></i>
+            <div class="content">
+                <?php echo $s['chooseLang']; ?>
+                <div class="sub header"><?php echo $s['chooseLangDesc']; ?></div>
             </div>
-            <div class="field">
-                <div class="ui radio checkbox">
-                    <input type="radio" name="q" value="WindowsUpdateBox.exe" disabled>
-                    <label><?php echo $s['wubOnly']; ?></label>
-                </div>
-            </div>
+        </h3>
+
 <?php
-if($containsCU) {
+if(count($langs) > 0) {
     echo <<<EOD
-<div class="field">
-    <div class="ui radio checkbox">
-        <input type="radio" name="q" value="Windows10 KB" disabled>
-        <label>${s['updateOnly']}</label>
+<form class="ui form" action="./selectedition.php" method="get" id="langForm">
+    <input type="hidden" name="id" value="$updateId">
+    <div class="field">
+        <label>{$s['lang']}</label>
+        <select class="ui search dropdown" name="pack">
+EOD;
+
+    foreach($langs as $key => $val) {
+        if($key == $defaultLang) {
+            echo '<option value="'.$key.'" selected>'.$val."</option>\n";
+        } else {
+            echo '<option value="'.$key.'">'.$val."</option>\n";
+        }
+    }
+
+    echo <<<EOD
+        </select>
+    </div>
+
+    <button class="ui fluid right labeled icon blue button" id="submitForm" type="submit">
+        <i class="right arrow icon"></i>
+        {$s['next']}
+    </button>
+</form>
+
+<div class="ui info message">
+    <i class="info icon"></i>
+    {$s['selectLangInfoText1']}
+</div>
+
+EOD;
+} else {
+    echo <<<EOD
+<div class="ui center aligned one column padded relaxed grid">
+    <div class="row">
+        <div class="column">
+            <i class="huge info icon"></i>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <p>{$s['noLangsAvailable']}</p>
+        </div>
     </div>
 </div>
+
 EOD;
 }
 ?>
-        </div>
+    </div>
 
-        <button class="ui fluid right labeled icon blue button" id="submitForm" type="submit">
-            <i class="right arrow icon"></i>
-            <?php echo $s['next']; ?>
-        </button>
-    </form>
-</div>
-<div class="ui bottom attached info message" id="userMessage">
-    <i class="info icon"></i>
-    <?php echo $s['allLangsWarn']; ?>
+    <div class="column">
+        <h3 class="ui header">
+            <i class="open folder icon"></i>
+            <div class="content">
+                <?php echo $s['browseFiles']; ?>
+                <div class="sub header"><?php echo $s['browseFilesDesc']; ?></div>
+            </div>
+        </h3>
+
+        <form class="ui form" action="./findfiles.php" method="get">
+            <div class="field">
+                <label><?php echo $s['searchFiles']; ?></label>
+                <div class="ui action input">
+                    <input type="hidden" name="id" value="<?php echo htmlentities($updateId); ?>">
+                    <input type="text" name="q" placeholder="<?php echo $s['searchForFiles']; ?>">
+                    <button class="ui blue icon button" type="submit"><i class="search icon"></i></button>
+                </div>
+            </div>
+        </form>
+
+        <a class="ui fluid right labeled icon button"
+        href="<?php echo $findFilesUrl; ?>" style="margin-top:1rem;">
+            <i class="open folder icon"></i>
+            <?php echo $s['allFiles']; ?>
+        </a>
+
+        <div class="ui positive message">
+            <i class="paper plane icon"></i>
+<?php
+printf(
+    $s['toSearchForCUUseQuery'],
+    "<a href=\"$findFilesUrl&q=Windows10 KB\">Windows10 KB</a>"
+);
+?>
+        </div>
+    </div>
 </div>
 
 <div class="ui fluid tiny three steps">
@@ -186,46 +225,6 @@ EOD;
 <script>
     $('select.dropdown').dropdown();
     $('.ui.radio.checkbox').checkbox();
-
-    function checkLanguage() {
-        var form = document.getElementById('langForm');
-        var btn = document.getElementById('submitForm');
-        var msg = document.getElementById('userMessage');
-        var file = document.getElementById('filesSelection');
-
-        if(form.pack.value == 0) {
-            form.action = './findfiles.php';
-            msg.className = "ui bottom attached info message";
-            msg.innerHTML = '<i class="info icon"></i>' +
-                            '<?php echo $s['clickNextToOpenFindFiles']; ?>';
-
-            file.style.display = "block";
-            radioCount = form.q.length;
-            for(i = 0; i < radioCount; i++) {
-                form.q[i].disabled = false;
-            }
-        } else {
-            form.action = './selectedition.php';
-            msg.className = "ui bottom attached icon info message";
-            msg.innerHTML = '<i class="paper plane icon"></i>' +
-                            '<div class="content">' +
-                            '<p class="header">' +
-                            "<?php echo $s['information']; ?>" +
-                            '</p>' +
-                            "<?php echo $s['selectLangInfoText1']; ?>" +
-                            '<br/>' +
-                            "<?php echo $s['selectLangInfoText2']; ?>" +
-                            '</div>';
-
-            file.style.display = "none";
-            radioCount = form.q.length;
-            for(i = 0; i < radioCount; i++) {
-                form.q[i].disabled = true;
-            }
-        }
-    }
-
-    checkLanguage();
 </script>
 
 <?php

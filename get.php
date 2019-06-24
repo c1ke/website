@@ -107,9 +107,12 @@ if($autoDl && !$aria2) {
 $files = uupGetFiles($updateId, $usePack, $desiredEdition, 1);
 if(isset($files['error'])) {
     if($files['error'] == 'EMPTY_FILELIST') {
+        $oldError = $files['error'];
         $files = uupGetFiles($updateId, $usePack, $desiredEdition, 2);
         if(isset($files['error'])) {
             $files['error'] = 'NOT_FOUND';
+        } else {
+            $files['error'] = $oldError;
         }
     }
 

@@ -304,7 +304,7 @@ function fancyError($errorCode = 'ERROR', $pageType = 'home', $moreText = 0) {
         header('Retry-After: 10');
     }
 
-    styleUpper($pageType, 'Error');
+    styleUpper($pageType, $s['error']);
 
     echo <<<ERROR
 <div class="ui horizontal divider">

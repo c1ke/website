@@ -36,6 +36,8 @@ $s['file'] = '[2d66] Ƒīŀḗ';
 $s['expires'] = '[6f4c] Ḗẋƥīřḗş';
 $s['sha1'] = '[db52] ŞĦȦ-1';
 $s['size'] = '[c4e2] Şīzḗ';
+$s['additionalEdition'] = '[4d46] Ȧḓḓīŧīǿƞȧŀ ḗḓīŧīǿƞ';
+$s['requiredEdition'] = '[274b] Řḗɋŭīřḗḓ ḗḓīŧīǿƞ';
 
 //global
 $s['home'] = '[c667] Ħǿḿḗ';
@@ -96,6 +98,10 @@ $s['selectLangInfoText1'] = '[0eb9] Ƈŀīƈķ ŧħḗ <i>Ƞḗẋŧ</i> ƀŭŧ�
 $s['selectLangInfoText2'] = '[7b0a] ẆīƞḓǿẇşŬƥḓȧŧḗƁǿẋ.ḗẋḗ ȧƞḓ Ƈŭḿŭŀȧŧīṽḗ ŭƥḓȧŧḗş ƈȧƞ ƀḗ ƒǿŭƞḓ īƞ ŧħḗ <i>Ȧŀŀ ŀȧƞɠŭȧɠḗş</i> ŀȧƞɠŭȧɠḗ.';
 $s['allLangsWarn'] = '[ba3e] Ŧħḗ <i>Ȧŀŀ ŀȧƞɠŭȧɠḗş</i> ǿƥŧīǿƞ ḓǿḗş ƞǿŧ şŭƥƥǿřŧ ḗḓīŧīǿƞ şḗŀḗƈŧīǿƞ.';
 $s['clickNextToOpenFindFiles'] = '[c58a] Ƈŀīƈķ ŧħḗ <i>Ƞḗẋŧ</i> ƀŭŧŧǿƞ ŧǿ ǿƥḗƞ ŧħḗ ƥȧɠḗ, ẇħīƈħ ȧŀŀǿẇş ƒīƞḓīƞɠ ƒīŀḗş.';
+$s['browseFiles'] = '[ff06] Ɓřǿẇşḗ ƒīŀḗş';
+$s['browseFilesDesc'] = '[2f28] Ɋŭīƈķŀẏ ƀřǿẇşḗ ƒīŀḗş īƞ şḗŀḗƈŧḗḓ ƀŭīŀḓ';
+$s['searchFiles'] = '[2d22] Şḗȧřƈħ ƒīŀḗş';
+$s['toSearchForCUUseQuery'] = '[16ee] Ŧǿ şḗȧřƈħ ƒǿř Ƈŭḿŭŀȧŧīṽḗ Ŭƥḓȧŧḗş ŭşḗ ŧħḗ <i>%s</i> şḗȧřƈħ ɋŭḗřẏ.'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.
 
 //selectedition.php
 $s['selectEditionFor'] = '[fcb7] Şḗŀḗƈŧ ḗḓīŧīǿƞ ƒǿř %s'; //Select edition for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
@@ -103,6 +109,7 @@ $s['chooseEdition'] = '[cae4] Ƈħǿǿşḗ ḗḓīŧīǿƞ';
 $s['chooseEditionDesc'] = '[dafa] Ƈħǿǿşḗ ẏǿŭř ḓḗşīřḗḓ ḗḓīŧīǿƞ';
 $s['allEditions'] = '[ad07] Ȧŀŀ ḗḓīŧīǿƞş';
 $s['selectEditionInfoText'] = '[7593] Ƈŀīƈķ ŧħḗ <i>Ƞḗẋŧ</i> ƀŭŧŧǿƞ ŧǿ ǿƥḗƞ ŧħḗ şŭḿḿȧřẏ ƥȧɠḗ ǿƒ ẏǿŭř şḗŀḗƈŧīǿƞ.';
+$s['additionalEditionsInfo'] = '[910c] Īƒ ẏǿŭ ẇȧƞŧ ƞḗḗḓ ȧƞ ȧḓḓīŧīǿƞȧŀ ḗḓīŧīǿƞ ẇħīƈħ ƈȧƞ ƀḗ ƒǿŭƞḓ īƞ ŧħḗ ŧȧƀŀḗ ǿƞ ŧħḗ řīɠħŧ, ƥŀḗȧşḗ şḗŀḗƈŧ ŧħḗ īƞḓīƈȧŧḗḓ řḗɋŭīřḗḓ ḗḓīŧīǿƞ ȧƞḓ ƈŀīƈķ <i>Ƞḗẋŧ</i>. Ǿƞ ŧħḗ şŭḿḿȧřẏ ƥȧɠḗ ẏǿŭ ẇīŀŀ ƀḗ ȧƀŀḗ ŧǿ şḗŀḗƈŧ ẏǿŭř ḓḗşīřḗḓ ȧḓḓīŧīǿƞȧŀ ḗḓīŧīǿƞş ŭƞḓḗř ŧħḗ ȧƥƥřǿƥīȧŧḗ ḓǿẇƞŀǿȧḓ ǿƥŧīǿƞ.';
 
 //download.php
 $s['summary'] = '[56f7] Şŭḿḿȧřẏ';

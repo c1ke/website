@@ -36,21 +36,20 @@ if(!checkUpdateIdValidity($updateId)) {
 $updateInfo = uupUpdateInfo($updateId);
 $updateInfo = isset($updateInfo['info']) ? $updateInfo['info'] : array();
 
-$updateTitle = uupParseUpdateInfo($updateInfo, 'title');
-if(isset($updateTitle['error'])) {
+if(!isset($updateInfo['title'])) {
     $updateTitle = 'Unknown update: '.$updateId;
 } else {
-    $updateTitle = $updateTitle['info'];
+    $updateTitle = $updateInfo['title'];
 }
 
-$updateArch = uupParseUpdateInfo($updateInfo, 'arch');
-if(isset($updateArch['error'])) {
+if(!isset($updateInfo['arch'])) {
     $updateArch = '';
 } else {
-    $updateArch = $updateArch['info'];
+    $updateArch = $updateInfo['arch'];
 }
 
 $updateTitle = $updateTitle.' '.$updateArch;
+$build = floor($updateInfo['build']);
 
 if($selectedLang) {
     if(isset($s['lang_'.strtolower($selectedLang)])) {
@@ -78,7 +77,7 @@ styleUpper('downloads', sprintf($s['selectEditionFor'], "$updateTitle, $selected
 ?>
 
 <div class="ui horizontal divider">
-    <h3><i class="archive icon"></i><?php echo $s['chooseEdition']; ?></h3>
+    <h3><i class="cubes icon"></i><?php echo $updateTitle; ?></h3>
 </div>
 
 <?php
@@ -91,40 +90,116 @@ if($updateArch == 'arm64') {
 }
 ?>
 
-<div class="ui top attached segment">
+<div class="ui two columns mobile stackable centered grid">
+    <div class="column">
+        <h3 class="ui header">
+            <i class="archive icon"></i>
+            <div class="content">
+                <?php echo $s['chooseEdition']; ?>
+                <div class="sub header"><?php echo $s['chooseEditionDesc']; ?></div>
+            </div>
+        </h3>
     <form class="ui form" action="./download.php" method="get">
-        <div class="field">
-            <label><?php echo $s['update']; ?></label>
-            <input type="text" disabled value="<?php echo $updateTitle; ?>">
-            <input type="hidden" name="id" value="<?php echo $updateId; ?>">
-        </div>
-
-        <div class="field">
-            <label><?php echo $s['lang']; ?></label>
-            <input type="text" disabled value="<?php echo $selectedLangName; ?>">
-            <input type="hidden" name="pack" value="<?php echo $selectedLang; ?>">
-        </div>
+        <input type="hidden" name="id" value="<?php echo $updateId; ?>">
+        <input type="hidden" name="pack" value="<?php echo $selectedLang; ?>">
 
         <div class="field">
             <label><?php echo $s['edition']; ?></label>
-            <select class="ui search dropdown" name="edition">
-                <option value="0"><?php echo $s['allEditions']; ?></option>
+            <div class="grouped fields">
+<div class="field">
+    <div class="ui radio checkbox">
+        <input type="radio" name="edition" value="0" checked>
+        <label><?php echo $s['allEditions']; ?></label>
+    </div>
+</div>
+
 <?php
 foreach($editions as $key => $val) {
-    echo '<option value="'.$key.'">'.$val."</option>\n";
+    echo <<<EOD
+<div class="field">
+    <div class="ui radio checkbox">
+        <input type="radio" name="edition" value="$key">
+        <label>$val</label>
+    </div>
+</div>
+
+EOD;
 }
 ?>
-            </select>
+            </div>
         </div>
+
+        <p><?php echo $s['additionalEditionsInfo']; ?></p>
+
         <button class="ui fluid right labeled icon primary button" type="submit">
             <i class="right arrow icon"></i>
             <?php echo $s['next']; ?>
         </button>
+        <div class="ui info message">
+            <i class="info icon"></i>
+            <?php echo $s['selectEditionInfoText']; ?>
+        </div>
     </form>
 </div>
-<div class="ui bottom attached info message">
-    <i class="info icon"></i>
-    <?php echo $s['selectEditionInfoText']; ?>
+
+    <div class="column">
+        <table class="ui very compact celled table">
+            <thead>
+                <th><?php echo $s['additionalEdition']; ?></th>
+                <th><?php echo $s['requiredEdition']; ?></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Windows 10 Home Single Language</td>
+                    <td>Windows 10 Home</td>
+                </tr>
+                <tr>
+                    <td>Windows 10 Pro for Workstations</td>
+                    <td>Windows 10 Pro</td>
+                </tr>
+                <tr>
+                    <td>Windows 10 Pro for Workstations</td>
+                    <td>Windows 10 Pro</td>
+                </tr>
+                <tr>
+                    <td>Windows 10 Pro Education</td>
+                    <td>Windows 10 Pro</td>
+                </tr>
+                <tr>
+                    <td>Windows 10 Education</td>
+                    <td>Windows 10 Pro</td>
+                </tr>
+                <tr>
+                    <td>Windows 10 Enterprise</td>
+                    <td>Windows 10 Pro</td>
+                </tr>
+                <tr>
+                    <td>Windows 10 Enterprise for Virtual Desktops</td>
+                    <td>Windows 10 Pro</td>
+                </tr>
+                <tr>
+                    <td>Windows 10 IoT Enterprise</td>
+                    <td>Windows 10 Pro</td>
+                </tr>
+                <tr>
+                    <td>Windows 10 Pro for Workstations N</td>
+                    <td>Windows 10 Pro N</td>
+                </tr>
+                <tr>
+                    <td>Windows 10 Pro Education N</td>
+                    <td>Windows 10 Pro N</td>
+                </tr>
+                <tr>
+                    <td>Windows 10 Education N</td>
+                    <td>Windows 10 Pro N</td>
+                </tr>
+                <tr>
+                    <td>Windows 10 Enterprise N</td>
+                    <td>Windows 10 Pro N</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <div class="ui fluid tiny three steps">
@@ -153,7 +228,7 @@ foreach($editions as $key => $val) {
       </div>
 </div>
 
-<script>$('select.dropdown').dropdown();</script>
+<script>$('.ui.checkbox').checkbox();</script>
 
 <?php
 styleLower();
