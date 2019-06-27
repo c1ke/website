@@ -99,19 +99,27 @@ if($updateArch == 'arm64') {
                 <div class="sub header"><?php echo $s['chooseEditionDesc']; ?></div>
             </div>
         </h3>
-    <form class="ui form" action="./download.php" method="get">
-        <input type="hidden" name="id" value="<?php echo $updateId; ?>">
-        <input type="hidden" name="pack" value="<?php echo $selectedLang; ?>">
+        <form class="ui form" action="./download.php" method="get">
+            <input type="hidden" name="id" value="<?php echo $updateId; ?>">
+            <input type="hidden" name="pack" value="<?php echo $selectedLang; ?>">
 
-        <div class="field">
-            <label><?php echo $s['edition']; ?></label>
-            <div class="grouped fields">
-<div class="field">
-    <div class="ui radio checkbox">
-        <input type="radio" name="edition" value="0" checked>
-        <label><?php echo $s['allEditions']; ?></label>
-    </div>
-</div>
+            <div class="field">
+                <label><?php echo $s['lang']; ?></label>
+                <p>
+                    <i class="green checkmark icon"></i>
+                    <?php echo $selectedLangName; ?>
+                </p>
+            </div>
+
+            <div class="field">
+                <label><?php echo $s['edition']; ?></label>
+                <div class="grouped fields">
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="edition" value="0" checked>
+                            <label><?php echo $s['allEditions']; ?></label>
+                        </div>
+                    </div>
 
 <?php
 foreach($editions as $key => $val) {
@@ -126,21 +134,21 @@ foreach($editions as $key => $val) {
 EOD;
 }
 ?>
+                </div>
             </div>
-        </div>
 
-        <p><?php echo $s['additionalEditionsInfo']; ?></p>
+            <p><?php echo $s['additionalEditionsInfo']; ?></p>
 
-        <button class="ui fluid right labeled icon primary button" type="submit">
-            <i class="right arrow icon"></i>
-            <?php echo $s['next']; ?>
-        </button>
-        <div class="ui info message">
-            <i class="info icon"></i>
-            <?php echo $s['selectEditionInfoText']; ?>
-        </div>
-    </form>
-</div>
+            <button class="ui fluid right labeled icon primary button" type="submit">
+                <i class="right arrow icon"></i>
+                <?php echo $s['next']; ?>
+            </button>
+            <div class="ui info message">
+                <i class="info icon"></i>
+                <?php echo $s['selectEditionInfoText']; ?>
+            </div>
+        </form>
+    </div>
 
     <div class="column">
         <table class="ui very compact celled table">

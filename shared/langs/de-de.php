@@ -36,6 +36,8 @@ $s['file'] = 'Datei';
 $s['expires'] = 'Verfällt';
 $s['sha1'] = 'SHA-1';
 $s['size'] = 'Größe';
+$s['additionalEdition'] = 'Zusätzliche Edition';											   
+$s['requiredEdition'] = 'Erforderliche Edition';										   
 
 //global
 $s['home'] = 'Startseite';
@@ -93,9 +95,14 @@ $s['allFiles'] = 'Alle Dateien';
 $s['wubOnly'] = 'Nur WindowsUpdateBox';
 $s['updateOnly'] = 'Nur Update';
 $s['selectLangInfoText1'] = 'Klicken Sie auf die Schaltfläche <i>Weiter</i>, um die Edition auszuwählen, die Sie herunterladen möchten.';
-$s['selectLangInfoText2'] = 'WindowsUpdateBox.exe und Kumulatives Update finden Sie unter <i>Alle Sprachen</i> Sprache.';
+$s['selectLangInfoText2'] = 'WindowsUpdateBox.exe und Kumulatives Update finden Sie unter Sprache <i>Alle Sprachen</i>.';
 $s['allLangsWarn'] = 'Die Option <i>Alle Sprachen</i> unterstützt keine Editionsauswahl.';
 $s['clickNextToOpenFindFiles'] = 'Klicken Sie auf die Schaltfläche <i>Weiter</i>, um die Seite zu öffnen, die das Finden der Dateien ermöglicht.';
+$s['noLangsAvailable'] = 'Für dieses Build sind keine Sprachen verfügbar.';
+$s['browseFiles'] = 'Dateien durchsuchen';
+$s['browseFilesDesc'] = 'Schnelles Durchsuchen von Dateien im ausgewählten Build';
+$s['searchFiles'] = 'Dateien suchen';
+$s['toSearchForCUUseQuery'] = 'Um nach kumulativen Updates zu suchen, verwenden Sie die Suchanfrage <i>%s</i>.'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.																			
 
 //selectedition.php
 $s['selectEditionFor'] = 'Edition auswählen für %s'; //Select edition for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
@@ -103,6 +110,7 @@ $s['chooseEdition'] = 'Edition auswählen';
 $s['chooseEditionDesc'] = 'Wählen Sie die gewünschte Edition aus';
 $s['allEditions'] = 'Alle Editionen';
 $s['selectEditionInfoText'] = 'Klicken Sie auf die Schaltfläche <i>Weiter</i>, um die Zusammenfassungsseite Ihrer Auswahl zu öffnen.';
+$s['additionalEditionsInfo'] = 'Wenn Sie eine zusätzliche Edition benötigen, die Sie in der rechten Tabelle finden, wählen Sie bitte die gewünschte Edition aus und klicken Sie auf <i>Weiter</i>. Auf der Übersichtsseite können Sie unter der entsprechenden Download-Option Ihre gewünschten Zusatzeditionen auswählen.';																																																																												
 
 //download.php
 $s['summary'] = 'Zusammenfassung';

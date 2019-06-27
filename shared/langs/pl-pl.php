@@ -102,7 +102,7 @@ $s['noLangsAvailable'] = 'Dla tej kompilacji nie ma dostępnych żadnych język�
 $s['browseFiles'] = 'Przeglądaj pliki';
 $s['browseFilesDesc'] = 'Szybko przejżyj pliki w wybranej kompilacji';
 $s['searchFiles'] = 'Przeszukaj pliki';
-$s['toSearchForCUUseQuery'] = 'Aby wyszukać aktualizacje kulminacyjne użyj frazy <i>%s</i>.'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.
+$s['toSearchForCUUseQuery'] = 'W celu wyszukania aktualizacji kumulacyjnych użyj frazy <i>%s</i>.'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.
 
 //selectedition.php
 $s['selectEditionFor'] = 'Wybierz edycję dla %s'; //Select edition for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
