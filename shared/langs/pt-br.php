@@ -1,6 +1,7 @@
 <?php
 /*
 UUP dump translation file.
+
 Translation information:
 English language name: Portuguese (Brazil)
 Localized language name: Português (Brasil)

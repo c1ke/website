@@ -110,7 +110,7 @@ $s['chooseEdition'] = 'Choose edition';
 $s['chooseEditionDesc'] = 'Choose your desired edition';
 $s['allEditions'] = 'All editions';
 $s['selectEditionInfoText'] = 'Click the <i>Next</i> button to open the summary page of your selection.';
-$s['additionalEditionsInfo'] = 'If you want need an additional edition which can be found in the table on the right, please select the indicated required edition and click <i>Next</i>. On the summary page you will be able to select your desired additional editions under the appropiate download option.';
+$s['additionalEditionsInfo'] = 'If you need an additional edition which can be found in the table on the right, please select the indicated required edition and click <i>Next</i>. On the summary page you will be able to select your desired additional editions under the appropiate download option.';
 
 //download.php
 $s['summary'] = 'Summary';
