@@ -38,6 +38,7 @@ $s['sha1'] = '[db52] ŞĦȦ-1';
 $s['size'] = '[c4e2] Şīzḗ';
 $s['additionalEdition'] = '[4d46] Ȧḓḓīŧīǿƞȧŀ ḗḓīŧīǿƞ';
 $s['requiredEdition'] = '[274b] Řḗɋŭīřḗḓ ḗḓīŧīǿƞ';
+$s['unknown'] = '[70dd] Ŭƞķƞǿẇƞ';
 
 //global
 $s['home'] = '[c667] Ħǿḿḗ';

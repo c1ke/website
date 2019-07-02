@@ -38,6 +38,7 @@ $s['sha1'] = 'SHA-1';
 $s['size'] = 'Rozmiar';
 $s['additionalEdition'] = 'Dodatkowa edycja';
 $s['requiredEdition'] = 'Wymagana edycja';
+$s['unknown'] = 'Brak danych';
 
 //global
 $s['home'] = 'Strona główna';

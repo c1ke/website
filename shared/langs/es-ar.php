@@ -6,10 +6,10 @@ Translation information:
 English language name: Spanish (Latinamerican)
 Localized language name: Español (Argentina)
 Language code: es-AR
-Author: Makinenn
+Authors: Makinenn
 */
 
-//Información del idioma
+//Language information
 $s['code'] = 'es-AR';
 $s['timeZone'] = 'UTC'; //Zonas horarias soportadas: https://www.php.net/manual/en/timezones.php
 
@@ -36,6 +36,8 @@ $s['file'] = 'Archivo';
 $s['expires'] = 'Caduca';
 $s['sha1'] = 'SHA-1';
 $s['size'] = 'Tamaño';
+$s['additionalEdition'] = 'Edición adicionl';
+$s['requiredEdition'] = 'Edición requerida';
 
 //global
 $s['home'] = 'Inicio';
@@ -95,7 +97,11 @@ $s['updateOnly'] = 'Solo actualización';
 $s['selectLangInfoText1'] = 'Cliquea el botón <i>Siguiente</i> para seleccionar la edición que quieres descargar.';
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe y las actualizaciones acumulativas pueden encontrarse en el idioma <i>Todos los idiomas</i>.';
 $s['allLangsWarn'] = 'La opción <i>Todos los idiomas</i> no soporta la selección de la edición.';
-$s['clickNextToOpenFindFiles'] = 'Cliquea el botón <i>Siguiente</i> para abrir la página que te permitirá buscar los archivos.';
+$s['clickNextToOpenFindFiles'] = 'Cliquea <i>Siguiente</i> para abrir la página que te permitirá buscar los archivos.';
+$s['browseFiles'] = 'Examinar archivos';
+$s['browseFilesDesc'] = 'Examina rápidamente los archivos en la compilación seleccionada';
+$s['searchFiles'] = 'Buscar archivos';
+$s['toSearchForCUUseQuery'] = 'Para buscar actualizaciones acumulativas, usa la consulta de búsqueda <i>%s</i>.'; //Para buscar actualizaciones acumulativas, usa la consulta de búsqueda <i>Windows10 KB</i>.
 
 //selectedition.php
 $s['selectEditionFor'] = 'Selecciona la edición para %s'; //Selecciona la edición para Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, Inglés (Estados Unidos)
@@ -103,6 +109,7 @@ $s['chooseEdition'] = 'Escoger la edición';
 $s['chooseEditionDesc'] = 'Escoge qué edición quieres';
 $s['allEditions'] = 'Todas las ediciones';
 $s['selectEditionInfoText'] = 'Cliquea el botón <i>Siguiente</i> para abrir la página de resumen de tu selección.';
+$s['additionalEditionsInfo'] = 'Si necesitas una edición adicional que pueda encontrarse en la tabla de la derecha, por favor, selecciona la edición requerida indicada y haz clic en <i>Siguiente</i>. En la página de resumen, podrás seleccionar las ediciones adicionales que quieras en la opción de descarga adecuada.';
 
 //download.php
 $s['summary'] = 'Resumen';

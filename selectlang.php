@@ -46,6 +46,31 @@ if(!isset($updateInfo['arch'])) {
     $updateArch = $updateInfo['arch'];
 }
 
+if(!isset($updateInfo['build'])) {
+    $build = $s[$s['unknown']];
+} else {
+    $build = $updateInfo['build'];
+}
+
+if(!isset($updateInfo['ring'])) {
+    $ring = $s['unknown'];
+} else {
+    $ring = $updateInfo['ring'];
+    if($ring == 'RETAIL') $ring = 'Retail';
+}
+
+if(!isset($updateInfo['flight'])) {
+    $flight = $s['unknown'];
+} else {
+    $flight = $updateInfo['flight'];
+}
+
+if(!isset($updateInfo['created'])) {
+    $created = null;
+} else {
+    $created = $updateInfo['created'];
+}
+
 $updateTitle = $updateTitle.' '.$updateArch;
 
 $langs = uupListLangs($updateId);
@@ -220,6 +245,48 @@ printf(
                 <div class="description"><?php echo $s['summaryDesc']; ?></div>
             </div>
       </div>
+</div>
+
+<h4 class="ui horizontal divider">
+    <?php echo $s['information']; ?>
+</h4>
+
+<div class="ui three columns mobile stackable centered grid" style="margin-top: 1em;">
+    <div class="column">
+        <h4 class="ui center aligned tiny icon header">
+            <i class="archive icon"></i>
+            <div class="content">
+                <?php echo $s['build']; ?>
+                <div class="sub header"><?php echo $build; ?></div>
+            </div>
+        </h4>
+    </div>
+    <div class="column">
+        <h4 class="ui center aligned tiny icon header">
+            <i class="cogs icon"></i>
+            <div class="content">
+                <?php echo $s['ring']; ?>
+                <div class="sub header"><?php echo "$ring, $flight"; ?></div>
+            </div>
+        </h4>
+    </div>
+    <div class="column">
+        <h4 class="ui center aligned tiny icon header">
+            <i class="calendar icon"></i>
+            <div class="content">
+                <?php echo $s['dateAdded']; ?>
+                <div class="sub header">
+<?php
+if($created == null) {
+    echo $s['unknown'];
+} else {
+    echo date("Y-m-d H:i:s T", $created);
+}
+?>
+                </div>
+            </div>
+        </h4>
+    </div>
 </div>
 
 <script>
