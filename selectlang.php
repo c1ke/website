@@ -53,14 +53,13 @@ if(!isset($updateInfo['build'])) {
 }
 
 if(!isset($updateInfo['ring'])) {
-    $ring = $s['unknown'];
+    $ring = null;
 } else {
     $ring = $updateInfo['ring'];
-    if($ring == 'RETAIL') $ring = 'Retail';
 }
 
 if(!isset($updateInfo['flight'])) {
-    $flight = $s['unknown'];
+    $flight = null;
 } else {
     $flight = $updateInfo['flight'];
 }
@@ -98,6 +97,27 @@ if(in_array(strtolower($s['code']), array_keys($langs))) {
     $defaultLang = strtolower($s['code']);
 } else {
     $defaultLang = 'en-us';
+}
+
+//Set fancy name for ring and flight of build
+if($ring == 'WIF' && $flight == 'Skip') {
+    $fancyRingName = 'Skip Ahead';
+} elseif($ring == 'WIF' && $flight == 'Active') {
+    $fancyRingName = 'Insider Fast';
+} elseif($ring == 'WIS' && $flight == 'Active') {
+    $fancyRingName = 'Insider Slow';
+} elseif($ring == 'RP' && $flight == 'Current') {
+    $fancyRingName = 'Release Preview';
+} elseif($ring == 'RETAIL') {
+    $fancyRingName = 'Retail';
+} else {
+    if($ring && $flight) {
+        $fancyRingName = "$ring, $flight";
+    } elseif($ring) {
+        $fancyRingName = "$ring";
+    } else {
+        $fancyRingName = $s['unknown'];
+    }
 }
 
 $findFilesUrl = "./findfiles.php?id=".htmlentities($updateId);
@@ -266,7 +286,7 @@ printf(
             <i class="cogs icon"></i>
             <div class="content">
                 <?php echo $s['ring']; ?>
-                <div class="sub header"><?php echo "$ring, $flight"; ?></div>
+                <div class="sub header"><?php echo $fancyRingName; ?></div>
             </div>
         </h4>
     </div>
