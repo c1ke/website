@@ -6,7 +6,9 @@ Translation information:
 English language name: Italian (Italy)
 Localized language name: Italiano (Italia)
 Language code: it-IT
-Authors: garf02 (https://forums.mydigitallife.net/members/garf02.6748/)
+Authors:
+- Schroedinger2015 (https://forums.mydigitallife.net/members/schroedinger2015.551980/)
+- garf02 (https://forums.mydigitallife.net/members/garf02.6748/)
 */
 
 //Language information
@@ -36,10 +38,13 @@ $s['file'] = 'File';
 $s['expires'] = 'Scadenza';
 $s['sha1'] = 'SHA-1';
 $s['size'] = 'Dimensione';
+$s['additionalEdition'] = 'Edizione aggiuntiva';
+$s['requiredEdition'] = 'Edizione richiesta';
+$s['unknown'] = 'Sconosciuta';
 
 //global
 $s['home'] = 'Home';
-$s['downloads'] = 'Download';
+$s['downloads'] = 'Downloads';
 $s['lightMode'] = 'Modalità chiara';
 $s['darkMode'] = 'Modalità scura';
 $s['sourceCode'] = 'Codice sorgente';
@@ -96,6 +101,11 @@ $s['selectLangInfoText1'] = 'Clicca sul pulsante <i>Avanti</i> per selezionare l
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe e gli aggiornamenti Cumulativi sono disponibili in <i>Tutte le lingue</i>.';
 $s['allLangsWarn'] = 'L\'opzione <i>Tutte le lingue</i> non è supportata dall\'edizione selezionata.';
 $s['clickNextToOpenFindFiles'] = 'Clicca sul pulsante <i>Avanti</i> per aprire la pagina che consente di trovare i file.';
+$s['noLangsAvailable'] = 'Non ci sono lingue disponibili per questa build.';
+$s['browseFiles'] = 'Sfoglia files';
+$s['browseFilesDesc'] = 'Sfoglia velocemente i files nella build selezionata';
+$s['searchFiles'] = 'Ricerca files';
+$s['toSearchForCUUseQuery'] = 'Per cercare gli Aggiornamenti Cumulativi utilizza la <i>%s</i> domanda di ricerca.'; //Per cercare gli Aggiornamenti Cumulativi utilizza la domanda di ricerca <i>Windows10 KB</i>.
 
 //selectedition.php
 $s['selectEditionFor'] = 'Seleziona l\'edizione per %s'; //Seleziona l’edizione per Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, Italiano (Italia)
@@ -103,6 +113,7 @@ $s['chooseEdition'] = 'Seleziona l\'edizione';
 $s['chooseEditionDesc'] = 'Scegli l\'edizione desiderata';
 $s['allEditions'] = 'Tutte le edizioni';
 $s['selectEditionInfoText'] = 'Clicca sul pulsante <i>Avanti</i> per aprire la pagina di riepilogo della selezione.';
+$s['additionalEditionsInfo'] = 'Se hai bisogno di una edizione aggiuntiva che puo\' essere trovata nella tabella di destra, seleziona cortesemente l\'edizione richiesta indicata e clicca su <i>Avanti</i>. Nella pagina di riepilogo sarai in grado di selezionare le edizioni aggiuntive desiderate sotto l\'opzione appropriata di download.';
 
 //download.php
 $s['summary'] = 'Sommario';
