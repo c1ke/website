@@ -36,6 +36,9 @@ $s['file'] = 'Bestand';
 $s['expires'] = 'Vervalt';
 $s['sha1'] = 'SHA-1';
 $s['size'] = 'Grootte';
+$s['additionalEdition'] = 'Aanvullende editie';
+$s['requiredEdition'] = 'Benodigde editie';
+$s['unknown'] = 'Onbekend';
 
 //global
 $s['home'] = 'Startpagina';
@@ -96,6 +99,11 @@ $s['selectLangInfoText1'] = 'Klik de <i>Volgende</i> knop om de gewenste editie 
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe en Cumulative updates kunnen worden gevonden in <i>Alle talen</i> taal.';
 $s['allLangsWarn'] = 'De <i>Alle talen</i> optie ondersteund geen editie selectie.';
 $s['clickNextToOpenFindFiles'] = 'Klik de <i>Volgende</i> knop om de pagina te openen voor het vinden van de bestanden.';
+$s['noLangsAvailable'] = 'Er zijn geen talen beschikbaar voor deze build.';
+$s['browseFiles'] = 'Bestanden doorbladeren';
+$s['browseFilesDesc'] = 'Blader snel door bestanden in de geselecteerde build';
+$s['searchFiles'] = 'Zoek bestanden';
+$s['toSearchForCUUseQuery'] = 'Gebruik de zoekoptie <i>%s</ i> om cumulatieve updates te zoeken. '; // Gebruik de <i> Windows10 KB </ i> zoekopdracht om te zoeken naar cumulatieve updates.
 
 //selectedition.php
 $s['selectEditionFor'] = 'Selecteer de editie voor %s'; //Selecteer de editie voor Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
@@ -103,6 +111,7 @@ $s['chooseEdition'] = 'Editie Selectie';
 $s['chooseEditionDesc'] = 'Selecteer de gewenste editie';
 $s['allEditions'] = 'Alle edities';
 $s['selectEditionInfoText'] = 'Klik de <i>Volgende</i> knop om de pagina met het selectie overzicht te openen.';
+$s['additionalEditionsInfo'] = 'Als u een extra editie nodig hebt kunt U die vinden in de tabel aan de rechterkant, selecteert u de aangegeven vereiste editie en klikt u op <i> Volgende </ i>. Op de overzichtspagina kunt u de gewenste extra edities selecteren onder de juiste downloadoptie.';
 
 //download.php
 $s['summary'] = 'Overzicht';
