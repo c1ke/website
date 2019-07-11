@@ -36,6 +36,9 @@ $s['file'] = 'File';
 $s['expires'] = 'Expira';
 $s['sha1'] = 'SHA-1';
 $s['size'] = 'Tamanho';
+$s['additionalEdition'] = 'Edição Adicional';
+$s['requiredEdition'] = 'Edição Exigida';
+$s['unknown'] = 'Desconhecida';
 
 //global
 $s['home'] = 'Página Principal';
@@ -57,7 +60,7 @@ $s['browseBuildsSub'] = 'Escolha uma compilação que já seja conhecida no banc
 $s['fetchLatest'] = 'Buscar a compilação mais recente';
 $s['fetchLatestSub'] = 'Recupere a informação da compilação mais recente dos servidores do Windows Update.';
 $s['newlyAdded'] = 'Novas compilações adicionadas';
-$s['dateAdded'] = 'Adicionado em';
+$s['dateAdded'] = 'Adicionada em';
 
 //known.php
 $s['browseKnown'] = 'Pesquisar compilações conhecidas';
@@ -96,6 +99,11 @@ $s['selectLangInfoText1'] = 'Clique no botão <i>Avançar</i> para selecionar a 
 $s['selectLangInfoText2'] = 'O WindowsUpdateBox.exe e a Atualização Cumulativa podem ser encontrados no idioma <i>Todos os idiomas</i>.';
 $s['allLangsWarn'] = 'A opção <i>Todos os idiomas</i> não suporta a seleção de edição.';
 $s['clickNextToOpenFindFiles'] = 'Clique no botão <i>Avançar</i> para abrir a página que permite localizar ficheiros.';
+$s['noLangsAvailable'] = 'Não há idiomas disponíveis para esta compilação.';
+$s['browseFiles'] = 'Procurar ficheiros';
+$s['browseFilesDesc'] = 'Navegue rapidamente pelos ficheiros na versão selecionada';
+$s['searchFiles'] = 'Procurar ficheiros';
+$s['toSearchForCUUseQuery'] = 'Para procurar por Atualizações Cumulativas, use a consulta de pesquisa <i>%s</i>.';//Para procurar por Atualizações Cumulativas, use a consulta de pesquisa <i>Windows10 KB</i>.
 
 //selectedition.php
 $s['selectEditionFor'] = 'Selecione a edição para %s'; //Select edition for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
@@ -103,6 +111,7 @@ $s['chooseEdition'] = 'Selecione a edição';
 $s['chooseEditionDesc'] = 'Escolha a sua edição desejada';
 $s['allEditions'] = 'Todas as edições';
 $s['selectEditionInfoText'] = 'Clique no botão <i>Avançar</i> para abrir a página de resumo da sua seleção.';
+$s['additionalEditionsInfo'] = 'Se precisar de uma edição adicional, que pode ser encontrada na tabela à direita, selecione a edição necessária e clique em <i>Avançar</i>. Na página de resumo, poderá selecionar as edições adicionais desejadas sob a opção de download apropriada. ';
 
 //download.php
 $s['summary'] = 'Resumo';
