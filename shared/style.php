@@ -47,6 +47,7 @@ function styleUpper($pageType = 'home', $subtitle = '') {
     $baseUrl = getBaseUrl();
     $url = getUrlWithoutParam('dark');
 
+
     if($enableDarkMode) {
         $darkMode = '<link rel="stylesheet" href="shared/darkmode.css">'."\n";
         $darkSwitch = '<a class="item" href="'.$url.'dark=0"><i class="eye slash icon"></i>'.$s['lightMode'].'</a>';
@@ -71,9 +72,10 @@ function styleUpper($pageType = 'home', $subtitle = '') {
 
     $langSelect = '<a class="item" onClick="openLanguageSelector();"><i class="globe icon"></i>'.$s['currentLanguage'].'</a>';
     $sourceCodeLink = '<a class="item" href="https://github.com/uup-dump"><i class="code icon"></i>'.$s['sourceCode'].'</a>';
+    $discordInvite = '<a class="item" href="https://discord.gg/yVRbtb2"><i class="discord icon"></i>Discord</a>';
 
-    $navbarRight = $langSelect.$darkSwitch.$sourceCodeLink;
-    $navbarMobile = $darkSwitch.$sourceCodeLink.$langSelect;
+    $navbarRight = $langSelect.$darkSwitch.$sourceCodeLink.$discordInvite;
+    $navbarMobile = $darkSwitch.$sourceCodeLink.$discordInvite.$langSelect;
 
     $iso639lang = preg_replace("/-.*/i", "", $s['code']);
 
