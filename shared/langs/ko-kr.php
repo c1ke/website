@@ -65,7 +65,7 @@ $s['dateAdded'] = '추가 된 날짜';
 //known.php
 $s['browseKnown'] = '알려진 빌드 찾아보기';
 $s['chooseBuild'] = '빌드 선택';
-$s['weFoundBuilds'] = '<b>%d</b>빌드가 발견 되었습니다.'; //We have found <b>692</b> builds for your query.
+$s['weFoundBuilds'] = '<b>%d</b>개의 빌드가 발견 되었습니다.'; //We have found <b>692</b> builds for your query.
 
 //latest.php
 $s['latestFetchLatest'] = '최신 빌드 가져오기';
@@ -75,8 +75,8 @@ $s['latestDoYouWantKnown'] = '알려진 빌드 목록을 탐색하여 계속 하
 $s['chooseOptions'] = '옵션 선택';
 $s['buildOfPretendedClient'] = '모의 Windows Update 클라이언트 빌드 번호';
 $s['editionOfPretendedClient'] = '모의 시스템 버전';
-$s['skipAheadLabel'] = '미리 건너 뛰기';
-$s['skipAheadOption'] = '미리 건너 뛰기 사용 (인사이더 빠른만)';
+$s['skipAheadLabel'] = 'Skip Ahead';
+$s['skipAheadOption'] = 'Skip Ahead 사용 (Insider Fast만)';
 $s['fetchUpdates'] = '업데이트 가져오기';
 $s['fetchUpdatesInfo'] = '<i>업데이트 가져오기</i> 버튼을 클릭하여 Windows Update 서버에 요청을 보냅니다.';
 
@@ -122,9 +122,9 @@ $s['browseList'] = '파일 목록 찾아보기';
 $s['browseListDesc'] = '수동 다운로드를 위해 설정된 UUP에 있는 파일 목록 페이지를 엽니다.';
 $s['aria2Opt1'] = 'aria2를 사용하여 다운로드';
 $s['aria2Opt1Desc'] = 'aria2를 사용하여 선택한 UUP 세트를 쉽게 다운로드하십시오.';
-$s['aria2Opt2'] = 'aria2를 사용하여 다운로드하고 변환 하십시오.';
+$s['aria2Opt2'] = 'aria2를 사용하여 다운로드하고 변환';
 $s['aria2Opt2Desc'] = 'aria2를 사용하여 선택한 UUP 세트를 쉽게 다운로드하고 ISO로 변환하십시오.';
-$s['aria2Opt3'] = 'aria2를 사용하여 다운로드 하고 추가 버전을 변환 및 생성하십시오.';
+$s['aria2Opt3'] = 'aria2를 사용하여 다운로드 하고 추가 버전 생성 및 변환';
 $s['aria2Opt3Desc'] = 'aria2를 사용하여 선택한 UUP 세트를 쉽게 다운로드하고 변환 및 추가 버전을 만들고 마지막으로 ISO 이미지를 만듭니다.';
 $s['jsRequiredToConf'] = '이 옵션을 구성하고 사용하려면 JavaScript가 필요합니다.';
 $s['selAdditionalEditions'] = '추가 에디션 선택';
@@ -144,11 +144,11 @@ $s['listOfFilesFor'] = '%s의 파일 목록'; //List of files for Windows 10 Ins
 $s['totalSizeOfFiles'] = '총 파일 크기 : %s'; //Total size of files: 2.86 GiB
 $s['fileRenamingScript'] = '파일 이름 바꾸기 스크립트';
 $s['fileRenamingScriptDesc1'] = '아래에 있는 스크립트를 사용하여 다운로드 한 파일의 이름을 빠르게 바꿀 수 있습니다.';
-$s['fileRenamingScriptDesc2'] = '아래 양식의 내용을 <code>cmd</ code> 확장자로 저장하고 다운로드 한 파일이있는 폴더에 넣은 다음 실행하십시오.';
+$s['fileRenamingScriptDesc2'] = '아래 양식의 내용을 <code>cmd</code> 확장자로 저장하고 다운로드한 파일이있는 폴더에 넣은 다음 실행하십시오.';
 $s['sha1File'] = 'SHA-1 체크섬 파일';
 $s['sha1FileDesc'] = '이 파일을 사용하여 파일이 올바르게 다운로드되었는지 빠르게 확인할 수 있습니다.';
-$s['aria2NoticeTitle'] = 'aria2 옵션 알림을 사용하여 다운로드';
-$s['aria2NoticeText1'] = 'aria2 옵션을 사용하여 다운로드하면 다운로드 해야하는 아카이브가 생성됩니다. 다운로드 한 아카이브에는 선택한 작업을 수행하는 데 필요한 모든 파일이 들어 있습니다.';
+$s['aria2NoticeTitle'] = 'aria2 옵션 사용하여 다운로드 주의사항';
+$s['aria2NoticeText1'] = 'aria2 옵션을 사용하여 다운로드하면 다운로드해야하는 아카이브가 생성됩니다. 다운로드한 아카이브에는 선택한 작업을 수행하는 데 필요한 모든 파일이 들어 있습니다.';
 $s['aria2NoticeText2'] = '다운로드 프로세스를 시작하려면 플랫폼에 맞는 스크립트를 사용하십시오.';
 $s['aria2NoticeText3'] = 'Aria2는 오픈 소스 프로젝트입니다. 여기에서 찾을 수 있습니다 : %s.'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'UUP 변환 스크립트 (Windows 버전)가 %s에 의해 생성되었습니다.'; //UUP Conversion script (Windows version) has been created by abbodi1406.
@@ -168,7 +168,7 @@ $s['requestNotSuccessful'] = '요청이 성공하지 못함';
 $s['anErrorHasOccurred'] = '요청을 처리하는 중에 오류가 발생했습니다.';
 $s['generatedPackNotAvailable'] = '생성 된 팩을 사용할 수 없음';
 $s['generatedPackNotAvailableDesc'] = '다운로드하려는 업데이트는 사용 가능한 언어, 버전 및 파일로 가득합니다. 폴백 팩이 사용되며 정확한 정보를 제공하지 못할 수 있습니다. 이로 인해 다운로드에 실패하면 자동으로 생성 된 팩을 사용할 수있을 때까지 기다려주십시오.';
-$s['arm64Warning'] = '<b>ARM64 기반 장치와 호환 가능</b>인 ARM64 빌드를 선택했으며 일반적인 Intel 또는 AMD 기반 PC에서는 작동하지 않습니다. <b>64 비트</b> PC의 경우 <b>amd64</b> 빌드를 사용하십시오. <b>32 비트</ b> PC의 경우 <b>x86</b> 빌드를 사용하십시오. 대상 장치가 ARM64 인 경우 이 메시지를 무시해도 됩니다.';
+$s['arm64Warning'] = '<b>ARM64 기반 장치와 호환 가능</b>한 ARM64 빌드를 선택했으며 일반적인 Intel 또는 AMD 기반 PC에서는 작동하지 않습니다. <b>64 비트</b> PC의 경우 <b>amd64</b> 빌드를 사용하십시오. <b>32 비트</ b> PC의 경우 <b>x86</b> 빌드를 사용하십시오. 대상 장치가 ARM64 인 경우 이 메시지를 무시해도 됩니다.';
 
 //Error messages
 $s['error_ERROR'] = '일반적인 오류.';
@@ -179,7 +179,7 @@ $s['error_SEARCH_NO_RESULTS'] = '수행 된 쿼리에 대한 항목을 찾을 �
 $s['error_UNKNOWN_ARCH'] = '알 수 없는 프로세서 아키텍처.';
 $s['error_UNKNOWN_RING'] = '알 수 없는 링';
 $s['error_UNKNOWN_FLIGHT'] = '알 수 없는 항공편.';
-$s['error_UNKNOWN_COMBINATION'] = '항공편과 링조합이 올바르지 않습니다. 건너 뛰기는 인사이더 빠른 링에서만 지원됩니다.';
+$s['error_UNKNOWN_COMBINATION'] = '항공편과 링조합이 올바르지 않습니다. Skip Ahead는 Insider Fast 링에서만 지원됩니다.';
 $s['error_ILLEGAL_BUILD'] = '지정된 빌드 번호가 %d보다 작거나 %d보다 큽니다.'; //Specified build number is less than 9841 or larger than 2147483646.
 $s['error_ILLEGAL_MINOR'] = '지정된 빌드 마이너가 올바르지 않습니다.';
 $s['error_NO_UPDATE_FOUND'] = '서버가 업데이트를 반환하지 않았습니다.';
