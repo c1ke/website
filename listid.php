@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 UUP dump authors
+Copyright 2019 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -17,38 +17,21 @@ limitations under the License.
 
 header('Content-Type: text/plain');
 
+require_once 'shared/utils.php';
+require_once 'api/listid.php';
+
+$baseUrl = getBaseUrl();
 $userAgent = $_SERVER['HTTP_USER_AGENT'];
 $bannedAgents = array(
-    'AutoHotkey',
-    'aria2/1.32.0',
-    'UUP dump downloader/0.3.0-alpha',
-    'UUP dump downloader/0.4.0-alpha',
-    'UUP dump downloader/0.5.0-alpha',
-    'UUP dump downloader/1.0.0-beta.1',
-    'UUP dump downloader/1.0.0-beta.2',
-    'UUP dump downloader/1.0.0-beta.3',
-    'UUP dump downloader/1.0.0-beta.4',
-    'UUP dump downloader/1.0.0-beta.5',
-    'UUP dump downloader/1.0.0-beta.6',
-    'UUP dump downloader/1.0.0-beta.7',
-    'UUP dump downloader/1.0.0-rc.1',
-    'UUP dump downloader/1.0.0',
-    'UUP dump downloader/1.0.1',
-    'UUP dump downloader/1.1.0-alpha.1',
-    'UUP dump downloader/1.1.0-alpha.2',
-    'UUP dump downloader/1.1.0-alpha.3',
-    'UUP dump downloader/1.1.0-alpha.4',
-    'UUP dump downloader/1.1.0-alpha.5',
-    'UUP dump downloader/1.1.0-alpha.6',
-    'UUP dump downloader/1.1.0-alpha.7',
+    'UUP dump downloader/1.2.4+ci.31',
+    'UUP dump downloader/1.3.0-alpha.3+ci.50',
+    'UUP dump downloader/1.3.0-alpha.4+ci.52',
 );
 
-if(in_array($userAgent, $bannedAgents)) {
-    echo "0||00000000-0000-0000-0000-000000000000|Outdated tool! Please update: https://0x0.st/sBa\n";
+if(!in_array($userAgent, $bannedAgents)) {
+    echo "0||00000000-0000-0000-0000-000000000000|Deprecated endpoint. Please use $baseUrl";
     die();
 }
-
-require_once 'api/listid.php';
 
 $ids = uupListIds();
 if(isset($ids['error'])) {
@@ -65,4 +48,3 @@ foreach($ids['builds'] as $val) {
     echo $val['title'];
     echo "\n";
 }
-?>
