@@ -86,7 +86,7 @@ goto :EOF
 set "aria2=files\\aria2c.exe"
 set "a7z=files\\7zr.exe"
 set "uupConv=files\\uup-converter-wimlib.7z"
-set "aria2Script=files\\aria2_script.txt"
+set "aria2Script=files\\aria2_script.%random%.txt"
 set "destDir=UUPs"
 
 if NOT EXIST %aria2% goto :NO_ARIA2_ERROR
@@ -177,15 +177,10 @@ if ! which aria2c >/dev/null \\
 fi
 
 destDir="UUPs"
-tempDir=`mktemp -d`
-tempScript="\$tempDir/aria2.txt"
-
-function cleanup() {
-  rm -rf "\$tempDir"
-}
+tempScript="aria2_script.\$RANDOM.txt"
 
 echo "Retrieving updated aria2 script..."
-aria2c --log-level=info --log="aria2_download.log" -o"aria2.txt" -d"\$tempDir" --allow-overwrite=true --auto-file-renaming=false "$url"
+aria2c --log-level=info --log="aria2_download.log" -o"\$tempScript" --allow-overwrite=true --auto-file-renaming=false "$url"
 if [ $? != 0 ]; then
   echo "Failed to retrieve aria2 script"
   cleanup
@@ -340,7 +335,7 @@ set "all_proxy="
 :: End of proxy configuration
 
 set "aria2=files\\aria2c.exe"
-set "aria2Script=files\\aria2_script.txt"
+set "aria2Script=files\\aria2_script.%random%.txt"
 set "destDir=UUPs"
 
 cd /d "%~dp0"
@@ -354,7 +349,6 @@ echo Starting download of files...
 "%aria2%" --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"%destDir%" -i"%aria2Script%"
 if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
 
-erase /q /s "%aria2Script%" >NUL 2>&1
 pause
 goto EOF
 
@@ -407,15 +401,10 @@ if ! which aria2c >/dev/null; then
 fi
 
 destDir="UUPs"
-tempDir=`mktemp -d`
-tempScript="\$tempDir/aria2.txt"
-
-function cleanup() {
-  rm -rf "\$tempDir"
-}
+tempScript="aria2_script.\$RANDOM.txt"
 
 echo "Retrieving updated aria2 script..."
-aria2c --log-level=info --log="aria2_download.log" -o"aria2.txt" -d"\$tempDir" --allow-overwrite=true --auto-file-renaming=false "$url"
+aria2c --log-level=info --log="aria2_download.log" -o"\$tempScript" --allow-overwrite=true --auto-file-renaming=false "$url"
 if [ $? != 0 ]; then
   echo "Failed to retrieve aria2 script"
   cleanup

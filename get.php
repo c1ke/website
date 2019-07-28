@@ -138,6 +138,17 @@ if($renameScript) {
             echo 'mv "'.$files[$val]['uuid'].'" "'.$val."\" 2>/dev/null\n";
         }
 
+        //add debugging information to the file
+        echo "\n# --- BEGIN UUP DUMP DEBUG INFO ---\n";
+        foreach($filesKeys as $val) {
+            echo "#debug=";
+            echo base64_encode($val);
+            echo ":";
+            echo base64_encode($files[$val]['debug']);
+            echo "\n";
+        }
+        echo "# --- END UUP DUMP DEBUG INFO ---\n";
+
         die();
     }
 
@@ -149,6 +160,17 @@ if($renameScript) {
         echo "IF EXIST \"{$files[$val]['uuid']}\" ";
         echo 'RENAME "'.$files[$val]['uuid'].'" "'.$val."\"\r\n";
     }
+
+    //add debugging information to the file
+    echo "\n:: --- BEGIN UUP DUMP DEBUG INFO ---\n";
+    foreach($filesKeys as $val) {
+        echo "::debug=";
+        echo base64_encode($val);
+        echo ":";
+        echo base64_encode($files[$val]['debug']);
+        echo "\n";
+    }
+    echo ":: --- END UUP DUMP DEBUG INFO ---\n";
 
     die();
 }
@@ -173,6 +195,17 @@ if($aria2) {
         echo '  out='.$val."\n";
         echo '  checksum=sha-1='.$files[$val]['sha1']."\n\n";
     }
+
+    //add debugging information to the file
+    echo "# --- BEGIN UUP DUMP DEBUG INFO ---\n";
+    foreach($filesKeys as $val) {
+        echo "#debug=";
+        echo base64_encode($val);
+        echo ":";
+        echo base64_encode($files[$val]['debug']);
+        echo "\n";
+    }
+    echo "# --- END UUP DUMP DEBUG INFO ---\n";
     die();
 }
 
