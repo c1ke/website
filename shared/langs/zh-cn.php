@@ -36,6 +36,9 @@ $s['file'] = '文件';
 $s['expires'] = '过期日期';
 $s['sha1'] = 'SHA-1';
 $s['size'] = '大小';
+$s['additionalEdition'] = '附加版本';
+$s['requiredEdition'] = '所需版本';
+$s['unknown'] = '未知';
 
 //global
 $s['home'] = '首页';
@@ -60,8 +63,8 @@ $s['newlyAdded'] = '新增的内部版本';
 $s['dateAdded'] = '添加日期';
 
 //known.php
-$s['browseKnown'] = '浏览已知补丁';
-$s['chooseBuild'] = '选择补丁';
+$s['browseKnown'] = '浏览已知内部版本';
+$s['chooseBuild'] = '选择内部版本';
 $s['weFoundBuilds'] = '在你的查询中，我们找到了 <b>%d</b> 个内部版本。'; //We have found <b>692</b> builds for your query.
 
 //latest.php
@@ -96,6 +99,11 @@ $s['selectLangInfoText1'] = '点击 <i>下一步</i> 按钮以选择你要下载
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe 和累积更新可以在 <i>全语言</i> 中找到。';
 $s['allLangsWarn'] = '<i>全语言</i> 选项不支持版本选择。';
 $s['clickNextToOpenFindFiles'] = '点击 <i>下一步</i> 按钮打开页面，该页面允许查找文件。';
+$s['noLangsAvailable'] = '在此内部版本中没有语言可用。';
+$s['browseFiles'] = '浏览文件';
+$s['browseFilesDesc'] = '快速浏览所选内部版本中的文件';
+$s['searchFiles'] = '搜索文件';
+$s['toSearchForCUUseQuery'] = '若要搜索累积更新，请使用 <i>%s</i> 搜索查询。'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.
 
 //selectedition.php
 $s['selectEditionFor'] = '选择 %s 的版本'; //Select edition for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
@@ -103,6 +111,7 @@ $s['chooseEdition'] = '选择版本';
 $s['chooseEditionDesc'] = '选择你想要的版本';
 $s['allEditions'] = '全版本';
 $s['selectEditionInfoText'] = '点击 <i>下一步</i> 按钮以打开所选内容的版本摘要页面。';
+$s['additionalEditionsInfo'] = '如果你需要可在右侧表格中找到的其他版本，请选择指定的所需版本，然后单击 <i>下一步</i>。在摘要页面上，你可以在相应的下载选项下选择所需的其他版本。';
 
 //download.php
 $s['summary'] = '摘要';
