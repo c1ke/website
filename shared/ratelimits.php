@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 UUP dump authors
+Copyright 2019 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-function checkIfUserIsRateLimited($resource, $timeLimit = 10) {
+function checkIfUserIsRateLimited($resource, $timeLimit = 10, $currentResLimit = 1) {
     $clientIP = $_SERVER['REMOTE_ADDR'];
     $ipHash = hash('sha256', "ratelimits-$clientIP");
 
@@ -34,16 +34,16 @@ function checkIfUserIsRateLimited($resource, $timeLimit = 10) {
     $accessedRes = $info['resource'];
     $blockAccessTime = $lastAccess + $timeLimit;
 
-    if($blockAccessTime > time() && $accessedRes != $resource) {
+    if($blockAccessTime > microtime(1) && $accessedRes != $resource) {
         return true;
     }
 
-    $info['lastAccess'] = time();
+    $info['lastAccess'] = microtime(1);
     $info['resource'] = $resource;
 
     @file_put_contents('cache/'.$ipHash.'.json', json_encode($info)."\n");
 
-    if($lastAccess + 1 > time() && $accessedRes == $resource) {
+    if($lastAccess + $currentResLimit > microtime(1) && $accessedRes == $resource) {
         return true;
     }
 
