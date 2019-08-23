@@ -71,11 +71,12 @@ $s['weFoundBuilds'] = '我們已依您的搜尋內容找到 <b>%d</b> 個組建�
 //latest.php
 $s['latestFetchLatest'] = '取得最新組建';
 $s['latestTestingOnly'] = '僅供測試用途';
-$s['latestTestingOnlyWarn'] = '<b>這個頁面僅供測試用途。</b> 從這個頁面取得之後端伺服器未處理的組建版本 server will be provided using fallback packs, which may provide incomplete results. If you want to download an already known build, please use the known builds page instead.';
-$s['latestDoYouWantKnown'] = '請問你是否要瀏覽已知組件列表？';
+$s['latestTestingOnlyWarn'] = '<b>這個頁面僅供測試用途。</b> 從這個頁面取得之後端伺服器未處理的組建版本會使用備用套件提供，可能會導致提供不完整的結果。如果您想要下載已知組建，請改使用 [已知組建] 頁面。';
+$s['latestDoYouWantKnown'] = '請問您是否要瀏覽已知組建列表？';
 $s['chooseOptions'] = '選擇選項';
 $s['buildOfPretendedClient'] = 'mock Windows Update 客戶端的組建號碼';
 $s['editionOfPretendedClient'] = 'mock 系統版本';
+// TRANTAG: [Fuzzy]
 $s['skipAheadLabel'] = 'Skip ahead flight';
 $s['skipAheadOption'] = '使用 Skip ahead flight (僅 Insider Fast 可用)';
 $s['fetchUpdates'] = '取得更新';
@@ -84,13 +85,13 @@ $s['fetchUpdatesInfo'] = '按下 [取得更新] 按鈕以傳送請求至 Windows
 //fetchupd.php
 $s['responseFromServer'] = '伺服器回應';
 $s['foundUpdates'] = '找到 %d 個更新'; //Found 1 update(s)
-$s['foundTheseUpdates'] = '找到以下更新。請按下你想要的更新後繼續。';
+$s['foundTheseUpdates'] = '找到以下更新。請按下您想要的更新後繼續。';
 $s['buildNumber'] = '組建版本: %s'; //Build number: 18890.1000
 
 //selectlang.php
 $s['selectLangFor'] = '選擇 %s 的語言'; //Select language for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['chooseLang'] = '選擇語言';
-$s['chooseLangDesc'] = '請選擇你想要的語言';
+$s['chooseLangDesc'] = '請選擇您想要的語言';
 $s['allLangs'] = '所有語言';
 $s['selLangFiles'] = '檔案';
 $s['allFiles'] = '所有檔案';
@@ -113,7 +114,7 @@ $s['chooseEditionDesc'] = '選取您想要的版本';
 $s['allEditions'] = '所有版本';
 $s['selectEditionInfoText'] = '按下 [下一步] 按鈕開啟選擇項目的摘要頁面。';
 // TRANTAG: [Fuzzy]
-$s['additionalEditionsInfo'] = '如果你需要可以在右方表格找到的額外版本，請先選擇指示的所需版本後按下 [下一步]。你將可以在摘要頁面的合適下載選項下方選擇所想要的額外版本。';
+$s['additionalEditionsInfo'] = '如果您需要可以在右方表格找到的額外版本，請先選擇指示的所需版本後按下 [下一步]。您將可以在摘要頁面的合適下載選項下方選擇所想要的額外版本。';
 
 //download.php
 $s['summary'] = '摘要';
@@ -134,7 +135,7 @@ $s['selAdditionalEditions'] = '選擇額外版本';
 $s['noAdditionalEditions'] = '此選取項目沒有可用的額外版本。';
 $s['learnMore'] = '了解更多';
 $s['learnMoreAdditionalEditions1'] = '這個選項會啟用自動建立選擇的額外版本。';
-$s['learnMoreAdditionalEditions2'] = '這個額外版本列表基於選取的基礎版本。你能在底下查看要建立所需額外版本所需要的版本：';
+$s['learnMoreAdditionalEditions2'] = '這個額外版本列表基於選取的基礎版本。您能在底下查看要建立額外版本所需要的版本：';
 $s['learnMoreUpdates1'] = '當轉換指令碼在以下系統執行時，更新將只會整合至轉換映像：';
 $s['learnMoreUpdates2'] = '如果在其他系統執行轉換指令碼，更新將不會整合至結果映像。';
 $s['systemWithAdk'] = '%s，且安裝了 Windows 10 ADK'; //Windows 7 with Windows 10 ADK installed
@@ -147,19 +148,20 @@ $s['listOfFilesFor'] = '列出 %s 的檔案'; //List of files for Windows 10 Ins
 $s['totalSizeOfFiles'] = '檔案總計大小: %s'; //Total size of files: 2.86 GiB
 $s['fileRenamingScript'] = '檔案重新命名指令碼';
 $s['fileRenamingScriptDesc1'] = '下方所找到的指令碼可用來快速地重新命名下載檔案。';
+// TRANTAG: [Fuzzy]
 $s['fileRenamingScriptDesc2'] = '簡單地將下方表單的內容複製成一個新檔案，副檔名為 <code>cmd</code>，接著把檔案放在下載檔案的資料夾內，之後執行。';
 $s['sha1File'] = 'SHA-1 檔案總和檢查';
-$s['sha1FileDesc'] = '你可以使用這個檔案簡單地驗證下載的檔案是否正確。';
+$s['sha1FileDesc'] = '您可以使用這個檔案簡單地驗證下載的檔案是否正確。';
 $s['aria2NoticeTitle'] = 'Download using aria2 options notice';
 $s['aria2NoticeText1'] = 'Download using aria2 options create an archive which needs to be downloaded. The downloaded archive contains all needed files to achieve the selected task.';
 $s['aria2NoticeText2'] = '請使用適用於您的平台的指令碼來開始下載程序:';
-$s['aria2NoticeText3'] = 'Aria2 是個開放原始碼的專案。你可以在這裡找到: %s.'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
+$s['aria2NoticeText3'] = 'Aria2 是個開放原始碼的專案。您可以在這裡找到: %s.'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'UUP 轉換指令碼 (Windows 版本) 是由 %s 製作的。'; //UUP Conversion script (Windows version) has been created by abbodi1406.
-$s['aria2NoticeText5'] = 'UUP 轉換指令碼 (Linux 版本) 是開放原始碼的。你可以在這裡找到: %s。'; //UUP Conversion script (Linux version) is open source. You can find it here: https://github.com/uup-dump/converter.
+$s['aria2NoticeText5'] = 'UUP 轉換指令碼 (Linux 版本) 是開放原始碼的。您可以在這裡找到: %s。'; //UUP Conversion script (Linux version) is open source. You can find it here: https://github.com/uup-dump/converter.
 
 //findfiles.php
 $s['findFilesIn'] = '在 %s 尋找檔案'; //Find files in Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
-$s['fileRenamingScriptDescFindFiles'] = '如果您想要快速地重新命名下載的檔案，那你可以產生重新命名指令碼來自動幫你重新命名。';
+$s['fileRenamingScriptDescFindFiles'] = '如果您想要快速地重新命名下載的檔案，那您可以產生重新命名指令碼來自動幫您重新命名。';
 $s['fileRenamingScriptGenW'] = '產生重新命名指令碼 (Windows)';
 $s['fileRenamingScriptGenL'] = '產生重新命名指令碼 (Linux)';
 $s['searchForFiles'] = '搜尋檔案...';
@@ -171,8 +173,8 @@ $s['requestNotSuccessful'] = '請求失敗';
 $s['anErrorHasOccurred'] = '嘗試處理您的請求時發生錯誤。';
 $s['generatedPackNotAvailable'] = '沒有可用的產生套件';
 // TRANTAG: [Fuzzy]
-$s['generatedPackNotAvailableDesc'] = '你嘗試下載的更新尚無會提供關於可用語言、版本及檔案完整資訊的產生套件。將會使用備用套件，可能無法提供正確的資訊。如因這個原因而下載失敗，請等待自動產生套件可用。';
-$s['arm64Warning'] = '您選擇了<b>只支援基於 ARM64 之裝置的</b> ARM64 組建，可能無法在一般基於 Intel 或 AND 的 PC 上運作。若要用於<b> 64 位元</b>的 PC，請使用 <b>amd64</b> 組建。若要用於<b> 32 位元</b>的 PC，請使用 <b>x86</b> 組建。如果你百分之百確定目標裝置基於 ARM64，則您可安全地忽略此訊息。';
+$s['generatedPackNotAvailableDesc'] = '您嘗試下載的更新尚無會提供關於可用語言、版本及檔案完整資訊的產生套件。將會使用備用套件，可能無法提供正確的資訊。如因這個原因而下載失敗，請等待自動產生套件可用。';
+$s['arm64Warning'] = '您選擇了<b>只支援基於 ARM64 之裝置的</b> ARM64 組建，可能無法在一般基於 Intel 或 AMD 的 PC 上運作。若要用於<b> 64 位元</b>的 PC，請使用 <b>amd64</b> 組建。若要用於<b> 32 位元</b>的 PC，請使用 <b>x86</b> 組建。如果您百分之百確定目標裝置基於 ARM64，則您可安全地忽略此訊息。';
 
 //Error messages - 錯誤訊息
 $s['error_ERROR'] = '一般錯誤。';
@@ -187,7 +189,7 @@ $s['error_UNKNOWN_COMBINATION'] = 'The flight and ring combination is not correc
 $s['error_ILLEGAL_BUILD'] = '指定的組建號碼小於 %d 或大於 %d。'; //Specified build number is less than 9841 or larger than 2147483646.
 $s['error_ILLEGAL_MINOR'] = '指定的組建次要版本不正確。';
 $s['error_NO_UPDATE_FOUND'] = '伺服器沒有回傳更新。';
-$s['error_XML_PARSE_ERROR'] = '解析 XML 回應失敗。可能是因為 Microsoft 伺服器出現問題。請稍候再試。';
+$s['error_XML_PARSE_ERROR'] = '解析 XML 回應失敗。可能是因為 Microsoft 伺服器發生問題。請稍候再試。';
 $s['error_EMPTY_FILELIST'] = '伺服器回傳了空的檔案列表。';
 $s['error_NO_FILES'] = '您所選擇的項目沒有可使用的檔案。';
 $s['error_NOT_FOUND'] = '找不到指定的選擇項目。';
