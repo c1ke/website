@@ -1,11 +1,11 @@
 <?php
 /*
-UUP dump translation file for Chinese (Traditional).
- - UUP dump 正體中文翻譯檔
+UUP dump translation file for Chinese (Taiwan).
+ - UUP dump 中文 (台灣) 翻譯檔
 
 Translation information:
-English language name: Chinese (Traditional)
-Localized language name: 中文（正體）
+English language name: Chinese (Taiwan)
+Localized language name: 中文（台灣）
 Language code: zh-TW
 Authors: pan93412
 */
@@ -100,7 +100,7 @@ $s['selectLangInfoText1'] = '按一下 [下一步] 按鈕以選擇您想下載�
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe 及累積更新可在 [所有語言] 語言找到。';
 $s['allLangsWarn'] = '[所有語言] 選項不支援版本選取。';
 $s['clickNextToOpenFindFiles'] = '按下 [下一步] 按鈕開啟用來搜尋檔案的頁面。';
-$s['noLangsAvailable'] = '這個組建沒有可供使用的語言。';
+$s['noLangsAvailable'] = '這個組建沒有可用的語言。';
 $s['browseFiles'] = '瀏覽檔案';
 $s['browseFilesDesc'] = '快速瀏覽選取組建版本的檔案';
 $s['searchFiles'] = '搜尋檔案';
@@ -131,7 +131,7 @@ $s['aria2Opt3'] = '使用 aria2 下載、轉換並建立額外版本';
 $s['aria2Opt3Desc'] = '使用 aria2 簡單地下載選取的 UUP 集合，再轉換及建立額外版本，最後建立 ISO 映像。';
 $s['jsRequiredToConf'] = '設定及使用此選項需要 JavaScript。';
 $s['selAdditionalEditions'] = '選擇額外版本';
-$s['noAdditionalEditions'] = '此選取項目沒有可供使用的額外版本。';
+$s['noAdditionalEditions'] = '此選取項目沒有可用的額外版本。';
 $s['learnMore'] = '了解更多';
 $s['learnMoreAdditionalEditions1'] = '這個選項會啟用自動建立選擇的額外版本。';
 $s['learnMoreAdditionalEditions2'] = '這個額外版本列表基於選取的基礎版本。你能在底下查看要建立所需額外版本所需要的版本：';
@@ -158,52 +158,53 @@ $s['aria2NoticeText4'] = 'UUP 轉換指令碼 (Windows 版本) 是由 %s 製作�
 $s['aria2NoticeText5'] = 'UUP 轉換指令碼 (Linux 版本) 是開放原始碼的。你可以在這裡找到: %s。'; //UUP Conversion script (Linux version) is open source. You can find it here: https://github.com/uup-dump/converter.
 
 //findfiles.php
-$s['findFilesIn'] = 'Find files in %s'; //Find files in Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
-$s['fileRenamingScriptDescFindFiles'] = 'If you want to quickly rename files downloaded from this page, you can generate a renaming script, which will automatically do this for you.';
-$s['fileRenamingScriptGenW'] = 'Generate renaming script (Windows)';
-$s['fileRenamingScriptGenL'] = 'Generate renaming script (Linux)';
-$s['searchForFiles'] = 'Search for files...';
-$s['weFoundFiles'] = 'We have found <b>%d</b> files for your query.'; //We have found <b>692</b> files for your query.
+$s['findFilesIn'] = '在 %s 尋找檔案'; //Find files in Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
+$s['fileRenamingScriptDescFindFiles'] = '如果您想要快速地重新命名下載的檔案，那你可以產生重新命名指令碼來自動幫你重新命名。';
+$s['fileRenamingScriptGenW'] = '產生重新命名指令碼 (Windows)';
+$s['fileRenamingScriptGenL'] = '產生重新命名指令碼 (Linux)';
+$s['searchForFiles'] = '搜尋檔案...';
+$s['weFoundFiles'] = '我們已依您的搜尋內容找到了 <b>%d</b> 個檔案。'; //We have found <b>692</b> files for your query.
 
 //Error pages
-$s['error'] = 'Error';
-$s['requestNotSuccessful'] = 'Request not successful';
-$s['anErrorHasOccurred'] = 'An error has occurred while attempting to process your request.';
-$s['generatedPackNotAvailable'] = 'Generated pack not available';
-$s['generatedPackNotAvailableDesc'] = 'The update you are attempting to download does not have a generated pack that provides full information about available languages, editions and files. The fallback pack will be used, and it may not provide the correct information. If the download fails because of this, please wait for the automatically generated pack to become available.';
-$s['arm64Warning'] = 'You have selected an ARM64 build which is <b>only compatible with ARM64 based devices</b> and will not work with regular Intel or AMD based PCs. For <b>64-bit</b> PCs please use <b>amd64</b> builds. For <b>32-bit</b> PCs please use <b>x86</b> builds. If you are absolutely sure that the destination device is ARM64 based, you can safely ignore this message.';
+$s['error'] = '錯誤';
+$s['requestNotSuccessful'] = '請求失敗';
+$s['anErrorHasOccurred'] = '嘗試處理您的請求時發生錯誤。';
+$s['generatedPackNotAvailable'] = '沒有可用的產生套件';
+// TRANTAG: [Fuzzy]
+$s['generatedPackNotAvailableDesc'] = '你嘗試下載的更新尚無會提供關於可用語言、版本及檔案完整資訊的產生套件。將會使用備用套件，可能無法提供正確的資訊。如因這個原因而下載失敗，請等待自動產生套件可用。';
+$s['arm64Warning'] = '您選擇了<b>只支援基於 ARM64 之裝置的</b> ARM64 組建，可能無法在一般基於 Intel 或 AND 的 PC 上運作。若要用於<b> 64 位元</b>的 PC，請使用 <b>amd64</b> 組建。若要用於<b> 32 位元</b>的 PC，請使用 <b>x86</b> 組建。如果你百分之百確定目標裝置基於 ARM64，則您可安全地忽略此訊息。';
 
-//Error messages
-$s['error_ERROR'] = 'Generic error.';
-$s['error_UNSUPPORTED_API'] = 'Installed API version is not compatible with this version of UUP dump.';
-$s['error_NO_FILEINFO_DIR'] = 'The <i>fileinfo</i> directory does not exist.';
-$s['error_NO_BUILDS_IN_FILEINFO'] = 'The <i>fileinfo</i> database does not contain any build.';
-$s['error_SEARCH_NO_RESULTS'] = 'No items found for the performed query.';
-$s['error_UNKNOWN_ARCH'] = 'Unknown processor architecture.';
-$s['error_UNKNOWN_RING'] = 'Unknown ring.';
-$s['error_UNKNOWN_FLIGHT'] = 'Unknown flight.';
+//Error messages - 錯誤訊息
+$s['error_ERROR'] = '一般錯誤。';
+$s['error_UNSUPPORTED_API'] = '安裝的 API 版本與此 UUP dump 版本不相容。';
+$s['error_NO_FILEINFO_DIR'] = '<i>fileinfo</i> 目錄不存在。';
+$s['error_NO_BUILDS_IN_FILEINFO'] = '<i>fileinfo</i> 資料庫沒有任何組建。';
+$s['error_SEARCH_NO_RESULTS'] = '找不到符合所執行查詢的項目。';
+$s['error_UNKNOWN_ARCH'] = '處理器架構未知。';
+$s['error_UNKNOWN_RING'] = '未知振鈴 (Ring)。';
+$s['error_UNKNOWN_FLIGHT'] = '未知 flight。';
 $s['error_UNKNOWN_COMBINATION'] = 'The flight and ring combination is not correct. Skip ahead is only supported for Insider Fast ring.';
-$s['error_ILLEGAL_BUILD'] = 'Specified build number is less than %d or larger than %d.'; //Specified build number is less than 9841 or larger than 2147483646.
-$s['error_ILLEGAL_MINOR'] = 'Specified build minor is incorrect.';
-$s['error_NO_UPDATE_FOUND'] = 'The server returned no updates.';
-$s['error_XML_PARSE_ERROR'] = 'Response XML parsing failed. There may be a problem with Microsoft servers. Try again later.';
-$s['error_EMPTY_FILELIST'] = 'The server has returned an empty file list.';
-$s['error_NO_FILES'] = 'There are no files available for your selection.';
-$s['error_NOT_FOUND'] = 'Specified selection cannot be found.';
-$s['error_MISSING_FILES'] = 'The selected UUP set has missing files.';
-$s['error_NO_METADATA_ESD'] = 'There are no metadata ESD files available for your selection.';
-$s['error_UNSUPPORTED_LANG'] = 'Specified language is not supported.';
-$s['error_UNSPECIFIED_LANG'] = 'Language was not specified.';
-$s['error_UNSUPPORTED_EDITION'] = 'Specified edition is not supported.';
-$s['error_UNSUPPORTED_COMBINATION'] = 'The language and edition combination is not correct.';
-$s['error_NOT_CUMULATIVE_UPDATE'] = 'Selected update does not contain a Cumulative Update.';
-$s['error_UPDATE_INFORMATION_NOT_EXISTS'] = 'Information about the specified update doesn\'t exist in the database.';
-$s['error_KEY_NOT_EXISTS'] = 'Specified key does not exist in update information.';
-$s['error_UNSPECIFIED_UPDATE'] = 'Update ID was not specified.';
-$s['error_INCORRECT_ID'] = 'Specified Update ID is incorrect. Please make sure that the specified Update ID is correct.';
-$s['error_RATE_LIMITED'] = 'You are being rate limited. Please try again in a few seconds.';
-$s['error_UNSPECIFIED_VE'] = 'You have not selected any additional editions. If do not wish to create additional editions, please use the <i>Download using aria2 and convert</i> option.';
-$s['errorNoMessage'] = 'Error message unavailable.';
+$s['error_ILLEGAL_BUILD'] = '指定的組建號碼小於 %d 或大於 %d。'; //Specified build number is less than 9841 or larger than 2147483646.
+$s['error_ILLEGAL_MINOR'] = '指定的組建次要版本不正確。';
+$s['error_NO_UPDATE_FOUND'] = '伺服器沒有回傳更新。';
+$s['error_XML_PARSE_ERROR'] = '解析 XML 回應失敗。可能是因為 Microsoft 伺服器出現問題。請稍候再試。';
+$s['error_EMPTY_FILELIST'] = '伺服器回傳了空的檔案列表。';
+$s['error_NO_FILES'] = '您所選擇的項目沒有可使用的檔案。';
+$s['error_NOT_FOUND'] = '找不到指定的選擇項目。';
+$s['error_MISSING_FILES'] = '選擇的 UUP 組合有缺少檔案。';
+$s['error_NO_METADATA_ESD'] = '您所選擇的項目沒有可使用的中繼資料 ESD 檔案。';
+$s['error_UNSUPPORTED_LANG'] = '不支援指定語言。';
+$s['error_UNSPECIFIED_LANG'] = '未指定語言。';
+$s['error_UNSUPPORTED_EDITION'] = '不支援指定版本。';
+$s['error_UNSUPPORTED_COMBINATION'] = '語言及版本組合不正確。';
+$s['error_NOT_CUMULATIVE_UPDATE'] = '選取的更新不包含累積更新。';
+$s['error_UPDATE_INFORMATION_NOT_EXISTS'] = '指定更新的資訊不存在資料庫。';
+$s['error_KEY_NOT_EXISTS'] = '指定的索引碼不存在於更新資訊。';
+$s['error_UNSPECIFIED_UPDATE'] = '未指定更新 ID。';
+$s['error_INCORRECT_ID'] = '指定的更新 ID 不正確。請確保指定的更新 ID 正確。';
+$s['error_RATE_LIMITED'] = '您的速率已被限制。請在幾秒後重試。';
+$s['error_UNSPECIFIED_VE'] = '您未選取任何額外版本。如果不希望建立額外版本，請使用 [使用 aria2 下載並轉換] 選項。';
+$s['errorNoMessage'] = '沒有可用的錯誤訊息。';
 
 //Languages
 $s['lang_ar-sa'] = 'Arabic (Saudi Arabia)';
@@ -243,6 +244,6 @@ $s['lang_sv-se'] = 'Swedish';
 $s['lang_th-th'] = 'Thai';
 $s['lang_tr-tr'] = 'Turkish';
 $s['lang_uk-ua'] = 'Ukrainian';
-$s['lang_zh-cn'] = 'Chinese (Simplified)';
-$s['lang_zh-hk'] = 'Chinese (Hong Kong)';
-$s['lang_zh-tw'] = 'Chinese (Traditional)';
+$s['lang_zh-cn'] = '中文 (简体)';
+$s['lang_zh-hk'] = '中文 (香港)';
+$s['lang_zh-tw'] = '中文 (台灣)';
