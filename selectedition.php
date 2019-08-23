@@ -48,6 +48,14 @@ if(!isset($updateInfo['arch'])) {
     $updateArch = $updateInfo['arch'];
 }
 
+$build = explode('.', $updateInfo['build']);
+$build = @$build[0];
+if($build < 17107) {
+    $disableVE = 1;
+} else {
+    $disableVE = 0;
+}
+
 $updateTitle = $updateTitle.' '.$updateArch;
 $build = floor($updateInfo['build']);
 
@@ -90,7 +98,7 @@ if($updateArch == 'arm64') {
 }
 ?>
 
-<div class="ui two columns mobile stackable centered grid">
+<div class="ui equal width mobile stackable grid">
     <div class="column">
         <h3 class="ui header">
             <i class="archive icon"></i>
@@ -137,7 +145,7 @@ EOD;
                 </div>
             </div>
 
-            <p><?php echo $s['additionalEditionsInfo']; ?></p>
+            <p><?php if(!$disableVE) echo $s['additionalEditionsInfo']; ?></p>
 
             <button class="ui fluid right labeled icon primary button" type="submit">
                 <i class="right arrow icon"></i>
@@ -150,64 +158,71 @@ EOD;
         </form>
     </div>
 
-    <div class="column">
-        <table class="ui very compact celled table">
-            <thead>
-                <th><?php echo $s['additionalEdition']; ?></th>
-                <th><?php echo $s['requiredEdition']; ?></th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Windows 10 Home Single Language</td>
-                    <td>Windows 10 Home</td>
-                </tr>
-                <tr>
-                    <td>Windows 10 Pro for Workstations</td>
-                    <td>Windows 10 Pro</td>
-                </tr>
-                <tr>
-                    <td>Windows 10 Pro for Workstations</td>
-                    <td>Windows 10 Pro</td>
-                </tr>
-                <tr>
-                    <td>Windows 10 Pro Education</td>
-                    <td>Windows 10 Pro</td>
-                </tr>
-                <tr>
-                    <td>Windows 10 Education</td>
-                    <td>Windows 10 Pro</td>
-                </tr>
-                <tr>
-                    <td>Windows 10 Enterprise</td>
-                    <td>Windows 10 Pro</td>
-                </tr>
-                <tr>
-                    <td>Windows 10 Enterprise for Virtual Desktops</td>
-                    <td>Windows 10 Pro</td>
-                </tr>
-                <tr>
-                    <td>Windows 10 IoT Enterprise</td>
-                    <td>Windows 10 Pro</td>
-                </tr>
-                <tr>
-                    <td>Windows 10 Pro for Workstations N</td>
-                    <td>Windows 10 Pro N</td>
-                </tr>
-                <tr>
-                    <td>Windows 10 Pro Education N</td>
-                    <td>Windows 10 Pro N</td>
-                </tr>
-                <tr>
-                    <td>Windows 10 Education N</td>
-                    <td>Windows 10 Pro N</td>
-                </tr>
-                <tr>
-                    <td>Windows 10 Enterprise N</td>
-                    <td>Windows 10 Pro N</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<?php
+if(!$disableVE) {
+    echo <<<EOD
+<div class="column">
+    <table class="ui very compact celled table">
+        <thead>
+            <th>{$s['additionalEdition']}</th>
+            <th>{$s['requiredEdition']}</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Windows 10 Home Single Language</td>
+                <td>Windows 10 Home</td>
+            </tr>
+            <tr>
+                <td>Windows 10 Pro for Workstations</td>
+                <td>Windows 10 Pro</td>
+            </tr>
+            <tr>
+                <td>Windows 10 Pro for Workstations</td>
+                <td>Windows 10 Pro</td>
+            </tr>
+            <tr>
+                <td>Windows 10 Pro Education</td>
+                <td>Windows 10 Pro</td>
+            </tr>
+            <tr>
+                <td>Windows 10 Education</td>
+                <td>Windows 10 Pro</td>
+            </tr>
+            <tr>
+                <td>Windows 10 Enterprise</td>
+                <td>Windows 10 Pro</td>
+            </tr>
+            <tr>
+                <td>Windows 10 Enterprise for Virtual Desktops</td>
+                <td>Windows 10 Pro</td>
+            </tr>
+            <tr>
+                <td>Windows 10 IoT Enterprise</td>
+                <td>Windows 10 Pro</td>
+            </tr>
+            <tr>
+                <td>Windows 10 Pro for Workstations N</td>
+                <td>Windows 10 Pro N</td>
+            </tr>
+            <tr>
+                <td>Windows 10 Pro Education N</td>
+                <td>Windows 10 Pro N</td>
+            </tr>
+            <tr>
+                <td>Windows 10 Education N</td>
+                <td>Windows 10 Pro N</td>
+            </tr>
+            <tr>
+                <td>Windows 10 Enterprise N</td>
+                <td>Windows 10 Pro N</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+EOD;
+}
+?>
+
 </div>
 
 <div class="ui fluid tiny three steps">
