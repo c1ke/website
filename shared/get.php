@@ -222,6 +222,7 @@ foreach($desiredVE as $edition) {
 [convert-UUP]
 AutoStart    =1
 AddUpdates   =1
+Cleanup      =0
 ResetBase    =0
 NetFx3       =0
 StartVirtual =$virtualEditions
