@@ -94,8 +94,8 @@ if NOT EXIST %a7z% goto :NO_FILE_ERROR
 if NOT EXIST %uupConv% goto :NO_FILE_ERROR
 
 echo Extracting UUP converter...
-"%a7z%" -y x "%uupConv%" >NUL
-copy /y files\\ConvertConfig.ini . >NUL
+"%a7z%" -x!ConvertConfig.ini -y x "%uupConv%" >NUL
+if NOT EXIST ConvertConfig.ini copy /y files\\ConvertConfig.ini . >NUL
 echo.
 
 echo Retrieving updated aria2 script...
