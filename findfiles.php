@@ -17,6 +17,7 @@ limitations under the License.
 
 $updateId = isset($_GET['id']) ? $_GET['id'] : null;
 $search = isset($_GET['q']) ? $_GET['q'] : null;
+$aria2 = isset($_GET['aria2']) ? $_GET['aria2'] : null;
 
 require_once 'api/get.php';
 require_once 'api/updateinfo.php';
@@ -71,7 +72,22 @@ if($search) {
     $filesKeys = array_keys($files);
 }
 
-$urlBase = "./getfile.php?id=$updateId";
+$urlBase = "getfile.php?id=$updateId";
+
+if($aria2) {
+    $urlBase = getBaseUrl()."/".$urlBase;
+    header('Content-Type: text/plain');
+
+    usort($filesKeys, 'sortBySize');
+    foreach($filesKeys as $val) {
+        echo "$urlBase&file=$val\n";
+        echo '  out='.$val."\n";
+        echo '  checksum=sha-1='.$files[$val]['sha1']."\n\n";
+    }
+
+    die();
+}
+
 styleUpper('downloads', sprintf($s['findFilesIn'], "$updateName $updateArch"));
 ?>
 
