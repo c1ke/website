@@ -138,6 +138,15 @@ $s['systemWithAdk'] = '%s with Windows 10 ADK installed'; //Windows 7 with Windo
 $s['additionalUpdates'] = 'Additional updates';
 $s['additionalUpdatesDesc'] = 'This UUP set contains additional updates which will be integrated during the conversion process, significantly increasing the creation time.';
 $s['browseUpdatesList'] = 'Browse the list of updates';
+$s['selectDownloadOptions'] = 'Select your download options';
+$s['selectDownloadOptionsSub'] = 'Configure how would you like to download your selection';
+$s['downloadMethod'] = 'Download method';
+$s['conversionOptions'] = 'Conversion options';
+$s['convOpt1'] = 'Create ISO with install.esd instead of install.wim';
+$s['convOpt2'] = 'Integrate updates when available (Windows converter only)';
+$s['convOpt3'] = 'Run cleanup after updates integration (Windows converter only)';
+$s['convOpt4'] = 'Integrate .NET Framework 3.5 (Windows converter only)';
+$s['startDownload'] = 'Create download package';
 
 //get.php
 $s['listOfFilesFor'] = 'List of files for %s'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64

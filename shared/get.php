@@ -30,8 +30,16 @@ function createUupConvertPackage(
     $url,
     $archiveName,
     $virtualEditions = 0,
-    $desiredVE = array('Enterprise')
+    $desiredVE = array('Enterprise'),
+    $moreOptions = []
 ) {
+    $updates = isset($moreOptions['updates']) ? $moreOptions['updates'] : 0;
+    $cleanup = isset($moreOptions['cleanup']) ? $moreOptions['cleanup'] : 0;
+    $netfx = isset($moreOptions['netfx']) ? $moreOptions['netfx'] : 0;
+    $esd = isset($moreOptions['esd']) ? $moreOptions['esd'] : 0;
+
+    $type = $esd ? 'esd' : 'wim';
+
     $currDir = dirname(__FILE__).'/..';
     $time = gmdate("Y-m-d H:i:s T", time());
     $cmdScript = <<<SCRIPT
@@ -92,10 +100,10 @@ set "destDir=UUPs"
 if NOT EXIST %aria2% goto :NO_ARIA2_ERROR
 if NOT EXIST %a7z% goto :NO_FILE_ERROR
 if NOT EXIST %uupConv% goto :NO_FILE_ERROR
+if NOT EXIST ConvertConfig.ini goto :NO_FILE_ERROR
 
 echo Extracting UUP converter...
 "%a7z%" -x!ConvertConfig.ini -y x "%uupConv%" >NUL
-if NOT EXIST ConvertConfig.ini copy /y files\\ConvertConfig.ini . >NUL
 echo.
 
 echo Retrieving updated aria2 script...
@@ -199,7 +207,7 @@ fi
 echo ""
 if [ -e ./files/convert.sh ]; then
   chmod +x ./files/convert.sh
-  ./files/convert.sh wim "\$destDir" $virtualEditions
+  ./files/convert.sh $type "\$destDir" $virtualEditions
 fi
 
 SCRIPT;
@@ -221,12 +229,12 @@ foreach($desiredVE as $edition) {
     $convertConfig = <<<CONFIG
 [convert-UUP]
 AutoStart    =1
-AddUpdates   =1
-Cleanup      =0
+AddUpdates   =$updates
+Cleanup      =$cleanup
 ResetBase    =0
-NetFx3       =0
+NetFx3       =$netfx
 StartVirtual =$virtualEditions
-wim2esd      =0
+wim2esd      =$esd
 SkipISO      =0
 SkipWinRE    =0
 ForceDism    =0
@@ -236,7 +244,7 @@ RefESD       =0
 vAutoStart   =1
 vDeleteSource=0
 vPreserve    =0
-vwim2esd     =0
+vwim2esd     =$esd
 vSkipISO     =0
 vAutoEditions=$desiredVirtualEditions
 
@@ -282,7 +290,7 @@ CONFIG;
     if($open === TRUE) {
         $zip->addFromString('aria2_download_windows.cmd', $cmdScript);
         $zip->addFromString('aria2_download_linux.sh', $shellScript);
-        $zip->addFromString('files/ConvertConfig.ini', $convertConfig);
+        $zip->addFromString('ConvertConfig.ini', $convertConfig);
         $zip->addFromString('files/convert_config_linux', $convertConfigLinux);
         $zip->addFile($currDir.'/autodl_files/aria2c.exe', 'files/aria2c.exe');
         $zip->addFile($currDir.'/autodl_files/convert.sh', 'files/convert.sh');

@@ -144,6 +144,15 @@ $s['aria2NoticeText2'] = 'Aby rozpocząć proces użyj skryptu przeznaczonego dl
 $s['aria2NoticeText3'] = 'Aria2 jest projektem otwartoźródłowym. Możesz znaleźć go tutaj: %s.'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'Skrypt konwersji UUP (wersja dla Windows) został stworzony przez %s.'; //UUP Conversion script (Windows version) has been created by abbodi1406.
 $s['aria2NoticeText5'] = 'Skrypt konwersji UUP (wersja dla Linux) jest otwartoźródłowy. Możesz znaleźć go tutaj: %s.'; //UUP Conversion script (Linux version) is open source. You can find it here: https://github.com/uup-dump/converter.
+$s['selectDownloadOptions'] = 'Wybierz opcje pobierania';
+$s['selectDownloadOptionsSub'] = 'Skonfiguruj w jaki sposob chcesz pobrać swój wybór';
+$s['downloadMethod'] = 'Metoda pobierania';
+$s['conversionOptions'] = 'Opcje konwersji';
+$s['convOpt1'] = 'Stwórz obraz ISO z plikiem install.esd zamiast install.wim';
+$s['convOpt2'] = 'Zintegruj aktualizacje jeśli dostępne (tylko konwerter Windows)';
+$s['convOpt3'] = 'Uruchom oczyszczanie po integracji aktualizacji (tylko konwerter Windows)';
+$s['convOpt4'] = 'Zintegruj .NET Framework 3.5 (tylko konwerter Windows)';
+$s['startDownload'] = 'Utwórz paczkę pobierającą';
 
 //get.php
 $s['listOfFilesFor'] = 'Lista plików dla %s'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64

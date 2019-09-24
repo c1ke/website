@@ -134,48 +134,6 @@ if(preg_grep('/^ProfessionalN_.*\.esd/i', $filesKeys)) {
 styleUpper('downloads', sprintf($s['summaryFor'], "$updateTitle, $selectedLangName, $selectedEditionName"));
 ?>
 
-<form class="ui normal mini modal virtual-editions form"
-action="<?php echo $url; ?>&autodl=3" method="post">
-    <div class="header">
-        <?php echo $s['selAdditionalEditions']; ?>
-    </div>
-    <div class="content">
-<?php
-foreach($virtualEditions as $key => $val) {
-    echo <<<EOD
-<div class="field">
-    <div class="ui checkbox">
-        <input type="checkbox" name="virtualEditions[]" value="$key" checked>
-        <label>Windows 10 $val</label>
-    </div>
-</div>
-
-EOD;
-}
-
-if(!count($virtualEditions)) echo <<<EOL
-<p>{$s['noAdditionalEditions']}</p>
-
-EOL;
-?>
-    </div>
-    <div class="actions">
-        <div class="ui ok button">
-            <i class="close icon"></i>
-            <?php echo $s['cancel']; ?>
-        </div>
-<?php
-if(count($virtualEditions)) echo <<<EOD
-<button type="submit" class="ui primary ok button">
-    <i class="checkmark icon"></i>
-    {$s['ok']}
-</button>
-
-EOD;
-?>
-    </div>
-</form>
-
 <div class="ui normal modal virtual-editions-info">
     <div class="header">
         <?php echo $s['learnMore']; ?>
@@ -251,75 +209,166 @@ if($updateArch == 'arm64') {
 
 <div class="ui two columns mobile reversed stackable centered grid">
     <div class="column">
-        <a class="ui top attached fluid labeled icon large button"
-        href="<?php echo $url; ?>">
-            <i class="list icon"></i>
-            <?php echo $s['browseList']; ?>
-        </a>
-        <div class="ui bottom attached segment">
-            <?php echo $s['browseListDesc']; ?>
-        </div>
+        <h3 class="ui header">
+            <i class="download icon"></i>
+            <div class="content">
+                <?php echo $s['selectDownloadOptions']; ?>
+                <div class="sub header"><?php echo $s['selectDownloadOptionsSub']; ?></div>
+            </div>
+        </h3>
 
-        <a class="ui top attached fluid labeled icon large button"
-        href="<?php echo $url; ?>&autodl=1">
-            <i class="archive icon"></i>
-            <?php echo $s['aria2Opt1']; ?>
-        </a>
-        <div class="ui bottom attached segment">
-            <?php echo $s['aria2Opt1Desc']; ?>
-        </div>
+        <form class="ui form" action="<?php echo $url; ?>" method="post" id="download-options">
+            <div class="field">
+                <label><?php echo $s['downloadMethod']; ?></label>
+                <div class="grouped fields">
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="autodl" value="1" onchange="checkDlOpt()">
+                            <label>
+                                <?php echo $s['aria2Opt1']; ?><br/>
+                                <small><?php echo $s['aria2Opt1Desc']; ?></small>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="autodl" value="2" checked onchange="checkDlOpt()">
+                            <label>
+                                <?php echo $s['aria2Opt2']; ?><br/>
+                                <small><?php echo $s['aria2Opt2Desc']; ?></small>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div id="VEConvertOpt" class="ui radio disabled checkbox">
+                            <input type="radio" name="autodl" value="3" onchange="checkDlOpt()">
+                            <label>
+                                <?php echo $s['aria2Opt3']; ?><br/>
+                                <small>
+                                    <?php echo $s['aria2Opt3Desc']; ?>
+                                    <span id="VEConvertLearnMoreLink" style="display: none;">
+                                        <a href="javascript:void(0)" onClick="learnMoreVE();">
+                                            <?php echo $s['learnMore']; ?>
+                                        </a>
+                                    </span>
+                                </small>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <a class="ui top attached fluid labeled icon large blue button"
-        href="<?php echo $url; ?>&autodl=2">
-            <i class="archive icon"></i>
-            <?php echo $s['aria2Opt2']; ?>
-        </a>
-        <div class="ui bottom attached segment">
-            <?php echo $s['aria2Opt2Desc']; ?>
-        </div>
+            <div class="field" id="conversion-options">
+                <label><?php echo $s['conversionOptions']; ?></label>
+                <div class="grouped fields">
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="esd" value="1">
+                            <label><?php echo $s['convOpt1']; ?></label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="updates" value="1" checked>
+                            <label><?php echo $s['convOpt2']; ?></label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="cleanup" value="1">
+                            <label><?php echo $s['convOpt3']; ?></label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="netfx" value="1">
+                            <label><?php echo $s['convOpt4']; ?></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <a class="ui top attached fluid labeled icon large disabled button"
-        href="javascript:void(0)" onClick="getVirtualEditions();"
-        id="VEConvertBtn">
-            <i class="archive icon"></i>
-            <?php echo $s['aria2Opt3']; ?>
-        </a>
-        <div class="ui bottom attached segment">
-            <?php echo $s['aria2Opt3Desc']; ?>
-            <span id="VEConvertMsgNoJs"><?php echo $s['jsRequiredToConf']; ?></span>
-            <span id="VEConvertLearnMoreLink" style="display: none;">
-                <a href="javascript:void(0)" onClick="learnMoreVE();">
-                    <?php echo $s['learnMore']; ?>
-                </a>
-            </span>
-        </div>
+            <div class="field" id="additional-editions-list">
+                <label><?php echo $s['selAdditionalEditions']; ?></label>
+                <div class="grouped fields">
+<?php
+foreach($virtualEditions as $key => $val) {
+    echo <<<EOD
+<div class="field">
+    <div class="ui checkbox">
+        <input class="virtual-edition" type="checkbox" name="virtualEditions[]" value="$key" checked>
+        <label>Windows 10 $val</label>
+    </div>
+</div>
+
+EOD;
+}
+
+if(!count($virtualEditions)) echo <<<EOL
+<p>{$s['noAdditionalEditions']}</p>
+
+EOL;
+?>
+                </div>
+            </div>
+
+        <button class="ui fluid right labeled icon primary button" type="submit">
+            <i class="download icon"></i>
+            <?php echo $s['startDownload']; ?>
+        </button>
+        </form>
     </div>
 
     <div class="column">
-        <h4><?php echo $s['update']; ?></h4>
-        <p><?php echo $updateTitle; ?></p>
+        <h4 class="ui header">
+            <i class="cubes icon"></i>
+            <div class="content">
+                <?php echo $s['update']; ?>
+                <div class="sub header"><?php echo $updateTitle; ?></div>
+            </div>
+        </h4>
 
-        <h4><?php echo $s['lang']; ?></h4>
-        <p><?php echo $selectedLangName; ?></p>
+        <h4 class="ui header">
+            <i class="globe icon"></i>
+            <div class="content">
+                <?php echo $s['lang']; ?>
+                <div class="sub header"><?php echo $selectedLangName; ?></div>
+            </div>
+        </h4>
 
-        <h4><?php echo $s['edition']; ?></h4>
-        <p><?php echo $selectedEditionName; ?></p>
+        <h4 class="ui header">
+            <i class="archive icon"></i>
+            <div class="content">
+                <?php echo $s['edition']; ?>
+                <div class="sub header"><?php echo $selectedEditionName; ?></div>
+            </div>
+        </h4>
 
-        <h4><?php echo $s['totalDlSize']; ?></h4>
-        <p><?php echo $totalSize; ?></p>
+        <h4 class="ui header">
+            <i class="download icon"></i>
+            <div class="content">
+                <?php echo $s['totalDlSize']; ?>
+                <div class="sub header"><?php echo $totalSize; ?></div>
+            </div>
+        </h4>
 
 <?php
 if($hasUpdates) {
     echo <<<INFO
-<h4>{$s['additionalUpdates']}</h4>
-<p>
-    {$s['additionalUpdatesDesc']}
+<h4 class="ui header">
+    <i class="info icon"></i>
+    <div class="content">
+        {$s['additionalUpdates']}
+        <div class="sub header">
+            {$s['additionalUpdatesDesc']}
 
-    <a href="javascript:void(0)" onClick="learnMoreUpdates();"
-    id="LearnMoreUpdatesLink" style="display: none;">
-        {$s['learnMore']}
-    </a>
-</p>
+            <a href="javascript:void(0)" onClick="learnMoreUpdates();"
+            id="LearnMoreUpdatesLink" style="display: none;">
+                {$s['learnMore']}
+            </a>
+        </div>
+    </div>
+</h4>
 
 <a class="ui tiny labeled icon button"
 href="./get.php?id=$updateId&pack=0&edition=updateOnly">
@@ -334,6 +383,11 @@ document.getElementById('LearnMoreUpdatesLink').style.display = "inline";
 INFO;
 }
 ?>
+        <div class="ui divider"></div>
+        <a class="ui fluid right labeled icon button" href="<?php echo $url; ?>">
+            <i class="list icon"></i>
+            <?php echo $s['browseList']; ?>
+        </a>
     </div>
 </div>
 
@@ -386,10 +440,6 @@ INFO;
 </div>
 
 <script>
-function getVirtualEditions() {
-    $('.ui.modal.virtual-editions').modal('show');
-}
-
 function learnMoreVE() {
     $('.ui.modal.virtual-editions-info').modal('show');
 }
@@ -398,16 +448,39 @@ function learnMoreUpdates() {
     $('.ui.modal.updates').modal('show');
 }
 
+function checkDlOpt() {
+    form = document.getElementById('download-options');
+    ve = document.getElementsByClassName('virtual-edition');
+
+    if(form.autodl.value == 1) {
+        document.getElementById('conversion-options').style.display = "none";
+    } else {
+        document.getElementById('conversion-options').style.display = "block";
+    }
+
+    if(form.autodl.value == 3) {
+        document.getElementById('additional-editions-list').style.display = "block";
+        disabled = false;
+    } else {
+        document.getElementById('additional-editions-list').style.display = "none";
+        disabled = true;
+    }
+
+    for(i = 0; i < ve.length; i++) {
+        ve[i].disabled = disabled;
+    }
+}
+
 $('.ui.checkbox').checkbox();
 
 <?php
 if(!$disableVE) {
-    echo "document.getElementById('VEConvertBtn').classList.remove(\"disabled\");";
+    echo "document.getElementById('VEConvertOpt').classList.remove(\"disabled\");";
 }
 ?>
 
-document.getElementById('VEConvertMsgNoJs').style.display = "none";
 document.getElementById('VEConvertLearnMoreLink').style.display = "inline";
+checkDlOpt();
 </script>
 
 <?php

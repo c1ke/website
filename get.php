@@ -15,6 +15,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+//get parameters
 $updateId = isset($_GET['id']) ? $_GET['id'] : null;
 $simple = isset($_GET['simple']) ? $_GET['simple'] : 0;
 $aria2 = isset($_GET['aria2']) ? $_GET['aria2'] : 0;
@@ -22,6 +23,9 @@ $renameScript = isset($_GET['renscript']) ? $_GET['renscript'] : 0;
 $autoDl = isset($_GET['autodl']) ? $_GET['autodl'] : 0;
 $usePack = isset($_GET['pack']) ? $_GET['pack'] : 0;
 $desiredEdition = isset($_GET['edition']) ? $_GET['edition'] : 0;
+
+//post parameters
+$autoDl = isset($_POST['autodl']) ? $_POST['autodl'] : $autoDl;
 $desiredVE = isset($_POST['virtualEditions']) ? $_POST['virtualEditions'] : array();
 
 require_once 'api/get.php';
@@ -75,13 +79,31 @@ if($autoDl && !$aria2) {
     $url .=  $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
     $url .= '?id='.$updateId.'&pack='.$usePack.'&edition='.$desiredEdition.'&aria2=1';
 
+    if(!isset($_GET['autodl'])) {
+        $updates = isset($_POST['updates']) ? $_POST['updates'] : 0;
+    } else {
+        $updates = 1;
+    }
+
+    $cleanup = isset($_POST['cleanup']) ? $_POST['cleanup'] : 0;
+    $netfx = isset($_POST['netfx']) ? $_POST['netfx'] : 0;
+    $esd = isset($_POST['esd']) ? $_POST['esd'] : 0;
+
+    $moreOptions = [];
+    $moreOptions['updates'] = $updates;
+    $moreOptions['cleanup'] = $cleanup;
+    $moreOptions['netfx'] = $netfx;
+    $moreOptions['esd'] = $esd;
+
     switch($autoDl) {
         case 1:
             createAria2Package($url, $archiveName);
             break;
+
         case 2:
-            createUupConvertPackage($url, $archiveName);
+            createUupConvertPackage($url, $archiveName, 0, ["Enterprise"], $moreOptions);
             break;
+
         case 3:
             $build = explode('.', $updateBuild);
             $build = @$build[0];
@@ -94,10 +116,11 @@ if($autoDl && !$aria2) {
             if($build < 17107) {
                 echo 'Not available for this build.';
             } else {
-                createUupConvertPackage($url, $archiveName, 1, $desiredVE);
+                createUupConvertPackage($url, $archiveName, 1, $desiredVE, $moreOptions);
             }
 
             break;
+
         default:
             echo 'Unknown package';
     }
