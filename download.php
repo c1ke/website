@@ -240,8 +240,9 @@ if($updateArch == 'arm64') {
                         </div>
                     </div>
                     <div class="field">
-                        <div id="VEConvertOpt" class="ui radio disabled checkbox">
-                            <input type="radio" name="autodl" value="3" onchange="checkDlOpt()">
+                        <div id="VEConvertOpt" class="ui radio checkbox">
+                            <input type="radio" name="autodl" value="3" onchange="checkDlOpt()"
+                            <?php if($disableVE) echo 'disabled'; ?>>
                             <label>
                                 <?php echo $s['aria2Opt3']; ?><br/>
                                 <small>
@@ -292,7 +293,8 @@ if($updateArch == 'arm64') {
                 <label><?php echo $s['selAdditionalEditions']; ?></label>
                 <div class="grouped fields">
 <?php
-foreach($virtualEditions as $key => $val) {
+$printedEditions = 0;
+if(!$disableVE) foreach($virtualEditions as $key => $val) {
     echo <<<EOD
 <div class="field">
     <div class="ui checkbox">
@@ -302,9 +304,10 @@ foreach($virtualEditions as $key => $val) {
 </div>
 
 EOD;
+    $printedEditions++;
 }
 
-if(!count($virtualEditions)) echo <<<EOL
+if(!$printedEditions) echo <<<EOL
 <p>{$s['noAdditionalEditions']}</p>
 
 EOL;
@@ -312,10 +315,10 @@ EOL;
                 </div>
             </div>
 
-        <button class="ui fluid right labeled icon primary button" type="submit">
-            <i class="download icon"></i>
-            <?php echo $s['startDownload']; ?>
-        </button>
+            <button class="ui fluid right labeled icon primary button" type="submit">
+                <i class="download icon"></i>
+                <?php echo $s['startDownload']; ?>
+            </button>
         </form>
     </div>
 
@@ -472,12 +475,6 @@ function checkDlOpt() {
 }
 
 $('.ui.checkbox').checkbox();
-
-<?php
-if(!$disableVE) {
-    echo "document.getElementById('VEConvertOpt').classList.remove(\"disabled\");";
-}
-?>
 
 document.getElementById('VEConvertLearnMoreLink').style.display = "inline";
 checkDlOpt();
