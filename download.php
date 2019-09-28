@@ -264,25 +264,25 @@ if($updateArch == 'arm64') {
                 <div class="grouped fields">
                     <div class="field">
                         <div class="ui checkbox">
-                            <input type="checkbox" name="esd" value="1">
+                            <input type="checkbox" name="esd" value="1" class="conversion-option">
                             <label><?php echo $s['convOpt1']; ?></label>
                         </div>
                     </div>
                     <div class="field">
                         <div class="ui checkbox">
-                            <input type="checkbox" name="updates" value="1" checked>
+                            <input type="checkbox" name="updates" value="1" checked class="conversion-option">
                             <label><?php echo $s['convOpt2']; ?></label>
                         </div>
                     </div>
                     <div class="field">
                         <div class="ui checkbox">
-                            <input type="checkbox" name="cleanup" value="1">
+                            <input type="checkbox" name="cleanup" value="1" class="conversion-option">
                             <label><?php echo $s['convOpt3']; ?></label>
                         </div>
                     </div>
                     <div class="field">
                         <div class="ui checkbox">
-                            <input type="checkbox" name="netfx" value="1">
+                            <input type="checkbox" name="netfx" value="1" class="conversion-option">
                             <label><?php echo $s['convOpt4']; ?></label>
                         </div>
                     </div>
@@ -455,20 +455,23 @@ function checkDlOpt() {
     autodl = $('input[name="autodl"]:checked').val();
 
     if(autodl == 1) {
-        $('#conversion-options').hide();
+        $('#conversion-options').slideUp(300);
+        disabled_co = true;
     } else {
-        $('#conversion-options').show();
+        $('#conversion-options').slideDown(300);
+        disabled_co = false;
     }
 
     if(autodl == 3) {
-        $('#additional-editions-list').show();
-        disabled = false;
+        $('#additional-editions-list').slideDown(300);
+        disabled_ve = false;
     } else {
-        $('#additional-editions-list').hide();
-        disabled = true;
+        $('#additional-editions-list').slideUp(300);
+        disabled_ve = true;
     }
 
-    $('.virtual-edition').prop('disabled', disabled);
+    $('.virtual-edition').prop('disabled', disabled_ve);
+    $('.conversion-option').prop('disabled', disabled_co);
 }
 
 $('.ui.checkbox').checkbox();
@@ -477,6 +480,7 @@ $('input[name="autodl"]').on('click change', function() {
     checkDlOpt();
 });
 
+$('#additional-editions-list').hide();
 $('#VEConvertLearnMoreLink').css('display', 'inline');
 checkDlOpt();
 </script>
