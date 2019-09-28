@@ -223,7 +223,7 @@ if($updateArch == 'arm64') {
                 <div class="grouped fields">
                     <div class="field">
                         <div class="ui radio checkbox">
-                            <input type="radio" name="autodl" value="1" onchange="checkDlOpt()">
+                            <input type="radio" name="autodl" value="1">
                             <label>
                                 <?php echo $s['aria2Opt1']; ?><br/>
                                 <small><?php echo $s['aria2Opt1Desc']; ?></small>
@@ -232,7 +232,7 @@ if($updateArch == 'arm64') {
                     </div>
                     <div class="field">
                         <div class="ui radio checkbox">
-                            <input type="radio" name="autodl" value="2" checked onchange="checkDlOpt()">
+                            <input type="radio" name="autodl" value="2" checked>
                             <label>
                                 <?php echo $s['aria2Opt2']; ?><br/>
                                 <small><?php echo $s['aria2Opt2Desc']; ?></small>
@@ -241,7 +241,7 @@ if($updateArch == 'arm64') {
                     </div>
                     <div class="field">
                         <div id="VEConvertOpt" class="ui radio checkbox">
-                            <input type="radio" name="autodl" value="3" onchange="checkDlOpt()"
+                            <input type="radio" name="autodl" value="3"
                             <?php if($disableVE) echo 'disabled'; ?>>
                             <label>
                                 <?php echo $s['aria2Opt3']; ?><br/>
@@ -452,31 +452,32 @@ function learnMoreUpdates() {
 }
 
 function checkDlOpt() {
-    form = document.getElementById('download-options');
-    ve = document.getElementsByClassName('virtual-edition');
+    autodl = $('input[name="autodl"]:checked').val();
 
-    if(form.autodl.value == 1) {
-        document.getElementById('conversion-options').style.display = "none";
+    if(autodl == 1) {
+        $('#conversion-options').hide();
     } else {
-        document.getElementById('conversion-options').style.display = "block";
+        $('#conversion-options').show();
     }
 
-    if(form.autodl.value == 3) {
-        document.getElementById('additional-editions-list').style.display = "block";
+    if(autodl == 3) {
+        $('#additional-editions-list').show();
         disabled = false;
     } else {
-        document.getElementById('additional-editions-list').style.display = "none";
+        $('#additional-editions-list').hide();
         disabled = true;
     }
 
-    for(i = 0; i < ve.length; i++) {
-        ve[i].disabled = disabled;
-    }
+    $('.virtual-edition').prop('disabled', disabled);
 }
 
 $('.ui.checkbox').checkbox();
 
-document.getElementById('VEConvertLearnMoreLink').style.display = "inline";
+$('input[name="autodl"]').on('click change', function() {
+    checkDlOpt();
+});
+
+$('#VEConvertLearnMoreLink').css('display', 'inline');
 checkDlOpt();
 </script>
 
