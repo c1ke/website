@@ -3,7 +3,7 @@
 UUP dump translation file.
 
 Translation information:
-English language name: Spanish (Latinamerican)
+English language name: Español (Latinoamericano)
 Localized language name: Español (Argentina)
 Language code: es-AR
 Authors: Makinenn
@@ -36,7 +36,7 @@ $s['file'] = 'Archivo';
 $s['expires'] = 'Caduca';
 $s['sha1'] = 'SHA-1';
 $s['size'] = 'Tamaño';
-$s['additionalEdition'] = 'Edición adicionl';
+$s['additionalEdition'] = 'Edición adicional';
 $s['requiredEdition'] = 'Edición requerida';
 $s['unknown'] = 'Desconocido';
 
@@ -56,9 +56,9 @@ $s['selectLanguage'] = 'Por favor, selecciona tu idioma';
 $s['slogan'] = 'Descarga con facilidad archivos UUP desde los servidores de Windows Update.';
 $s['advOptions'] = 'Opciones avanzadas';
 $s['browseBuilds'] = 'Examinar la lista de compilaciones conocidas';
-$s['browseBuildsSub'] = 'Escoger una compilación ya conocida en la base de datos local y descargarla.';
+$s['browseBuildsSub'] = 'Escoge y descarga una compilación ya conocida en la base de datos local.';
 $s['fetchLatest'] = 'Buscar la compilación más reciente';
-$s['fetchLatestSub'] = 'Recuperar la información de la compilación más reciente desde los servidores de Windows Update.';
+$s['fetchLatestSub'] = 'Obtén la información de la compilación más reciente desde los servidores de Windows Update.';
 $s['newlyAdded'] = 'Compilaciones agregadas recientemente';
 $s['dateAdded'] = 'Agregada';
 
@@ -70,15 +70,15 @@ $s['weFoundBuilds'] = 'Hemos encontrado <b>%d</b> compilaciones para tu búsqued
 //latest.php
 $s['latestFetchLatest'] = 'Buscar la compilación más reciente';
 $s['latestTestingOnly'] = 'Solo para pruebas';
-$s['latestTestingOnlyWarn'] = '<b>Esta página se brinda solo para pruebas.</b> Las compilaciones que el servidor backend no procesó y que aparecen en esta página se brindarán usando paquetes alternativos que podrían brindar resultados incompletos. Si quieres bajar una compilación ya conocida, te conviene usar la página de compilaciones conocidas.';
+$s['latestTestingOnlyWarn'] = '<b>Esta página es solo para pruebas.</b> Las compilaciones que el servidor backend no procesó y que aparecen en esta página se brindarán usando paquetes alternativos que podrían ofrecer resultados incompletos. Si quieres bajar una compilación ya conocida, te conviene usar la página de compilaciones conocidas.';
 $s['latestDoYouWantKnown'] = '¿Quisieras continuar examinando la lista de compilaciones conocidas?';
 $s['chooseOptions'] = 'Escoger las opciones';
 $s['buildOfPretendedClient'] = 'Número de la compilación del cliente simulado de Windows Update';
 $s['editionOfPretendedClient'] = 'Edición del sistema simulado';
-$s['skipAheadLabel'] = 'Vuelo Skip Ahead';
-$s['skipAheadOption'] = 'Usar el vuelo Skip Ahead (Solo Insider Fast)';
+$s['skipAheadLabel'] = 'Piloto Skip Ahead';
+$s['skipAheadOption'] = 'Usar el piloto Skip Ahead (Solo anillo rápido de Insider)';
 $s['fetchUpdates'] = 'Buscar actualizaciones';
-$s['fetchUpdatesInfo'] = 'Cliquea el botón <i>Buscar actualizaciones</i> para enviar tu solicitud a los servidores de Windows Update.';
+$s['fetchUpdatesInfo'] = 'Cliquea <i>Buscar actualizaciones</i> para enviar tu solicitud a los servidores de Windows Update.';
 
 //fetchupd.php
 $s['responseFromServer'] = 'Respuesta del servidor';
@@ -95,21 +95,23 @@ $s['selLangFiles'] = 'Archivos';
 $s['allFiles'] = 'Todos los archivos';
 $s['wubOnly'] = 'Solo WindowsUpdateBox';
 $s['updateOnly'] = 'Solo actualización';
-$s['selectLangInfoText1'] = 'Cliquea el botón <i>Siguiente</i> para seleccionar la edición que quieres descargar.';
+$s['selectLangInfoText1'] = 'Cliquea <i>Siguiente</i> para seleccionar la edición que quieres descargar.';
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe y las actualizaciones acumulativas pueden encontrarse en el idioma <i>Todos los idiomas</i>.';
-$s['allLangsWarn'] = 'La opción <i>Todos los idiomas</i> no soporta la selección de la edición.';
+$s['allLangsWarn'] = 'La opción <i>Todos los idiomas</i> no soporta selección de edición.';
 $s['clickNextToOpenFindFiles'] = 'Cliquea <i>Siguiente</i> para abrir la página que te permitirá buscar los archivos.';
+$s['noLangsAvailable'] = 'No hay idiomas disponibles para esta compilación.';
 $s['browseFiles'] = 'Examinar archivos';
 $s['browseFilesDesc'] = 'Examina rápidamente los archivos en la compilación seleccionada';
 $s['searchFiles'] = 'Buscar archivos';
 $s['toSearchForCUUseQuery'] = 'Para buscar actualizaciones acumulativas, usa la consulta de búsqueda <i>%s</i>.'; //Para buscar actualizaciones acumulativas, usa la consulta de búsqueda <i>Windows10 KB</i>.
+
 
 //selectedition.php
 $s['selectEditionFor'] = 'Selecciona la edición para %s'; //Selecciona la edición para Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, Inglés (Estados Unidos)
 $s['chooseEdition'] = 'Escoger la edición';
 $s['chooseEditionDesc'] = 'Escoge qué edición quieres';
 $s['allEditions'] = 'Todas las ediciones';
-$s['selectEditionInfoText'] = 'Cliquea el botón <i>Siguiente</i> para abrir la página de resumen de tu selección.';
+$s['selectEditionInfoText'] = 'Cliquea <i>Siguiente</i> para abrir la página de resumen de tu selección.';
 $s['additionalEditionsInfo'] = 'Si necesitas una edición adicional que pueda encontrarse en la tabla de la derecha, por favor, selecciona la edición requerida indicada y haz clic en <i>Siguiente</i>. En la página de resumen, podrás seleccionar las ediciones adicionales que quieras en la opción de descarga adecuada.';
 
 //download.php
@@ -118,13 +120,13 @@ $s['summaryDesc'] = 'Revisa tu selección y escoge el método de descarga';
 $s['summaryFor'] = 'Resumen para %s'; //Resumen para Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, Inglés (Estados Unidos), Windows 10 Pro
 $s['summaryOfSelection'] = 'Resumen de tu selección';
 $s['browseList'] = 'Examinar la lista de archivos';
-$s['browseListDesc'] = 'Abre una página con una lista de los archivos en la UUP para descargarlos manualmente.';
+$s['browseListDesc'] = 'Abre una página con una lista de los archivos UUP para descargarlos manualmente.';
 $s['aria2Opt1'] = 'Descargar usando aria2';
-$s['aria2Opt1Desc'] = 'Descarga con facilidad el paquete de la UUP seleccionada usando aria2.';
+$s['aria2Opt1Desc'] = 'Descarga con facilidad el paquete de la UUP seleccionado usando aria2.';
 $s['aria2Opt2'] = 'Descargar usando aria2 y convertir';
-$s['aria2Opt2Desc'] = 'Descarga con facilidad el paquete de la UUP seleccionada usando aria2 y conviértelo a un ISO.';
+$s['aria2Opt2Desc'] = 'Descarga con facilidad el paquete de la UUP seleccionado usando aria2 y conviértelo a un ISO.';
 $s['aria2Opt3'] = 'Descargar usando aria2, convertir y crear ediciones adicionales';
-$s['aria2Opt3Desc'] = 'Descarga con facilidad el paquete de la UUP seleccionada usando aria2, conviértelo, crea ediciones adicionales y, por último, crea una imagen ISO.';
+$s['aria2Opt3Desc'] = 'Descarga con facilidad el paquete de la UUP seleccionado usando aria2, conviértelo, crea ediciones adicionales y, por último, crea una imagen ISO.';
 $s['jsRequiredToConf'] = 'Se requiere JavaScript para configurar y usar esta opción.';
 $s['selAdditionalEditions'] = 'Seleccionar ediciones adicionales';
 $s['noAdditionalEditions'] = 'No hay ediciones adicionales disponibles para esta selección.';
@@ -137,13 +139,22 @@ $s['systemWithAdk'] = '%s con Windows 10 ADK instalado'; //Windows 7 con Windows
 $s['additionalUpdates'] = 'Actualizaciones adicionales';
 $s['additionalUpdatesDesc'] = 'Este paquete de la UUP contiene actualizaciones adicionales que se integrarán durante el proceso de conversión, lo cual aumentará significativamente el tiempo de creación.';
 $s['browseUpdatesList'] = 'Examinar la lista de actualizaciones';
+$s['selectDownloadOptions'] = 'Selecciona tus opciones de descarga';
+$s['selectDownloadOptionsSub'] = 'Configura cómo quisieras descargar tu selección';
+$s['downloadMethod'] = 'Método de descarga';
+$s['conversionOptions'] = 'Opciones de conversión';
+$s['convOpt1'] = 'Crear un ISO con un install.esd en lugar de un install.wim';
+$s['convOpt2'] = 'Integrar las actualizaciones si están disponibles (Solo con el script de conversión de Windows)';
+$s['convOpt3'] = 'Ejecutar una limpieza después de haber integrado las actualizaciones (Solo con el script de conversión de Windows)';
+$s['convOpt4'] = 'Integrar .NET Framework 3.5 (Solo con el script de conversión de Windows)';
+$s['startDownload'] = 'Crear paquete de descarga';
 
 //get.php
 $s['listOfFilesFor'] = 'Lista de archivos para %s'; //Lista de archivos para Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['totalSizeOfFiles'] = 'Tamaño total de los archivos: %s'; //Tamaño total de los archivos: 2.86 GiB
 $s['fileRenamingScript'] = 'Script para renombrar el archivo';
 $s['fileRenamingScriptDesc1'] = 'El script que está abajo puede usarse para renombrar rápidamente los archivos descargados.';
-$s['fileRenamingScriptDesc2'] = 'Simplemente copia los contenidos del formulario que está abajo en un archivo nuevo con la extensión <code>cmd</code>, colócalo en la carpeta con los archivos descargados y ejecútalo.';
+$s['fileRenamingScriptDesc2'] = 'Simplemente copia el contenido del formulario que está abajo en un archivo nuevo, guárdalo con la extensión <code>cmd</code>, colócalo en la carpeta con los archivos descargados y ejecútalo.';
 $s['sha1File'] = 'Archivo de sumas de verificación SHA-1';
 $s['sha1FileDesc'] = 'Puedes usar este archivo para verificar rápidamente si los archivos se descargaron correctamente.';
 $s['aria2NoticeTitle'] = 'Descargar usando las opciones aria2';
@@ -167,7 +178,7 @@ $s['requestNotSuccessful'] = 'No hubo éxito con la solicitud';
 $s['anErrorHasOccurred'] = 'Ocurrió un error al intentar procesar tu solicitud.';
 $s['generatedPackNotAvailable'] = 'El paquete generado no está disponible';
 $s['generatedPackNotAvailableDesc'] = 'La actualización que estás intentando descargar no tiene un paquete generado que brinde información completa sobre los idiomas disponibles, las ediciones y los archivos. Se usará el paquete alternativo, que podría no brindar la información correcta. Si la descarga falla debido a esto, por favor, espera a que esté disponible el paquete generado automáticamente.';
-$s['arm64Warning'] = 'Has seleccionado una compilación ARM64 que <b>solo es compatible con dispositivos basados en ARM64</b> y no funcionará con computadoras normales basadas en Intel o AMD. Para computadoras de <b>64-bit</b>, por favor, usa compilaciones <b>amd64</b>. Para computadoras de <b>32-bit</b>, por favor, usa compilaciones <b>x86</b>. Si estás completamente seguro de que el dispositivo destino está basado en ARM64, puedes ignorar este mensaje sin riesgo alguno.';
+$s['arm64Warning'] = 'Seleccionaste una compilación ARM64 que <b>solo es compatible con dispositivos basados en ARM64</b> y no funcionará con computadoras normales basadas en Intel o AMD. Para computadoras de <b>64-bit</b>, por favor, usa compilaciones <b>amd64</b>. Para computadoras de <b>32-bit</b>, por favor, usa compilaciones <b>x86</b>. Si estás completamente seguro de que el dispositivo destino está basado en ARM64, puedes ignorar este mensaje sin riesgo alguno.';
 
 //Error messages
 $s['error_ERROR'] = 'Error genérico.';
@@ -175,10 +186,10 @@ $s['error_UNSUPPORTED_API'] = 'La versión de la API instalada no es compatible 
 $s['error_NO_FILEINFO_DIR'] = 'El directorio <i>fileinfo</i> no existe.';
 $s['error_NO_BUILDS_IN_FILEINFO'] = 'La base de datos <i>fileinfo</i> no contiene ninguna compilación.';
 $s['error_SEARCH_NO_RESULTS'] = 'No se encontraron elementos para la consulta realizada.';
-$s['error_UNKNOWN_ARCH'] = 'Arquitectura desconocida de procesador.';
+$s['error_UNKNOWN_ARCH'] = 'Arquitectura desconocida del procesador.';
 $s['error_UNKNOWN_RING'] = 'Anillo desconocido.';
-$s['error_UNKNOWN_FLIGHT'] = 'Vuelo desconocido.';
-$s['error_UNKNOWN_COMBINATION'] = 'La combinación de vuelo y anillo no es correcta. Skip Ahead solo está soportado para el anillo Insider Fast.';
+$s['error_UNKNOWN_FLIGHT'] = 'Piloto desconocido.';
+$s['error_UNKNOWN_COMBINATION'] = 'La combinación de piloto y anillo es incorrecta. Skip Ahead solo está soportado para el anillo rápido de Insider.';
 $s['error_ILLEGAL_BUILD'] = 'El número especificado de compilación es menor a %d o mayor a %d.'; //El número especificado de compilación es menor a 9841 o mayor a 2147483646.
 $s['error_ILLEGAL_MINOR'] = 'La compilación menor especificada es incorrecta.';
 $s['error_NO_UPDATE_FOUND'] = 'El servidor no devolvió actualizaciones.';
