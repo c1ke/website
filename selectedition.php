@@ -177,10 +177,6 @@ if(!$disableVE) {
                 <td>Windows 10 Pro</td>
             </tr>
             <tr>
-                <td>Windows 10 Pro for Workstations</td>
-                <td>Windows 10 Pro</td>
-            </tr>
-            <tr>
                 <td>Windows 10 Pro Education</td>
                 <td>Windows 10 Pro</td>
             </tr>
