@@ -111,12 +111,12 @@ styleUpper('downloads', sprintf($s['findFilesIn'], "$updateName $updateArch"));
     <?php printf($s['weFoundFiles'], count($files)); ?>
 </div>
 
-<table class="ui celled striped table">
+<table class="ui fixed celled striped tablet stackable table">
     <thead>
         <tr>
-            <th><?php echo $s['file']; ?></th>
-            <th><?php echo $s['sha1']; ?></th>
-            <th><?php echo $s['size']; ?></th>
+            <th class="eight wide"><?php echo $s['file']; ?></th>
+            <th class="six wide"><?php echo $s['sha1']; ?></th>
+            <th class="two wide"><?php echo $s['size']; ?></th>
         </tr>
     </thead>
 <?php
