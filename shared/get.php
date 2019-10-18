@@ -106,12 +106,21 @@ echo Extracting UUP converter...
 "%a7z%" -x!ConvertConfig.ini -y x "%uupConv%" >NUL
 echo.
 
-echo Retrieving updated aria2 script...
+echo Retrieving aria2 script...
 "%aria2%" --no-conf --log-level=info --log="aria2_download.log" -o"%aria2Script%" --allow-overwrite=true --auto-file-renaming=false "$url"
 if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
 echo.
 
-echo Starting download of files...
+for /F "tokens=2 delims=:" %%i in ('findstr #UUPDUMP_ERROR: "%aria2Script%"') do set DETECTED_ERROR=%%i
+if NOT [%DETECTED_ERROR%] == [] (
+    echo Unable to retrieve data from Windows Update servers. Reason: %DETECTED_ERROR%
+    echo If this problem persists, most likely the set you are attempting to download was removed from Windows Update servers.
+    echo.
+    pause
+    goto :EOF
+)
+
+echo Attempting to download files...
 "%aria2%" --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"%destDir%" -i"%aria2Script%"
 if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
 
@@ -138,6 +147,7 @@ pause
 goto :EOF
 
 :DOWNLOAD_ERROR
+echo.
 echo We have encountered an error while downloading files.
 pause
 goto :EOF
@@ -187,20 +197,25 @@ fi
 destDir="UUPs"
 tempScript="aria2_script.\$RANDOM.txt"
 
-echo "Retrieving updated aria2 script..."
+echo "Retrieving aria2 script..."
 aria2c --no-conf --log-level=info --log="aria2_download.log" -o"\$tempScript" --allow-overwrite=true --auto-file-renaming=false "$url"
 if [ $? != 0 ]; then
   echo "Failed to retrieve aria2 script"
-  cleanup
   exit 1
 fi
 
+detectedError=`grep '#UUPDUMP_ERROR:' "\$tempScript" | sed 's/#UUPDUMP_ERROR://g'`
+if [ ! -z \$detectedError ]; then
+    echo "Unable to retrieve data from Windows Update servers. Reason: \$detectedError"
+    echo "If this problem persists, most likely the set you are attempting to download was removed from Windows Update servers."
+    exit 1
+fi
+
 echo ""
-echo "Starting download of files..."
+echo "Attempting to download files..."
 aria2c --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"\$destDir" -i"\$tempScript"
 if [ $? != 0 ]; then
   echo "We have encountered an error while downloading files."
-  cleanup
   exit 1
 fi
 
@@ -354,7 +369,16 @@ echo Retrieving updated aria2 script...
 "%aria2%" --no-conf --log-level=info --log="aria2_download.log" -o"%aria2Script%" --allow-overwrite=true --auto-file-renaming=false "$url"
 if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
 
-echo Starting download of files...
+for /F "tokens=2 delims=:" %%i in ('findstr #UUPDUMP_ERROR: "%aria2Script%"') do set DETECTED_ERROR=%%i
+if NOT [%DETECTED_ERROR%] == [] (
+    echo Unable to retrieve data from Windows Update servers. Reason: %DETECTED_ERROR%
+    echo If this problem persists, most likely the set you are attempting to download was removed from Windows Update servers.
+    echo.
+    pause
+    goto :EOF
+)
+
+echo Attempting to download files...
 "%aria2%" --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"%destDir%" -i"%aria2Script%"
 if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
 
@@ -371,6 +395,7 @@ pause
 goto EOF
 
 :DOWNLOAD_ERROR
+echo.
 echo We have encountered an error while downloading files.
 pause
 goto EOF
@@ -412,20 +437,25 @@ fi
 destDir="UUPs"
 tempScript="aria2_script.\$RANDOM.txt"
 
-echo "Retrieving updated aria2 script..."
+echo "Retrieving aria2 script..."
 aria2c --no-conf --log-level=info --log="aria2_download.log" -o"\$tempScript" --allow-overwrite=true --auto-file-renaming=false "$url"
 if [ $? != 0 ]; then
   echo "Failed to retrieve aria2 script"
-  cleanup
   exit 1
 fi
 
+detectedError=`grep '#UUPDUMP_ERROR:' "\$tempScript" | sed 's/#UUPDUMP_ERROR://g'`
+if [ ! -z \$detectedError ]; then
+    echo "Unable to retrieve data from Windows Update servers. Reason: \$detectedError"
+    echo "If this problem persists, most likely the set you are attempting to download was removed from Windows Update servers."
+    exit 1
+fi
+
 echo ""
-echo "Starting download of files..."
+echo "Attempting to download files..."
 aria2c --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"\$destDir" -i"\$tempScript"
 if [ $? != 0 ]; then
   echo "We have encountered an error while downloading files."
-  cleanup
   exit 1
 fi
 

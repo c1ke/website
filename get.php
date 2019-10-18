@@ -77,7 +77,7 @@ if($autoDl && !$aria2) {
     }
 
     $url .=  $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
-    $url .= '?id='.$updateId.'&pack='.$usePack.'&edition='.$desiredEdition.'&aria2=1';
+    $url .= '?id='.$updateId.'&pack='.$usePack.'&edition='.$desiredEdition.'&aria2=2';
 
     if(!isset($_GET['autodl'])) {
         $updates = isset($_POST['updates']) ? $_POST['updates'] : 0;
@@ -128,6 +128,49 @@ if($autoDl && !$aria2) {
 }
 
 $files = uupGetFiles($updateId, $usePack, $desiredEdition, 1);
+
+if($aria2) {
+    header('Content-Type: text/plain');
+
+    if(isset($files['error'])) {
+        if($aria2 == 2) {
+            echo '#UUPDUMP_ERROR:';
+            echo $files['error'];
+            die();
+        } else {
+            http_response_code(400);
+            echo $files['error'];
+            die();
+        }
+    }
+
+    if($autoDl) {
+        header('Content-Disposition: attachment; filename="aria2_script.txt"');
+    }
+
+    $files = $files['files'];
+    $filesKeys = array_keys($files);
+
+    usort($filesKeys, 'sortBySize');
+    foreach($filesKeys as $val) {
+        echo $files[$val]['url']."\n";
+        echo '  out='.$val."\n";
+        echo '  checksum=sha-1='.$files[$val]['sha1']."\n\n";
+    }
+
+    //add debugging information to the file
+    echo "# --- BEGIN UUP DUMP DEBUG INFO ---\n";
+    foreach($filesKeys as $val) {
+        echo "#debug=";
+        echo base64_encode($val);
+        echo ":";
+        echo base64_encode($files[$val]['debug']);
+        echo "\n";
+    }
+    echo "# --- END UUP DUMP DEBUG INFO ---\n";
+    die();
+}
+
 if(isset($files['error'])) {
     if($files['error'] == 'EMPTY_FILELIST') {
         $oldError = $files['error'];
@@ -204,31 +247,6 @@ if($simple) {
     foreach($filesKeys as $val) {
         echo $val."|".$files[$val]['sha1']."|".$files[$val]['url']."\n";
     }
-    die();
-}
-
-if($aria2) {
-    header('Content-Type: text/plain');
-    if($autoDl) {
-        header('Content-Disposition: attachment; filename="aria2_script.txt"');
-    }
-    usort($filesKeys, 'sortBySize');
-    foreach($filesKeys as $val) {
-        echo $files[$val]['url']."\n";
-        echo '  out='.$val."\n";
-        echo '  checksum=sha-1='.$files[$val]['sha1']."\n\n";
-    }
-
-    //add debugging information to the file
-    echo "# --- BEGIN UUP DUMP DEBUG INFO ---\n";
-    foreach($filesKeys as $val) {
-        echo "#debug=";
-        echo base64_encode($val);
-        echo ":";
-        echo base64_encode($files[$val]['debug']);
-        echo "\n";
-    }
-    echo "# --- END UUP DUMP DEBUG INFO ---\n";
     die();
 }
 
