@@ -121,29 +121,15 @@ styleUpper('downloads', sprintf($s['findFilesIn'], "$updateName $updateArch"));
     </thead>
 <?php
 $totalSize = 0;
-$prefixes = array('', 'Ki', 'Mi', 'Gi', 'Ti', 'Pi', 'Ei', 'Zi', 'Yi');
-
 foreach($filesKeys as $val) {
-    $totalSize = $totalSize + $files[$val]['size'];
     $size = $files[$val]['size'];
-
-    foreach($prefixes as $prefix) {
-        if($size < 1024) break;
-        $size = $size / 1024;
-    }
-    $size = round($size, 2);
-    $size = "$size {$prefix}B";
+    $totalSize = $totalSize + $size;
+    $size = readableSize($size, 2);
 
     echo "<tr><td><a href=\"$urlBase&file=$val\">$val</a></td>";
     echo '<td><code>'.$files[$val]['sha1'].'</code></td><td>'.$size.'</td></tr>'."\n";
 }
-
-foreach($prefixes as $prefix) {
-    if($totalSize < 1024) break;
-    $totalSize = $totalSize / 1024;
-}
-$totalSize = round($totalSize, 2);
-$totalSize = "$totalSize {$prefix}B";
+$totalSize = readableSize($totalSize, 2);
 
 if(count($filesKeys)+3 > 30) {
     $filesRows = 30;

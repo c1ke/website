@@ -135,13 +135,12 @@ if($aria2) {
     if(isset($files['error'])) {
         if($aria2 == 2) {
             echo '#UUPDUMP_ERROR:';
-            echo $files['error'];
-            die();
         } else {
             http_response_code(400);
-            echo $files['error'];
-            die();
         }
+
+        echo $files['error'];
+        die();
     }
 
     if($autoDl) {
@@ -278,29 +277,15 @@ if($updateArch == 'arm64') {
     </thead>
 <?php
 $totalSize = 0;
-$prefixes = array('', 'Ki', 'Mi', 'Gi', 'Ti', 'Pi', 'Ei', 'Zi', 'Yi');
-
 foreach($filesKeys as $val) {
-    $totalSize = $totalSize + $files[$val]['size'];
     $size = $files[$val]['size'];
-
-    foreach($prefixes as $prefix) {
-        if($size < 1024) break;
-        $size = $size / 1024;
-    }
-    $size = round($size);
-    $size = "$size {$prefix}B";
+    $totalSize = $totalSize + $size;
+    $size = readableSize($size);
 
     echo '<tr><td><a href="'.$files[$val]['url'].'">'.$val.'</a></td><td>'.date("Y-m-d H:i:s T", $files[$val]['expire']).'</td>';
     echo '<td><code>'.$files[$val]['sha1'].'</code></td><td>'.$size.'</td></tr>'."\n";
 }
-
-foreach($prefixes as $prefix) {
-    if($totalSize < 1024) break;
-    $totalSize = $totalSize / 1024;
-}
-$totalSize = round($totalSize, 2);
-$totalSize = "$totalSize {$prefix}B";
+$totalSize = readableSize($totalSize, 2);
 
 if(count($filesKeys)+3 > 30) {
     $filesRows = 30;
