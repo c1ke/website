@@ -1,5 +1,5 @@
 /*
-Copyright 2019 UUP dump authors
+Copyright 2019 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -114,4 +114,16 @@ textarea::selection {
 .ui.message,
 .ui.message .header {
     box-shadow: none !important;
+}
+
+.ui.vertical.menu .light-mode-btn {
+    display: block !important;
+}
+
+.ui.menu:not(.vertical) .light-mode-btn {
+    display: flex !important;
+}
+
+.dark-mode-btn {
+    display: none !important;
 }

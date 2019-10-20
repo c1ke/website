@@ -26,34 +26,64 @@ function styleUpper($pageType = 'home', $subtitle = '') {
         $title = $s['uupdump'];
     }
 
-    $enableDarkMode = 0;
+    $enableDarkMode = -1;
     if(isset($_COOKIE['Dark-Mode'])) {
-        if($_COOKIE['Dark-Mode'] == 1) {
-            $enableDarkMode = 1;
-            setcookie('Dark-Mode', 1, time()+2592000);
+        switch($_COOKIE['Dark-Mode']) {
+            case 0:
+                setcookie('Dark-Mode', 0, time()+2592000);
+                $enableDarkMode = 0;
+                break;
+
+            case 1:
+                setcookie('Dark-Mode', 1, time()+2592000);
+                $enableDarkMode = 1;
+                break;
+
+            default:
+                setcookie('Dark-Mode');
+                $enableDarkMode = -1;
+                break;
         }
     }
 
     if(isset($_GET['dark'])) {
-        if($_GET['dark'] == 1) {
-            setcookie('Dark-Mode', 1, time()+2592000);
-            $enableDarkMode = 1;
-        } elseif($_GET['dark'] == 0) {
-            setcookie('Dark-Mode');
-            $enableDarkMode = 0;
+        switch($_GET['dark']) {
+            case 0:
+                setcookie('Dark-Mode', 0, time()+2592000);
+                $enableDarkMode = 0;
+                break;
+
+            case 1:
+                setcookie('Dark-Mode', 1, time()+2592000);
+                $enableDarkMode = 1;
+                break;
+
+            default:
+                setcookie('Dark-Mode');
+                $enableDarkMode = -1;
+                break;
         }
     }
 
     $baseUrl = getBaseUrl();
     $url = getUrlWithoutParam('dark');
 
+    $darkSwitch = <<<EOD
+<a class="item light-mode-btn" href="{$url}dark=0">
+    <i class="eye slash icon"></i>
+    {$s['lightMode']}
+</a>
+<a class="item dark-mode-btn" href="{$url}dark=1">
+    <i class="eye icon"></i>
+    {$s['darkMode']}
+</a>
+EOD;
 
-    if($enableDarkMode) {
-        $darkMode = '<link rel="stylesheet" href="shared/darkmode.css">'."\n";
-        $darkSwitch = '<a class="item" href="'.$url.'dark=0"><i class="eye slash icon"></i>'.$s['lightMode'].'</a>';
-    } else {
-        $darkMode = '';
-        $darkSwitch = '<a class="item" href="'.$url.'dark=1"><i class="eye icon"></i>'.$s['darkMode'].'</a>';
+    $darkMode = '';
+    if($enableDarkMode == 1) {
+        $darkMode = '<link rel="stylesheet" href="shared/css/darkmode.css">'."\n";
+    } elseif($enableDarkMode < 0) {
+        $darkMode = '<style>@import url(\'shared/css/darkmode.css\') (prefers-color-scheme: dark);</style>';
     }
 
     switch ($pageType) {
@@ -93,7 +123,7 @@ function styleUpper($pageType = 'home', $subtitle = '') {
         <meta property="og:image" content="$baseUrl/shared/img/icon.png">
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css">
-        <link rel="stylesheet" href="shared/style.css">
+        <link rel="stylesheet" href="shared/css/style.css">
         $darkMode
         <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.js"></script>
