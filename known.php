@@ -34,9 +34,13 @@ if(empty($ids)) {
 
 styleUpper('downloads', $s['browseKnown']);
 ?>
-<div class="ui horizontal divider">
-    <h3><i class="cubes icon"></i><?php echo $s['chooseBuild']; ?></h3>
-</div>
+
+<h3 class="ui centered header">
+    <div class="content">
+        <i class="fitted shopping basket icon"></i>&nbsp;
+        <?php echo $s['browseKnown']; ?>
+    </div>
+</h3>
 
 <div class="ui top attached segment">
     <form class="ui form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">

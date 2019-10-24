@@ -84,9 +84,12 @@ if($selectedLang) {
 styleUpper('downloads', sprintf($s['selectEditionFor'], "$updateTitle, $selectedLangName"));
 ?>
 
-<div class="ui horizontal divider">
-    <h3><i class="cubes icon"></i><?php echo $updateTitle; ?></h3>
-</div>
+<h3 class="ui centered header">
+    <div class="content">
+        <i class="fitted cubes icon"></i>&nbsp;
+        <?php echo $updateTitle; ?>
+    </div>
+</h3>
 
 <?php
 if(!file_exists('packs/'.$updateId.'.json.gz')) {

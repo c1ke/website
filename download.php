@@ -134,6 +134,13 @@ if(preg_grep('/^ProfessionalN_.*\.esd/i', $filesKeys)) {
 styleUpper('downloads', sprintf($s['summaryFor'], "$updateTitle, $selectedLangName, $selectedEditionName"));
 ?>
 
+<h3 class="ui centered header">
+    <div class="content">
+        <i class="fitted briefcase icon"></i>&nbsp;
+        <?php echo $s['summaryOfSelection']; ?>
+    </div>
+</h3>
+
 <div class="ui normal modal virtual-editions-info">
     <div class="header">
         <?php echo $s['learnMore']; ?>
@@ -191,10 +198,6 @@ styleUpper('downloads', sprintf($s['summaryFor'], "$updateTitle, $selectedLangNa
             <?php echo $s['ok']; ?>
         </div>
     </div>
-</div>
-
-<div class="ui horizontal divider">
-    <h3><i class="briefcase icon"></i><?php echo $s['summaryOfSelection']; ?></h3>
 </div>
 
 <?php

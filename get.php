@@ -252,9 +252,12 @@ if($simple) {
 styleUpper('downloads', sprintf($s['listOfFilesFor'], "$updateName $updateArch"));
 ?>
 
-<div class="ui horizontal divider">
-    <h3><i class="list icon"></i><?php echo $updateName.' '.$updateArch; ?></h3>
-</div>
+<h3 class="ui centered header">
+    <div class="content">
+        <i class="fitted list icon"></i>&nbsp;
+        <?php echo $updateName.' '.$updateArch; ?>
+    </div>
+</h3>
 
 <?php
 if(!file_exists('packs/'.$updateId.'.json.gz')) {

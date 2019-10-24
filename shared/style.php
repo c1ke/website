@@ -339,9 +339,13 @@ function fancyError($errorCode = 'ERROR', $pageType = 'home', $moreText = 0) {
     styleUpper($pageType, $s['error']);
 
     echo <<<ERROR
-<div class="ui horizontal divider">
-    <h3><i class="warning icon"></i>{$s['requestNotSuccessful']}</h3>
-</div>
+<h3 class="ui centered header">
+    <div class="content">
+        <i class="fitted exclamation triangle icon"></i>&nbsp;
+        {$s['requestNotSuccessful']}
+    </div>
+</h3>
+
 <div class="ui negative icon message">
     <i class="remove circle icon"></i>
     <div class="content">

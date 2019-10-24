@@ -48,7 +48,12 @@ styleUpper('home');
         </div>
 </form>
 
-<div class="ui horizontal section divider"><h3><i class="ui user md icon"></i><?php echo $s['advOptions']; ?></h3></div>
+<h3 class="ui centered header">
+    <div class="content">
+        <i class="fitted user md icon"></i>&nbsp;
+        <?php echo $s['advOptions']; ?>
+    </div>
+</h3>
 
 <div class="ui two columns stackable centered grid">
     <div class="column">
@@ -74,7 +79,13 @@ styleUpper('home');
 <?php
 if($buildsAvailable) {
     echo <<<EOD
-<div class="ui horizontal section divider"><h3><i class="ui star outline icon"></i>${s['newlyAdded']}</h3></div>
+<h3 class="ui centered header">
+    <div class="content">
+        <i class="fitted star outline icon"></i>&nbsp;
+        ${s['newlyAdded']}
+    </div>
+</h3>
+
 <table class="ui celled striped table">
     <thead>
         <tr>

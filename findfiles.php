@@ -91,9 +91,12 @@ if($aria2) {
 styleUpper('downloads', sprintf($s['findFilesIn'], "$updateName $updateArch"));
 ?>
 
-<div class="ui horizontal divider">
-    <h3><i class="list icon"></i><?php echo $updateName.' '.$updateArch; ?></h3>
-</div>
+<h3 class="ui centered header">
+    <div class="content">
+        <i class="fitted list icon"></i>&nbsp;
+        <?php echo $updateName.' '.$updateArch; ?>
+    </div>
+</h3>
 
 <div class="ui top attached segment">
     <form class="ui form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">

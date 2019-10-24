@@ -42,9 +42,12 @@ $updateArray = $fetchUpd['updateArray'];
 styleUpper('downloads', $s['responseFromServer']);
 ?>
 
-<div class="ui horizontal divider">
-    <h3><i class="wizard icon"></i><?php echo $s['responseFromServer']; ?></h3>
-</div>
+<h3 class="ui centered header">
+    <div class="content">
+        <i class="fitted wizard icon"></i>&nbsp;
+        <?php echo $s['responseFromServer']; ?>
+    </div>
+</h3>
 
 <div class="ui icon info message">
     <i class="check info circle icon"></i>

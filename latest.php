@@ -46,6 +46,13 @@ $builds = array_unique($builds);
 sort($builds);
 ?>
 
+<h3 class="ui centered header">
+    <div class="content">
+        <i class="fitted options icon"></i>&nbsp;
+        <?php echo $s['chooseOptions']; ?>
+    </div>
+</h3>
+
 <div class="ui basic modal">
     <div class="ui icon header">
         <i class="exclamation triangle icon"></i>
@@ -65,10 +72,6 @@ sort($builds);
             <?php echo $s['yesRecommended']; ?>
         </a>
     </div>
-</div>
-
-<div class="ui horizontal divider">
-    <h3><i class="options icon"></i><?php echo $s['chooseOptions']; ?></h3>
 </div>
 
 <div class="ui top attached segment">
@@ -97,7 +100,7 @@ sort($builds);
             <select class="ui search dropdown" name="build">
 <?php
 foreach($builds as $val) {
-    if($val == '18362.1') {
+    if($val === '18362.1') {
         echo '<option value="'.$val.'" selected>'.$val."</option>\n";
     } else {
         echo '<option value="'.$val.'">'.$val."</option>\n";
