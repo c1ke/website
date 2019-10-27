@@ -7,6 +7,7 @@ English language name: Portuguese (Brazil)
 Localized language name: Português (Brasil)
 Language code: pt-BR
 Author: Hélio de Souza / hdstec2018 (https://forums.mydigitallife.net/members/hdstec2018.1060506/)
+https://sway.office.com/RVue6qySNJ2DzYrs
 */
 
 //Language information
@@ -16,7 +17,7 @@ $s['timeZone'] = 'America/Sao_Paulo'; //Supported timezones: https://www.php.net
 //shared strings
 $s['uupdump'] = 'UUP dump';
 $s['uupdumpSub'] = '%s - UUP dump'; //Procurar compilações - UUP dump
-$s['build'] = 'Complilação';
+$s['build'] = 'Compilação';
 $s['arch'] = 'Arquitetura';
 $s['ring'] = 'Canal';
 $s['updateid'] = 'ID da atualização';
@@ -36,8 +37,9 @@ $s['file'] = 'Arquivo';
 $s['expires'] = 'Expira em';
 $s['sha1'] = 'SHA-1';
 $s['size'] = 'Tamanho';
-$s['additionalEdition'] = 'Edição Adicional';
-$s['requiredEdition'] = 'Edição Obrigatória';
+$s['additionalEdition'] = 'Edição adicional';
+$s['requiredEdition'] = 'Edição necessária';
+$s['unknown'] = 'Desconhecido';	
 
 //global
 $s['home'] = 'Início';
@@ -54,8 +56,8 @@ $s['selectLanguage'] = 'Por favor, selecione o idioma';
 //index.php
 $s['slogan'] = 'Faça o download de arquivos UUP dos servidores do Windows Update com facilidade.';
 $s['advOptions'] = 'Opções Avançadas';
-$s['browseBuilds'] = 'Navegar pela lista de compilações';
-$s['browseBuildsSub'] = 'Selecione uma compilação do banco de dados local para baixar.';
+$s['browseBuilds'] = 'Navegue pela lista de compilações';
+$s['browseBuildsSub'] = 'Escolha uma compilação do banco de dados local para baixar.';
 $s['fetchLatest'] = 'Buscar a última compilação';
 $s['fetchLatestSub'] = 'Recuperar as informações de compilação mais recentes dos servidores do Windows Update.';
 $s['newlyAdded'] = 'Novas compilações adicionadas';
@@ -63,21 +65,21 @@ $s['dateAdded'] = 'Adicionado em';
 
 //known.php
 $s['browseKnown'] = 'Procurar compilações disponíveis';
-$s['chooseBuild'] = 'Selecione a compilação';
+$s['chooseBuild'] = 'Escolha a compilação';
 $s['weFoundBuilds'] = 'Encontramos <b>%d</b> compilações para sua consulta.'; //Encontramos <b>692</b> compilações para sua consulta.
 
 //latest.php
 $s['latestFetchLatest'] = 'Buscar a compilação mais recente';
 $s['latestTestingOnly'] = 'Apenas para fins de teste';
 $s['latestTestingOnlyWarn'] = '<b>Esta página é fornecida apenas para fins de teste.</b> Compilações recuperadas por esta página que não foram processadas pelo servidor back-end serão fornecidas usando pacotes de fallback, que podem fornecer resultados incompletos. Se deseja baixar uma compilação disponível, por favor use a página de Compilações Disponíveis.';
-$s['latestDoYouWantKnown'] = 'Gostaria de continuar a navegar pela lista de Compilações Disponíveis?';
-$s['chooseOptions'] = 'Selecione as opções';
+$s['latestDoYouWantKnown'] = 'Gostaria de continuar navegando na lista de compilações disponíveis?';
+$s['chooseOptions'] = 'Escolha as opções';
 $s['buildOfPretendedClient'] = 'Número de compilação do cliente simulado do Windows Update';
 $s['editionOfPretendedClient'] = 'Edição do sistema simulado';
 $s['skipAheadLabel'] = 'Skip ahead flight';
 $s['skipAheadOption'] = 'Usar skip ahead flighting (apenas Insider Fast)';
-$s['fetchUpdates'] = 'Buscar Atualizações';
-$s['fetchUpdatesInfo'] = 'Clique no botão <i>Buscar Atualizações</i> para enviar sua solicitação para os servidores do Windows Update.';
+$s['fetchUpdates'] = 'Buscar atualizações';
+$s['fetchUpdatesInfo'] = 'Clique no botão <i>Buscar atualizações</i> para enviar sua solicitação para os servidores do Windows Update.';
 
 //fetchupd.php
 $s['responseFromServer'] = 'Resposta do servidor';
@@ -87,12 +89,12 @@ $s['buildNumber'] = 'Número da compilação: %s'; //Build number: 18890.1000
 
 //selectlang.php
 $s['selectLangFor'] = 'Selecione o idioma para %s'; //Selecione o idioma para o Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
-$s['chooseLang'] = 'Selecione o idioma';
-$s['chooseLangDesc'] = 'Selecione o idioma desejado';
+$s['chooseLang'] = 'Escolha o idioma';
+$s['chooseLangDesc'] = 'Escolha o idioma desejado';
 $s['allLangs'] = 'Todos os Idiomas';
 $s['selLangFiles'] = 'Arquivos';
 $s['allFiles'] = 'Todos Arquivos';
-$s['wubOnly'] = 'WindowsUpdateBox only';
+$s['wubOnly'] = 'Apenas WindowsUpdateBox';
 $s['updateOnly'] = 'Somente atualização';
 $s['selectLangInfoText1'] = 'Clique no botão <i>Próximo</i> para selecionar a edição que deseja baixar.';
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe e Atualizações Cumulativas podem ser encontradas no idioma<i>Todos os Idiomas</i>.';
@@ -100,17 +102,17 @@ $s['allLangsWarn'] = 'A opção <i>Todos os Idiomas</i> não suporta a seleção
 $s['clickNextToOpenFindFiles'] = 'Clique no botão <i>Próximo</i> para abrir a página que permite encontrar os arquivos.';
 $s['noLangsAvailable'] = 'Não há idiomas disponíveis para esta compilação.';
 $s['browseFiles'] = 'Procurar arquivos';
-$s['browseFilesDesc'] = 'Busca rápida nos arquivos da compilação selecionada';
+$s['browseFilesDesc'] = 'Navegar rapidamente pelos arquivos da compilação selecionada';
 $s['searchFiles'] = 'Procurar arquivos';
-$s['toSearchForCUUseQuery'] = 'Para procurar por Atualizações Cumulativas, use a consulta de pesquisa <i>%s</i>.'; //Para procurar por Atualizações Cumulativas, use a consulta de pesquisa <i>Windows10 KB</i>.
+$s['toSearchForCUUseQuery'] = 'Para procurar atualizações cumulativas use <i>% s</i> na pesquisa.'; //Para procurar atualizações cumulativas use <i>Windows 10 KB</i> na pesquisa.	
 
 //selectedition.php
 $s['selectEditionFor'] = 'Selecione a edição para %s'; //Selecione a edição para o Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
-$s['chooseEdition'] = 'Selecione a edição';
-$s['chooseEditionDesc'] = 'Selecione a sua edição desejada';
+$s['chooseEdition'] = 'Escolha a edição';
+$s['chooseEditionDesc'] = 'Escolha a sua edição desejada';
 $s['allEditions'] = 'Todas as edições';
 $s['selectEditionInfoText'] = 'Clique no botão <i>Próximo</i> para abrir a página com o resumo da sua seleção.';
-$s['additionalEditionsInfo'] = 'Selecione a edição desejada acima e clique em <i>Próximo</i>. Na tabela à direita você encontra as edições adicionais disponíveis e poderá adicioná-las na página de resumo, usando a opção de download apropriada.';
+$s['additionalEditionsInfo'] = 'Se você precisar de uma edição adicional que pode ser encontrado na tabela à direita, selecione a edição requerida indicada e clique em <i>Próximo</i>. Na página de resumo, você poderá selecionar as edições adicionais desejadas na opção de download apropriado. ';
 
 //download.php
 $s['summary'] = 'Resumo';
@@ -120,11 +122,11 @@ $s['summaryOfSelection'] = 'Resumo da sua seleção';
 $s['browseList'] = 'Procurar na lista de arquivos';
 $s['browseListDesc'] = 'Abre a página com a lista de arquivos do conjunto UUP para download manual.';
 $s['aria2Opt1'] = 'Download usando aria2';
-$s['aria2Opt1Desc'] = 'Baixar o conjunto UUP selecionado usando aria2.';
+$s['aria2Opt1Desc'] = 'Baixe o conjunto UUP selecionado usando aria2.';
 $s['aria2Opt2'] = 'Download usando aria2 e converter';
-$s['aria2Opt2Desc'] = 'Baixar o conjunto UUP selecionado usando aria2 e converter em ISO.';
+$s['aria2Opt2Desc'] = 'Baixe o conjunto UUP selecionado usando aria2 e converta-o em ISO.';
 $s['aria2Opt3'] = 'Download usando aria2, converter e criar edições adicionais';
-$s['aria2Opt3Desc'] = 'Baixar o conjunto UUP selecionado usando aria2, converter, criar edições adicionais e finalmente criar uma imagem ISO.';
+$s['aria2Opt3Desc'] = 'Baixe o conjunto UUP selecionado usando aria2, converta, crie edições adicionais e finalmente crie uma imagem ISO.';
 $s['jsRequiredToConf'] = 'O JavaScript é necessário para configurar e usar esta opção.';
 $s['selAdditionalEditions'] = 'Selecione edições adicionais';
 $s['noAdditionalEditions'] = 'Nenhuma edição adicional está disponível para esta seleção.';
@@ -137,6 +139,15 @@ $s['systemWithAdk'] = '%s com o Windows 10 ADK instalado'; //Windows 7 com o Win
 $s['additionalUpdates'] = 'Atualizações adicionais';
 $s['additionalUpdatesDesc'] = 'Este conjunto UUP contém atualizações adicionais que serão integradas durante o processo de conversão, aumentando significativamente o tempo de criação.';
 $s['browseUpdatesList'] = 'Navegar pela lista de atualizações';
+$s['selectDownloadOptions'] = 'Selecione suas opções de download';
+$s['selectDownloadOptionsSub'] = 'Configure como você deseja baixar sua seleção';
+$s['downloadMethod'] = 'Método de download';
+$s['conversionOptions'] = 'Opções de conversão';
+$s['convOpt1'] = 'Criar ISO com install.esd em vez de install.wim';
+$s['convOpt2'] = 'Integrar atualizações quando disponível (Conversor do Windows apenas)';
+$s['convOpt3'] = 'Executar a limpeza após a integração de atualizações  (Conversor do Windows apenas)';
+$s['convOpt4'] = 'Integrar o .Net Framework 3.5 (Conversor do Windows apenas)';
+$s['startDownload'] = 'Criar pacote de download';
 
 //get.php
 $s['listOfFilesFor'] = 'Lista de arquivos para %s'; //Lista de arquivos para o Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
@@ -159,7 +170,7 @@ $s['fileRenamingScriptDescFindFiles'] = 'Se deseja renomear rapidamente os arqui
 $s['fileRenamingScriptGenW'] = 'Gerar script de renomeação (Windows)';
 $s['fileRenamingScriptGenL'] = 'Gerar script de renomeação (Linux)';
 $s['searchForFiles'] = 'Procurar arquivos...';
-$s['weFoundFiles'] = 'Encontramos <b>%d</b> arquivos para sua consulta.'; //Encontramos <b>692</b> arquivos para sua consulta.
+$s['weFoundFiles'] = 'Encontramos <b>%d</b> arquivos para sua consulta.';//Encontramos <b>692</b> arquivos para sua consulta.
 
 //Error pages
 $s['error'] = 'Erro';
@@ -202,43 +213,43 @@ $s['error_UNSPECIFIED_VE'] = 'Você não selecionou nenhuma edição adicional. 
 $s['errorNoMessage'] = 'Mensagem de erro indisponível.';
 
 //Languages
-$s['lang_ar-sa'] = 'Árabe (Arábia Saudita)';
-$s['lang_bg-bg'] = 'Búlgaro';
-$s['lang_cs-cz'] = 'Tcheco';
-$s['lang_da-dk'] = 'Dinamarquês';
-$s['lang_de-de'] = 'Alemão';
-$s['lang_el-gr'] = 'Grego';
-$s['lang_en-gb'] = 'Inglês (Reino Unido)';
-$s['lang_en-us'] = 'Inglês (Estados Unidos)';
-$s['lang_es-es'] = 'Espanhol (Espanha)';
-$s['lang_es-mx'] = 'Espanhol (México)';
-$s['lang_et-ee'] = 'Estoniano';
-$s['lang_fi-fi'] = 'Finlandês';
-$s['lang_fr-ca'] = 'Francês (Canadá)';
-$s['lang_fr-fr'] = 'Francês (França)';
-$s['lang_he-il'] = 'Hebraico';
-$s['lang_hr-hr'] = 'Croata';
-$s['lang_hu-hu'] = 'Húngaro';
-$s['lang_it-it'] = 'Italiano';
-$s['lang_ja-jp'] = 'Japonês';
-$s['lang_ko-kr'] = 'Coreano';
-$s['lang_lt-lt'] = 'Lituano';
-$s['lang_lv-lv'] = 'Letão';
-$s['lang_nb-no'] = 'Norueguês (Bokmal)';
-$s['lang_nl-nl'] = 'Holandês';
-$s['lang_pl-pl'] = 'Polonês';
-$s['lang_pt-br'] = 'Português (Brasil)';
-$s['lang_pt-pt'] = 'Português (Portugal)';
+$s['lang_ar-sa'] = 'Arabic (Saudi Arabia)';
+$s['lang_bg-bg'] = 'Bulgarian';
+$s['lang_cs-cz'] = 'Czech';
+$s['lang_da-dk'] = 'Danish';
+$s['lang_de-de'] = 'German';
+$s['lang_el-gr'] = 'Greek';
+$s['lang_en-gb'] = 'English (United Kingdom)';
+$s['lang_en-us'] = 'English (United States)';
+$s['lang_es-es'] = 'Spanish (Spain)';
+$s['lang_es-mx'] = 'Spanish (Mexico)';
+$s['lang_et-ee'] = 'Estonian';
+$s['lang_fi-fi'] = 'Finnish';
+$s['lang_fr-ca'] = 'French (Canada)';
+$s['lang_fr-fr'] = 'French (France)';
+$s['lang_he-il'] = 'Hebrew';
+$s['lang_hr-hr'] = 'Croatian';
+$s['lang_hu-hu'] = 'Hungarian';
+$s['lang_it-it'] = 'Italian';
+$s['lang_ja-jp'] = 'Japanese';
+$s['lang_ko-kr'] = 'Korean';
+$s['lang_lt-lt'] = 'Lithuanian';
+$s['lang_lv-lv'] = 'Latvian';
+$s['lang_nb-no'] = 'Norwegian (Bokmal)';
+$s['lang_nl-nl'] = 'Dutch';
+$s['lang_pl-pl'] = 'Polish';
+$s['lang_pt-br'] = 'Portuguese (Brazil)';
+$s['lang_pt-pt'] = 'Portuguese (Portugal)';
 $s['lang_qps-ploc'] = 'Pseudo';
-$s['lang_ro-ro'] = 'Romeno';
-$s['lang_ru-ru'] = 'Russo';
-$s['lang_sk-sk'] = 'Eslovaco';
-$s['lang_sl-si'] = 'Esloveno';
-$s['lang_sr-latn-rs'] = 'Sérvio (latim)';
-$s['lang_sv-se'] = 'Sueco';
-$s['lang_th-th'] = 'Tailandês';
-$s['lang_tr-tr'] = 'Turco';
-$s['lang_uk-ua'] = 'Ucraniano';
-$s['lang_zh-cn'] = 'Chinês (simplificado)';
-$s['lang_zh-hk'] = 'Chinês (Hong Kong)';
-$s['lang_zh-tw'] = 'Chinês (Tradicional)';
+$s['lang_ro-ro'] = 'Romanian';
+$s['lang_ru-ru'] = 'Russian';
+$s['lang_sk-sk'] = 'Slovak';
+$s['lang_sl-si'] = 'Slovenian';
+$s['lang_sr-latn-rs'] = 'Serbian (Latin)';
+$s['lang_sv-se'] = 'Swedish';
+$s['lang_th-th'] = 'Thai';
+$s['lang_tr-tr'] = 'Turkish';
+$s['lang_uk-ua'] = 'Ukrainian';
+$s['lang_zh-cn'] = 'Chinese (Simplified)';
+$s['lang_zh-hk'] = 'Chinese (Hong Kong)';
+$s['lang_zh-tw'] = 'Chinese (Traditional)';
