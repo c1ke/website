@@ -268,6 +268,7 @@ function fancyError($errorCode = 'ERROR', $pageType = 'home', $moreText = 0) {
             $errorFancy = $s['error_EMPTY_FILELIST'];
             break;
         case 'NO_FILES':
+            $errorNumber = 404;
             $errorFancy = $s['error_NO_FILES'];
             break;
         case 'NOT_FOUND':
