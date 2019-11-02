@@ -330,7 +330,7 @@ EOL;
             <i class="cubes icon"></i>
             <div class="content">
                 <?php echo $s['update']; ?>
-                <div class="sub header"><?php echo $updateTitle; ?></div>
+                <div class="sub header"><?php echo htmlentities($updateTitle); ?></div>
             </div>
         </h4>
 

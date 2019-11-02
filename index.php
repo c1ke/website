@@ -106,10 +106,10 @@ EOD;
 
         echo '<tr><td>';
         echo '<i class="windows icon"></i>';
-        echo '<a href="./selectlang.php?id='.$val['uuid'].'">'
-             .$val['title'].' '.$val['arch']."</a>";
+        echo '<a href="./selectlang.php?id='.htmlentities($val['uuid']).'">'
+             .htmlentities($val['title']).' '.htmlentities($val['arch'])."</a>";
         echo '</td><td>';
-        echo $arch;
+        echo htmlentities($arch);
         echo '</td><td>';
 
         if($val['created'] == null) {

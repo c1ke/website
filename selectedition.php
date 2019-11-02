@@ -87,7 +87,7 @@ styleUpper('downloads', sprintf($s['selectEditionFor'], "$updateTitle, $selected
 <h3 class="ui centered header">
     <div class="content">
         <i class="fitted cubes icon"></i>&nbsp;
-        <?php echo $updateTitle; ?>
+        <?php echo htmlentities($updateTitle); ?>
     </div>
 </h3>
 

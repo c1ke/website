@@ -255,7 +255,7 @@ styleUpper('downloads', sprintf($s['listOfFilesFor'], "$updateName $updateArch")
 <h3 class="ui centered header">
     <div class="content">
         <i class="fitted list icon"></i>&nbsp;
-        <?php echo $updateName.' '.$updateArch; ?>
+        <?php echo htmlentities($updateName.' '.$updateArch); ?>
     </div>
 </h3>
 

@@ -49,7 +49,7 @@ if(in_array("$lang", $supportedLangs)) {
     $lang = 'en-us';
 }
 
-$url = getUrlWithoutParam('lang');
+$url = htmlentities(getUrlWithoutParam('lang'));
 $languageCoreSelectorModal = <<<EOD
 <div class="ui normal mini modal select-language">
     <div class="header">

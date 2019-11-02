@@ -128,7 +128,7 @@ styleUpper('downloads', sprintf($s['selectLangFor'], $updateTitle));
 <h3 class="ui centered header">
     <div class="content">
         <i class="fitted cubes icon"></i>&nbsp;
-        <?php echo $updateTitle; ?>
+        <?php echo htmlentities($updateTitle); ?>
     </div>
 </h3>
 

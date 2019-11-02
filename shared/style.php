@@ -66,7 +66,7 @@ function styleUpper($pageType = 'home', $subtitle = '') {
     }
 
     $baseUrl = getBaseUrl();
-    $url = getUrlWithoutParam('dark');
+    $url = htmlentities(getUrlWithoutParam('dark'));
 
     $darkSwitch = <<<EOD
 <a class="item light-mode-btn" href="{$url}dark=0">
@@ -108,6 +108,7 @@ EOD;
     $navbarMobile = $darkSwitch.$sourceCodeLink.$discordInvite.$langSelect;
 
     $iso639lang = preg_replace("/-.*/i", "", $s['code']);
+    $title = htmlentities($title);
 
     echo <<<HTML
 <!DOCTYPE html>
