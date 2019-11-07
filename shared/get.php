@@ -71,14 +71,21 @@ if NOT "%cd%"=="%cd: =%" (
     goto :EOF
 )
 
-REG QUERY HKU\\S-1-5-19\\Environment >NUL 2>&1
-IF %ERRORLEVEL% EQU 0 goto :START_PROCESS
+:: Welcome to the world of over engineered Windows Command Prompt workarounds.
+:: I have tested this fucking mess with the following path:
+:: T:\!@#$%^'&())(&('()&^$';&&ęółąćśćźżあああ💢
+::
+:: If you manage to break it, then I have no fucking idea how you did it.
 
-set "command="""%~f0""" %*"
-set "command=%command:'=''%"
+echo %* | find "49127c4b-02dc-482e-ac4f-ec4d659b7547" >NUL 2>&1 && goto :START_PROCESS
+REG QUERY HKU\S-1-5-19\Environment >NUL 2>&1 && goto :START_PROCESS
+
+set command="""%~f0""" 49127c4b-02dc-482e-ac4f-ec4d659b7547
+SETLOCAL ENABLEDELAYEDEXPANSION
+set "command=!command:'=''!"
 
 powershell -NoProfile Start-Process -FilePath '%COMSPEC%' ^
--ArgumentList '/c """%command%"""' -Verb RunAs 2>NUL
+-ArgumentList '/c """!command!"""' -Verb RunAs 2>NUL
 
 IF %ERRORLEVEL% GTR 0 (
     echo =====================================================
@@ -88,6 +95,7 @@ IF %ERRORLEVEL% GTR 0 (
     pause
 )
 
+SETLOCAL DISABLEDELAYEDEXPANSION
 goto :EOF
 
 :START_PROCESS
