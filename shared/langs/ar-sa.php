@@ -138,6 +138,15 @@ $s['systemWithAdk'] = '%s - مع حزمة Windows 10 ADK'; //Windows 7 with Wind
 $s['additionalUpdates'] = 'تحديثات إضافية';
 $s['additionalUpdatesDesc'] = 'الإصدار المحدد يحتوي على تحديثات إضافية والتي سيتم دمجها خلال عملية التحويل، مما سيزيد الوقت المطلوب لإنشاء التوزيعة.';
 $s['browseUpdatesList'] = 'تصفح قائمة ملفات التحديثات';
+$s['selectDownloadOptions'] = 'خيارات التنزيل والتحويل';
+$s['selectDownloadOptionsSub'] = 'اختيار كيفية الحصول على الملفات المطلوبة';
+$s['downloadMethod'] = 'خيارات التنزيل';
+$s['conversionOptions'] = 'خيارات التحويل';
+$s['convOpt1'] = 'install.wim بدلاً عن install.esd إنشاء آيزو يحتوي ملف';
+$s['convOpt2'] = 'سكريبت ويندوز فقط: دمج التحديثات إن كانت متوفرة';
+$s['convOpt3'] = 'سكريبت ويندوز فقط: إزالة المكونات المستبدلة بعد دمج التحديثات';
+$s['convOpt4'] = '.NET 3.5 سكريبت ويندوز فقط: دمج وتفعيل ميزة';
+$s['startDownload'] = 'إنشاء وتحميل الملف المضغوط';
 
 //get.php
 $s['listOfFilesFor'] = 'قائمة الملفات - %s'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
@@ -148,8 +157,8 @@ $s['fileRenamingScriptDesc2'] = 'وضعه في نفس مجلد الملفات ا
 $s['sha1File'] = 'SHA-1 هاش الملفات';
 $s['sha1FileDesc'] = 'يمكن استعمال محتويات الملف أدناه للتحقق من صحة الملفات المحملة';
 $s['aria2NoticeTitle'] = 'aria2 ملاحظة حول خيارات التنزيل ببرنامج';
-$s['aria2NoticeText1'] = 'هذه الخيارات تنشئ ملف أرشيف يحتوي على كافة الملفات المطلوبة لتنفيذ المهمة المحددة';
-$s['aria2NoticeText2'] = ':لبدء عملية التنزيل استخرج ملف الأرشيف ثم شغل السكريبت المناسب حسب نظامك';
+$s['aria2NoticeText1'] = 'سيتم إنشاء وتحميل ملف مضغوط يحتوي على كافة الملفات المطلوبة لتنفيذ عملية التنزيل والتحويل';
+$s['aria2NoticeText2'] = ':لبدء عملية التنزيل استخرج الملف المضغوط ثم شغل السكريبت المناسب حسب نظامك';
 $s['aria2NoticeText3'] = '%s :هو برنامج مفتوح المصدر، يمكنك إيجاده هنا Aria2'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
 $s['aria2NoticeText4'] = '%s :سكريبت التحويل (نسخة ويندوز) تم إنشاؤه بواسطة'; //UUP Conversion script (Windows version) has been created by abbodi1406.
 $s['aria2NoticeText5'] = '%s :سكريبت التحويل (نسخة لينكس) مفتوح المصدر، يمكنك إيجاده هنا'; //UUP Conversion script (Linux version) is open source. You can find it here: https://github.com/uup-dump/converter.
