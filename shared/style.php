@@ -66,6 +66,7 @@ function styleUpper($pageType = 'home', $subtitle = '') {
     }
 
     $baseUrl = getBaseUrl();
+    $fullUrl = htmlentities(getBaseUrl().$_SERVER['REQUEST_URI']);
     $url = htmlentities(getUrlWithoutParam('dark'));
 
     $darkSwitch = <<<EOD
@@ -121,7 +122,8 @@ EOD;
         <meta property="og:title" content="$title">
         <meta property="og:type" content="website">
         <meta property="og:description" content="{$s['websiteDesc']}">
-        <meta property="og:image" content="$baseUrl/shared/img/icon.png">
+        <meta property="og:image" content="$baseUrl/shared/img/cover.png">
+        <meta property="og:url" content="$fullUrl">
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css">
         <link rel="stylesheet" href="shared/css/style.css">
@@ -153,11 +155,8 @@ EOD;
         <div class="pusher">
             <div class="page-header">
                 <div class="ui title container">
-                    <h1>
+                    <h1 title="{$s['uupdump']} v$websiteVersion">
                         <img src="shared/img/logo.svg" class="logo" alt="">{$s['uupdump']}
-                        <span class="version">
-                            v$websiteVersion
-                        </span>
                     </h1>
                 </div>
 

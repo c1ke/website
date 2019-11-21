@@ -188,7 +188,6 @@ styleUpper('downloads', sprintf($s['summaryFor'], "$updateTitle, $selectedLangNa
         <ul>
             <li>Windows 10</li>
             <li><?php printf($s['systemWithAdk'], 'Windows 8.1'); ?></li>
-            <li><?php printf($s['systemWithAdk'], 'Windows 7'); ?></li>
         </ul>
         <p><?php echo $s['learnMoreUpdates2']; ?></p>
     </div>
@@ -267,13 +266,9 @@ if($updateArch == 'arm64') {
                 <div class="grouped fields">
                     <div class="field">
                         <div class="ui checkbox">
-                            <input type="checkbox" name="esd" value="1" class="conversion-option">
-                            <label><?php echo $s['convOpt1']; ?></label>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" name="updates" value="1" checked class="conversion-option">
+                            <!-- Always enable integration of updates -->
+                            <input type="hidden" name="updates" value="1">
+                            <input type="checkbox" checked disabled>
                             <label><?php echo $s['convOpt2']; ?></label>
                         </div>
                     </div>
@@ -287,6 +282,12 @@ if($updateArch == 'arm64') {
                         <div class="ui checkbox">
                             <input type="checkbox" name="netfx" value="1" class="conversion-option">
                             <label><?php echo $s['convOpt4']; ?></label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="esd" value="1" class="conversion-option">
+                            <label><?php echo $s['convOpt1']; ?></label>
                         </div>
                     </div>
                 </div>
