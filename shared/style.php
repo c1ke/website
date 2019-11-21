@@ -22,8 +22,10 @@ function styleUpper($pageType = 'home', $subtitle = '') {
 
     if($subtitle) {
         $title = sprintf($s['uupdumpSub'], "$subtitle");
+        $subTitleOnly = $subtitle;
     } else {
         $title = $s['uupdump'];
+        $subTitleOnly = $s['uupdump'];
     }
 
     $enableDarkMode = -1;
@@ -119,7 +121,9 @@ EOD;
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="description" content="{$s['websiteDesc']}">
 
-        <meta property="og:title" content="$title">
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="og:site_name" content="{$s['uupdump']}">
+        <meta property="og:title" content="$subTitleOnly">
         <meta property="og:type" content="website">
         <meta property="og:description" content="{$s['websiteDesc']}">
         <meta property="og:image" content="$baseUrl/shared/img/cover.png">
