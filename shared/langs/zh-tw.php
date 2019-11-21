@@ -142,6 +142,15 @@ $s['systemWithAdk'] = '%s，且安裝了 Windows 10 ADK'; //Windows 7 with Windo
 $s['additionalUpdates'] = '額外更新';
 $s['additionalUpdatesDesc'] = '這個 UUP 集合包含了會在轉換程序整合進去的額外更新，將會顯著增加建立時間。';
 $s['browseUpdatesList'] = '瀏覽更新列表';
+$s['selectDownloadOptions'] = '請選擇下載選項';
+$s['selectDownloadOptionsSub'] = '設定您想下載選擇項目的方式';
+$s['downloadMethod'] = '下載方式';
+$s['conversionOptions'] = '轉換選項';
+$s['convOpt1'] = '使用 install.esd 而非 install.wim 建立 ISO 檔';
+$s['convOpt2'] = '可用時整合更新 (僅適用於 Windows 轉換工具)';
+$s['convOpt3'] = '在整合更新後執行清理工作 (僅適用於 Windows 轉換工具)';
+$s['convOpt4'] = '整合 .NET Framework 3.5 (僅適用於 Windows 轉換工具)';
+$s['startDownload'] = '建立下載套件';
 
 //get.php
 $s['listOfFilesFor'] = '列出 %s 的檔案'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
