@@ -122,9 +122,6 @@ EOD;
     }
     echo '</table>';
 }
-?>
 
-<div class="ui hidden divider"></div>
-<?php
 styleLower();
 ?>

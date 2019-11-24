@@ -138,6 +138,15 @@ $s['systemWithAdk'] = 'Windows 10 ADK가 설치된 %s'; //Windows 7 with Windows
 $s['additionalUpdates'] = '추가 업데이트';
 $s['additionalUpdatesDesc'] = '이 UUP 세트에는 변환 프로세스 중에 통합되는 추가 업데이트가 포함되어 있어 생성 시간이 상당히 늘어 납니다.';
 $s['browseUpdatesList'] = '업데이트 목록 찾아보기';
+$s['selectDownloadOptions'] = '다운로드 옵션을 선택하십시오.';
+$s['selectDownloadOptionsSub'] = '선택 사항으로 다운로드 방법 구성';
+$s['downloadMethod'] = '다운로드 방법';
+$s['conversionOptions'] = '변환 옵션';
+$s['convOpt1'] = 'install.wim 대신 install.esd를 사용하여 ISO 생성';
+$s['convOpt2'] = '사용 가능한 경우 업데이트 통합 (Windows 변환기 만 해당)';
+$s['convOpt3'] = '업데이트 통합 후 정리 실행 (Windows 변환기 만 해당)';
+$s['convOpt4'] = '.NET Framework 3.5 통합 (Windows 변환기 만 해당)';
+$s['startDownload'] = '다운로드 패키지 만들기';
 
 //get.php
 $s['listOfFilesFor'] = '%s의 파일 목록'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
