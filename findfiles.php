@@ -88,7 +88,12 @@ if($aria2) {
     die();
 }
 
-styleUpper('downloads', sprintf($s['findFilesIn'], "$updateName $updateArch"));
+$pageTitle = sprintf($s['findFilesIn'], "$updateName $updateArch");
+if($search) {
+    $pageTitle = "$search - ".$pageTitle;
+}
+
+styleUpper('downloads', $pageTitle);
 ?>
 
 <h3 class="ui centered header">

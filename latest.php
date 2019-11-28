@@ -126,14 +126,6 @@ foreach($builds as $val) {
             </select>
         </div>
 
-        <div class="field">
-            <label><?php echo $s['skipAheadLabel']; ?></label>
-            <div class="ui checkbox">
-                <input type="checkbox" name="flight" value="skip">
-                <label><?php echo $s['skipAheadOption']; ?></label>
-            </div>
-        </div>
-
         <button class="ui fluid right labeled icon red button" type="submit">
             <i class="right arrow icon"></i>
             <?php echo $s['fetchUpdates']; ?>
@@ -153,18 +145,6 @@ foreach($builds as $val) {
         .modal('setting', 'closable', false)
         .modal('show')
     ;
-
-    function checkRing() {
-        form = document.getElementById('optionsForm');
-
-        if(form.ring.value == 'wif') {
-            form.flight.disabled = false;
-        } else {
-            form.flight.disabled = true;
-        }
-    }
-
-    checkRing();
 </script>
 
 <?php

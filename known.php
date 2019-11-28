@@ -32,7 +32,13 @@ if(empty($ids)) {
     die();
 }
 
-styleUpper('downloads', $s['browseKnown']);
+if($search) {
+    $pageTitle = "$search - {$s['browseKnown']}";
+} else {
+    $pageTitle = $s['browseKnown'];
+}
+
+styleUpper('downloads', $pageTitle);
 ?>
 
 <h3 class="ui centered header">
