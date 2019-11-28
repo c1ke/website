@@ -36,8 +36,9 @@ $s['file'] = 'Datei';
 $s['expires'] = 'Verfällt';
 $s['sha1'] = 'SHA-1';
 $s['size'] = 'Größe';
-$s['additionalEdition'] = 'Zusätzliche Edition';											   
-$s['requiredEdition'] = 'Erforderliche Edition';										   
+$s['additionalEdition'] = 'Zusätzliche Edition';
+$s['requiredEdition'] = 'Erforderliche Edition';
+$s['unknown'] = 'Unbekannt';
 
 //global
 $s['home'] = 'Startseite';
@@ -102,7 +103,7 @@ $s['noLangsAvailable'] = 'Für dieses Build sind keine Sprachen verfügbar.';
 $s['browseFiles'] = 'Dateien durchsuchen';
 $s['browseFilesDesc'] = 'Schnelles Durchsuchen von Dateien im ausgewählten Build';
 $s['searchFiles'] = 'Dateien suchen';
-$s['toSearchForCUUseQuery'] = 'Um nach kumulativen Updates zu suchen, verwenden Sie die Suchanfrage <i>%s</i>.'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.																			
+$s['toSearchForCUUseQuery'] = 'Um nach kumulativen Updates zu suchen, verwenden Sie die Suchanfrage <i>%s</i>.'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.
 
 //selectedition.php
 $s['selectEditionFor'] = 'Edition auswählen für %s'; //Select edition for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
@@ -110,7 +111,7 @@ $s['chooseEdition'] = 'Edition auswählen';
 $s['chooseEditionDesc'] = 'Wählen Sie die gewünschte Edition aus';
 $s['allEditions'] = 'Alle Editionen';
 $s['selectEditionInfoText'] = 'Klicken Sie auf die Schaltfläche <i>Weiter</i>, um die Zusammenfassungsseite Ihrer Auswahl zu öffnen.';
-$s['additionalEditionsInfo'] = 'Wenn Sie eine zusätzliche Edition benötigen, die Sie in der rechten Tabelle finden, wählen Sie bitte die gewünschte Edition aus und klicken Sie auf <i>Weiter</i>. Auf der Übersichtsseite können Sie unter der entsprechenden Download-Option Ihre gewünschten Zusatzeditionen auswählen.';																																																																												
+$s['additionalEditionsInfo'] = 'Wenn Sie eine zusätzliche Edition benötigen, die Sie in der rechten Tabelle finden, wählen Sie bitte die gewünschte Edition aus und klicken Sie auf <i>Weiter</i>. Auf der Übersichtsseite können Sie unter der entsprechenden Download-Option Ihre gewünschten Zusatzeditionen auswählen.';
 
 //download.php
 $s['summary'] = 'Zusammenfassung';
@@ -137,6 +138,15 @@ $s['systemWithAdk'] = '%s mit installiertem Windows 10 ADK'; //Windows 7 with Wi
 $s['additionalUpdates'] = 'Zusätzliche Updates';
 $s['additionalUpdatesDesc'] = 'Dieses UUP-Set enthält zusätzliche Updates, die während des Konvertierungsprozesses integriert werden und die Erstellungszeit deutlich erhöhen.';
 $s['browseUpdatesList'] = 'Durchsuchen der Update-Liste';
+$s['selectDownloadOptions'] = 'Wählen Sie Ihre Download-Optionen aus';
+$s['selectDownloadOptionsSub'] = 'Konfigurieren Sie, wie Sie Ihre Auswahl herunterladen möchten.';
+$s['downloadMethod'] = 'Download-Methode';
+$s['conversionOptions'] = 'Konvertierungsoptionen';
+$s['convOpt1'] = 'ISO mit einer install.esd anstelle einer install.wim erstellen';
+$s['convOpt2'] = 'Updates integrieren, wenn verfügbar (nur Windows-Konverter)';
+$s['convOpt3'] = 'Bereinigung nach der Update-Integration durchführen (nur Windows-Konverter)';
+$s['convOpt4'] = 'Integration von.NET Framework 3.5 (nur Windows-Konverter)';
+$s['startDownload'] = 'Downloadpaket erstellen';
 
 //get.php
 $s['listOfFilesFor'] = 'Liste der Dateien für %s'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
