@@ -138,6 +138,15 @@ $s['systemWithAdk'] = '%s met Windows 10 ADK geinstalleerd'; //Windows 7 met Win
 $s['additionalUpdates'] = 'Extra updates';
 $s['additionalUpdatesDesc'] = 'Deze UUP bestanden bevatten extra updates, deze zullen worden geintegreerd, het proces significant langer makend.';
 $s['browseUpdatesList'] = 'Blader door een lijst van updates';
+$s['selectDownloadOptions'] = 'Selecteer uw download opties';
+$s['selectDownloadOptionsSub'] = 'Configureer uw download methode';
+$s['downloadMethod'] = 'Download methode';
+$s['conversionOptions'] = 'Conversie opties';
+$s['convOpt1'] = 'Creëer ISO met install.esd in plaats van install.wim';
+$s['convOpt2'] = 'Integreer updates indien aanwezig (Alleen Windows converter)';
+$s['convOpt3'] = 'Voer cleanup uit na updates-integratie (Alleen Windows converter)';
+$s['convOpt4'] = 'Integreer .NET Framework 3.5 (Alleen Windows converter)';
+$s['startDownload'] = 'Creëer download pakket';
 
 //get.php
 $s['listOfFilesFor'] = 'Bestandslijst voor %s'; //Bestandslijst voor Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
