@@ -39,14 +39,41 @@ styleUpper('home');
     <p class="sub"><i><?php echo $s['slogan']; ?></i></p>
 </div>
 
-<form class="ui form" action="./known.php" method="get">
+<form class="ui form" action="known.php" method="get">
     <div class="field">
         <div class="ui big action input">
             <input type="text" name="q" placeholder="<?php echo $s['seachForBuilds']; ?>">
             <button class="ui big blue icon button" type="submit"><i class="search icon"></i></button>
         </div>
-        </div>
+    </div>
 </form>
+
+
+<div class="quick-search-buttons">
+    <i class="thumbtack icon"></i>
+
+    <a class="ui mini button" href="known.php?q=18363">
+        <i class="search icon"></i>
+        19H2
+    </a>
+
+    <!-- Have you ever been so lazy to make something work properly in your
+    code, so you implemented regex instead to make it work? -->
+    <a class="ui mini button" href="known.php?q=regex:18362\.(?!\d{5})">
+        <i class="search icon"></i>
+        19H1
+    </a>
+
+    <a class="ui mini button" href="known.php?q=17763">
+        <i class="search icon"></i>
+        1809
+    </a>
+
+    <a class="ui mini button" href="known.php?q=17134">
+        <i class="search icon"></i>
+        1803
+    </a>
+</div>
 
 <h3 class="ui centered header">
     <div class="content">
@@ -106,7 +133,7 @@ EOD;
 
         echo '<tr><td>';
         echo '<i class="windows icon"></i>';
-        echo '<a href="./selectlang.php?id='.htmlentities($val['uuid']).'">'
+        echo '<a href="selectlang.php?id='.htmlentities($val['uuid']).'">'
              .htmlentities($val['title']).' '.htmlentities($val['arch'])."</a>";
         echo '</td><td>';
         echo htmlentities($arch);
@@ -124,4 +151,3 @@ EOD;
 }
 
 styleLower();
-?>

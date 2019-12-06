@@ -95,3 +95,9 @@ limitations under the License.
 .light-mode-btn {
     display: none !important;
 }
+
+.quick-search-buttons {
+    text-align: center;
+    margin-top: .5em;
+    line-height: 300%;
+}
