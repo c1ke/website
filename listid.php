@@ -15,13 +15,4 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-// Website information
-$websiteVersion = '3.36.2';
-$requiredApi = '1.28.0';
-
-require_once dirname(__FILE__).'/../api/shared/main.php';
-require_once dirname(__FILE__).'/utils.php';
-require_once dirname(__FILE__).'/lang.php';
-
-// Do check of API
-checkApi();
+die("0||00000000-0000-0000-0000-000000000000|Not supported. Please use https://uupdump.ml");
