@@ -60,7 +60,7 @@ $s['browseBuilds'] = '瀏覽已知組建列表';
 $s['browseBuildsSub'] = '選擇已存在於本機資料庫的組建並下載。';
 $s['fetchLatest'] = '取得最新組建';
 $s['fetchLatestSub'] = '從 Windows Update 伺服器取得最新的組建資訊。';
-$s['newlyAdded'] = '新增加的組建';
+$s['newlyAdded'] = '新加入的組建';
 $s['dateAdded'] = '加入日期';
 
 //known.php
@@ -74,7 +74,7 @@ $s['latestTestingOnly'] = '僅供測試用途';
 $s['latestTestingOnlyWarn'] = '<b>這個頁面僅供測試用途。</b> 從這個頁面取得之後端伺服器未處理的組建版本會使用備用套件提供，可能會導致提供不完整的結果。如果您想要下載已知組建，請改使用 [已知組建] 頁面。';
 $s['latestDoYouWantKnown'] = '請問您是否要瀏覽已知組建列表？';
 $s['chooseOptions'] = '選擇選項';
-$s['buildOfPretendedClient'] = 'mock Windows Update 客戶端的組建號碼';
+$s['buildOfPretendedClient'] = 'mock Windows Update 用戶端的組建號碼';
 $s['editionOfPretendedClient'] = 'mock 系統版本';
 // TRANTAG: [Fuzzy]
 $s['skipAheadLabel'] = 'Skip ahead flight';
@@ -105,7 +105,7 @@ $s['noLangsAvailable'] = '這個組建沒有可用的語言。';
 $s['browseFiles'] = '瀏覽檔案';
 $s['browseFilesDesc'] = '快速瀏覽選取組建版本的檔案';
 $s['searchFiles'] = '搜尋檔案';
-$s['toSearchForCUUseQuery'] = '請搜尋 [%s] 以尋找累積更新。'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.
+$s['toSearchForCUUseQuery'] = '請搜尋 <b>%s</b> 以尋找累積更新。'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.
 
 //selectedition.php
 $s['selectEditionFor'] = '選取 %s 的版本'; //Select edition for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
@@ -120,7 +120,7 @@ $s['additionalEditionsInfo'] = '如果您需要可以在右方表格找到的額
 $s['summary'] = '摘要';
 $s['summaryDesc'] = '再次確認您的選擇，並選擇下載方式';
 $s['summaryFor'] = '%s 的摘要'; //Summary for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States), Windows 10 Pro
-$s['summaryOfSelection'] = '選擇項目的摘要';
+$s['summaryOfSelection'] = '選擇項目摘要';
 $s['browseList'] = '瀏覽檔案列表';
 // TRANTAG: [Fuzzy]
 $s['browseListDesc'] = '開啟要手動下載之包含在 UUP 集合中檔案的列表。';
@@ -183,13 +183,13 @@ $s['anErrorHasOccurred'] = '嘗試處理您的請求時發生錯誤。';
 $s['generatedPackNotAvailable'] = '沒有可用的產生套件';
 // TRANTAG: [Fuzzy]
 $s['generatedPackNotAvailableDesc'] = '您嘗試下載的更新尚無會提供關於可用語言、版本及檔案完整資訊的產生套件。將會使用備用套件，可能無法提供正確的資訊。如因這個原因而下載失敗，請等待自動產生套件可用。';
-$s['arm64Warning'] = '您選擇了<b>只支援基於 ARM64 之裝置的</b> ARM64 組建，可能無法在一般基於 Intel 或 AMD 的 PC 上運作。若要用於<b> 64 位元</b>的 PC，請使用 <b>amd64</b> 組建。若要用於<b> 32 位元</b>的 PC，請使用 <b>x86</b> 組建。如果您百分之百確定目標裝置基於 ARM64，則您可安全地忽略此訊息。';
+$s['arm64Warning'] = '您選擇了<b>只支援基於 ARM64 之裝置的</b> ARM64 組建，可能無法在一般基於 Intel 或 AMD 的 PC 上運作。若要用於<b> 64 位元</b>的 PC，請使用 <b>amd64</b> 組建。若要用於<b> 32 位元</b>的 PC，請使用 <b>x86</b> 組建。如果您百分之百確定目標裝置基於 ARM64，則您可安全忽略此訊息。';
 
 //Error messages - 錯誤訊息
 $s['error_ERROR'] = '一般錯誤。';
 $s['error_UNSUPPORTED_API'] = '安裝的 API 版本與此 UUP dump 版本不相容。';
-$s['error_NO_FILEINFO_DIR'] = '<i>fileinfo</i> 目錄不存在。';
-$s['error_NO_BUILDS_IN_FILEINFO'] = '<i>fileinfo</i> 資料庫沒有任何組建。';
+$s['error_NO_FILEINFO_DIR'] = '<b>fileinfo</b> 目錄不存在。';
+$s['error_NO_BUILDS_IN_FILEINFO'] = '<b>fileinfo</b> 資料庫沒有任何組建。';
 $s['error_SEARCH_NO_RESULTS'] = '找不到符合所執行查詢的項目。';
 $s['error_UNKNOWN_ARCH'] = '處理器架構未知。';
 $s['error_UNKNOWN_RING'] = '未知振鈴 (Ring)。';
@@ -258,4 +258,4 @@ $s['lang_tr-tr'] = '土耳其文';
 $s['lang_uk-ua'] = '烏克蘭文';
 $s['lang_zh-cn'] = '中文 (简体)';
 $s['lang_zh-hk'] = '中文 (香港)';
-$s['lang_zh-tw'] = '中文 (台灣)';
+$s['lang_zh-tw'] = '中文 (繁體)';
