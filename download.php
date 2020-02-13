@@ -116,7 +116,7 @@ if($usePack && $desiredEdition) {
     $editions = uupListEditions($usePack, $updateId);
     $editions = $editions['editionFancyNames'];
 
-    if(isset($editions[$desiredEdition])) {
+    if(isset($editions[strtoupper($desiredEdition)])) {
         $selectedEditionName = $editions[strtoupper($desiredEdition)];
     } else {
         $fancyNames = [];
