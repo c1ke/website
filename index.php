@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 whatever127
+Copyright 2020 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -51,6 +51,11 @@ styleUpper('home');
 
 <div class="quick-search-buttons">
     <i class="thumbtack icon"></i>
+
+    <a class="ui mini button" href="known.php?q=19041">
+        <i class="search icon"></i>
+        20H1
+    </a>
 
     <a class="ui mini button" href="known.php?q=18363">
         <i class="search icon"></i>
