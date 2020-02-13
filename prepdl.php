@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 whatever127
+Copyright 2020 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,13 +15,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-// Website information
-$websiteVersion = '3.37.0';
-$requiredApi = '1.28.0';
+$updateId = isset($_POST['id']) ? $_POST['id'] : null;
+$usePack = isset($_POST['pack']) ? $_POST['pack'] : 0;
+$desiredEdition = isset($_POST['edition']) ? $_POST['edition'] : 0;
+$desiredEdition = strtolower(implode(';', $desiredEdition));
 
-require_once dirname(__FILE__).'/../api/shared/main.php';
-require_once dirname(__FILE__).'/utils.php';
-require_once dirname(__FILE__).'/lang.php';
+$url = "download.php?id=$updateId&pack=$usePack&edition=$desiredEdition";
 
-// Do check of API
-checkApi();
+header("Location: $url");
+echo "<h1>Moved to <a href=\"$url\">here</a>.";

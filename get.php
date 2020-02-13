@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 whatever127
+Copyright 2020 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -50,8 +50,18 @@ if(checkIfUserIsRateLimited($resource)) {
     die();
 }
 
+if(is_array($desiredEdition)) {
+    $desiredEditionArray = $desiredEdition;
+    $desiredEdition = implode(';', $desiredEdition);
+} else {
+    $desiredEditionArray = explode(';', $desiredEdition);
+
+    if(count($desiredEditionArray) == 1)
+        $desiredEditionArray = $desiredEdition;
+}
+
 if($autoDl && !$aria2) {
-    $files = uupGetFiles($updateId, $usePack, $desiredEdition, 2);
+    $files = uupGetFiles($updateId, $usePack, $desiredEditionArray, 2);
     if(isset($files['error'])) {
         fancyError($files['error'], 'downloads');
         die();
@@ -64,7 +74,7 @@ if($autoDl && !$aria2) {
     $updateArch = isset($info['arch']) ? $info['arch'] : 'UNKNOWN';
 
     $langDir = $usePack ? $usePack : 'all';
-    $editDir = $desiredEdition ? strtolower($desiredEdition) : 'all';
+    $editDir = count($desiredEditionArray) == 1 ? strtolower($desiredEditionArray[0]) : 'multi';
 
     $id = substr($updateId, 0, 8);
     $archiveName = "{$updateBuild}_{$updateArch}_{$langDir}_{$editDir}_{$id}";
@@ -127,7 +137,7 @@ if($autoDl && !$aria2) {
     die();
 }
 
-$files = uupGetFiles($updateId, $usePack, $desiredEdition, 1);
+$files = uupGetFiles($updateId, $usePack, $desiredEditionArray, 1);
 
 if($aria2) {
     header('Content-Type: text/plain');
@@ -173,7 +183,7 @@ if($aria2) {
 if(isset($files['error'])) {
     if($files['error'] == 'EMPTY_FILELIST') {
         $oldError = $files['error'];
-        $files = uupGetFiles($updateId, $usePack, $desiredEdition, 2);
+        $files = uupGetFiles($updateId, $usePack, $desiredEditionArray, 2);
         if(isset($files['error'])) {
             $files['error'] = 'NOT_FOUND';
         } else {

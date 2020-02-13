@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 whatever127
+Copyright 2020 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -47,7 +47,7 @@ if(!isset($updateInfo['arch'])) {
 }
 
 if(!isset($updateInfo['build'])) {
-    $build = $s[$s['unknown']];
+    $build = $s['unknown'];
 } else {
     $build = $updateInfo['build'];
 }

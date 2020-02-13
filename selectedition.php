@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 whatever127
+Copyright 2020 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -110,7 +110,7 @@ if($updateArch == 'arm64') {
                 <div class="sub header"><?php echo $s['chooseEditionDesc']; ?></div>
             </div>
         </h3>
-        <form class="ui form" action="./download.php" method="get">
+        <form class="ui form" action="prepdl.php" method="post">
             <input type="hidden" name="id" value="<?php echo $updateId; ?>">
             <input type="hidden" name="pack" value="<?php echo $selectedLang; ?>">
 
@@ -125,19 +125,12 @@ if($updateArch == 'arm64') {
             <div class="field">
                 <label><?php echo $s['edition']; ?></label>
                 <div class="grouped fields">
-                    <div class="field">
-                        <div class="ui radio checkbox">
-                            <input type="radio" name="edition" value="0" checked>
-                            <label><?php echo $s['allEditions']; ?></label>
-                        </div>
-                    </div>
-
 <?php
 foreach($editions as $key => $val) {
     echo <<<EOD
 <div class="field">
-    <div class="ui radio checkbox">
-        <input type="radio" name="edition" value="$key">
+    <div class="ui checkbox">
+        <input type="checkbox" name="edition[]" value="$key" class="edition-selection" checked>
         <label>$val</label>
     </div>
 </div>
@@ -150,7 +143,7 @@ EOD;
 
             <p><?php if(!$disableVE) echo $s['additionalEditionsInfo']; ?></p>
 
-            <button class="ui fluid right labeled icon primary button" type="submit">
+            <button id="edition-selection-confirm" class="ui fluid right labeled icon primary button" type="submit">
                 <i class="right arrow icon"></i>
                 <?php echo $s['next']; ?>
             </button>
@@ -250,7 +243,23 @@ EOD;
       </div>
 </div>
 
-<script>$('.ui.checkbox').checkbox();</script>
+<script>
+$('.ui.checkbox').checkbox();
+
+function checkEditions() {
+    if($('.edition-selection:checked').length == 0) {
+        $('#edition-selection-confirm').prop('disabled', 1);
+    } else {
+        $('#edition-selection-confirm').prop('disabled', 0);
+    }
+}
+
+$('.edition-selection').on('click change', function() {
+    checkEditions();
+});
+
+checkEditions();
+</script>
 
 <?php
 styleLower();

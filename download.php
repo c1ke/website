@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 whatever127
+Copyright 2020 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -34,18 +34,34 @@ if(!checkUpdateIdValidity($updateId)) {
     die();
 }
 
-$url = "./get.php?id=$updateId&pack=$usePack&edition=$desiredEdition";
-if(!$usePack && !$desiredEdition) {
+if(!$usePack) {
     $url = "./findfiles.php?id=$updateId";
-}
 
-if(!$usePack || $desiredEdition == 'updateOnly' || $desiredEdition == 'wubFile') {
     header("Location: $url");
     echo "<h1>Moved to <a href=\"$url\">here</a>.";
     die();
 }
 
-$files = uupGetFiles($updateId, $usePack, $desiredEdition, 2);
+if(is_array($desiredEdition)) {
+    $desiredEditionArray = $desiredEdition;
+    $desiredEdition = implode(';', $desiredEdition);
+} else {
+    $desiredEditionArray = explode(';', $desiredEdition);
+
+    if(count($desiredEditionArray) == 1)
+        $desiredEditionArray = $desiredEdition;
+}
+
+$desiredEdition = strtolower($desiredEdition);
+$url = "./get.php?id=$updateId&pack=$usePack&edition=$desiredEdition";
+
+if($desiredEdition == 'wubfile' || $desiredEdition == 'updateonly') {
+    header("Location: $url");
+    echo "<h1>Moved to <a href=\"$url\">here</a>.";
+    die();
+}
+
+$files = uupGetFiles($updateId, $usePack, $desiredEditionArray, 2);
 if(isset($files['error'])) {
     fancyError($files['error'], 'downloads');
     die();
@@ -100,7 +116,16 @@ if($usePack && $desiredEdition) {
     $editions = uupListEditions($usePack, $updateId);
     $editions = $editions['editionFancyNames'];
 
-    $selectedEditionName = $editions[strtoupper($desiredEdition)];
+    if(isset($editions[$desiredEdition])) {
+        $selectedEditionName = $editions[strtoupper($desiredEdition)];
+    } else {
+        $fancyNames = [];
+        foreach($desiredEditionArray as $edition) {
+            $fancyNames[] = $editions[strtoupper($edition)];
+        }
+
+        $selectedEditionName = implode(', ', $fancyNames);
+    }
 } else {
     $selectedEditionName = $s['allEditions'];
 }
