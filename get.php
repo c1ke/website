@@ -74,7 +74,11 @@ if($autoDl && !$aria2) {
     $updateArch = isset($info['arch']) ? $info['arch'] : 'UNKNOWN';
 
     $langDir = $usePack ? $usePack : 'all';
-    $editDir = count($desiredEditionArray) == 1 ? strtolower($desiredEditionArray[0]) : 'multi';
+    if(is_array($desiredEditionArray)) {
+        $editDir = count($desiredEditionArray) == 1 ? strtolower($desiredEditionArray[0]) : 'multi';
+    } else {
+        $editDir = $desiredEditionArray ? strtolower($desiredEditionArray) : 'all';
+    }
 
     $id = substr($updateId, 0, 8);
     $archiveName = "{$updateBuild}_{$updateArch}_{$langDir}_{$editDir}_{$id}";
