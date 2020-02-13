@@ -43,13 +43,13 @@ if(!$usePack) {
 }
 
 if(is_array($desiredEdition)) {
-    $desiredEditionArray = $desiredEdition;
+    $desiredEditionMixed = $desiredEdition;
     $desiredEdition = implode(';', $desiredEdition);
 } else {
-    $desiredEditionArray = explode(';', $desiredEdition);
+    $desiredEditionMixed = explode(';', $desiredEdition);
 
-    if(count($desiredEditionArray) == 1)
-        $desiredEditionArray = $desiredEdition;
+    if(count($desiredEditionMixed) == 1)
+        $desiredEditionMixed = $desiredEdition;
 }
 
 $desiredEdition = strtolower($desiredEdition);
@@ -61,7 +61,7 @@ if($desiredEdition == 'wubfile' || $desiredEdition == 'updateonly') {
     die();
 }
 
-$files = uupGetFiles($updateId, $usePack, $desiredEditionArray, 2);
+$files = uupGetFiles($updateId, $usePack, $desiredEditionMixed, 2);
 if(isset($files['error'])) {
     fancyError($files['error'], 'downloads');
     die();
@@ -120,7 +120,7 @@ if($usePack && $desiredEdition) {
         $selectedEditionName = $editions[strtoupper($desiredEdition)];
     } else {
         $fancyNames = [];
-        foreach($desiredEditionArray as $edition) {
+        foreach($desiredEditionMixed as $edition) {
             $fancyNames[] = $editions[strtoupper($edition)];
         }
 

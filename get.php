@@ -51,17 +51,17 @@ if(checkIfUserIsRateLimited($resource)) {
 }
 
 if(is_array($desiredEdition)) {
-    $desiredEditionArray = $desiredEdition;
+    $desiredEditionMixed = $desiredEdition;
     $desiredEdition = implode(';', $desiredEdition);
 } else {
-    $desiredEditionArray = explode(';', $desiredEdition);
+    $desiredEditionMixed = explode(';', $desiredEdition);
 
-    if(count($desiredEditionArray) == 1)
-        $desiredEditionArray = $desiredEdition;
+    if(count($desiredEditionMixed) == 1)
+        $desiredEditionMixed = $desiredEdition;
 }
 
 if($autoDl && !$aria2) {
-    $files = uupGetFiles($updateId, $usePack, $desiredEditionArray, 2);
+    $files = uupGetFiles($updateId, $usePack, $desiredEditionMixed, 2);
     if(isset($files['error'])) {
         fancyError($files['error'], 'downloads');
         die();
@@ -74,10 +74,11 @@ if($autoDl && !$aria2) {
     $updateArch = isset($info['arch']) ? $info['arch'] : 'UNKNOWN';
 
     $langDir = $usePack ? $usePack : 'all';
-    if(is_array($desiredEditionArray)) {
-        $editDir = count($desiredEditionArray) == 1 ? strtolower($desiredEditionArray[0]) : 'multi';
+
+    if(is_array($desiredEditionMixed)) {
+        $editDir = count($desiredEditionMixed) == 1 ? strtolower($desiredEditionMixed[0]) : 'multi';
     } else {
-        $editDir = $desiredEditionArray ? strtolower($desiredEditionArray) : 'all';
+        $editDir = $desiredEditionMixed ? strtolower($desiredEditionMixed) : 'all';
     }
 
     $id = substr($updateId, 0, 8);
@@ -141,7 +142,7 @@ if($autoDl && !$aria2) {
     die();
 }
 
-$files = uupGetFiles($updateId, $usePack, $desiredEditionArray, 1);
+$files = uupGetFiles($updateId, $usePack, $desiredEditionMixed, 1);
 
 if($aria2) {
     header('Content-Type: text/plain');
@@ -187,7 +188,7 @@ if($aria2) {
 if(isset($files['error'])) {
     if($files['error'] == 'EMPTY_FILELIST') {
         $oldError = $files['error'];
-        $files = uupGetFiles($updateId, $usePack, $desiredEditionArray, 2);
+        $files = uupGetFiles($updateId, $usePack, $desiredEditionMixed, 2);
         if(isset($files['error'])) {
             $files['error'] = 'NOT_FOUND';
         } else {
