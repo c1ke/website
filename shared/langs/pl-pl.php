@@ -56,8 +56,8 @@ $s['selectLanguage'] = 'Proszę wybrać swój język';
 $s['slogan'] = 'Pobieraj pliki UUP z serwerów Windows Update z łatwością.';
 $s['advOptions'] = 'Opcje zaawansowane';
 $s['browseBuilds'] = 'Przeglądaj listę znanych kompilacji';
-$s['browseBuildsSub'] = 'Wybierz kompilację znaną w lokalnej bazie danych i pobierz ją.';
-$s['fetchLatest'] = 'Odszukaj najnowszą kompilację';
+$s['browseBuildsSub'] = 'Wybierz kompilację znajdującą się w lokalnej bazie danych i pobierz ją.';
+$s['fetchLatest'] = 'Znajdź najnowszą kompilację';
 $s['fetchLatestSub'] = 'Uzyskaj informacje o najnowszej kompilacji z serwerów Windows Update.';
 $s['newlyAdded'] = 'Nowo dodane kompilacje';
 $s['dateAdded'] = 'Data dodania';
@@ -68,7 +68,7 @@ $s['chooseBuild'] = 'Wybierz kompilację';
 $s['weFoundBuilds'] = 'Znaleźliśmy <b>%d</b> kompilacji dla Twojego zapytania.'; //We have found <b>692</b> builds for your query.
 
 //latest.php
-$s['latestFetchLatest'] = 'Odszukaj najnowszą kompilację';
+$s['latestFetchLatest'] = 'Znajdź najnowszą kompilację';
 $s['latestTestingOnly'] = 'Tylko do celów testowych';
 $s['latestTestingOnlyWarn'] = '<b>Ta strona jest przeznaczona wyłącznie do celów testowych.</b> Kompilacje uzyskane przy użyciu tej strony, które nie były przetworzone przez backend będą oferowane przy użyciu paczek zastępcznych, które mogą oferować niekompletne rezultaty. Jeżeli chcesz pobrać znaną już kompilację, dla najlepszych rezultatów proszę użyć strony ze znanymi kompilacjami.';
 $s['latestDoYouWantKnown'] = 'Czy chcesz kontynuować przeglądając stronę znanych kompilacji?';
@@ -101,7 +101,7 @@ $s['allLangsWarn'] = 'Opcja <i>Wszystkie języki</i> nie obsługuje wyboru edycj
 $s['clickNextToOpenFindFiles'] = 'Kliknij przycisk <i>Dalej</i> aby otworzyć stronę umożliwiającą wyszukiwanie plików.';
 $s['noLangsAvailable'] = 'Dla tej kompilacji nie ma dostępnych żadnych języków.';
 $s['browseFiles'] = 'Przeglądaj pliki';
-$s['browseFilesDesc'] = 'Szybko przejżyj pliki w wybranej kompilacji';
+$s['browseFilesDesc'] = 'Szybko przejrzyj pliki w wybranej kompilacji';
 $s['searchFiles'] = 'Przeszukaj pliki';
 $s['toSearchForCUUseQuery'] = 'W celu wyszukania aktualizacji kumulacyjnych użyj frazy <i>%s</i>.'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.
 
@@ -111,7 +111,7 @@ $s['chooseEdition'] = 'Wybierz edycję';
 $s['chooseEditionDesc'] = 'Wybierz żądaną edycję';
 $s['allEditions'] = 'Wszystkie edycje';
 $s['selectEditionInfoText'] = 'Kliknij przycisk <i>Dalej</i> w celu otworzenia strony z podsumowaniem wyboru.';
-$s['additionalEditionsInfo'] = 'Jeżeli potrzebujesz dodatkowej edycji, która znajduje się w tabeli z prawej strony, proszę wybrać wskazaną wymaganą edycję i kliknąć przycisk <i>Dalej</i>. Na stronie podsumowania będzie można wybrać żądane dodatkowe edycje używając odpowiedniej opcji pobrania.';
+$s['additionalEditionsInfo'] = 'W przypadku, gdy wymagana jest dodatkowa edycja znajdująca się w tabeli z prawej strony, proszę wybrać odpowiednią wymaganą edycję i kliknąć <i>Dalej</i>. Po przejściu do strony podsumowania można będzie dokonać wyboru żądanej dodatkowej edycji przy użyciu odpowiedniej opcji pobrania.';
 
 //download.php
 $s['summary'] = 'Podsumowanie';
@@ -126,14 +126,14 @@ $s['aria2Opt2'] = 'Pobierz przy użyciu programu aria2 i przekonwertuj';
 $s['aria2Opt2Desc'] = 'Z łatwością pobierz wybrany zestaw UUP przy użyciu programu aria2 i przekonwertuj na obraz ISO.';
 $s['aria2Opt3'] = 'Pobierz przy użyciu programu aria2, przekonwertuj i utwórz dodatkowe edycje';
 $s['aria2Opt3Desc'] = 'Z łatwością pobierz wybrany zestaw UUP przy użyciu programu aria2, stwórz dodatkowe edycje a następnie przekonwertuj na obraz ISO.';
-$s['jsRequiredToConf'] = 'JavaScript jest wymagane, aby skonfigurować i użyć tej opcji.';
+$s['jsRequiredToConf'] = 'Obsługa JavaScript jest wymagana, aby móc skonfigurować i użyć tej opcji.';
 $s['selAdditionalEditions'] = 'Wybierz dodatkowe edycje';
 $s['noAdditionalEditions'] = 'Brak dodatkowych edycji dostępnych dla tego wyboru.';
 $s['learnMore'] = 'Dowiedz się więcej';
 $s['learnMoreAdditionalEditions1'] = 'Ta opcja włącza automatyczne tworzenie wybranych dodatkowych edycji.';
 $s['learnMoreAdditionalEditions2'] = 'Lista dodatkowych edycji jest zależna od wybranych edycji bazowych. Poniżej możesz sprawdzić listę bazowych edycji wymaganych do stworzenia żądanej edycji dodatkowej:';
 $s['learnMoreUpdates1'] = 'Aktualizacje zostaną dodane do konwertowanego obrazu tylko gdy skrypt konwertujący jest uruchomiony na następujących systemach:';
-$s['learnMoreUpdates2'] = 'Jeżeli uruchomisz skrypt konwertujący na jakimkolwiek innym systemie, aktualizacje nie zostaną dodane do końcowego obrazu.';
+$s['learnMoreUpdates2'] = 'W przypadku uruchomienia skryptu konwertującego na jakimkolwiek innym systemie, aktualizacje nie zostaną dodane do końcowego obrazu.';
 $s['systemWithAdk'] = '%s z zainstalowanym Windows 10 ADK'; //Windows 7 with Windows 10 ADK installed
 $s['additionalUpdates'] = 'Dodatkowe aktualizacje';
 $s['additionalUpdatesDesc'] = 'Ten zestaw UUP zawiera dodatkowe aktualizacje, które zostaną automatycznie dodane podczas procesu konwersji znacząco wydłużając czas tworzenia.';
@@ -165,7 +165,7 @@ $s['sha1FileDesc'] = 'Możesz użyć tego pliku w celu szybkiej weryfikacji czy 
 
 //findfiles.php
 $s['findFilesIn'] = 'Szukaj plików w %s'; //Find files in Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
-$s['fileRenamingScriptDescFindFiles'] = 'Jeżeli chcesz szybko zmienić nazwę plików pobranych z tej strony, możesz wygenerować skrypt zmieniający nazwy, który wykona tę operację za Ciebie.';
+$s['fileRenamingScriptDescFindFiles'] = 'W przypadku chęci szybkiej zmiany nazwy plików pobranych z tej strony, możesz wygenerować skrypt zmieniający nazwy, który wykona tę operację za Ciebie.';
 $s['fileRenamingScriptGenW'] = 'Wygeneruj skrypt zmiany nazw (wersja dla Windows)';
 $s['fileRenamingScriptGenL'] = 'Wygeneruj skrypt zmiany nazw (wersja dla Linux)';
 $s['searchForFiles'] = 'Szukaj plików...';
