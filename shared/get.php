@@ -182,17 +182,27 @@ if ! which aria2c >/dev/null \\
 || ! which cabextract >/dev/null \\
 || ! which wimlib-imagex >/dev/null \\
 || ! which chntpw >/dev/null \\
-|| ! which genisoimage >/dev/null; then
+|| ! which genisoimage >/dev/null \\
+&& ! which mkisofs >/dev/null; then
   echo "One of required applications is not installed."
   echo "The following applications need to be installed to use this script:"
   echo " - aria2c"
   echo " - cabextract"
   echo " - wimlib-imagex"
   echo " - chntpw"
-  echo " - genisoimage"
+  echo " - genisoimage or mkisofs"
   echo ""
-  echo "If you use Debian or Ubuntu you can install these using:"
-  echo "sudo apt-get install aria2 cabextract wimtools chntpw genisoimage"
+  if [ `uname` == "Linux" ]; then
+    # Linux
+    echo "If you use Debian or Ubuntu you can install these using:"
+    echo "sudo apt-get install aria2 cabextract wimtools chntpw genisoimage"
+  elif [ `uname` == "Darwin" ]; then
+    # macOS
+    echo "macOS requires Homebrew (https://brew.sh) to install the prerequisite software."
+    echo "If you use Homebrew, you can install these using:"
+    echo "brew tap sidneys/homebrew"
+    echo "brew install aria2 cabextract wimlib cdrtools sidneys/homebrew/chntpw"
+  fi
   exit 1
 fi
 
