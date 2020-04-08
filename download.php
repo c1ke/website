@@ -432,6 +432,7 @@ INFO;
     <p><b><?php echo $s['aria2NoticeText2']; ?></b><br/>
     - Windows: <code>aria2_download_windows.cmd</code><br/>
     - Linux: <code>aria2_download_linux.sh</code><br/>
+    - macOS: <code>aria2_download_macos.sh</code><br/>
     </p>
 
     <p>
