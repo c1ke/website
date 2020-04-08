@@ -161,13 +161,13 @@ $s['aria2NoticeText1'] = 'سيتم إنشاء وتحميل ملف مضغوط ي�
 $s['aria2NoticeText2'] = ':لبدء عملية التنزيل استخرج الملف المضغوط ثم شغل السكريبت المناسب حسب نظامك';
 $s['aria2NoticeText3'] = '%s :هو برنامج مفتوح المصدر، يمكنك إيجاده هنا Aria2'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
 $s['aria2NoticeText4'] = '%s :سكريبت التحويل (نسخة ويندوز) تم إنشاؤه بواسطة'; //UUP Conversion script (Windows version) has been created by abbodi1406.
-$s['aria2NoticeText5'] = '%s :سكريبت التحويل (نسخة لينكس) مفتوح المصدر، يمكنك إيجاده هنا'; //UUP Conversion script (Linux version) is open source. You can find it here: https://github.com/uup-dump/converter.
+$s['aria2NoticeText5'] = '%s :سكريبت التحويل (نسخة لينكس , نسخة ماك) مفتوح المصدر، يمكنك إيجاده هنا'; //UUP Conversion script (Linux version, macOS version) is open source. You can find it here: https://github.com/uup-dump/converter.
 
 //findfiles.php
 $s['findFilesIn'] = 'تصفح الملفات - %s'; //Find files in Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['fileRenamingScriptDescFindFiles'] = 'لإعادة تسمية الملفات بعد التنزيل، يمكنك إنشاء وتحميل سكريبت العملية تلقائياً';
 $s['fileRenamingScriptGenW'] = 'إنشاء سكريبت إعادة التسمية - ويندوز';
-$s['fileRenamingScriptGenL'] = 'إنشاء سكريبت إعادة التسمية - لينكس';
+$s['fileRenamingScriptGenL'] = 'إنشاء إعادة تسمية البرنامج النصي - لينكس ، ماك';
 $s['searchForFiles'] = '...البحث في الملفات';
 $s['weFoundFiles'] = 'عدد الملفات: <b>%d</b>'; //We have found <b>692</b> files for your query.
 

@@ -161,13 +161,13 @@ $s['aria2NoticeText1'] = '[5d83] Ḓǿẇƞŀǿȧḓ ŭşīƞɠ ȧřīȧ2 ǿƥŧ
 $s['aria2NoticeText2'] = '[f3a9] Ŧǿ şŧȧřŧ ŧħḗ ḓǿẇƞŀǿȧḓ ƥřǿƈḗşş ŭşḗ ȧ şƈřīƥŧ ƒǿř ẏǿŭř ƥŀȧŧƒǿřḿ:';
 $s['aria2NoticeText3'] = '[ad6a] Ȧřīȧ2 īş ȧƞ ǿƥḗƞ şǿŭřƈḗ ƥřǿĵḗƈŧ. Ẏǿŭ ƈȧƞ ƒīƞḓ īŧ ħḗřḗ: %s.'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
 $s['aria2NoticeText4'] = '[d701] Ŧħḗ ŬŬƤ Ƈǿƞṽḗřşīǿƞ şƈřīƥŧ (Ẇīƞḓǿẇş ṽḗřşīǿƞ) ħȧş ƀḗḗƞ ƈřḗȧŧḗḓ ƀẏ %s.'; //UUP Conversion script (Windows version) has been created by abbodi1406.
-$s['aria2NoticeText5'] = '[1021] Ŧħḗ ŬŬƤ Ƈǿƞṽḗřşīǿƞ şƈřīƥŧ (Ŀīƞŭẋ ṽḗřşīǿƞ) īş ǿƥḗƞ şǿŭřƈḗ. Ẏǿŭ ƈȧƞ ƒīƞḓ īŧ ħḗřḗ: %s.'; //UUP Conversion script (Linux version) is open source. You can find it here: https://github.com/uup-dump/converter.
+$s['aria2NoticeText5'] = '[1021] Ŧħḗ ŬŬƤ Ƈǿƞṽḗřşīǿƞ şƈřīƥŧ (Ŀīƞŭẋ ṽḗřşīǿƞ, ḿȧƈǾŞ ṽḗřşīǿƞ) īş ǿƥḗƞ şǿŭřƈḗ. Ẏǿŭ ƈȧƞ ƒīƞḓ īŧ ħḗřḗ: %s.'; //UUP Conversion script (Linux version, macOS version) is open source. You can find it here: https://github.com/uup-dump/converter.
 
 //findfiles.php
 $s['findFilesIn'] = '[0ec3] Ƒīƞḓ ƒīŀḗş īƞ %s'; //Find files in Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['fileRenamingScriptDescFindFiles'] = '[ce12] Īƒ ẏǿŭ ẇȧƞŧ ŧǿ ɋŭīƈķŀẏ řḗƞȧḿḗ ƒīŀḗş ḓǿẇƞŀǿȧḓḗḓ ƒřǿḿ ŧħīş ƥȧɠḗ, ẏǿŭ ƈȧƞ ɠḗƞḗřȧŧḗ ȧ řḗƞȧḿīƞɠ şƈřīƥŧ, ẇħīƈħ ẇīŀŀ ȧŭŧǿḿȧŧīƈȧŀŀẏ ḓǿ ŧħīş ƒǿř ẏǿŭ.';
 $s['fileRenamingScriptGenW'] = '[25c5] Ɠḗƞḗřȧŧḗ řḗƞȧḿīƞɠ şƈřīƥŧ (Ẇīƞḓǿẇş)';
-$s['fileRenamingScriptGenL'] = '[ed2e] Ɠḗƞḗřȧŧḗ řḗƞȧḿīƞɠ şƈřīƥŧ (Ŀīƞŭẋ)';
+$s['fileRenamingScriptGenL'] = '[ed2e] Ɠḗƞḗřȧŧḗ řḗƞȧḿīƞɠ şƈřīƥŧ (Ŀīƞŭẋ, ḿȧƈǾŞ)';
 $s['searchForFiles'] = '[afde] Şḗȧřƈħ ƒǿř ƒīŀḗş...';
 $s['weFoundFiles'] = '[18ae] Ẇḗ ħȧṽḗ ƒǿŭƞḓ <b>%d</b> ƒīŀḗş ƒǿř ẏǿŭř ɋŭḗřẏ.'; //We have found <b>692</b> files for your query.
 

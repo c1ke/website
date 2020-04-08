@@ -161,13 +161,13 @@ $s['aria2NoticeText1'] = 'aria2 Seçeneklerini kullanarak indir, indirilmesi ger
 $s['aria2NoticeText2'] = 'İndirme işlemini başlatmak için platformunuz için bir komut dosyası kullanın:';
 $s['aria2NoticeText3'] = 'aria2 açık kaynaklı bir projedir. Burada bulabilirsiniz: %s.'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'UUP Dönüşüm komut dosyası (Windows sürümü) %s tarafından oluşturuldu.'; //UUP Conversion script (Windows version) has been created by abbodi1406.
-$s['aria2NoticeText5'] = 'UUP Dönüşüm betiği (Linux sürümü) açık kaynak kodludur. Burada bulabilirsiniz: %s.'; //UUP Conversion script (Linux version) is open source. You can find it here: https://github.com/uup-dump/converter.
+$s['aria2NoticeText5'] = 'UUP Dönüşüm betiği (Linux sürümü, macOS sürümü) açık kaynak kodludur. Burada bulabilirsiniz: %s.'; //UUP Conversion script (Linux version, macOS version) is open source. You can find it here: https://github.com/uup-dump/converter.
 
 //findfiles.php
 $s['findFilesIn'] = '%s İçindeki dosyaları bul'; //Find files in Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['fileRenamingScriptDescFindFiles'] = 'Bu sayfadan indirilen dosyaları hızlı bir şekilde yeniden adlandırmak istiyorsanız, bunu sizin için otomatik olarak yapacak bir yeniden adlandırma komut dosyası oluşturabilirsiniz.';
 $s['fileRenamingScriptGenW'] = 'Yeniden adlandırma komut dosyası oluşturma (Windows)';
-$s['fileRenamingScriptGenL'] = 'Yeniden adlandırma komut dosyası oluşturma (Linux)';
+$s['fileRenamingScriptGenL'] = 'Yeniden adlandırma komut dosyası oluşturma (Linux, macOS)';
 $s['searchForFiles'] = 'Dosya ara...';
 $s['weFoundFiles'] = 'Sorgunuz için <b>%d</b> dosya bulundu.'; //We have found <b>692</b> files for your query.
 

@@ -162,13 +162,13 @@ $s['aria2NoticeText1'] = 'O download usando as opções aria2 cria um arquivo qu
 $s['aria2NoticeText2'] = 'Para iniciar o processo de download, use um script para sua plataforma:';
 $s['aria2NoticeText3'] = 'Aria2 é um projeto de código aberto. Você pode encontrá-lo aqui: %s.'; //Aria2 é um projeto de código aberto. Você pode encontrá-lo aqui: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'O script de conversão UUP (versão Windows) foi criado por %s.'; //O script de conversão UUP (versão Windows) foi criado por abbodi1406.
-$s['aria2NoticeText5'] = 'O script de conversão UUP (versão Linux) é de código aberto. Você pode encontrá-lo aqui: %s.'; //O script de conversão UUP (versão Linux) é de código aberto. Você pode encontrá-lo aqui: https://github.com/uup-dump/converter.
+$s['aria2NoticeText5'] = 'O script de conversão UUP (versão Linux, versão macOS) é de código aberto. Você pode encontrá-lo aqui: %s.'; //O script de conversão UUP (versão Linux, versão macOS) é de código aberto. Você pode encontrá-lo aqui: https://github.com/uup-dump/converter.
 
 //findfiles.php
 $s['findFilesIn'] = 'Encontrar arquivos em %s'; //Localizar arquivos no Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['fileRenamingScriptDescFindFiles'] = 'Se deseja renomear rapidamente os arquivos baixados desta página, você pode gerar um script de renomeação, que fará isso automaticamente.';
 $s['fileRenamingScriptGenW'] = 'Gerar script de renomeação (Windows)';
-$s['fileRenamingScriptGenL'] = 'Gerar script de renomeação (Linux)';
+$s['fileRenamingScriptGenL'] = 'Gerar script de renomeação (Linux, macOS)';
 $s['searchForFiles'] = 'Procurar arquivos...';
 $s['weFoundFiles'] = 'Encontramos <b>%d</b> arquivos para sua consulta.';//Encontramos <b>692</b> arquivos para sua consulta.
 

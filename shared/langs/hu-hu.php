@@ -158,16 +158,16 @@ $s['sha1File'] = 'SHA-1 ellenőrző összeg fájl';
 $s['sha1FileDesc'] = 'A fájl segítségével gyorsan ellenőrizheti, hogy a fájlok megfelelően lettek-e letöltve.';
 $s['aria2NoticeTitle'] = 'Töltse le az aria2 segítségével';
 $s['aria2NoticeText1'] = 'Letöltés az aria2 opciókkal létrehoz egy archívumot, amelyet le kell tölteni. A letöltött archívum tartalmazza a kiválasztott feladat végrehajtásához szükséges fájlokat.';
-$s['aria2NoticeText2'] = 'A letöltési folyamat elindításához használja parancsfájlt a saját platformján (Windows, Linux):';
+$s['aria2NoticeText2'] = 'A letöltési folyamat elindításához használja parancsfájlt a saját platformján (Windows, Linux, macOS):';
 $s['aria2NoticeText3'] = 'Az Aria2 nyílt forráskódú projekt. Itt található: %s.'; //Az Aria2 egy nyílt forráskódú projekt. Itt található: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'Az UUP konverziós szkriptet (Windows verzió) %s hozta létre.'; //Az UUP konverziós szkriptet (Windows verzió) abbodi1406 hozta létre.
-$s['aria2NoticeText5'] = 'Az UUP konverziós szkript (Linux verzió) nyílt forrású. Itt található: %s.'; //Az UUP konverziós szkript (Linux verzió) nyílt forrású. Itt található: https://github.com/uup-dump/converter.
+$s['aria2NoticeText5'] = 'Az UUP konverziós szkript (Linux verzió, macOS verzió) nyílt forrású. Itt található: %s.'; //Az UUP konverziós szkript (Linux verzió, macOS verzió) nyílt forrású. Itt található: https://github.com/uup-dump/converter.
 
 //findfiles.php
 $s['findFilesIn'] = 'Fájlok keresése a(z) %s fájlban'; //Fájlok keresése a Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64 fájlban
 $s['fileRenamingScriptDescFindFiles'] = 'Ha gyorsan át szeretné nevezni az ezen az oldalon letöltött fájlokat, létrehozhat egy átnevező szkriptet, amely automatikusan ezt megteszi az Ön számára.';
 $s['fileRenamingScriptGenW'] = 'Átnevező szkript létrehozása (Windows)';
-$s['fileRenamingScriptGenL'] = 'Átnevező szkript létrehozása (Linux)';
+$s['fileRenamingScriptGenL'] = 'Átnevező szkript létrehozása (Linux, macOS)';
 $s['searchForFiles'] = 'Fájlok keresése...';
 $s['weFoundFiles'] = '<b>%d</b> fájlokat találtunk a lekérdezéshez.'; //<b>692</b> fájlokat találtunk a lekérdezéséhez.
 

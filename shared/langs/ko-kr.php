@@ -161,13 +161,13 @@ $s['aria2NoticeText1'] = 'aria2 옵션을 사용하여 다운로드하면 다운
 $s['aria2NoticeText2'] = '다운로드 프로세스를 시작하려면 플랫폼에 맞는 스크립트를 사용하십시오.';
 $s['aria2NoticeText3'] = 'Aria2는 오픈 소스 프로젝트입니다. 여기에서 찾을 수 있습니다 : %s.'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'UUP 변환 스크립트 (Windows 버전)가 %s에 의해 생성되었습니다.'; //UUP Conversion script (Windows version) has been created by abbodi1406.
-$s['aria2NoticeText5'] = 'UUP 변환 스크립트 (Linux 버전)는 오픈 소스입니다. 여기에서 찾을 수 있습니다 : %s.'; //UUP Conversion script (Linux version) is open source. You can find it here: https://github.com/uup-dump/converter.
+$s['aria2NoticeText5'] = 'UUP 변환 스크립트 (Linux 버전, macOS 버전) 는 오픈 소스입니다. 여기에서 찾을 수 있습니다 : %s.'; //UUP Conversion script (Linux version, macOS version) is open source. You can find it here: https://github.com/uup-dump/converter.
 
 //findfiles.php
 $s['findFilesIn'] = '%s에있는 파일 찾기'; //Find files in Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['fileRenamingScriptDescFindFiles'] = '이 페이지에서 다운로드 한 파일의 이름을 바꾸려면 이름 바꾸기 스크립트를 생성하면 자동으로 이 작업이 수행됩니다.';
 $s['fileRenamingScriptGenW'] = '이름 바꾸기 스크립트 생성 (Windows)';
-$s['fileRenamingScriptGenL'] = '이름 바꾸기 스크립트 생성 (Linux)';
+$s['fileRenamingScriptGenL'] = '이름 바꾸기 스크립트 생성 (Linux, macOS)';
 $s['searchForFiles'] = '파일 검색...';
 $s['weFoundFiles'] = '귀하의 검색어에 대해 <b>%d</ b> 파일을 발견했습니다.'; //We have found <b>692</b> files for your query.
 

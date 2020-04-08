@@ -166,13 +166,13 @@ $s['aria2NoticeText1'] = '[使用 aria2 下載] 選項會建立一個需要下�
 $s['aria2NoticeText2'] = '請使用適用於您的平台的指令碼來開始下載程序:';
 $s['aria2NoticeText3'] = 'Aria2 是個開放原始碼的專案。您可以在這裡找到: %s.'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'UUP 轉換指令碼 (Windows 版本) 是由 %s 製作的。'; //UUP Conversion script (Windows version) has been created by abbodi1406.
-$s['aria2NoticeText5'] = 'UUP 轉換指令碼 (Linux 版本) 是開放原始碼的。您可以在這裡找到: %s。'; //UUP Conversion script (Linux version) is open source. You can find it here: https://github.com/uup-dump/converter.
+$s['aria2NoticeText5'] = 'UUP 轉換指令碼 (Linux 版本, macOS 版本) 是開放原始碼的。您可以在這裡找到: %s。'; //UUP Conversion script (Linux version, macOS version) is open source. You can find it here: https://github.com/uup-dump/converter.
 
 //findfiles.php
 $s['findFilesIn'] = '在 %s 尋找檔案'; //Find files in Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['fileRenamingScriptDescFindFiles'] = '如果您想要快速地重新命名下載的檔案，那您可以產生重新命名指令碼來自動幫您重新命名。';
 $s['fileRenamingScriptGenW'] = '產生重新命名指令碼 (Windows)';
-$s['fileRenamingScriptGenL'] = '產生重新命名指令碼 (Linux)';
+$s['fileRenamingScriptGenL'] = '產生重新命名指令碼 (Linux, macOS)';
 $s['searchForFiles'] = '搜尋檔案...';
 $s['weFoundFiles'] = '我們已依您的搜尋內容找到了 <b>%d</b> 個檔案。'; //We have found <b>692</b> files for your query.
 
