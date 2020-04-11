@@ -161,13 +161,13 @@ $s['aria2NoticeText1'] = 'Downloaden mbv aria2 creeert een zip bestand dat moet 
 $s['aria2NoticeText2'] = 'Kies het voor jouw platform geschikte script om het download process te starten:';
 $s['aria2NoticeText3'] = 'Aria2 is een open source project. Je kunt het hier vinden: %s.'; //Aria2 is een open source project. Je kunt het hier vinden: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'Het UUP Conversie script (Windows versie) is gemaakt door %s.'; //UUP Conversie script (Windows versie) is gemaakt door abbodi1406.
-$s['aria2NoticeText5'] = 'Het UUP Conversie script (Linux versie) is open source. Je kunt het hier vinden: %s.'; //UUP Conversie script (Linux versie) is open source. Je kunt het hier vinden: https://github.com/uup-dump/converter.
+$s['aria2NoticeText5'] = 'Het UUP Conversie script (Linux versie, macOS versie) is open source. Je kunt het hier vinden: %s.'; //UUP Conversie script (Linux versie, macOS versie) is open source. Je kunt het hier vinden: https://github.com/uup-dump/converter.
 
 //findfiles.php
 $s['findFilesIn'] = 'Vind bestanden voor %s'; //Vind bestanden voor Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['fileRenamingScriptDescFindFiles'] = 'Wanneer U de gedownloade bestanden van deze pagina snel wilt hernoemen, kunt U een hernoemings script maken, die dit automatisch voor U doet.';
 $s['fileRenamingScriptGenW'] = 'Maak hernoemings script (Windows)';
-$s['fileRenamingScriptGenL'] = 'Maak hernoemings script (Linux)';
+$s['fileRenamingScriptGenL'] = 'Maak hernoemings script (Linux, macOS)';
 $s['searchForFiles'] = 'Zoek naar bestanden...';
 $s['weFoundFiles'] = 'We hebben <b>%d</b> bestanden gevonden.'; //We hebben <b>692</b> bestanden gevonden.
 

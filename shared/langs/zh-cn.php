@@ -161,13 +161,13 @@ $s['aria2NoticeText1'] = '使用 aria2 选项下载可创建需要下载的存�
 $s['aria2NoticeText2'] = '要开始下载过程，请使用适用于你的平台的脚本：';
 $s['aria2NoticeText3'] = 'Aria2 是一个开源项目，你可以在这里找到它：%s。'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'UUP 转换脚本（Windows 版本）已由 %s 创建。'; //UUP Conversion script (Windows version) has been created by abbodi1406.
-$s['aria2NoticeText5'] = 'UUP 转换脚本（Linux 版本）是开源的，你可以在这里找到它：%s。'; //UUP Conversion script (Linux version) is open source. You can find it here: https://github.com/uup-dump/converter.
+$s['aria2NoticeText5'] = 'UUP 转换脚本（Linux 版本, macOS 版本）是开源的，你可以在这里找到它：%s。'; //UUP Conversion script (Linux version, macOS version) is open source. You can find it here: https://github.com/uup-dump/converter.
 
 //findfiles.php
 $s['findFilesIn'] = '在 %s 中查找文件'; //Find files in Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['fileRenamingScriptDescFindFiles'] = '如果要快速重命名在此页面下载的文件，可以生成重命名脚本，此脚本将自动为你执行此操作。';
 $s['fileRenamingScriptGenW'] = '生成重命名脚本（Windows）';
-$s['fileRenamingScriptGenL'] = '生成重命名脚本（Linux）';
+$s['fileRenamingScriptGenL'] = '生成重命名脚本（Linux, macOS）';
 $s['searchForFiles'] = '查找文件……';
 $s['weFoundFiles'] = '在你的查询中我们找到了 <b>%d</b> 个文件。'; //We have found <b>692</b> files for your query.
 
