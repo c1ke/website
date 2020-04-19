@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 whatever127
+Copyright 2020 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -84,9 +84,9 @@ EOD;
 
     $darkMode = '';
     if($enableDarkMode == 1) {
-        $darkMode = '<link rel="stylesheet" href="shared/css/darkmode.css">'."\n";
+        $darkMode = '<link rel="stylesheet" href="css/darkmode.css">'."\n";
     } elseif($enableDarkMode < 0) {
-        $darkMode = '<style>@import url(\'shared/css/darkmode.css\') (prefers-color-scheme: dark);</style>';
+        $darkMode = '<style>@import url(\'css/darkmode.css\') (prefers-color-scheme: dark);</style>';
     }
 
     switch ($pageType) {
@@ -126,11 +126,11 @@ EOD;
         <meta property="og:title" content="$subTitleOnly">
         <meta property="og:type" content="website">
         <meta property="og:description" content="{$s['websiteDesc']}">
-        <meta property="og:image" content="$baseUrl/shared/img/cover.png">
+        <meta property="og:image" content="$baseUrl/img/cover.png">
         <meta property="og:url" content="$fullUrl">
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css">
-        <link rel="stylesheet" href="shared/css/style.css">
+        <link rel="stylesheet" href="css/style.css">
         $darkMode
         <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.js"></script>
@@ -160,7 +160,7 @@ EOD;
             <div class="page-header">
                 <div class="ui title container">
                     <h1 title="{$s['uupdump']} v$websiteVersion">
-                        <img src="shared/img/logo.svg" class="logo" alt="">{$s['uupdump']}
+                        <img src="img/logo.svg" class="logo" alt="">{$s['uupdump']}
                     </h1>
                 </div>
 
