@@ -66,7 +66,11 @@ if($selectedLang) {
         $langs = uupListLangs($updateId);
         $langs = $langs['langFancyNames'];
 
-        $selectedLangName = $langs[strtolower($selectedLang)];
+        if(isset($langs[strtolower($selectedLang)])) {
+            $selectedLangName = $langs[strtolower($selectedLang)];
+        } else {
+            $selectedLangName = strtolower($selectedLang);
+        }
     }
 
     $editions = uupListEditions($selectedLang, $updateId);
