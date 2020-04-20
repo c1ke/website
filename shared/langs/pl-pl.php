@@ -143,7 +143,7 @@ $s['aria2NoticeText1'] = 'Opcje <i>Pobierz przy użyciu programu aria2</i> tworz
 $s['aria2NoticeText2'] = 'Aby rozpocząć proces użyj skryptu przeznaczonego dla Twojej platformy:';
 $s['aria2NoticeText3'] = 'Aria2 jest projektem otwartoźródłowym. Możesz znaleźć go tutaj: %s.'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'Skrypt konwersji UUP (wersja dla Windows) został stworzony przez %s.'; //UUP Conversion script (Windows version) has been created by abbodi1406.
-$s['aria2NoticeText5'] = 'Skrypt konwersji UUP (wersja dla Linux, wersja dla macOS) jest otwartoźródłowy. Możesz znaleźć go tutaj: %s.'; //UUP Conversion script (Linux version, macOS version) is open source. You can find it here: https://github.com/uup-dump/converter.
+$s['aria2NoticeText5'] = 'Skrypt konwersji UUP (wersja dla Linux oraz macOS) jest otwartoźródłowy. Możesz znaleźć go tutaj: %s.'; //UUP Conversion script (Linux version, macOS version) is open source. You can find it here: https://github.com/uup-dump/converter.
 $s['selectDownloadOptions'] = 'Wybierz opcje pobierania';
 $s['selectDownloadOptionsSub'] = 'Skonfiguruj w jaki sposob chcesz pobrać swój wybór';
 $s['downloadMethod'] = 'Metoda pobierania';
@@ -167,7 +167,7 @@ $s['sha1FileDesc'] = 'Możesz użyć tego pliku w celu szybkiej weryfikacji czy 
 $s['findFilesIn'] = 'Szukaj plików w %s'; //Find files in Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['fileRenamingScriptDescFindFiles'] = 'W przypadku chęci szybkiej zmiany nazwy plików pobranych z tej strony, możesz wygenerować skrypt zmieniający nazwy, który wykona tę operację za Ciebie.';
 $s['fileRenamingScriptGenW'] = 'Wygeneruj skrypt zmiany nazw (wersja dla Windows)';
-$s['fileRenamingScriptGenL'] = 'Wygeneruj skrypt zmiany nazw (wersja dla Linux, wersja dla macOS)';
+$s['fileRenamingScriptGenL'] = 'Wygeneruj skrypt zmiany nazw (wersja dla Linux oraz macOS)';
 $s['searchForFiles'] = 'Szukaj plików...';
 $s['weFoundFiles'] = 'Znaleźliśmy <b>%d</b> plików dla Twojego zapytania.'; //We have found <b>692</b> files for your query.
 

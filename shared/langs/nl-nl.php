@@ -111,7 +111,7 @@ $s['chooseEdition'] = 'Editie Selectie';
 $s['chooseEditionDesc'] = 'Selecteer de gewenste editie';
 $s['allEditions'] = 'Alle edities';
 $s['selectEditionInfoText'] = 'Klik de <i>Volgende</i> knop om de pagina met het selectie overzicht te openen.';
-$s['additionalEditionsInfo'] = 'Als u een extra editie nodig hebt kunt U die vinden in de tabel aan de rechterkant, selecteert u de aangegeven vereiste editie en klikt u op <i> Volgende </ i>. Op de overzichtspagina kunt u de gewenste extra edities selecteren onder de juiste downloadoptie.';
+$s['additionalEditionsInfo'] = 'Als u een extra editie nodig hebt kunt U die vinden in de tabel aan de rechterkant, selecteert u de aangegeven vereiste editie en klikt u op <i>Volgende</i>. Op de overzichtspagina kunt u de gewenste extra edities selecteren onder de juiste downloadoptie.';
 
 //download.php
 $s['summary'] = 'Overzicht';
@@ -161,7 +161,7 @@ $s['aria2NoticeText1'] = 'Downloaden mbv aria2 creeert een zip bestand dat moet 
 $s['aria2NoticeText2'] = 'Kies het voor jouw platform geschikte script om het download process te starten:';
 $s['aria2NoticeText3'] = 'Aria2 is een open source project. Je kunt het hier vinden: %s.'; //Aria2 is een open source project. Je kunt het hier vinden: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'Het UUP Conversie script (Windows versie) is gemaakt door %s.'; //UUP Conversie script (Windows versie) is gemaakt door abbodi1406.
-$s['aria2NoticeText5'] = 'Het UUP Conversie script (Linux versie, macOS versie) is open source. Je kunt het hier vinden: %s.'; //UUP Conversie script (Linux versie, macOS versie) is open source. Je kunt het hier vinden: https://github.com/uup-dump/converter.
+$s['aria2NoticeText5'] = 'Het UUP Conversie script (Linux versie, macOS versie) is open source. Je kunt het hier vinden: %s.'; //UUP Conversie script (Linux versie) is open source. Je kunt het hier vinden: https://github.com/uup-dump/converter.
 
 //findfiles.php
 $s['findFilesIn'] = 'Vind bestanden voor %s'; //Vind bestanden voor Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
@@ -218,7 +218,7 @@ $s['lang_cs-cz'] = 'Tsjechisch';
 $s['lang_da-dk'] = 'Deens';
 $s['lang_de-de'] = 'Duits';
 $s['lang_el-gr'] = 'Grieks';
-$s['lang_en-gb'] = 'Engels (Verenigd Konijnkrijk)';
+$s['lang_en-gb'] = 'Engels (Verenigd Koninkrijk)';
 $s['lang_en-us'] = 'Engels (Verenigde Staten)';
 $s['lang_es-es'] = 'Spaans';
 $s['lang_es-mx'] = 'Mexicaans';
@@ -237,7 +237,7 @@ $s['lang_lv-lv'] = 'Lets';
 $s['lang_nb-no'] = 'Noors (Bokmal)';
 $s['lang_nl-nl'] = 'Nederlands';
 $s['lang_pl-pl'] = 'Pools';
-$s['lang_pt-br'] = 'Portugees (Brazillie)';
+$s['lang_pt-br'] = 'Portugees (Brazillië)';
 $s['lang_pt-pt'] = 'Portugees (Portugal)';
 $s['lang_qps-ploc'] = 'Pseudo';
 $s['lang_ro-ro'] = 'Roemeens';

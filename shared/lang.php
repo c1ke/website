@@ -43,6 +43,7 @@ $supportedLangs = array(
     'zh-tw',
     'hu-hu',
     'tr-tr',
+    'ro-ro',
 );
 
 if(in_array("$lang", $supportedLangs)) {
@@ -68,6 +69,7 @@ $languageCoreSelectorModal = <<<EOD
         <p><a href="{$url}lang=pl-pl"><i class="pl flag"></i>polski</a></p>
         <p><a href="{$url}lang=pt-br"><i class="br flag"></i>Português (Brasil)</a></p>
         <p><a href="{$url}lang=pt-pt"><i class="pt flag"></i>Português (Portugal)</a></p>
+        <p><a href="{$url}lang=ro-ro"><i class="ro flag"></i>Română (România)</a></p>
         <p><a href="{$url}lang=tr-tr"><i class="tr flag"></i>Türkçe</a></p>
         <p><a href="{$url}lang=ar-sa"><i class="sa flag"></i>العربية</a></p>
         <p><a href="{$url}lang=ko-kr"><i class="kr flag"></i>한국어</a></p>
