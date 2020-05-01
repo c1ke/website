@@ -1,5 +1,5 @@
 /*
-Copyright 2019 whatever127
+Copyright 2020 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -66,7 +66,8 @@ label,
 .ui.steps .step .title,
 .ui.steps .step .description,
 .ui.message,
-.ui.message .header {
+.ui.message .header,
+.ui.accordion .title {
     color: #fff !important;
 }
 
@@ -85,7 +86,8 @@ label,
     color: #fff !important;
 }
 
-.ui.table.striped tr:nth-child(2n) {
+.ui.table.striped tr:nth-child(2n),
+.ui.styled.accordion {
     background-color: #1a1a1a !important;
 }
 
@@ -112,7 +114,8 @@ textarea::selection {
 }
 
 .ui.message,
-.ui.message .header {
+.ui.message .header,
+.ui.styled.accordion {
     box-shadow: none !important;
 }
 

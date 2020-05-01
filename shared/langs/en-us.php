@@ -171,6 +171,51 @@ $s['fileRenamingScriptGenL'] = 'Generate renaming script (Linux, macOS)';
 $s['searchForFiles'] = 'Search for files...';
 $s['weFoundFiles'] = 'We have found <b>%d</b> files for your query.'; //We have found <b>692</b> files for your query.
 
+//faq.php
+$s['faq'] = 'FAQ';
+$s['faqLong'] = 'Frequently asked questions';
+
+$s['q1'] = 'What is the difference between Feature Updates and Cumulative Updates?';
+$s['a1'] = <<<FAQ
+Feature updates contain base updates and additional updates.<br/>
+Cumulative updates only have base updates.<br/><br/>
+
+Generally feature updates are recommended for generating ISO files.
+FAQ;
+
+$s['q2'] = 'How do I create ISO with Windows 10 editions such as Enterprise?';
+$s['a2'] = <<<FAQ
+Enterprise is a <b>virtual edition</b> of Windows 10. "Virtual" here does not mean "for virtualization", but rather "not standalone".<br/><br/>
+
+Virtual editions require a "base edition" for conversion.<br/>
+When selecting the edition for a given update, on the right side of the page you will find a table with requirements for different virtual editions.<br/>
+For "Windows 10 Enterprise" the requirement is "Windows 10 Pro", which is what you will need to select first.<br/><br/>
+
+After selecting Pro click "Next" and choose the "convert and create additional editions" option.<br/>
+A list with all possible virtual editions for your selection will appear;<br/><br/>
+
+From there you can choose "Enterprise" and create a download package.
+FAQ;
+
+$s['q3'] = 'Why Windows Server downloads show "There are no languages available for this build."?';
+$s['a3'] = <<<FAQ
+Windows Server Updates only have Feature on Demand packages.<br/>
+You cannot use them for conversion purposes.<br/><br/>
+
+They are only listed for easy access to Feature on Demand packages.
+FAQ;
+
+$s['q4'] = 'Can I remove some packages I think are useless before the conversion process?';
+$s['a4'] = <<<FAQ
+You can't. The conversion will fail if you do this.
+FAQ;
+
+$s['qUnknown'] = 'I have a question not listed here.';
+$s['aUnknown'] =  <<<FAQ
+You can join UUP dump discord server and ask your question there.
+Only questions in English will be answered.
+FAQ;
+
 //Error pages
 $s['error'] = 'Error';
 $s['requestNotSuccessful'] = 'Request not successful';

@@ -92,15 +92,25 @@ EOD;
     switch ($pageType) {
         case 'home':
             $navbarLink = '<a class="active item" href="./"><i class="home icon"></i>'.$s['home'].'</a>'.
-                          '<a class="item" href="./known.php"><i class="download icon"></i>'.$s['downloads'].'</a>';
-            break;
+                          '<a class="item" href="known.php"><i class="download icon"></i>'.$s['downloads'].'</a>'.
+                          '<a class="item" href="faq.php"><i class="question circle icon"></i>'.$s['faq'].'</a>';
+        break;
+
         case 'downloads':
             $navbarLink = '<a class="item" href="./"><i class="home icon"></i>'.$s['home'].'</a>'.
-                          '<a class="active item"><i class="download icon"></i>'.$s['downloads'].'</a>';
-            break;
+                          '<a class="active item"><i class="download icon"></i>'.$s['downloads'].'</a>'.
+                          '<a class="item" href="faq.php"><i class="question circle icon"></i>'.$s['faq'].'</a>';
+        break;
+
+        case 'faq':
+            $navbarLink = '<a class="item" href="./"><i class="home icon"></i>'.$s['home'].'</a>'.
+                          '<a class="item" href="known.php"><i class="download icon"></i>'.$s['downloads'].'</a>'.
+                          '<a class="active item" href="faq.php"><i class="question circle icon"></i>'.$s['faq'].'</a>';
+        break;
+
         default:
             $navbarLink = '<a class="active item" href="./">'.$s['home'].'</a>';
-            break;
+        break;
     }
 
     $langSelect = '<a class="item" onClick="openLanguageSelector();"><i class="globe icon"></i>'.$s['currentLanguage'].'</a>';

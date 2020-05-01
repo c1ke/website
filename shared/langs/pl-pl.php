@@ -171,6 +171,49 @@ $s['fileRenamingScriptGenL'] = 'Wygeneruj skrypt zmiany nazw (wersja dla Linux o
 $s['searchForFiles'] = 'Szukaj plików...';
 $s['weFoundFiles'] = 'Znaleźliśmy <b>%d</b> plików dla Twojego zapytania.'; //We have found <b>692</b> files for your query.
 
+//faq.php
+$s['faq'] = 'FAQ';
+$s['faqLong'] = 'Często zadawane pytania';
+
+$s['q1'] = 'Jaka jest różnica pomiędzy aktualizacjami <i>Feature Update</i> a <i>Cumulative Update</i>?';
+$s['a1'] = <<<FAQ
+Aktualizacje <i>Feature Update</i> zawierają aktualizacje bazowe oraz aktualizacje dodatkowe.<br/>
+Aktualizacje <i>Cumulative Update</i> zawierają wyłącznie aktualizacje bazowe.<br/><br/>
+
+Ogólnie zaleca się używanie aktualizacji <i>Feature Update</i> do tworzenia obrazów ISO.
+FAQ;
+
+$s['q2'] = 'Jak mogę utworzyć obraz ISO z edycjami systemu Windows 10 takimi jak Enterprise?';
+$s['a2'] = <<<FAQ
+Enterprise jest <b>edycją wirtualną</b> systemu Windows 10. "Wirtualna" tutaj nie oznacza "przeznaczona dla wirtualizacji", lecz "nie będąca samodzielną".<br/><br/>
+
+Edyche wirtualne wymagają "edycji bazowej" w celu utworzenia.<br/>
+Podczas wyboru edycji dla danej aktualizacji, po prawej części strony znajduje się tabela wymagań dla różnych edycji wirtualnych.</br>
+Dla "Windows 10 Enterprise" wymaganiem jest "Windows 10 Pro", które musi zostać wybrane jako pierwsze.<br/><br/>
+
+Po wybraniu edycji Pro, należy kliknąć "Dalej" i wybrać opcję "Przekonwertuj i utwórz edycje dodatkowe".<br/>
+Po dokonaniu tego wyboru lista możliwych edycji wirtualnych zostanie wyświetlona, gdzie można wybrać edycję Enterprise i pobrać pakiet pobierający.
+FAQ;
+
+$s['q3'] = 'Dlaczego pobrania Windows Server wyświetlają "Dla tej kompilacji nie ma dostępnych żadnych języków."?';
+$s['a3'] = <<<FAQ
+Aktualizacje Windows Server zawierają tylko pakiety <i>Features on Demand</i>.<br/>
+Nie można ich użyć do celów konwersji.<br/><br/>
+
+Aktualizacje te są udostępnione tylko w celu łatwego dostępu do wspomnianych pakietów.
+FAQ;
+
+$s['q4'] = 'Czy przed dokonaniem procesu konwersji mogę usunąć pakiety, które uważam za bezużyteczne?';
+$s['a4'] = <<<FAQ
+Nie jest to możliwe. Proces konwersji nie powiedzie się po wykonaniu takiego zabiegu.
+FAQ;
+
+$s['qUnknown'] = 'Mam pytanie, które nie znajduje się tutaj.';
+$s['aUnknown'] =  <<<FAQ
+Dodatkowe pytania, na które nie ma tutaj odpowiedzi można zadawać na serwerze UUP dump na platformie Discord.<br/>
+Odpowiedzi będą udzielane wyłącznie na pytania zadane w języku angielskim.
+FAQ;
+
 //Error pages
 $s['error'] = 'Błąd';
 $s['requestNotSuccessful'] = 'Żądanie nie powiodło się';
