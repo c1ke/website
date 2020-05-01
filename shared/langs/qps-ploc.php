@@ -10,8 +10,8 @@ Authors: whatever127 and mspaintmsi
 */
 
 //Language information
-$s['code'] = '[8de0] ḗƞ-ŬŞ';
-$s['timeZone'] = '[9e34] ŬŦƇ'; //Supported timezones: https://www.php.net/manual/en/timezones.php
+$s['code'] = 'en-US';
+$s['timeZone'] = 'UTC'; //Supported timezones: https://www.php.net/manual/en/timezones.php
 
 //shared strings
 $s['uupdump'] = '[b837] ŬŬƤ ḓŭḿƥ';
@@ -203,7 +203,7 @@ $s['q4'] = '[0419] Ƈȧƞ Ī řḗḿǿṽḗ şǿḿḗ ƥȧƈķȧɠḗş Ī ŧ
 $s['a4'] = '[13dd] Ẏǿŭ ƈȧƞ\'ŧ. Ŧħḗ ƈǿƞṽḗřşīǿƞ ẇīŀŀ ƒȧīŀ īƒ ẏǿŭ ḓǿ ŧħīş.';
 
 $s['qUnknown'] = '[f84a] Ī ħȧṽḗ ȧ ɋŭḗşŧīǿƞ ƞǿŧ ŀīşŧḗḓ ħḗřḗ.';
-$s['aUnknown'] =  '[52a0] Ẏǿŭ ƈȧƞ ĵǿīƞ ŬŬƤ ḓŭḿƥ ḓīşƈǿřḓ şḗřṽḗř ȧƞḓ ȧşķ ẏǿŭř ɋŭḗşŧīǿƞ ŧħḗřḗ.
+$s['aUnknown'] = '[52a0] Ẏǿŭ ƈȧƞ ĵǿīƞ ŬŬƤ ḓŭḿƥ ḓīşƈǿřḓ şḗřṽḗř ȧƞḓ ȧşķ ẏǿŭř ɋŭḗşŧīǿƞ ŧħḗřḗ.
 Ǿƞŀẏ ɋŭḗşŧīǿƞş īƞ Ḗƞɠŀīşħ ẇīŀŀ ƀḗ ȧƞşẇḗřḗḓ.';
 
 //Error pages
