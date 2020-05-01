@@ -157,7 +157,7 @@ $s['fileRenamingScriptDesc2'] = 'Kopieer de content van het formulier hieronder 
 $s['sha1File'] = 'SHA-1 checksums bestand';
 $s['sha1FileDesc'] = 'Dit bestand kan gebruikt worden om snel te verifieren of de download correct is binnengekomen.';
 $s['aria2NoticeTitle'] = 'Opmerkingen mbt downloaden via aria2';
-$s['aria2NoticeText1'] = 'Downloaden mbv aria2 creeert een zip bestand dat moet worden gedownload. Het gedownloade zip bestand bevat alle benodigde bestanden om de geselecteerde taak te voltooien.';
+$s['aria2NoticeText1'] = 'Downloaden mbv aria2 creëert een zip bestand dat moet worden gedownload. Het gedownloade zip bestand bevat alle benodigde bestanden om de geselecteerde taak te voltooien.';
 $s['aria2NoticeText2'] = 'Kies het voor jouw platform geschikte script om het download process te starten:';
 $s['aria2NoticeText3'] = 'Aria2 is een open source project. Je kunt het hier vinden: %s.'; //Aria2 is een open source project. Je kunt het hier vinden: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'Het UUP Conversie script (Windows versie) is gemaakt door %s.'; //UUP Conversie script (Windows versie) is gemaakt door abbodi1406.
@@ -170,6 +170,46 @@ $s['fileRenamingScriptGenW'] = 'Maak hernoemings script (Windows)';
 $s['fileRenamingScriptGenL'] = 'Maak hernoemings script (Linux, macOS)';
 $s['searchForFiles'] = 'Zoek naar bestanden...';
 $s['weFoundFiles'] = 'We hebben <b>%d</b> bestanden gevonden.'; //We hebben <b>692</b> bestanden gevonden.
+
+//faq.php
+$s['faq'] = 'FAQ';
+$s['faqLong'] = 'Veel gestelde vragen';
+
+$s['q1'] = 'Wat is het verschil tussen Feature Updates en Cumulative Updates?';
+$s['a1'] = <<<FAQ
+Feature updates bevatten basis updates en aanvullende updates.<br/>
+Cumulative updates bevatten alleen basis updates.<br/><br/>
+Over het algemeen is het aangeraden om de Feature update optie te gebruiken voor ISOs mee te maken.
+FAQ;
+
+$s['q2'] = 'Hoe maak je een ISO met Windows 10 edities zoals Enterprise?';
+$s['a2'] = <<<FAQ
+Enterprise is een <b>virtuele editie</b> van Windows 10. "Virtueel" betekent hier niet "voor virtualizatie", maar "niet op zichzelf staand".<br/><br/>
+Virtuele edities hebben een "basis editie" nodig om aangemaakt te kunnen worden.<br/>
+Wanneer je een editie selecteert voor een bepaalde update vindt je aan de rechterkant van de pagina een tabel met de vereiste basis edities voor de verschillende virtuele edities.<br/>
+Voor "Windows 10 Enterprise", "Windows 10 Pro" is de vereiste basis editie, welke je eerst moet selecteren.<br/><br/>
+Na het selecteren van Pro klik "Volgende" en selecteer "Download de UUP bestanden makkelijk dmv aria2, creeer de extra edities en converteer naar ISO" optie.<br/>
+De lijst met alle mogelijke virtuele edities zal worden getoond;<br/><br/>
+Hier kun je "Enterprise" selecteren en het download pakket aanmaken.
+FAQ;
+
+$s['q3'] = 'Waarom staat er by Windows Server downloads "Er zijn geen talen beschikbaar voor deze build."?';
+$s['a3'] = <<<FAQ
+Windows Server Updates bevatten alleen Feature on Demand pakketten.<br/>
+Deze kun je je niet gebruiken voor conversie doeleinden.<br/><br/>
+Ze worden alleen vermeld voor gemakkelijke toegang tot Feature on Demand-pakketten.
+FAQ;
+
+$s['q4'] = 'Kan ik bepaalde bestanden verwijderen omdat ik ze niet denk nodig te hebben?';
+$s['a4'] = <<<FAQ
+Dat is niet mogelijk. Het converteren zal niet lukken als je dit doet.
+FAQ;
+
+$s['qUnknown'] = 'Ik heb een vraag die niet in de lijst staat.';
+$s['aUnknown'] =  <<<FAQ
+Je kunt je aanmelden op UUP dump discord server en je vraag daar stellen in de uup-dump-support sectie.
+Alleen vragen in het engeks worden beantwoord.
+FAQ;
 
 //Error pages
 $s['error'] = 'Fout';
