@@ -187,7 +187,7 @@ $s['q2'] = 'Jak mogę utworzyć obraz ISO z edycjami systemu Windows 10 takimi j
 $s['a2'] = <<<FAQ
 Enterprise jest <b>edycją wirtualną</b> systemu Windows 10. "Wirtualna" tutaj nie oznacza "przeznaczona dla wirtualizacji", lecz "nie będąca samodzielną".<br/><br/>
 
-Edyche wirtualne wymagają "edycji bazowej" w celu utworzenia.<br/>
+Edycje wirtualne wymagają "edycji bazowej" w celu utworzenia.<br/>
 Podczas wyboru edycji dla danej aktualizacji, po prawej części strony znajduje się tabela wymagań dla różnych edycji wirtualnych.</br>
 Dla "Windows 10 Enterprise" wymaganiem jest "Windows 10 Pro", które musi zostać wybrane jako pierwsze.<br/><br/>
 
