@@ -171,6 +171,51 @@ $s['fileRenamingScriptGenL'] = 'Umbenennungsskript generieren (Linux, macOS)';
 $s['searchForFiles'] = 'Nach Dateien suchen...';
 $s['weFoundFiles'] = 'Wir haben <b>%d</b> Dateien für Ihre Anfrage gefunden.'; //We have found <b>692</b> files for your query.
 
+//faq.php
+$s['faq'] = 'FAQ';
+$s['faqLong'] = 'Häufig gestellte Fragen';
+
+$s['q1'] = 'Was ist der Unterschied zwischen Feature-Updates und kumulativen Updates?';
+$s['a1'] = <<<FAQ
+Feature-Updates enthalten Basis-Updates und zusätzliche Updates.<br/>
+Kumulative Updates haben nur Basis-Updates.<br/><br/>
+
+Im Allgemeinen werden Feature-Updates für die Erzeugung von ISO-Dateien empfohlen.
+FAQ;
+
+$s['q2'] = 'Wie erstelle ich eine ISO mit Windows 10-Editionen wie Enterprise?';
+$s['a2'] = <<<FAQ
+Enterprise ist eine <b>virtuelle Edition</b> von Windows 10. "Virtuell" bedeutet hier nicht "zur Virtualisierung", sondern eher "nicht eigenständig".<br/><br/>
+
+Virtuelle Editionen erfordern eine "Basis-Edition" für die Konvertierung.<br/>
+Bei der Auswahl der Edition für ein bestimmtes Update finden Sie auf der rechten Seite eine Tabelle mit den Anforderungen für verschiedene virtuelle Editionen.<br/>
+Für "Windows 10 Enterprise" ist die Voraussetzung "Windows 10 Pro", die Sie zuerst auswählen müssen.<br/><br/>
+
+Klicken Sie nach der Auswahl von Pro auf "Weiter" und wählen Sie die Option "Konvertieren und zusätzliche Editionen erstellen".<br/>
+Es erscheint eine Liste mit allen möglichen virtuellen Editionen für Ihre Auswahl;<br/><br/>
+
+Von dort aus können Sie "Enterprise" wählen und ein Download-Paket erstellen.
+FAQ;
+
+$s['q3'] = 'Warum wird beim Herunterladen von Windows Server angezeigt: "Es sind keine Sprachen für diesen Build verfügbar"?';
+$s['a3'] = <<<FAQ
+Windows Server-Updates verfügen nur über Feature-on-Demand-Pakete.<br/>
+Sie können sie nicht für Konvertierungszwecke verwenden.<br/><br/>
+
+Sie sind nur für den einfachen Zugang zu den "Feature on Demand"-Paketen aufgeführt.
+FAQ;
+
+$s['q4'] = 'Kann ich einige Pakete entfernen, die ich vor dem Umstellungsprozess für nutzlos halte?';
+$s['a4'] = <<<FAQ
+Das können Sie nicht. Die Konvertierung wird fehlschlagen, wenn Sie dies tun.
+FAQ;
+
+$s['qUnknown'] = 'Ich habe eine Frage, die hier nicht aufgeführt ist.';
+$s['aUnknown'] =  <<<FAQ
+Sie können dem UUP-Dump-Discord-Server beitreten und dort Ihre Frage stellen.
+Es werden nur Fragen auf Englisch beantwortet.
+FAQ;
+
 //Error pages
 $s['error'] = 'Fehler';
 $s['requestNotSuccessful'] = 'Anfrage nicht erfolgreich';
