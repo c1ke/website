@@ -65,18 +65,18 @@ $s['dateAdded'] = '添加日期';
 //known.php
 $s['browseKnown'] = '浏览已知内部版本';
 $s['chooseBuild'] = '选择内部版本';
-$s['weFoundBuilds'] = '在你的查询中，我们找到了 <b>%d</b> 个内部版本。'; //We have found <b>692</b> builds for your query.
+$s['weFoundBuilds'] = '根据你的查询，我们找到了 <b>%d</b> 个内部版本。'; //We have found <b>692</b> builds for your query.
 
 //latest.php
 $s['latestFetchLatest'] = '获取最新内部版本';
 $s['latestTestingOnly'] = '仅用于测试目的';
 $s['latestTestingOnlyWarn'] = '<b>此页面仅供测试目的。</b> 此页面检索到的内部版本未被后端服务器处理，因此仅提供替代包，并且可能只有不完整的检索结果。 如果要下载已知的内部版本，请使用已知内部版本的下载页面。';
-$s['latestDoYouWantKnown'] = '你想要继续浏览已知内部版本列表吗？';
+$s['latestDoYouWantKnown'] = '你想继续浏览已知内部版本列表吗？';
 $s['chooseOptions'] = '选择选项';
-$s['buildOfPretendedClient'] = '虚构的 Windows Update 客户端版本号';
-$s['editionOfPretendedClient'] = '虚构的系统版本';
+$s['buildOfPretendedClient'] = '模拟 Windows Update 客户端版本号';
+$s['editionOfPretendedClient'] = '模拟系统版本';
 $s['skipAheadLabel'] = '跳跃预览通道';
-$s['skipAheadOption'] = '使用跳跃预览通道(仅限快速环)';
+$s['skipAheadOption'] = '使用跳跃预览通道（仅限快速环）';
 $s['fetchUpdates'] = '获取更新';
 $s['fetchUpdatesInfo'] = '点击 <i>获取更新</i> 按钮将你的请求发送到 Windows Update 服务器。';
 
@@ -84,7 +84,7 @@ $s['fetchUpdatesInfo'] = '点击 <i>获取更新</i> 按钮将你的请求发送
 $s['responseFromServer'] = '来自服务器的响应';
 $s['foundUpdates'] = '找到 %d 个更新'; //Found 1 update(s)
 $s['foundTheseUpdates'] = '找到了以下更新，点击所需更新的名称以继续。';
-$s['buildNumber'] = '版本号： %s'; //Build number: 18890.1000
+$s['buildNumber'] = '内部版本号： %s'; //Build number: 18890.1000
 
 //selectlang.php
 $s['selectLangFor'] = '选择 %s 的语言'; //Select language for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
@@ -161,15 +161,60 @@ $s['aria2NoticeText1'] = '使用 aria2 选项下载可创建需要下载的存�
 $s['aria2NoticeText2'] = '要开始下载过程，请使用适用于你的平台的脚本：';
 $s['aria2NoticeText3'] = 'Aria2 是一个开源项目，你可以在这里找到它：%s。'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'UUP 转换脚本（Windows 版本）已由 %s 创建。'; //UUP Conversion script (Windows version) has been created by abbodi1406.
-$s['aria2NoticeText5'] = 'UUP 转换脚本（Linux 版本, macOS 版本）是开源的，你可以在这里找到它：%s。'; //UUP Conversion script (Linux version, macOS version) is open source. You can find it here: https://github.com/uup-dump/converter.
+$s['aria2NoticeText5'] = 'UUP 转换脚本（Linux 版本、macOS 版本）是开源的，你可以在这里找到它：%s。'; //UUP Conversion script (Linux version, macOS version) is open source. You can find it here: https://github.com/uup-dump/converter.
 
 //findfiles.php
 $s['findFilesIn'] = '在 %s 中查找文件'; //Find files in Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['fileRenamingScriptDescFindFiles'] = '如果要快速重命名在此页面下载的文件，可以生成重命名脚本，此脚本将自动为你执行此操作。';
 $s['fileRenamingScriptGenW'] = '生成重命名脚本（Windows）';
-$s['fileRenamingScriptGenL'] = '生成重命名脚本（Linux, macOS）';
+$s['fileRenamingScriptGenL'] = '生成重命名脚本（Linux、macOS）';
 $s['searchForFiles'] = '查找文件……';
 $s['weFoundFiles'] = '在你的查询中我们找到了 <b>%d</b> 个文件。'; //We have found <b>692</b> files for your query.
+
+//faq.php
+$s['faq'] = 'FAQ';
+$s['faqLong'] = '常见问题';
+
+$s['q1'] = '功能更新和累积更新之间有什么区别？';
+$s['a1'] = <<<FAQ
+功能更新包含基本更新和附加更新。<br/>
+累积更新仅包含基本更新。<br/><br/>
+
+一般推荐使用功能更新来生成 ISO 文件。
+FAQ;
+
+$s['q2'] = '我如何使用 Windows 10 版本（如企业版）创建 ISO？';
+$s['a2'] = <<<FAQ
+企业版是 Windows 10 的<b>虚拟版本</b>。此处的“虚拟”并不表示“用于虚拟化”，而是“非独立”。<br/><br/>
+
+虚拟版本需要“基本版本”进行转换。<br/>
+选择给定更新的版本时，在页面的右侧，你会找到一个表格，其中列出了不同虚拟版本的要求。<br/>
+对于“Windows 10 企业版”，其要求是“Windows 10 专业版”，这是你首先需要选择的。<br/><br/>
+
+在选择专业版后，单击“下一步”，然后选择“转换并创建其他版本”选项。<br/>
+将会出现一个列表，其中会包含所有可能的虚拟版本供你选择；<br/><br/>
+
+在这里，你可以选择“企业版”并创建一个下载包。
+FAQ;
+
+$s['q3'] = '为什么 Windows Server 下载会显示“在此内部版本中没有可用的语言。”？';
+$s['a3'] = <<<FAQ
+Windows Server 更新仅具有按需功能包。<br/>
+你不能将它们用于转换目的。<br/><br/>
+
+仅列出它们是为了方便访问按需功能包。
+FAQ;
+
+$s['q4'] = '我可以在转换过程之前删除一些我认为没有用的软件包吗？';
+$s['a4'] = <<<FAQ
+你不能这样做。如果你这样做，转换就会失败。
+FAQ;
+
+$s['qUnknown'] = '我提出的问题没有在这里列出。';
+$s['aUnknown'] =  <<<FAQ
+你可以加入 UUP dump discord 服务器，并在那里提出你的问题。
+仅回答使用英语提出的问题。
+FAQ;
 
 //Error pages
 $s['error'] = '错误';
