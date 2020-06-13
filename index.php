@@ -74,9 +74,9 @@ styleUpper('home');
         1809
     </a>
 
-    <a class="ui mini button" href="known.php?q=17134">
+    <a class="ui mini button" href="known.php?q=Microsoft+Edge">
         <i class="search icon"></i>
-        1803
+        Microsoft Edge
     </a>
 </div>
 
