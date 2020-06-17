@@ -52,6 +52,21 @@ styleUpper('home');
 <div class="quick-search-buttons">
     <i class="thumbtack icon"></i>
 
+    <a class="ui mini button" href="known.php?q=regex:[2-9]\d{4}\.">
+        <i class="search icon"></i>
+        Dev Channel
+    </a>
+
+    <a class="ui mini button" href="known.php?q=regex:19[5-9]\d{2}">
+        <i class="search icon"></i>
+        21H1
+    </a>
+   
+    <a class="ui mini button" href="known.php?q=19042">
+        <i class="search icon"></i>
+        20H2
+    </a>
+   
     <a class="ui mini button" href="known.php?q=19041">
         <i class="search icon"></i>
         20H1
@@ -71,7 +86,7 @@ styleUpper('home');
 
     <a class="ui mini button" href="known.php?q=17763">
         <i class="search icon"></i>
-        1809
+        RS5
     </a>
 
     <a class="ui mini button" href="known.php?q=Microsoft+Edge">
