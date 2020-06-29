@@ -55,23 +55,23 @@ $s['selectLanguage'] = 'Bitte wählen Sie Ihre Sprache aus';
 //index.php
 $s['slogan'] = 'Laden Sie UUP-Dateien von Windows Update-Servern mit Leichtigkeit herunter.';
 $s['advOptions'] = 'Erweiterte Optionen';
-$s['browseBuilds'] = 'Durchsuche die vollständige Liste der Builds.';
-$s['browseBuildsSub'] = 'Wählen Sie ein Build, das in der lokalen Datenbank bereits bekannt ist, und laden Sie es herunter.';
+$s['browseBuilds'] = 'Bekannte Builds durchsuchen.';
+$s['browseBuildsSub'] = 'Wählen Sie ein bereits bekanntes Build aus und laden Sie es herunter.';
 $s['fetchLatest'] = 'Hole den aktuellen Build';
 $s['fetchLatestSub'] = 'Abrufen der neuesten Buildinformationen von Windows Update-Servern.';
-$s['newlyAdded'] = 'Neu hinzugefügte Builds';
+$s['newlyAdded'] = 'Kürzlich hinzugefügte Builds';
 $s['dateAdded'] = 'Datum des Hinzufügens';
 
 //known.php
 $s['browseKnown'] = 'Durchsuchen der bekannten Builds';
 $s['chooseBuild'] = 'Build auswählen';
-$s['weFoundBuilds'] = 'Wir haben <b>%d</b> Builds für Ihre Anfrage gefunden.'; //We have found <b>692</b> builds for your query.
+$s['weFoundBuilds'] = 'Wir haben <b>%d</b> Builds wurden für Ihre Anfrage gefunden.'; //We have found <b>692</b> builds for your query.
 
 //latest.php
 $s['latestFetchLatest'] = 'Hole den aktuellen Build';
 $s['latestTestingOnly'] = 'Nur zu Testzwecken';
 $s['latestTestingOnlyWarn'] = '<b>Diese Seite wird nur zu Testzwecken zur Verfügung gestellt.</b> Builds, die von dieser Seite abgerufen werden und nicht vom Backend-Server verarbeitet wurden, werden mit Hilfe von Fallback-Packs bereitgestellt, die unvollständige Ergebnisse liefern können. Wenn du einen bereits bekannten Build herunterladen möchtest, benutze für ein optimales Ergebnis bitte stattdessen die Seite für bekannte Builds.';
-$s['latestDoYouWantKnown'] = 'Möchten Sie weiter in der Liste der bekannten Builds blättern?';
+$s['latestDoYouWantKnown'] = 'Möchten Sie fortfahren, indem Sie die Liste der bekannten Builds durchsuchen?';
 $s['chooseOptions'] = 'Optionen auswählen';
 $s['buildOfPretendedClient'] = 'Build Nummer des vorgegebenen Windows Update Clients';
 $s['editionOfPretendedClient'] = 'Ausgabe des vorgegebenen Systems';
@@ -95,11 +95,11 @@ $s['selLangFiles'] = 'Dateien';
 $s['allFiles'] = 'Alle Dateien';
 $s['wubOnly'] = 'Nur WindowsUpdateBox';
 $s['updateOnly'] = 'Nur Update';
-$s['selectLangInfoText1'] = 'Klicken Sie auf die Schaltfläche <i>Weiter</i>, um die Edition auszuwählen, die Sie herunterladen möchten.';
+$s['selectLangInfoText1'] = 'Klicken Sie auf die Schaltfläche <i>Weiter</i>, um die gewünschte Edition auszuwählen.';
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe und Kumulatives Update finden Sie unter Sprache <i>Alle Sprachen</i>.';
 $s['allLangsWarn'] = 'Die Option <i>Alle Sprachen</i> unterstützt keine Editionsauswahl.';
 $s['clickNextToOpenFindFiles'] = 'Klicken Sie auf die Schaltfläche <i>Weiter</i>, um die Seite zu öffnen, die das Finden der Dateien ermöglicht.';
-$s['noLangsAvailable'] = 'Für dieses Build sind keine Sprachen verfügbar.';
+$s['noLangsAvailable'] = 'Es sind keine Sprachen für diesen Build verfügbar.<br>Dieser Build kann nicht in ein ISO-Image konvertiert werden.<br>Siehe die <a href="faq.php">FAQ</a> für Details.';
 $s['browseFiles'] = 'Dateien durchsuchen';
 $s['browseFilesDesc'] = 'Schnelles Durchsuchen von Dateien im ausgewählten Build';
 $s['searchFiles'] = 'Dateien suchen';
@@ -111,24 +111,24 @@ $s['chooseEdition'] = 'Edition auswählen';
 $s['chooseEditionDesc'] = 'Wählen Sie die gewünschte Edition aus';
 $s['allEditions'] = 'Alle Editionen';
 $s['selectEditionInfoText'] = 'Klicken Sie auf die Schaltfläche <i>Weiter</i>, um die Zusammenfassungsseite Ihrer Auswahl zu öffnen.';
-$s['additionalEditionsInfo'] = 'Wenn Sie eine zusätzliche Edition benötigen, die Sie in der rechten Tabelle finden, wählen Sie bitte die gewünschte Edition aus und klicken Sie auf <i>Weiter</i>. Auf der Übersichtsseite können Sie unter der entsprechenden Download-Option Ihre gewünschten Zusatzeditionen auswählen.';
+$s['additionalEditionsInfo'] = 'Wenn Sie eine zusätzliche Edition benötigen, die Sie in der rechten Tabelle finden, Um die gewünschte Edition zu wählen klicken Sie auf <i>Weiter</i>. Wählen Sie auf der Zusammenfassungsseite die Option <b>Herunterladen, zusätzliche Editionen hinzufügen und in eine ISO konvertieren</b> aus.';
 
 //download.php
 $s['summary'] = 'Zusammenfassung';
 $s['summaryDesc'] = 'Überprüfen Sie Ihre Auswahl und wählen Sie die Download-Methode.';
 $s['summaryFor'] = 'Zusammenfassung für %s'; //Summary for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States), Windows 10 Pro
 $s['summaryOfSelection'] = 'Zusammenfassung Ihrer Auswahl';
-$s['browseList'] = 'Durchsuchen der Datei-Liste';
+$s['browseList'] = 'Dateiliste durchsuchen';
 $s['browseListDesc'] = 'Öffnet eine Seite mit einer Liste der Dateien im UUP-Set für den manuellen Download.';
-$s['aria2Opt1'] = 'Herunterladen mit aria2';
+$s['aria2Opt1'] = 'UUP-Paket herunterladen';
 $s['aria2Opt1Desc'] = 'Laden Sie das ausgewählte UUP-Set einfach mit aria2 herunter.';
-$s['aria2Opt2'] = 'Mit aria2 herunterladen und konvertieren';
+$s['aria2Opt2'] = 'Herunterladen und Konvertieren in eine ISO';
 $s['aria2Opt2Desc'] = 'Laden Sie das ausgewählte UUP-Set mit aria2 einfach herunter und konvertieren Sie es in eine ISO.';
-$s['aria2Opt3'] = 'Mit aria2 herunterladen, konvertieren und zusätzliche Editionen erstellen';
+$s['aria2Opt3'] = 'Herunterladen, zusätzliche Editionen hinzufügen und in eine ISO konvertieren';
 $s['aria2Opt3Desc'] = 'Laden Sie das ausgewählte UUP-Set mit aria2 einfach herunter, konvertieren es, erstellen Sie zusätzliche Editionen und erstellen Sie schließlich ein ISO-Image.';
 $s['jsRequiredToConf'] = 'Für die Konfiguration und Verwendung dieser Option ist JavaScript erforderlich.';
 $s['selAdditionalEditions'] = 'Zusätzliche Editionen auswählen';
-$s['noAdditionalEditions'] = 'Für diese Auswahl stehen keine zusätzlichen Editionen zur Verfügung.';
+$s['noAdditionalEditions'] = 'Für die von Ihnen ausgewählten Editionen sind keine zusätzlichen Editionen verfügbar.';
 $s['learnMore'] = 'Mehr Infos';
 $s['learnMoreAdditionalEditions1'] = 'Diese Option ermöglicht die automatische Erstellung der ausgewählten zusätzlichen Editionen.';
 $s['learnMoreAdditionalEditions2'] = 'Die Liste der zusätzlichen Editionen wird durch die ausgewählte Basiseditionen bestimmt. Unten können Sie eine Liste der Basiseditionen einsehen, die benötigt werden, um die gewünschten zusätzlichen Editionen zu erstellen:';
@@ -139,7 +139,7 @@ $s['additionalUpdates'] = 'Zusätzliche Updates';
 $s['additionalUpdatesDesc'] = 'Dieses UUP-Set enthält zusätzliche Updates, die während des Konvertierungsprozesses integriert werden und die Erstellungszeit deutlich erhöhen.';
 $s['browseUpdatesList'] = 'Durchsuchen der Update-Liste';
 $s['selectDownloadOptions'] = 'Wählen Sie Ihre Download-Optionen aus';
-$s['selectDownloadOptionsSub'] = 'Konfigurieren Sie, wie Sie Ihre Auswahl herunterladen möchten.';
+$s['selectDownloadOptionsSub'] = 'Konfigurieren Sie, wie Sie Ihre Auswahl herunterladen möchten';
 $s['downloadMethod'] = 'Download-Methode';
 $s['conversionOptions'] = 'Konvertierungsoptionen';
 $s['convOpt1'] = 'ISO mit einer install.esd anstelle einer install.wim erstellen';
@@ -150,7 +150,7 @@ $s['startDownload'] = 'Downloadpaket erstellen';
 
 //get.php
 $s['listOfFilesFor'] = 'Liste der Dateien für %s'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
-$s['totalSizeOfFiles'] = 'Gesamtgröße der Dateien: %s'; //Total size of files: 2.86 GiB
+$s['totalSizeOfFiles'] = 'Dateigröße insgesamt: %s'; //Total size of files: 2.86 GiB
 $s['fileRenamingScript'] = 'Datei-Umbenennungsskript';
 $s['fileRenamingScriptDesc1'] = 'Das untenstehende Skript kann verwendet werden, um heruntergeladene Dateien schnell umzubenennen.';
 $s['fileRenamingScriptDesc2'] = 'Kopieren Sie einfach den Inhalt des untenstehenden Formulars in eine neue Datei mit der Dateiendung <code>cmd</code>, legen Sie dieses in den Ordner mit den heruntergeladenen Dateien und starten Sie dieses.';
@@ -197,7 +197,7 @@ Es erscheint eine Liste mit allen möglichen virtuellen Editionen für Ihre Ausw
 Von dort aus können Sie "Enterprise" wählen und ein Download-Paket erstellen.
 FAQ;
 
-$s['q3'] = 'Warum wird beim Herunterladen von Windows Server angezeigt: "Es sind keine Sprachen für diesen Build verfügbar"?';
+$s['q3'] = 'Warum wird bei Windows Server Editionen angezeigt: "Es sind keine Sprachen für diesen Build verfügbar"?';
 $s['a3'] = <<<FAQ
 Windows Server-Updates verfügen nur über Feature-on-Demand-Pakete.<br/>
 Sie können sie nicht für Konvertierungszwecke verwenden.<br/><br/>
@@ -205,7 +205,7 @@ Sie können sie nicht für Konvertierungszwecke verwenden.<br/><br/>
 Sie sind nur für den einfachen Zugang zu den "Feature on Demand"-Paketen aufgeführt.
 FAQ;
 
-$s['q4'] = 'Kann ich einige Pakete entfernen, die ich vor dem Umstellungsprozess für nutzlos halte?';
+$s['q4'] = 'Kann ich einige Pakete entfernen, die ich vor dem Konvertierungsprozess für nutzlos halte?';
 $s['a4'] = <<<FAQ
 Das können Sie nicht. Die Konvertierung wird fehlschlagen, wenn Sie dies tun.
 FAQ;
@@ -221,8 +221,8 @@ $s['error'] = 'Fehler';
 $s['requestNotSuccessful'] = 'Anfrage nicht erfolgreich';
 $s['anErrorHasOccurred'] = 'Beim Versuch, Ihre Anfrage zu bearbeiten, ist ein Fehler aufgetreten.';
 $s['generatedPackNotAvailable'] = 'Generiertes Paket nicht verfügbar';
-$s['generatedPackNotAvailableDesc'] = 'Das Update, das Sie herunterladen möchten, enthält kein generiertes Paket, das vollständige Informationen über verfügbare Sprachen, Editionen und Dateien enthält. Das Fallback-Paket wird verwendet, das möglicherweise nicht die richtigen Informationen liefert. Wenn der Download dadurch fehlschlägt, warten Sie bitte, bis das automatisch generierte Paket verfügbar ist.';
-$s['arm64Warning'] = 'Sie haben einen ARM64-Build ausgewählt, der <b>nur mit ARM64-basierten Geräten</b> kompatibel ist und nicht mit normalen Intel oder AMD-basierten PCs funktioniert. Für <b>64-bit</b> PCs verwenden Sie bitte <b>amd64</b> Builds. Für <b>32-bit</b> PCs verwenden Sie bitte <b>x86</b> Builds. Wenn Sie absolut sicher sind, dass das Zielgerät auf ARM64 basiert, können Sie diese Meldung sicher ignorieren.';
+$s['generatedPackNotAvailableDesc'] = 'Dieses Update verfügt nicht über ein generiertes Paket, das vollständige Informationen über verfügbare Sprachen, Editionen und Dateien liefert. Es wird das Fallback-Paket verwendet, das möglicherweise nicht die korrekten Informationen liefert. Wenn der Download aus diesem Grund fehlschlägt, warten Sie bitte eine Weile, bis das Paket verfügbar ist.';
+$s['arm64Warning'] = 'Dies ist ein <b>ARM64</b> Build, der <b>nicht kompatibel mit gewöhnlichen Intel/AMD-Prozessoren ist</b>.<br>Wenn Sie sicher sind, dass Ihr Zielgerät einen <b>ARM64</b> Prozessor hat und Sie ihn nicht mit <b>AMD64</b> verwechselt haben, können Sie sicher fortfahren.';
 
 //Error messages
 $s['error_ERROR'] = 'Allgemeiner Fehler.';
