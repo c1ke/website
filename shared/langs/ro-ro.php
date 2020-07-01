@@ -6,7 +6,7 @@ Translation information:
 English language name: Romanian (Romania)
 Localized language name: Română (România)
 Language code: ro-RO
-Authors: ianymaty (https://forums.mydigitallife.net/members/ianymaty.126712/)
+Authors: ianymaty
 */
 
 //Language information
@@ -55,33 +55,33 @@ $s['selectLanguage'] = 'Alegeți limba dorită';
 //index.php
 $s['slogan'] = 'Descărcați fișiere UUP cu ușurință de la serverele Windows Update.';
 $s['advOptions'] = 'Opțiuni avansate';
-$s['browseBuilds'] = 'Răsfoiți lista de compilări cunoscute';
-$s['browseBuildsSub'] = 'Alegeți o compilare deja cunoscută din baza de date locală și descărcați.';
+$s['browseBuilds'] = 'Răsfoiți compilările cunoscute';
+$s['browseBuildsSub'] = 'Alegeți o compilare deja descoperită și descărcați.';
 $s['fetchLatest'] = 'Obțineți ultima compilare';
 $s['fetchLatestSub'] = 'Obțineți ultimele informații de la serverele Windows Update.';
-$s['newlyAdded'] = 'Compilări nou adăugate';
+$s['newlyAdded'] = 'Compilări recent adăugate';
 $s['dateAdded'] = 'Data adăugării';
 
 //known.php
 $s['browseKnown'] = 'Răsfoiți compilările cunoscute';
 $s['chooseBuild'] = 'Alegeți compilarea';
-$s['weFoundBuilds'] = 'Am găsit <b>%d</b> compilări pentru cererea dvs.'; //Am găsit <b>692</b> compilări pentru cererea dvs.
+$s['weFoundBuilds'] = '<b>%d</b> compilări găsite pentru cererea dvs.'; //<b>692</b> compilări găsite pentru cererea dvs.
 
 //latest.php
 $s['latestFetchLatest'] = 'Obțineți ultima compilare';
 $s['latestTestingOnly'] = 'Doar în scop de testare';
 $s['latestTestingOnlyWarn'] = '<b>Această pagină este furnizată doar în scop de testare.</b> Compilările obținute prin această pagină care nu au fost procesate de serverul de bază vor fi furnizate folosind pachetele de rezervă, ceea ce ar putea furniza rezultate incomplete. Dacă doriți descărcarea unei compilări deja cunoscute, folosiți in schimb pagina compilărilor cunoscute.';
-$s['latestDoYouWantKnown'] = 'Doriți să continuați cu răsfoirea listei de compilări cunoscute?';
-$s['chooseOptions'] = 'Selectare opțiuni';
+$s['latestDoYouWantKnown'] = 'Doriți să continuați cu răsfoirea compilărilor cunoscute?';
+$s['chooseOptions'] = 'Selectare parametrii';
 $s['buildOfPretendedClient'] = 'Numărul de compilare al clientului de Windows Update simulat';
 $s['editionOfPretendedClient'] = 'Ediția sistemului simulat';
 $s['skipAheadLabel'] = 'Salt înainte';
 $s['skipAheadOption'] = 'Folosește Salt înainte (Doar Insider Fast)';
 $s['fetchUpdates'] = 'Obținere actualizări';
-$s['fetchUpdatesInfo'] = 'Apăsați pe butonul <i>Obținere actualizări</i> pentru a trimite o solicitare către severele Windows Update.';
+$s['fetchUpdatesInfo'] = 'Apăsați pe butonul <i>Obținere actualizări</i> pentru a trimite o solicitare la severele Windows Update.';
 
 //fetchupd.php
-$s['responseFromServer'] = 'Răspuns de la server';
+$s['responseFromServer'] = 'Răspunsul serverului';
 $s['foundUpdates'] = 'Găsit %d actualizări'; //Găsit 1 actualizări
 $s['foundTheseUpdates'] = 'Au fost găsite următoarele actualizări. Apăsați pe numele actualizării dorite pentru a continua.';
 $s['buildNumber'] = 'Numărul compilării: %s'; //Numărul compilării: 18890.1000
@@ -99,7 +99,7 @@ $s['selectLangInfoText1'] = 'Apăsați pe butonul <i>Înainte</i> pentru a selec
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe și Actualizări cumulative pot fi găsite în <i>Toate limbile</i>.';
 $s['allLangsWarn'] = 'Opțiunea <i>Toate limbile</i> nu are suport pentru selectarea ediției.';
 $s['clickNextToOpenFindFiles'] = 'Apăsați pe butonul <i>Înainte</i> pentru a deschide pagina unde puteți găsi fișierele.';
-$s['noLangsAvailable'] = 'Nu sunt limbi disponibile pentru această compilare.';
+$s['noLangsAvailable'] = 'Nu sunt limbi disponibile pentru această compilare.<br> Această compilare nu poate fi convertită într-o imagine ISO. <br> Consultați <a href="faq.php"> Întrebări frecvente </a> pentru detalii.';
 $s['browseFiles'] = 'Răsfoiți fișierele';
 $s['browseFilesDesc'] = 'Răsfoiți rapid fișierele în compilarea selectată';
 $s['searchFiles'] = 'Caută fișiere';
@@ -111,24 +111,24 @@ $s['chooseEdition'] = 'Alegeți ediția';
 $s['chooseEditionDesc'] = 'Alegeți ediția dorită';
 $s['allEditions'] = 'Toate edițiile';
 $s['selectEditionInfoText'] = 'Apăsați pe butonul <i>Înainte</i> pentru a deschide pagina rezumat a selecției dvs.';
-$s['additionalEditionsInfo'] = 'Dacă aveți nevoie de o ediție suplimentară dintre cele care se află în tabelul din dreapta, selectați ediția indicată ca necesară și da-ți click pe <i>Înainte</i>. Pe pagina cu rezumat veți putea selecta edițiile suplimentare dorite sub butonul de descărcare corespunzător.';
+$s['additionalEditionsInfo'] = 'Dacă aveți nevoie de <b>ediții suplimentare</b> din tabelul din dreapta, selectați <b>ediția necesară</b> de deasupra și continuați dând click pe <i>Înainte</i>. <br>Pe pagina cu rezumat selectați opțiunea <b>Creați ediții suplimentare.</b>';
 
 //download.php
 $s['summary'] = 'Rezumat';
 $s['summaryDesc'] = 'Revizuiți selecția dvs. și alegeți metoda de descărcare';
 $s['summaryFor'] = 'Rezumat pentru %s'; //Rezumat pentru Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, Engleză (Statele Unite), Windows 10 Pro
-$s['summaryOfSelection'] = 'Rezumatul selecției dvs.';
+$s['summaryOfSelection'] = 'Rezumat al selecției dvs.';
 $s['browseList'] = 'Răsfoiți lista de fișiere';
 $s['browseListDesc'] = 'Deschide pagina cu lista de fișiere UUP configurată pentru descărcare manuală.';
-$s['aria2Opt1'] = 'Descărcați folosind aria2';
+$s['aria2Opt1'] = 'Descărcați setul UUP';
 $s['aria2Opt1Desc'] = 'Descărcați cu ușurință setul ales de UUP folosind aria2.';
-$s['aria2Opt2'] = 'Descărcați folosind aria2 și transformați';
+$s['aria2Opt2'] = 'Descărcați și transformați în ISO';
 $s['aria2Opt2Desc'] = 'Descărcați cu ușurință setul ales de UUP folosind aria2 și transformați în imagine ISO.';
-$s['aria2Opt3'] = 'Descărcați folosind aria2, transformați și creați ediții suplimentare';
+$s['aria2Opt3'] = 'Descărcați, adăugați ediții suplimentare și transformați în ISO';
 $s['aria2Opt3Desc'] = 'Descărcați cu ușurință setul ales de UUP folosind aria2, transformați, creați ediții suplimentare și la final creați o imagine ISO.';
 $s['jsRequiredToConf'] = 'JavaScript este necesar pentru a configura și folosi această opțiune.';
 $s['selAdditionalEditions'] = 'Selectați edițiile suplimentare';
-$s['noAdditionalEditions'] = 'Nici o ediție suplimentară nu este disponibilă pentru această selecție.';
+$s['noAdditionalEditions'] = 'Nici o ediție suplimentară disponibilă pentru selecția dvs.';
 $s['learnMore'] = 'Află mai multe';
 $s['learnMoreAdditionalEditions1'] = 'Această opțiune permite crearea automată a edițiilor suplimentare selectate.';
 $s['learnMoreAdditionalEditions2'] = 'Lista edițiilor suplimentare este determinată de selecția ediției de bază. Dedesubt puteți verifica lista edițiilor de bază care sunt necesare pentru a crea edițiile suplimentare dorite:';
@@ -139,7 +139,7 @@ $s['additionalUpdates'] = 'Actualizări suplimentare';
 $s['additionalUpdatesDesc'] = 'Acest set UUP conține actualizări suplimentare care vor fi integrate în timpul procesului de conversie, crescând semnificativ durata creării.';
 $s['browseUpdatesList'] = 'Răsfoiți lista de actualizări';
 $s['selectDownloadOptions'] = 'Alegeți opțiunile dvs. de descărcare';
-$s['selectDownloadOptionsSub'] = 'Configurați selecția pentru descărcare așa cum ați dori dvs. ';
+$s['selectDownloadOptionsSub'] = 'Configurați cum ați dori să descărcați selecția dvs. ';
 $s['downloadMethod'] = 'Metoda de descărcare';
 $s['conversionOptions'] = 'Opțiuni pentru conversie';
 $s['convOpt1'] = 'Creează ISO cu install.esd în loc de install.wim';
@@ -183,7 +183,7 @@ Cumulative updates conține doar actualizări de bază.<br/><br/>
 În general pentru generarea unui fișier ISO este recomandat feature updates.
 FAQ;
 
-$s['q2'] = 'Cum creez un fișier ISO cu ediții Windows 10 ca Enterprise?';
+$s['q2'] = 'Cum creez un fișier ISO cu ediții Windows 10 ca și Enterprise?';
 $s['a2'] = <<<FAQ
 Enterprise este o <b>ediție virtuală</b> de Windows 10. "Virtuală" aici nu înseamnă "pentru virtualizare", ci mai degrabă "nu de sine stătătoare".<br/><br/>
 
@@ -199,10 +199,10 @@ FAQ;
 
 $s['q3'] = 'De ce descărcările Windows Server arată "Nu sunt limbi disponibile pentru această compilare."?';
 $s['a3'] = <<<FAQ
-Actualizările Windows Server au doar pachete Feature on Demand.<br/>
+Actualizările Windows Server au doar pachete Caracteristici la cerere (Feature on Demand).<br/>
 Nu le puteți folosi în scopuri de transformare.<br/><br/>
 
-Sunt listate doar pentru acces facil la pachetele Feature on Demand.
+Sunt listate doar pentru acces facil la pachetele Caracteristici la cerere (Feature on Demand).
 FAQ;
 
 $s['q4'] = 'Pot să îndepărtez unele pachete care cred ca nu sunt utile înaintea procesului de transformare?';
@@ -221,8 +221,8 @@ $s['error'] = 'Eroare';
 $s['requestNotSuccessful'] = 'Solicitare fără succes';
 $s['anErrorHasOccurred'] = 'A apărut o eroare în încercarea de a procesa solicitarea dvs.';
 $s['generatedPackNotAvailable'] = 'Pachetul generat nu este disponibil';
-$s['generatedPackNotAvailableDesc'] = 'Actualizarea pe care încercați să o descărcați nu dispune de un pachet care să furnizeze informații complete despre limbile disponibile, ediții și fișiere. Se va folosi pachetul de rezervă, asta poate să nu furnizeze informațiile corecte. Dacă descărcarea eșuează din această cauză, vă rugăm așteptați ca pachetul generat automat să devină disponibil.';
-$s['arm64Warning'] = 'Ați selectat o compilare ARM64 care este <b>compatibilă doar cu dispozitive bazate ARM64</b> și nu va funcționa cu PC-uri Intel sau AMD regulare. Pentru PC-uri <b>64-bit</b> vă rugăm folosiți compilări <b>amd64</b>. Pentru PC-uri <b>32-bit</b> vă rugăm folosiți compilări <b>x86</b>. Dacă sunteți absolut siguri că dispozitivul de destinație este bazat pe ARM64, puteți ignora acest mesaj în siguranță.';
+$s['generatedPackNotAvailableDesc'] = 'Această actualizare nu dispune de un pachet care să furnizeze informații complete despre limbile disponibile, ediții și fișiere. Se va folosi pachetul de rezervă, asta poate să nu furnizeze informațiile corecte. Dacă descărcarea eșuează din această cauză, vă rugăm așteptați până când pachetul va fi disponibil.';
+$s['arm64Warning'] = 'Aceasta este o compilare <b>ARM64</b> care <b>nu este compatibilă cu procesoarele PC Intel sau AMD regulare.</b> Dacă sunteți siguri că dispozitivul dvs. de destinație are un procesor <b>ARM64</b> și nu îl confundați cu <b>AMD64</b>, puteți continua în siguranță.';
 
 //Error messages
 $s['error_ERROR'] = 'Eroare generică.';
