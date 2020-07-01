@@ -430,9 +430,9 @@ INFO;
     <p><?php echo $s['aria2NoticeText1']; ?></p>
 
     <p><b><?php echo $s['aria2NoticeText2']; ?></b><br/>
-    - Windows: <code>aria2_download_windows.cmd</code><br/>
-    - Linux: <code>aria2_download_linux.sh</code><br/>
-    - macOS: <code>aria2_download_macos.sh</code><br/>
+    - Windows: <code>uup_download_windows.cmd</code><br/>
+    - Linux: <code>uup_download_linux.sh</code><br/>
+    - macOS: <code>uup_download_macos.sh</code><br/>
     </p>
 
     <p>

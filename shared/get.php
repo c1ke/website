@@ -315,9 +315,9 @@ CONFIG;
     }
 
     if($open === TRUE) {
-        $zip->addFromString('aria2_download_windows.cmd', $cmdScript);
-        $zip->addFromString('aria2_download_linux.sh', $shellScript);
-        $zip->addFromString('aria2_download_macos.sh', $shellScript);
+        $zip->addFromString('uup_download_windows.cmd', $cmdScript);
+        $zip->addFromString('uup_download_linux.sh', $shellScript);
+        $zip->addFromString('uup_download_macos.sh', $shellScript);
         $zip->addFromString('ConvertConfig.ini', $convertConfig);
         $zip->addFromString('files/convert_config_linux', $convertConfigLinux);
         $zip->addFromString('files/convert_config_macos', $convertConfigLinux);
@@ -488,9 +488,9 @@ SCRIPT;
     }
 
     if($open === TRUE) {
-        $zip->addFromString('aria2_download_windows.cmd', $cmdScript);
-        $zip->addFromString('aria2_download_linux.sh', $shellScript);
-        $zip->addFromString('aria2_download_macos.sh', $shellScript);
+        $zip->addFromString('uup_download_windows.cmd', $cmdScript);
+        $zip->addFromString('uup_download_linux.sh', $shellScript);
+        $zip->addFromString('uup_download_macos.sh', $shellScript);
         $zip->addFile($currDir.'/autodl_files/aria2c.exe', 'files/aria2c.exe');
         $zip->close();
     } else {
