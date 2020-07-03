@@ -100,7 +100,7 @@ styleUpper('home');
     </div>
 </h3>
 
-<table class="ui large blue padded table">
+<table class="ui large blue stackable padded table">
     <thead>
         <tr>
             <th><?php echo $s['tHeadReleaseType']; ?></th>
