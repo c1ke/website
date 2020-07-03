@@ -57,11 +57,6 @@ styleUpper('home');
         Dev Channel
     </a>
 
-    <a class="ui mini button" href="known.php?q=regex:19[5-9]\d{2}">
-        <i class="search icon"></i>
-        21H1
-    </a>
-   
     <a class="ui mini button" href="known.php?q=19042">
         <i class="search icon"></i>
         20H2
