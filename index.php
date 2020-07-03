@@ -100,7 +100,7 @@ styleUpper('home');
     </div>
 </h3>
 
-<table class="ui large blue selectable padded table">
+<table class="ui large blue padded table">
     <thead>
         <tr>
             <th><?php echo $s['tHeadReleaseType']; ?></th>
@@ -198,7 +198,7 @@ if($buildsAvailable) {
     </div>
 </h3>
 
-<table class="ui striped selectable table">
+<table class="ui striped table">
     <thead>
         <tr>
             <th>${s['build']}</th>
