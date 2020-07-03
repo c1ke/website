@@ -31,6 +31,9 @@ if(empty($ids)) {
     $buildsAvailable = 0;
 }
 
+// Below is the latest build that results in the most accurate 'latest retail' results in fetchupd.php?arch=XXX&ring=retail&build=XXX
+$retailLatestBuild = "19041.330";
+
 styleUpper('home');
 ?>
 
@@ -92,6 +95,73 @@ styleUpper('home');
 
 <h3 class="ui centered header">
     <div class="content">
+        <i class="fitted rocket icon"></i>&nbsp;
+        <?php echo $s['quickOptions']; ?>
+    </div>
+</h3>
+
+<table class="ui large blue selectable padded table">
+    <thead>
+        <tr>
+            <th><?php echo $s['tHeadReleaseType']; ?></th>
+            <th><?php echo $s['tHeadDescription']; ?></th>
+            <th><?php echo $s['tHeadArchitectures']; ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="collapsing">
+                <i class="large box icon"></i>
+                <b><?php echo $s['latestPublicRelease']; ?></b>
+            </td>
+            <td><?php echo $s['latestPublicReleaseSub']; ?></td>
+            <td class="center aligned">
+                <a href="fetchupd.php?arch=amd64&ring=retail&build=<?php echo $retailLatestBuild; ?>"><button class="ui blue button">x64</button></a>
+                <a href="fetchupd.php?arch=x86&ring=retail&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">x86</button>
+                <a href="fetchupd.php?arch=arm64&ring=retail&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">arm64</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="collapsing">
+                <i class="large bomb icon"></i>
+                <b><?php echo $s['latestDevRelease']; ?></b>
+            </td>
+            <td><?php echo $s['latestDevReleaseSub']; ?></td>
+            <td class="center aligned">
+                <a href="fetchupd.php?arch=amd64&ring=wif&build=latest"><button class="ui blue button">x64</button></a>
+                <a href="fetchupd.php?arch=x86&ring=wif&build=latest"><button class="ui button">x86</button></a>
+                <a href="fetchupd.php?arch=arm64&ring=wif&build=latest"><button class="ui button">arm64</button></a>
+            </td>
+        </tr>
+        <tr>
+            <td class="collapsing">
+                <i class="large fire icon"></i>
+                <b><?php echo $s['latestBetaRelease']; ?></b>
+            </td>
+            <td><?php echo $s['latestBetaReleaseSub']; ?></td>
+            <td class="center aligned">
+                <a href="fetchupd.php?arch=amd64&ring=wis&build=<?php echo $retailLatestBuild; ?>"><button class="ui blue button">x64</button>
+                <a href="fetchupd.php?arch=x86&ring=wis&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">x86</button>
+                <a href="fetchupd.php?arch=arm64&ring=wis&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">arm64</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="collapsing">
+                <i class="large fire extinguisher icon"></i>
+                <b><?php echo $s['latestRPRelease']; ?></b>
+            </td>
+            <td><?php echo $s['latestRPReleaseSub']; ?></td>
+            <td class="center aligned">
+                <a href="fetchupd.php?arch=amd64&ring=rp&build=<?php echo $retailLatestBuild; ?>"><button class="ui blue button">x64</button>
+                <a href="fetchupd.php?arch=x86&ring=rp&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">x86</button>
+                <a href="fetchupd.php?arch=arm64&ring=rp&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">arm64</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 class="ui centered header">
+    <div class="content">
         <i class="fitted user md icon"></i>&nbsp;
         <?php echo $s['advOptions']; ?>
     </div>
@@ -99,7 +169,7 @@ styleUpper('home');
 
 <div class="ui two columns stackable centered grid">
     <div class="column">
-        <a class="ui top attached fluid labeled icon large blue button" href="./known.php">
+        <a class="ui top attached fluid labeled icon large button" href="./known.php">
             <i class="server icon"></i>
             <?php echo $s['browseBuilds']; ?>
         </a>

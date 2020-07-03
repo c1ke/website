@@ -54,6 +54,18 @@ $s['selectLanguage'] = 'Please select your language';
 
 //index.php
 $s['slogan'] = 'Download UUP files from Windows Update servers with ease.';
+$s['quickOptions'] = 'Quick options';
+$s['tHeadReleaseType'] = 'Release type';
+$s['tHeadDescription'] = 'Description';
+$s['tHeadArchitectures'] = 'Architectures';
+$s['latestPublicRelease'] = 'Latest Public Release build';
+$s['latestPublicReleaseSub'] = 'Latest updated build for regular users.';
+$s['latestDevRelease'] = 'Latest Dev Channel build';
+$s['latestDevReleaseSub'] = 'Somewhat unreliable builds with the latest features.<br>Ideal for highly technical users.';
+$s['latestBetaRelease'] = 'Latest Beta Channel build';
+$s['latestBetaReleaseSub'] = 'Reliable builds with most upcoming features available.<br>Ideal for early adopters.';
+$s['latestRPRelease'] = 'Latest Release Preview build';
+$s['latestRPReleaseSub'] = 'Reliable builds for previewing the next release.<br>Ideal for trying out upcoming releases.';
 $s['advOptions'] = 'Advanced options';
 $s['browseBuilds'] = 'Browse known builds';
 $s['browseBuildsSub'] = 'Choose an already discovered build and download it.';
