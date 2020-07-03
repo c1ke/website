@@ -15,7 +15,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-function checkIfUserIsRateLimited($resource, $timeLimit = 10, $currentResLimit = 1) {
+function checkIfUserIsRateLimited($resource, $timeLimit = 5, $currentResLimit = 0.25) {
     $clientIP = $_SERVER['REMOTE_ADDR'];
     $ipHash = hash('sha256', "ratelimits-$clientIP");
 
