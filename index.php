@@ -198,7 +198,7 @@ if($buildsAvailable) {
     </div>
 </h3>
 
-<table class="ui striped table">
+<table class="ui striped selectable table">
     <thead>
         <tr>
             <th>${s['build']}</th>
