@@ -54,6 +54,18 @@ $s['selectLanguage'] = '请选择你的语言';
 
 //index.php
 $s['slogan'] = '轻松地从 Windows Update 服务器下载 UUP 文件。';
+$s['quickOptions'] = '快速选项';
+$s['tHeadReleaseType'] = '发布类型';
+$s['tHeadDescription'] = '描述';
+$s['tHeadArchitectures'] = '架构';
+$s['latestPublicRelease'] = '最新公开发布版本';
+$s['latestPublicReleaseSub'] = '最新一般用户更新版本。';
+$s['latestDevRelease'] = '最新开发通道版本';
+$s['latestDevReleaseSub'] = '带有最新功能的版本有些不可靠。<br>适合高级技术用户。';
+$s['latestBetaRelease'] = '最新测试通道版本';
+$s['latestBetaReleaseSub'] = '具有最新可用功能的可靠版本。<br>适合尝鲜用户。';
+$s['latestRPRelease'] = '最新发布预览版本';
+$s['latestRPReleaseSub'] = '下次发布的预览可靠版本。<br>适合即将到来发布测试用户。';
 $s['advOptions'] = '高级选项';
 $s['browseBuilds'] = '浏览已知内部版本列表';
 $s['browseBuildsSub'] = '选择本地数据库中已知的内部版本并下载它。';
