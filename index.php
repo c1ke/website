@@ -123,14 +123,14 @@ styleUpper('home');
         </tr>
         <tr>
             <td class="collapsing">
-                <i class="large bomb icon"></i>
-                <b><?php echo $s['latestDevRelease']; ?></b>
+                <i class="large fire extinguisher icon"></i>
+                <b><?php echo $s['latestRPRelease']; ?></b>
             </td>
-            <td><?php echo $s['latestDevReleaseSub']; ?></td>
+            <td><?php echo $s['latestRPReleaseSub']; ?></td>
             <td class="center aligned">
-                <a href="fetchupd.php?arch=amd64&ring=wif&build=latest"><button class="ui blue button">x64</button></a>
-                <a href="fetchupd.php?arch=x86&ring=wif&build=latest"><button class="ui button">x86</button></a>
-                <a href="fetchupd.php?arch=arm64&ring=wif&build=latest"><button class="ui button">arm64</button></a>
+                <a href="fetchupd.php?arch=amd64&ring=rp&build=<?php echo $retailLatestBuild; ?>"><button class="ui blue button">x64</button>
+                <a href="fetchupd.php?arch=x86&ring=rp&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">x86</button>
+                <a href="fetchupd.php?arch=arm64&ring=rp&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">arm64</button>
             </td>
         </tr>
         <tr>
@@ -147,14 +147,14 @@ styleUpper('home');
         </tr>
         <tr>
             <td class="collapsing">
-                <i class="large fire extinguisher icon"></i>
-                <b><?php echo $s['latestRPRelease']; ?></b>
+                <i class="large bomb icon"></i>
+                <b><?php echo $s['latestDevRelease']; ?></b>
             </td>
-            <td><?php echo $s['latestRPReleaseSub']; ?></td>
+            <td><?php echo $s['latestDevReleaseSub']; ?></td>
             <td class="center aligned">
-                <a href="fetchupd.php?arch=amd64&ring=rp&build=<?php echo $retailLatestBuild; ?>"><button class="ui blue button">x64</button>
-                <a href="fetchupd.php?arch=x86&ring=rp&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">x86</button>
-                <a href="fetchupd.php?arch=arm64&ring=rp&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">arm64</button>
+                <a href="fetchupd.php?arch=amd64&ring=wif&build=latest"><button class="ui blue button">x64</button></a>
+                <a href="fetchupd.php?arch=x86&ring=wif&build=latest"><button class="ui button">x86</button></a>
+                <a href="fetchupd.php?arch=arm64&ring=wif&build=latest"><button class="ui button">arm64</button></a>
             </td>
         </tr>
     </tbody>
