@@ -54,6 +54,18 @@ $s['selectLanguage'] = 'اختر لغة الموقع';
 
 //index.php
 $s['slogan'] = 'Windows Update تحميل إصدارات وتحديثات ويندوز 10 بكل سهولة من سيرفرات';
+$s['quickOptions'] = 'خيارات سريعة';
+$s['tHeadReleaseType'] = 'مستوى الإصدار';
+$s['tHeadDescription'] = 'الوصف';
+$s['tHeadArchitectures'] = 'النواة المرغوبة';
+$s['latestPublicRelease'] = 'أحدث إصدار رسمي عام';
+$s['latestPublicReleaseSub'] = 'آخر الإصدارات الرسمية المحدثة للمستخدمين العاديين';
+$s['latestDevRelease'] = 'Dev أحدث إصدار من قناة';
+$s['latestDevReleaseSub'] = 'آخر الإصدارات في دورة التطوير مع بعض الجوانب غير المكتملة والاستقرار الضعيف<br>مثالي للمستخدمين المتقدمين';
+$s['latestBetaRelease'] = 'Beta أحدث إصدار من قناة';
+$s['latestBetaReleaseSub'] = 'إصدارات أكثر موثوقية لتجريب الميزات الجديدة<br>مثالي لمستخدمي التجريب المبكر';
+$s['latestRPRelease'] = 'Preview أحدث إصدار من قناة المعاينة';
+$s['latestRPReleaseSub'] = 'تجربة الإصدار الرسمي القادم قبل إطلاقه إلى العالم';
 $s['advOptions'] = 'خيارات متقدمة';
 $s['browseBuilds'] = 'تصفح الإصدارات المعروفة';
 $s['browseBuildsSub'] = 'تنزيل إصدار موجود مسبقاً في قاعدة البيانات';
