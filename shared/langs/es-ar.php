@@ -70,7 +70,7 @@ $s['advOptions'] = 'Opciones avanzadas';
 $s['browseBuilds'] = 'Examinar las compilaciones conocidas';
 $s['browseBuildsSub'] = 'Escoge y descarga una compilación ya conocida.';
 $s['fetchLatest'] = 'Buscar la compilación más reciente';
-$s['fetchLatestSub'] = Obtén la información de la compilación más reciente desde los servidores de Windows Update.';
+$s['fetchLatestSub'] = 'Obtén la información de la compilación más reciente desde los servidores de Windows Update.';
 $s['newlyAdded'] = 'Compilaciones agregadas recientemente';
 $s['dateAdded'] = 'Agregada';
 
@@ -138,7 +138,7 @@ $s['aria2Opt1Desc'] = 'Descarga con facilidad el paquete de la UUP seleccionado 
 $s['aria2Opt2'] = 'Descargar y convertir a ISO';
 $s['aria2Opt2Desc'] = 'Descarga con facilidad el paquete de la UUP seleccionado usando aria2 y conviértelo a un ISO.';
 $s['aria2Opt3'] = 'Descargar, agregar ediciones adicionales y convertir a ISO';
-$s['aria2Opt3Desc'] = Descarga con facilidad el paquete de la UUP seleccionado usando aria2, conviértelo, crea ediciones adicionales y, por último, crea un ISO.';
+$s['aria2Opt3Desc'] = 'Descarga con facilidad el paquete de la UUP seleccionado usando aria2, conviértelo, crea ediciones adicionales y, por último, crea un ISO.';
 $s['jsRequiredToConf'] = 'Se requiere JavaScript para configurar y usar esta opción.';
 $s['selAdditionalEditions'] = 'Seleccionar ediciones adicionales';
 $s['noAdditionalEditions'] = 'No hay ediciones adicionales disponibles para tus ediciones seleccionadas.';
