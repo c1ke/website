@@ -54,25 +54,37 @@ $s['selectLanguage'] = 'Por favor, selecciona tu idioma';
 
 //index.php
 $s['slogan'] = 'Descarga con facilidad archivos UUP desde los servidores de Windows Update.';
+$s['quickOptions'] = 'Atajos';
+$s['tHeadReleaseType'] = 'Tipo de versión';
+$s['tHeadDescription'] = 'Descripción';
+$s['tHeadArchitectures'] = 'Arquitecturas';
+$s['latestPublicRelease'] = 'Compilación más reciente de la versión pública';
+$s['latestPublicReleaseSub'] = 'Compilación actualizada más reciente para usuarios normales.';
+$s['latestDevRelease'] = 'Compilación más reciente del Canal de Desarrollador';
+$s['latestDevReleaseSub'] = 'Compilaciones poco confiables con las funcionalidades más recientes.<br>Ideal para usuarios sumamente técnicos.';
+$s['latestBetaRelease'] = 'Compilación más reciente del Canal Beta';
+$s['latestBetaReleaseSub'] = 'Compilaciones confiables con la mayoría de las funcionalidades futuras disponibles.<br>Ideal para pioneros.';
+$s['latestRPRelease'] = 'Compilación más reciente de la versión del Release Preview';
+$s['latestRPReleaseSub'] = 'Compilaciones confiables para previsualizar la próxima versión.<br>Ideal para probar versiones futuras.';
 $s['advOptions'] = 'Opciones avanzadas';
-$s['browseBuilds'] = 'Examinar la lista de compilaciones conocidas';
-$s['browseBuildsSub'] = 'Escoge y descarga una compilación ya conocida en la base de datos local.';
+$s['browseBuilds'] = 'Examinar las compilaciones conocidas';
+$s['browseBuildsSub'] = 'Escoge y descarga una compilación ya conocida.';
 $s['fetchLatest'] = 'Buscar la compilación más reciente';
-$s['fetchLatestSub'] = 'Obtén la información de la compilación más reciente desde los servidores de Windows Update.';
+$s['fetchLatestSub'] = Obtén la información de la compilación más reciente desde los servidores de Windows Update.';
 $s['newlyAdded'] = 'Compilaciones agregadas recientemente';
 $s['dateAdded'] = 'Agregada';
 
 //known.php
 $s['browseKnown'] = 'Examinar las compilaciones conocidas';
 $s['chooseBuild'] = 'Escoger una compilación';
-$s['weFoundBuilds'] = 'Hemos encontrado <b>%d</b> compilaciones para tu búsqueda.'; //Hemos encontrado <b>692</b> compilaciones para tu búsqueda.
+$s['weFoundBuilds'] = 'Se encontaron <b>%d</b> compilaciones para tu búsqueda.'; //Se encontraron <b>692</b> compilaciones para tu búsqueda.
 
 //latest.php
 $s['latestFetchLatest'] = 'Buscar la compilación más reciente';
 $s['latestTestingOnly'] = 'Solo para pruebas';
-$s['latestTestingOnlyWarn'] = '<b>Esta página es solo para pruebas.</b> Las compilaciones que el servidor backend no procesó y que aparecen en esta página se brindarán usando paquetes alternativos que podrían ofrecer resultados incompletos. Si quieres bajar una compilación ya conocida, te conviene usar la página de compilaciones conocidas.';
-$s['latestDoYouWantKnown'] = '¿Quisieras continuar examinando la lista de compilaciones conocidas?';
-$s['chooseOptions'] = 'Escoger las opciones';
+$s['latestTestingOnlyWarn'] = '<b>Esta página es solo para pruebas.</b> Las compilaciones que el servidor backend no procesó, y que aparecen en esta página, se brindarán usando paquetes alternativos que podrían ofrecer resultados incompletos. Si quieres bajar una compilación ya conocida, te conviene usar la página de compilaciones conocidas.';
+$s['latestDoYouWantKnown'] = '¿Quisieras continuar examinando las compilaciones conocidas?';
+$s['chooseOptions'] = 'Escoger los parámetros';
 $s['buildOfPretendedClient'] = 'Número de la compilación del cliente simulado de Windows Update';
 $s['editionOfPretendedClient'] = 'Edición del sistema simulado';
 $s['skipAheadLabel'] = 'Piloto Skip Ahead';
@@ -95,15 +107,15 @@ $s['selLangFiles'] = 'Archivos';
 $s['allFiles'] = 'Todos los archivos';
 $s['wubOnly'] = 'Solo WindowsUpdateBox';
 $s['updateOnly'] = 'Solo actualización';
-$s['selectLangInfoText1'] = 'Cliquea <i>Siguiente</i> para seleccionar la edición que quieres descargar.';
-$s['selectLangInfoText2'] = 'WindowsUpdateBox.exe y las actualizaciones acumulativas pueden encontrarse en el idioma <i>Todos los idiomas</i>.';
+$s['selectLangInfoText1'] = 'Cliquea <i>Siguiente</i> para seleccionar la edición deseada.';
+$s['selectLangInfoText2'] = 'WindowsUpdateBox.exe y las actualizaciones acumulativas pueden encontrarse en la opción <i>Todos los idiomas</i>.';
 $s['allLangsWarn'] = 'La opción <i>Todos los idiomas</i> no soporta selección de edición.';
 $s['clickNextToOpenFindFiles'] = 'Cliquea <i>Siguiente</i> para abrir la página que te permitirá buscar los archivos.';
-$s['noLangsAvailable'] = 'No hay idiomas disponibles para esta compilación.';
+$s['noLangsAvailable'] = 'No hay idiomas disponibles para esta compilación.<br>No se puede crear un ISO con esta compilación.<br>Revisa las <a href="faq.php">FAQ</a> para obtener más detalles.';
 $s['browseFiles'] = 'Examinar archivos';
 $s['browseFilesDesc'] = 'Examina rápidamente los archivos en la compilación seleccionada';
 $s['searchFiles'] = 'Buscar archivos';
-$s['toSearchForCUUseQuery'] = 'Para buscar actualizaciones acumulativas, usa la consulta de búsqueda <i>%s</i>.'; //Para buscar actualizaciones acumulativas, usa la consulta de búsqueda <i>Windows10 KB</i>.
+$s['toSearchForCUUseQuery'] = 'Para buscar actualizaciones acumulativas, usa la ecuación de búsqueda <i>%s</i>.'; //Para buscar actualizaciones acumulativas, usa la ecuación de búsqueda <i>Windows10 KB</i>.
 
 
 //selectedition.php
@@ -112,7 +124,7 @@ $s['chooseEdition'] = 'Escoger la edición';
 $s['chooseEditionDesc'] = 'Escoge qué edición quieres';
 $s['allEditions'] = 'Todas las ediciones';
 $s['selectEditionInfoText'] = 'Cliquea <i>Siguiente</i> para abrir la página de resumen de tu selección.';
-$s['additionalEditionsInfo'] = 'Si necesitas una edición adicional que pueda encontrarse en la tabla de la derecha, por favor, selecciona la edición requerida indicada y haz clic en <i>Siguiente</i>. En la página de resumen, podrás seleccionar las ediciones adicionales que quieras en la opción de descarga adecuada.';
+$s['additionalEditionsInfo'] = 'Si necesitas ediciones adicionales de la tabla de la derecha, por favor, selecciona la <b>edición requerida</b> arriba y haz clic en <i>Siguiente</i>.<br>En la página de resumen, selecciona la opción <b>Crear ediciones adicionales</b>.';
 
 //download.php
 $s['summary'] = 'Resumen';
@@ -121,37 +133,37 @@ $s['summaryFor'] = 'Resumen para %s'; //Resumen para Windows 10 Insider Preview 
 $s['summaryOfSelection'] = 'Resumen de tu selección';
 $s['browseList'] = 'Examinar la lista de archivos';
 $s['browseListDesc'] = 'Abre una página con una lista de los archivos UUP para descargarlos manualmente.';
-$s['aria2Opt1'] = 'Descargar usando aria2';
+$s['aria2Opt1'] = 'Descargar usando el paquete de la UUP';
 $s['aria2Opt1Desc'] = 'Descarga con facilidad el paquete de la UUP seleccionado usando aria2.';
-$s['aria2Opt2'] = 'Descargar usando aria2 y convertir';
+$s['aria2Opt2'] = 'Descargar y convertir a ISO';
 $s['aria2Opt2Desc'] = 'Descarga con facilidad el paquete de la UUP seleccionado usando aria2 y conviértelo a un ISO.';
-$s['aria2Opt3'] = 'Descargar usando aria2, convertir y crear ediciones adicionales';
-$s['aria2Opt3Desc'] = 'Descarga con facilidad el paquete de la UUP seleccionado usando aria2, conviértelo, crea ediciones adicionales y, por último, crea una imagen ISO.';
+$s['aria2Opt3'] = 'Descargar, agregar ediciones adicionales y convertir a ISO';
+$s['aria2Opt3Desc'] = Descarga con facilidad el paquete de la UUP seleccionado usando aria2, conviértelo, crea ediciones adicionales y, por último, crea un ISO.';
 $s['jsRequiredToConf'] = 'Se requiere JavaScript para configurar y usar esta opción.';
 $s['selAdditionalEditions'] = 'Seleccionar ediciones adicionales';
-$s['noAdditionalEditions'] = 'No hay ediciones adicionales disponibles para esta selección.';
+$s['noAdditionalEditions'] = 'No hay ediciones adicionales disponibles para tus ediciones seleccionadas.';
 $s['learnMore'] = 'Más información';
 $s['learnMoreAdditionalEditions1'] = 'Esta opción habilita la creación de las ediciones adicionales seleccionadas.';
-$s['learnMoreAdditionalEditions2'] = 'La lista de las ediciones adicionales está determinada por las ediciones base seleccionadas. Puedes revisar debajo la lista de las ediciones base necesarias para crear las ediciones adicionales deseadas:';
+$s['learnMoreAdditionalEditions2'] = 'La lista de las ediciones adicionales está determinada por las ediciones base seleccionadas. Puedes revisar abajo la lista de las ediciones base necesarias para crear las ediciones adicionales deseadas:';
 $s['learnMoreUpdates1'] = 'Las actualizaciones se integrarán a la imagen convertida solo cuando se ejecute el script de coversión en los siguientes sistemas:';
 $s['learnMoreUpdates2'] = 'Si ejecutas el script de conversión en cualquier otro sistema, las actualizaciones no se integrarán en la imagen resultante.';
 $s['systemWithAdk'] = '%s con Windows 10 ADK instalado'; //Windows 7 con Windows 10 ADK instalado
 $s['additionalUpdates'] = 'Actualizaciones adicionales';
-$s['additionalUpdatesDesc'] = 'Este paquete de la UUP contiene actualizaciones adicionales que se integrarán durante el proceso de conversión, lo cual aumentará significativamente el tiempo de creación.';
+$s['additionalUpdatesDesc'] = 'Este paquete de la UUP contiene actualizaciones adicionales que se integrarán durante el proceso de conversión, lo cual aumentará mucho el tiempo de creación.';
 $s['browseUpdatesList'] = 'Examinar la lista de actualizaciones';
 $s['selectDownloadOptions'] = 'Selecciona tus opciones de descarga';
 $s['selectDownloadOptionsSub'] = 'Configura cómo quisieras descargar tu selección';
 $s['downloadMethod'] = 'Método de descarga';
 $s['conversionOptions'] = 'Opciones de conversión';
 $s['convOpt1'] = 'Crear un ISO con un install.esd en lugar de un install.wim';
-$s['convOpt2'] = 'Integrar las actualizaciones si están disponibles (Solo con el script de conversión de Windows)';
-$s['convOpt3'] = 'Ejecutar una limpieza después de haber integrado las actualizaciones (Solo con el script de conversión de Windows)';
-$s['convOpt4'] = 'Integrar .NET Framework 3.5 (Solo con el script de conversión de Windows)';
+$s['convOpt2'] = 'Integrar las actualizaciones si están disponibles (solo con el script de conversión de Windows)';
+$s['convOpt3'] = 'Ejecutar una limpieza después de haber integrado las actualizaciones (solo con el script de conversión de Windows)';
+$s['convOpt4'] = 'Integrar .NET Framework 3.5 (solo con el script de conversión de Windows)';
 $s['startDownload'] = 'Crear paquete de descarga';
 
 //get.php
 $s['listOfFilesFor'] = 'Lista de archivos para %s'; //Lista de archivos para Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
-$s['totalSizeOfFiles'] = 'Tamaño total de los archivos: %s'; //Tamaño total de los archivos: 2.86 GiB
+$s['totalSizeOfFiles'] = 'Tamaño total del archivo: %s'; //Tamaño total del archivo: 2.86 GiB
 $s['fileRenamingScript'] = 'Script para renombrar el archivo';
 $s['fileRenamingScriptDesc1'] = 'El script que está abajo puede usarse para renombrar rápidamente los archivos descargados.';
 $s['fileRenamingScriptDesc2'] = 'Simplemente copia el contenido del formulario que está abajo en un archivo nuevo, guárdalo con la extensión <code>cmd</code>, colócalo en la carpeta con los archivos descargados y ejecútalo.';
@@ -162,13 +174,13 @@ $s['aria2NoticeText1'] = 'Al descargar usando las opciones aria2 se crea un cont
 $s['aria2NoticeText2'] = 'Para comenzar el proceso de descarga, usa un script para tu plataforma:';
 $s['aria2NoticeText3'] = 'Aria2 es un proyecto de código abierto. Puedes encontrarlo aquí: %s.'; //Aria2 es un proyecto de código abierto. Puedes encontrarlo aquí: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'El script de conversión de la UUP (versión Windows) fue creado por %s.'; //El script de conversión de la UUP (versión Windows) fue creado por abbodi1406.
-$s['aria2NoticeText5'] = 'El script de conversión de la UUP (versión Linux, version macOS) es de código abierto. Puedes encontrarlo aquí: %s.'; //El script de conversión de la UUP (versión Linux, version macOS) es de código abierto. Puedes encontrarlo aquí: https://github.com/uup-dump/converter.
+$s['aria2NoticeText5'] = 'El script de conversión de la UUP (versión Linux) es de código abierto. Puedes encontrarlo aquí: %s.'; //El script de conversión de la UUP (versión Linux) es de código abierto. Puedes encontrarlo aquí: https://github.com/uup-dump/converter.
 
 //findfiles.php
 $s['findFilesIn'] = 'Buscar archivos en %s'; //Buscar archivos en Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['fileRenamingScriptDescFindFiles'] = 'Si quieres renombrar rápidamente los archivos descargados de esta página, puedes generar un script que los renombrará automáticamente por ti.';
 $s['fileRenamingScriptGenW'] = 'Generar un script para renombrar (Windows)';
-$s['fileRenamingScriptGenL'] = 'Generar un script para renombrar (Linux, macOS)';
+$s['fileRenamingScriptGenL'] = 'Generar un script para renombrar (Linux)';
 $s['searchForFiles'] = 'Buscar archivos...';
 $s['weFoundFiles'] = 'Hemos encontrado <b>%d</b> archivos para tu consulta.'; //Hemos encontrado <b>692</b> archivos para tu consulta.
 
@@ -178,9 +190,9 @@ $s['faqLong'] = 'Preguntas más frecuentes';
 
 $s['q1'] = '¿Cuál es la diferencia entre la actualización de características (Feature Update) y la actualización acumulativa (Cumulative Update)?';
 $s['a1'] = <<<FAQ
-Las actualizaciones de características contienen las actualizaciones base y otas actualizaciones.<br/>
-Las actualizaciones acumulativas solo tienen las actualizaciones base.<br/><br/>
-Suele recomendarse las actualizaciones de características para generar archivos ISO.
+Las actualizaciones de características contienen las actualizaciones base y otras actualizaciones.<br/>
+Las actualizaciones acumulativas solo contienen las actualizaciones base.<br/><br/>
+Suele recomendarse las actualizaciones de características para generar un ISO.
 FAQ;
 
 $s['q2'] = '¿Cómo creo un ISO con ediciones de Windows 10, como la Enterprise?';
@@ -191,10 +203,10 @@ Tras haber seleccionado la edición para cierta actualización, a la derecha de 
 Para "Windows 10 Enterprise", el requisito es "Windows 10 Pro", que es lo que deberás seleccionar primero.<br/><br/>
 Después de haber seleccionado "Pro", cliquea "Siguiente" y escoge la opción "Convertir y crear ediciones adicionales".<br/>
 Aparecerá una lista con todas las ediciones virtuales posibles para lo que hayas seleccionado.<br/><br/>
-A partir de allí, puedes escoger "Enterprise" y crear una paquete de descarga.
+A partir de allí, puedes escoger "Enterprise" y crear un paquete de descarga.
 FAQ;
 
-$s['q3'] = '¿Por qué las descargas del servidor de Windows dice "No hay idiomas disponibles para esta compilación"?';
+$s['q3'] = '¿Por qué las descargas del servidor de Windows dicen "No hay idiomas disponibles para esta compilación"?';
 $s['a3'] = <<<FAQ
 Las actualizaciones del servidor de Windows solo tienen paquetes de características a petición (FoD).<br/>
 No puedes usarlos para hacer conversiones.<br/><br/>
@@ -217,8 +229,8 @@ $s['error'] = 'Error';
 $s['requestNotSuccessful'] = 'No hubo éxito con la solicitud';
 $s['anErrorHasOccurred'] = 'Ocurrió un error al intentar procesar tu solicitud.';
 $s['generatedPackNotAvailable'] = 'El paquete generado no está disponible';
-$s['generatedPackNotAvailableDesc'] = 'La actualización que estás intentando descargar no tiene un paquete generado que brinde información completa sobre los idiomas disponibles, las ediciones y los archivos. Se usará el paquete alternativo, que podría no brindar la información correcta. Si la descarga falla debido a esto, por favor, espera a que esté disponible el paquete generado automáticamente.';
-$s['arm64Warning'] = 'Seleccionaste una compilación ARM64 que <b>solo es compatible con dispositivos basados en ARM64</b> y no funcionará con computadoras normales basadas en Intel o AMD. Para computadoras de <b>64-bit</b>, por favor, usa compilaciones <b>amd64</b>. Para computadoras de <b>32-bit</b>, por favor, usa compilaciones <b>x86</b>. Si estás completamente seguro de que el dispositivo destino está basado en ARM64, puedes ignorar este mensaje sin riesgo alguno.';
+$s['generatedPackNotAvailableDesc'] = 'Esta actualización no contiene un paquete generado con la información completa sobre los idiomas disponibles, ediciones y archivos. Se susará el paquete alternativo, el cual podría no brindar la información correcta. Si la descarga falla debido a esto, por favor, espera un momento para que el paquete esté disponible.';
+$s['arm64Warning'] = 'Esta es una compilación para <b>ARM64</b>, que <b>no es compatile con los procesadores comunes de Intel/AMD</b>.<br>Si estás seguro de que el dispositivo donde la instalarás tiene un procesador <b>ARM64</b>, y no lo confundiste con el <b>AMD64</b>, puedes continuar sin riesgo alguno.';
 
 //Error messages
 $s['error_ERROR'] = 'Error genérico.';
@@ -261,7 +273,6 @@ $s['lang_de-de'] = 'Alemán';
 $s['lang_el-gr'] = 'Griego';
 $s['lang_en-gb'] = 'Inglés (Reino Unido)';
 $s['lang_en-us'] = 'Inglés (Estados Unidos)';
-$s['lang_es-ar'] = 'Español (Argentina)';
 $s['lang_es-es'] = 'Español (España)';
 $s['lang_es-mx'] = 'Español (México)';
 $s['lang_et-ee'] = 'Estonio';
