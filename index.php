@@ -115,7 +115,7 @@ styleUpper('home');
                 <b><?php echo $s['latestPublicRelease']; ?></b>
             </td>
             <td><?php echo $s['latestPublicReleaseSub']; ?></td>
-            <td class="center aligned">
+            <td class="center aligned collapsing">
                 <a href="fetchupd.php?arch=amd64&ring=retail&build=<?php echo $retailLatestBuild; ?>"><button class="ui blue button">x64</button></a>
                 <a href="fetchupd.php?arch=x86&ring=retail&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">x86</button>
                 <a href="fetchupd.php?arch=arm64&ring=retail&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">arm64</button>
