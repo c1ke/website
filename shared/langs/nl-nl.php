@@ -1,7 +1,6 @@
 <?php
 /*
 UUP dump translation file.
-
 Translation information:
 English language name: Dutch
 Localized language name: Nederlands
@@ -54,10 +53,22 @@ $s['selectLanguage'] = 'Selecteer de gewenste taal';
 
 //index.php
 $s['slogan'] = 'Download makkelijk UUP bestanden, direct van de Windows update servers.';
+$s['quickOptions'] = 'Snelle opties';
+$s['tHeadReleaseType'] = 'Type release';
+$s['tHeadDescription'] = 'Omschrijving';
+$s['tHeadArchitectures'] = 'Architecturen';
+$s['latestPublicRelease'] = 'Laatste Publieke Release build';
+$s['latestPublicReleaseSub'] = 'Meest recente uptodate builds voor reguliere gebruikers.';
+$s['latestDevRelease'] = 'Laatste Dev Channel build';
+$s['latestDevReleaseSub'] = 'Enigszins onbetrouwbare builds met de nieuwste functies.<br>Ideaal voor zeer technische gebruikers.';
+$s['latestBetaRelease'] = 'Laatste Beta Channel build';
+$s['latestBetaReleaseSub'] = 'Betrouwbare builds met de meeste aankomende functies die beschikbaar zijn.<br>Ideaal voor vroege gebruikers.';
+$s['latestRPRelease'] = 'Laatste Release Preview build';
+$s['latestRPReleaseSub'] = 'Betrouwbare builds voor previewing de volgende release.<br>Ideaal om de volgende release the testen.';
 $s['advOptions'] = 'Geavanceerde Opties';
 $s['browseBuilds'] = 'Blader door de volledige versie lijst.';
 $s['browseBuildsSub'] = 'Selecteer een versie, die al in de lokale database aanwezig is, en download de geselecteerde versie.';
-$s['fetchLatest'] = 'Download de huidige versie';
+$s['fetchLatest'] = 'Download de laatste build';
 $s['fetchLatestSub'] = 'Ontvang de nieuwste build informatie van de Windows Update servers.';
 $s['newlyAdded'] = 'Nieuwe toegevoegde versies';
 $s['dateAdded'] = 'Toegevoegd op';
@@ -124,8 +135,8 @@ $s['aria2Opt1'] = 'Download dmv aria2';
 $s['aria2Opt1Desc'] = 'Download de UUP bestanden makkelijk dmv aria2.';
 $s['aria2Opt2'] = 'Download dmv aria2 en converteer';
 $s['aria2Opt2Desc'] = 'Download de UUP bestanden makkelijk dmv aria2 en converteer naar ISO.';
-$s['aria2Opt3'] = 'Download de UUP bestanden makkelijk dmv aria2, creeer de extra edities en converteer naar ISO.';
-$s['aria2Opt3Desc'] = 'Download de UUP bestanden makkelijk dmv aria2, creeer de extra edities en converteer naar ISO.';
+$s['aria2Opt3'] = 'Download de UUP bestanden makkelijk dmv aria2, creëer de extra edities en converteer naar ISO.';
+$s['aria2Opt3Desc'] = 'Download de UUP bestanden makkelijk dmv aria2, creëer de extra edities en converteer naar ISO.';
 $s['jsRequiredToConf'] = 'JavaScript is nodig om deze optie te kunnen configureren en gebruiken.';
 $s['selAdditionalEditions'] = 'Selecteer de extra edities';
 $s['noAdditionalEditions'] = 'Er zijn geen extra edities beschikbaar voor deze selectie.';
