@@ -43,8 +43,8 @@ $s['unknown'] = '未知';
 //global
 $s['home'] = '首页';
 $s['downloads'] = '下载';
-$s['lightMode'] = '亮色模式';
-$s['darkMode'] = '暗色模式';
+$s['lightMode'] = '浅色模式';
+$s['darkMode'] = '深色模式';
 $s['sourceCode'] = '源代码';
 $s['menu'] = '菜单';
 $s['websiteDesc'] = '你可以轻松地从 Windows Update 服务器下载 UUP 文件。此项目与 Microsoft Corporation 无关。';
@@ -71,7 +71,7 @@ $s['browseBuilds'] = '浏览已知内部版本列表';
 $s['browseBuildsSub'] = '从本地数据库中选择已知的内部版本并下载。';
 $s['fetchLatest'] = '获取最新内部版本';
 $s['fetchLatestSub'] = '从 Windows Update 服务器检索最新的内部版本信息。';
-$s['newlyAdded'] = '新增的内部版本';
+$s['newlyAdded'] = '新增内部版本';
 $s['dateAdded'] = '添加日期';
 
 //known.php
