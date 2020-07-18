@@ -34,6 +34,10 @@ if(empty($ids)) {
 // Below is the latest build that results in the most accurate 'latest retail' results in fetchupd.php?arch=XXX&ring=retail&build=XXX
 $retailLatestBuild = "19041.330";
 
+// Turns out in some cases a change from retail to beta will require two updates..
+// This entire thing could be done recursively but the API doesn't support that.
+$betaLatestBuild = "19042.330";
+
 styleUpper('home');
 ?>
 
@@ -140,9 +144,9 @@ styleUpper('home');
             </td>
             <td><?php echo $s['latestBetaReleaseSub']; ?></td>
             <td class="center aligned">
-                <a href="fetchupd.php?arch=amd64&ring=wis&build=<?php echo $retailLatestBuild; ?>"><button class="ui blue button">x64</button>
-                <a href="fetchupd.php?arch=x86&ring=wis&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">x86</button>
-                <a href="fetchupd.php?arch=arm64&ring=wis&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">arm64</button>
+                <a href="fetchupd.php?arch=amd64&ring=wis&build=<?php echo $betaLatestBuild; ?>"><button class="ui blue button">x64</button>
+                <a href="fetchupd.php?arch=x86&ring=wis&build=<?php echo $betaLatestBuild; ?>"><button class="ui button">x86</button>
+                <a href="fetchupd.php?arch=arm64&ring=wis&build=<?php echo $betaLatestBuild; ?>"><button class="ui button">arm64</button>
             </td>
         </tr>
         <tr>
