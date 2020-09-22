@@ -127,7 +127,7 @@ $s['additionalEditionsInfo'] = '如果你需要可在右侧表格中找到的其
 
 //download.php
 $s['summary'] = '摘要';
-$s['summaryDesc'] = '请检查你的选择，并选择下载方式';
+$s['summaryDesc'] = '检查你的选择，并选择下载方式';
 $s['summaryFor'] = '%s 的摘要'; //Summary for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States), Windows 10 Pro
 $s['summaryOfSelection'] = '来自你所选择版本的摘要';
 $s['browseList'] = '浏览文件列表';
@@ -140,15 +140,15 @@ $s['aria2Opt3'] = '使用 aria2 下载，转换并创建其他版本';
 $s['aria2Opt3Desc'] = '使用 aria2 轻松下载所选 UUP 集，转换并创建其他版本，最后创建 ISO 镜像。';
 $s['jsRequiredToConf'] = '配置并使用此选项需要 JavaScript。';
 $s['selAdditionalEditions'] = '选择其他版本';
-$s['noAdditionalEditions'] = '此选择没有其他版本可用。';
+$s['noAdditionalEditions'] = '此选项没有其他版本可用。';
 $s['learnMore'] = '了解更多信息';
 $s['learnMoreAdditionalEditions1'] = '此选项可以自动创建所选的其他版本。';
-$s['learnMoreAdditionalEditions2'] = '其他版本的列表由所选的基本版本确定， 你可以在下面查看创建其他版本所需的基本版本的列表：';
+$s['learnMoreAdditionalEditions2'] = '其他版本的列表由所选的基本版本确定，你可以在下面查看创建其他版本所需的基本版本的列表：';
 $s['learnMoreUpdates1'] = '只有在以下系统上运行转换脚本时，才会将更新集成到转换后的映像中：';
-$s['learnMoreUpdates2'] = '如果在任何其他系统上运行转换脚本，则更新将不会集成到生成的映像中。';
-$s['systemWithAdk'] = '%s 上已安装 Windows 10 评估和部署工具包'; //Windows 7 with Windows 10 ADK installed
+$s['learnMoreUpdates2'] = '如果在其他任何系统上运行转换脚本，则更新将不会集成到创建的映像中。';
+$s['systemWithAdk'] = '在 %s 上已安装 Windows 10 评估和部署工具包'; //Windows 7 with Windows 10 ADK installed
 $s['additionalUpdates'] = '其他更新';
-$s['additionalUpdatesDesc'] = '此 UUP 集将在转换过程中会集成其他更新，这将会显著地增加创建时间。';
+$s['additionalUpdatesDesc'] = '此 UUP 集在转换过程中将会集成其他更新，这将会显著地增加创建时间。';
 $s['browseUpdatesList'] = '浏览更新列表';
 $s['selectDownloadOptions'] = '请选择你的下载选项';
 $s['selectDownloadOptionsSub'] = '使用何种配置方式下载你所选择的内容';
@@ -167,9 +167,9 @@ $s['fileRenamingScript'] = '文件重命名脚本';
 $s['fileRenamingScriptDesc1'] = '下方的脚本可用于快速重命名已下载的文件。';
 $s['fileRenamingScriptDesc2'] = '只需将下方表格中的内容复制到带有 <code>cmd</code> 扩展名的新文件，并将其放在带有下载文件的文件夹中运行即可。';
 $s['sha1File'] = 'SHA-1 文件校验';
-$s['sha1FileDesc'] = '你可以使用此文件快速验证文件是否已正确下载。';
+$s['sha1FileDesc'] = '你可以使用此信息快速验证文件是否已正确下载。';
 $s['aria2NoticeTitle'] = '使用 aria2 选项创建下载';
-$s['aria2NoticeText1'] = '使用 aria2 选项下载可创建需要下载的存档，下载的存档包含实现所选任务所需的所有文件。';
+$s['aria2NoticeText1'] = '使用 aria2 选项下载将创建一个需要你下载的压缩包，在下载的压缩包中包含实现所选任务所需的所有文件。';
 $s['aria2NoticeText2'] = '要开始下载过程，请使用适用于你的平台的脚本：';
 $s['aria2NoticeText3'] = 'Aria2 是一个开源项目，你可以在这里找到它：%s。'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'UUP 转换脚本（Windows 版本）已由 %s 创建。'; //UUP Conversion script (Windows version) has been created by abbodi1406.
@@ -177,7 +177,7 @@ $s['aria2NoticeText5'] = 'UUP 转换脚本（Linux 版本、macOS 版本）是�
 
 //findfiles.php
 $s['findFilesIn'] = '在 %s 中查找文件'; //Find files in Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
-$s['fileRenamingScriptDescFindFiles'] = '如果要快速重命名在此页面下载的文件，可以生成重命名脚本，此脚本将自动为你执行此操作。';
+$s['fileRenamingScriptDescFindFiles'] = '如果你要对从此页面下载的文件进行快速重命名，可以生成重命名脚本，此脚本将自动为你执行此操作。';
 $s['fileRenamingScriptGenW'] = '生成重命名脚本（Windows）';
 $s['fileRenamingScriptGenL'] = '生成重命名脚本（Linux、macOS）';
 $s['searchForFiles'] = '查找文件……';
@@ -197,7 +197,7 @@ FAQ;
 
 $s['q2'] = '我如何使用 Windows 10 版本（如企业版）创建 ISO？';
 $s['a2'] = <<<FAQ
-企业版是 Windows 10 的<b>虚拟版本</b>。此处的“虚拟”并不表示“用于虚拟化”，而是“非独立”。<br/><br/>
+企业版是 Windows 10 的<b>虚拟版本</b>。此处的“虚拟”并不表示“用于虚拟化”，而是表示“非独立”。<br/><br/>
 
 虚拟版本需要“基本版本”进行转换。<br/>
 选择给定更新的版本时，在页面的右侧，你会找到一个表格，其中列出了不同虚拟版本的要求。<br/>
@@ -214,7 +214,7 @@ $s['a3'] = <<<FAQ
 Windows Server 更新仅具有按需功能包。<br/>
 你不能将它们用于转换目的。<br/><br/>
 
-仅列出它们是为了方便访问按需功能包。
+将它们列出只是为了方便访问按需功能包。
 FAQ;
 
 $s['q4'] = '我可以在转换过程之前删除一些我认为没有用的软件包吗？';
