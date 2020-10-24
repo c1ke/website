@@ -18,7 +18,7 @@ $s['uupdump'] = 'UUP dump';
 $s['uupdumpSub'] = '%s - UUP dump'; //Browse known builds - UUP dump
 $s['build'] = 'Build';
 $s['arch'] = 'Architecture';
-$s['ring'] = 'Ring';
+$s['ring'] = 'Channel';
 $s['updateid'] = 'Update ID';
 $s['update'] = 'Update';
 $s['lang'] = 'Language';
@@ -222,6 +222,14 @@ $s['a4'] = <<<FAQ
 You can't. The conversion will fail if you do this.
 FAQ;
 
+$s['q5'] = 'The same build exists twice, but one with a (2) attached. What does that mean?';
+$s['a5'] = <<<FAQ
+It means that the build was released in more than one channel.<br/>
+For example, it was first released to the Dev channel and was also released to the Beta channel later.<br/><br/>
+
+It does not matter which one you choose, they have absolutely the same content.
+FAQ;
+
 $s['qUnknown'] = 'I have a question not listed here.';
 $s['aUnknown'] =  <<<FAQ
 You can join UUP dump discord server and ask your question there.
@@ -243,7 +251,7 @@ $s['error_NO_FILEINFO_DIR'] = 'The <i>fileinfo</i> directory does not exist.';
 $s['error_NO_BUILDS_IN_FILEINFO'] = 'The <i>fileinfo</i> database does not contain any build.';
 $s['error_SEARCH_NO_RESULTS'] = 'No items found for the performed query.';
 $s['error_UNKNOWN_ARCH'] = 'Unknown processor architecture.';
-$s['error_UNKNOWN_RING'] = 'Unknown ring.';
+$s['error_UNKNOWN_RING'] = 'Unknown channel.';
 $s['error_UNKNOWN_FLIGHT'] = 'Unknown flight.';
 $s['error_UNKNOWN_COMBINATION'] = 'The flight and ring combination is not correct. Skip ahead is only supported for Insider Fast ring.';
 $s['error_ILLEGAL_BUILD'] = 'Specified build number is less than %d or larger than %d.'; //Specified build number is less than 9841 or larger than 2147483646.

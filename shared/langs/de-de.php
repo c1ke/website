@@ -18,7 +18,7 @@ $s['uupdump'] = 'UUP dump';
 $s['uupdumpSub'] = '%s - UUP dump'; //Browse known builds - UUP dump
 $s['build'] = 'Build';
 $s['arch'] = 'Architektur';
-$s['ring'] = 'Ring';
+$s['ring'] = 'Kanal';
 $s['updateid'] = 'Update ID';
 $s['update'] = 'Update';
 $s['lang'] = 'Sprache';
@@ -222,6 +222,14 @@ $s['a4'] = <<<FAQ
 Das können Sie nicht. Die Konvertierung wird fehlschlagen, wenn Sie dies tun.
 FAQ;
 
+$s['q5'] = 'Derselbe Build existiert zweimal, einmal mit einer (2) angehängt. Was bedeutet das?';
+$s['a5'] = <<<FAQ
+Es bedeutet, dass dieser Build in mehr als einem Channel veröffentlicht wurde.<br/>
+Zum Beispiel wurde er als erstes im Dev-Kanal und danach im Beta-Kanal veröffentlicht.<br/><br/>
+
+Es ist egal, welchen Build Sie wählen, da beide absolut den gleichen Inhalt haben
+FAQ;
+
 $s['qUnknown'] = 'Ich habe eine Frage, die hier nicht aufgeführt ist.';
 $s['aUnknown'] =  <<<FAQ
 Sie können dem UUP-Dump-Discord-Server beitreten und dort Ihre Frage stellen.
@@ -243,7 +251,7 @@ $s['error_NO_FILEINFO_DIR'] = 'Das </i>Dateiinformations<i> Verzeichnis existier
 $s['error_NO_BUILDS_IN_FILEINFO'] = 'Die <i>Dateiinformations</i> Datenbank enthält kein Build.';
 $s['error_SEARCH_NO_RESULTS'] = 'Es konnten keine Elemente für die angegebene Abfrage gefunden werden.';
 $s['error_UNKNOWN_ARCH'] = 'Unbekannte Prozessorarchitektur.';
-$s['error_UNKNOWN_RING'] = 'Unbekannter Ring.';
+$s['error_UNKNOWN_RING'] = 'Unbekannter Kanal.';
 $s['error_UNKNOWN_FLIGHT'] = 'Unbekannter flight.';
 $s['error_UNKNOWN_COMBINATION'] = 'Die Flight und Ring Kombination ist nicht korrekt. Skip ahead wird nur für den Insider Fast Ring unterstützt.';
 $s['error_ILLEGAL_BUILD'] = 'Die angegebene Build-Nummer ist kleiner als %d oder größer als %d.'; //Specified build number is less than 9841 or larger than 2147483646.
