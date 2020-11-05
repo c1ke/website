@@ -224,10 +224,10 @@ FAQ;
 
 $s['q5'] = 'Derselbe Build existiert zweimal, einmal mit einer (2) angehängt. Was bedeutet das?';
 $s['a5'] = <<<FAQ
-Es bedeutet, dass dieser Build in mehr als einem Channel veröffentlicht wurde.<br/>
+Generell lässt sich sagen, dass dieser Build in mehr als einem Channel veröffentlicht wurde.<br/>
 Zum Beispiel wurde er als erstes im Dev-Kanal und danach im Beta-Kanal veröffentlicht.<br/><br/>
 
-Es ist egal, welchen Build Sie wählen, da beide absolut den gleichen Inhalt haben
+Es ist egal, welchen Build Sie wählen, da beide absolut den gleichen Inhalt haben.
 FAQ;
 
 $s['qUnknown'] = 'Ich habe eine Frage, die hier nicht aufgeführt ist.';
