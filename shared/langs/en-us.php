@@ -224,8 +224,8 @@ FAQ;
 
 $s['q5'] = 'The same build exists twice, but one with a (2) attached. What does that mean?';
 $s['a5'] = <<<FAQ
-It means that the build was released in more than one channel.<br/>
-For example, it was first released to the Dev channel and was also released to the Beta channel later.<br/><br/>
+In general, this means that the build was pushed to more than one channel.<br/>
+For example, a build was first pushed into the Dev channel and then pushed into the Beta channel.<br/><br/>
 
 It does not matter which one you choose, they have absolutely the same content.
 FAQ;
