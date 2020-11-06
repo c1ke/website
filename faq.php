@@ -58,6 +58,14 @@ styleUpper('faq', $s['faqLong']);
     <div class="content">
         <p><?php echo $s['a4']; ?></p>
     </div>
+   
+   <div class="title">
+        <i class="dropdown icon"></i>
+        <?php echo $s['q5']; ?>
+    </div>
+    <div class="content">
+        <p><?php echo $s['a5']; ?></p>
+    </div>
 
     <div class="title">
         <i class="dropdown icon"></i>

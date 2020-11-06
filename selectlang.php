@@ -99,24 +99,24 @@ if(in_array(strtolower($s['code']), array_keys($langs))) {
     $defaultLang = 'en-us';
 }
 
-//Set fancy name for ring and flight of build
+//Set fancy name for channel and flight of build
 if($ring == 'WIF' && $flight == 'Skip') {
-    $fancyRingName = 'Skip Ahead';
+    $fancyChannelName = 'Skip Ahead';
 } elseif($ring == 'WIF' && $flight == 'Active') {
-    $fancyRingName = 'Insider Fast';
+    $fancyChannelName = 'Dev Channel';
 } elseif($ring == 'WIS' && $flight == 'Active') {
-    $fancyRingName = 'Insider Slow';
+    $fancyChannelName = 'Beta Channel';
 } elseif($ring == 'RP' && $flight == 'Current') {
-    $fancyRingName = 'Release Preview';
+    $fancyChannelName = 'Release Preview Channel';
 } elseif($ring == 'RETAIL') {
-    $fancyRingName = 'Retail';
+    $fancyChannelName = 'Retail';
 } else {
     if($ring && $flight) {
-        $fancyRingName = "$ring, $flight";
+        $fancyChannelName = "$ring, $flight";
     } elseif($ring) {
-        $fancyRingName = "$ring";
+        $fancyChannelName = "$ring";
     } else {
-        $fancyRingName = $s['unknown'];
+        $fancyChannelName = $s['unknown'];
     }
 }
 
@@ -289,7 +289,7 @@ printf(
             <i class="cogs icon"></i>
             <div class="content">
                 <?php echo $s['ring']; ?>
-                <div class="sub header"><?php echo $fancyRingName; ?></div>
+                <div class="sub header"><?php echo $fancyChannelName; ?></div>
             </div>
         </h4>
     </div>
