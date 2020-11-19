@@ -90,7 +90,7 @@ $s['editionOfPretendedClient'] = '模拟系统版本';
 $s['skipAheadLabel'] = '跳跃预览通道';
 $s['skipAheadOption'] = '使用跳跃预览通道（仅限快速环）';
 $s['fetchUpdates'] = '获取更新';
-$s['fetchUpdatesInfo'] = '点击<i>获取更新</i>按钮将你的请求发送到 Windows Update 服务器。';
+$s['fetchUpdatesInfo'] = '点击<i>获取更新</i>按钮将你的请求发送到 Windows 更新服务器。';
 
 //fetchupd.php
 $s['responseFromServer'] = '来自服务器的响应';
@@ -110,7 +110,7 @@ $s['updateOnly'] = '仅更新';
 $s['selectLangInfoText1'] = '点击<i>下一步</i>按钮选择你要下载的版本。';
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe 和累积更新可以在<i>全语言</i>中找到。';
 $s['allLangsWarn'] = '<i>全语言</i>选项不支持版本选择。';
-$s['clickNextToOpenFindFiles'] = '点击<i>下一步</i>按钮打开页面，此页面允许查找文件。';
+$s['clickNextToOpenFindFiles'] = '单击<i>下一步</i>按钮打开页面，该页面将允许你查找文件。';
 $s['noLangsAvailable'] = '在此内部版本中没有可用的语言。';
 $s['browseFiles'] = '浏览文件';
 $s['browseFilesDesc'] = '快速浏览所选内部版本中的文件';
@@ -123,7 +123,7 @@ $s['chooseEdition'] = '选择版本';
 $s['chooseEditionDesc'] = '选择你想要的版本';
 $s['allEditions'] = '全版本';
 $s['selectEditionInfoText'] = '点击 <i>下一步</i> 按钮以打开所选内容的版本摘要页面。';
-$s['additionalEditionsInfo'] = '如果你需要可在右侧表格中找到的其他版本，请选择指定的所需版本，然后单击 <i>下一步</i>。在摘要页面上，你可以在相应的下载选项下选择所需的其他版本。';
+$s['additionalEditionsInfo'] = '如果你需要可在右侧表格中找到的其他版本，请选择指定的所需版本，然后单击<i>下一步</i>按钮。在摘要页面上，你可以在相应的下载选项下选择所需的其他版本。';
 
 //download.php
 $s['summary'] = '摘要';
@@ -140,7 +140,7 @@ $s['aria2Opt3'] = '使用 aria2 下载、转换并创建其他版本';
 $s['aria2Opt3Desc'] = '使用 aria2 轻松下载所选 UUP 集，转换并创建其他版本，最后创建 ISO 镜像。';
 $s['jsRequiredToConf'] = '配置并使用此选项需要 JavaScript。';
 $s['selAdditionalEditions'] = '选择其他版本';
-$s['noAdditionalEditions'] = '此选项没有其他版本可用。';
+$s['noAdditionalEditions'] = '在此选项中没有其他版本可用。';
 $s['learnMore'] = '了解更多信息';
 $s['learnMoreAdditionalEditions1'] = '此选项可以自动创建所选的其他版本。';
 $s['learnMoreAdditionalEditions2'] = '其他版本的列表由所选的基本版本确定，你可以在下面查看创建其他版本所需的基本版本的列表：';
@@ -220,6 +220,14 @@ FAQ;
 $s['q4'] = '我可以在转换过程之前删除一些我认为没有用的软件包吗？';
 $s['a4'] = <<<FAQ
 你不能这样做。如果你这样做，转换就会失败。
+FAQ;
+
+$s['q5'] = '同一内部版本存在两个，但其中一个附加了 (2)。那是什么意思？';
+$s['a5'] = <<<FAQ
+通常，这意味着此内部版本被推送到多个通道中。<br/>
+例如，一个内部版本首先被推送到 Dev 通道，然后再被推送到 Beta 通道。<br/><br/>
+
+选择哪一个都无所谓，它们具有完全相同的内容。
 FAQ;
 
 $s['qUnknown'] = '我提出的问题没有在这里列出。';
