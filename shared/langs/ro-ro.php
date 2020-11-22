@@ -222,6 +222,14 @@ $s['a4'] = <<<FAQ
 Nu, nu puteți. Transformarea va eșua dacă faceți asta.
 FAQ;
 
+$s['q5'] = 'Aceeași compilare există de două ori, dar cu (2) atașat. Ce înseamnă asta?';
+$s['a5'] = <<<FAQ
+În general, asta înseamnă că acea compilație a fost lansată pe mai mult decât un singur canal.<br/>
+De exemplu, o compilație a fost lansată mai întâi pe Dev Channel apoi a fost lansată și pe Beta Channel.<br/><br/>
+
+Nu are importanță pe care o alegeți, au exact același conținut.
+FAQ;
+
 $s['qUnknown'] = 'Am o întrebare care nu este listată aici.';
 $s['aUnknown'] =  <<<FAQ
 Vă puteți alătura la serverul discord UUP dump și puneți întrebarea acolo.
@@ -309,3 +317,4 @@ $s['lang_uk-ua'] = 'Ucraineană';
 $s['lang_zh-cn'] = 'Chineză (Simplificată)';
 $s['lang_zh-hk'] = 'Chineză (Hong Kong)';
 $s['lang_zh-tw'] = 'Chineză (Tradițională)';
+
