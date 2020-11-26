@@ -18,7 +18,7 @@ $s['uupdump'] = 'UUP dump';
 $s['uupdumpSub'] = '%s - UUP dump'; //Browse known builds - UUP dump
 $s['build'] = '内部版本';
 $s['arch'] = '体系结构';
-$s['ring'] = '环';
+$s['ring'] = '推送通道';
 $s['updateid'] = '更新 ID';
 $s['update'] = '更新名称';
 $s['lang'] = '语言';
@@ -122,7 +122,7 @@ $s['selectEditionFor'] = '选择 %s 的版本'; //Select edition for Windows 10 
 $s['chooseEdition'] = '选择版本';
 $s['chooseEditionDesc'] = '选择你想要的版本';
 $s['allEditions'] = '全版本';
-$s['selectEditionInfoText'] = '点击 <i>下一步</i> 按钮以打开所选内容的版本摘要页面。';
+$s['selectEditionInfoText'] = '点击<i>下一步</i>按钮以打开所选内容的版本摘要页面。';
 $s['additionalEditionsInfo'] = '如果你需要可在右侧表格中找到的其他版本，请选择指定的所需版本，然后单击<i>下一步</i>按钮。在摘要页面上，你可以在相应的下载选项下选择所需的其他版本。';
 
 //download.php
@@ -227,7 +227,7 @@ $s['a5'] = <<<FAQ
 通常，这意味着此内部版本被推送到多个通道中。<br/>
 例如，一个内部版本首先被推送到 Dev 通道，然后再被推送到 Beta 通道。<br/><br/>
 
-选择哪一个都无所谓，它们具有完全相同的内容。
+选择任何一个都无所谓，它们具有完全相同的内容。
 FAQ;
 
 $s['qUnknown'] = '我提出的问题没有在这里列出。';
@@ -251,8 +251,8 @@ $s['error_NO_FILEINFO_DIR'] = '<i>fileinfo</i> 目录不存在。';
 $s['error_NO_BUILDS_IN_FILEINFO'] = '在 <i>fileinfo</i> 数据库中不包含任何内部版本。';
 $s['error_SEARCH_NO_RESULTS'] = '找不到要执行查询的项目。';
 $s['error_UNKNOWN_ARCH'] = '未知的处理器体系结构。';
-$s['error_UNKNOWN_RING'] = '未知的环。';
-$s['error_UNKNOWN_FLIGHT'] = '未知的通道。';
+$s['error_UNKNOWN_RING'] = '未知的通道。';
+$s['error_UNKNOWN_FLIGHT'] = '未知的推送版本。';
 $s['error_UNKNOWN_COMBINATION'] = '通道和环的组合不正确。只有快速环才支持向前跳过。';
 $s['error_ILLEGAL_BUILD'] = '指定的内部版本号小于 %d 或大于 %d。'; //Specified build number is less than 9841 or larger than 2147483646.
 $s['error_ILLEGAL_MINOR'] = '指定的次要/服务版本不正确。';
@@ -273,7 +273,7 @@ $s['error_KEY_NOT_EXISTS'] = '更新信息中不存在指定的密钥。';
 $s['error_UNSPECIFIED_UPDATE'] = '未指定更新 ID。';
 $s['error_INCORRECT_ID'] = '指定的更新 ID 不正确。 请确保指定的更新 ID 正确无误。';
 $s['error_RATE_LIMITED'] = '你受到了限制，请在几秒钟后重试。';
-$s['error_UNSPECIFIED_VE'] = '你尚未选择任何其他版本。如果不想创建其他版本，请选择 <i>使用 aria2 下载并转换</i> 选项。';
+$s['error_UNSPECIFIED_VE'] = '你尚未选择任何其他版本。如果不想创建其他版本，请选择<i>使用 aria2 下载并转换</i>选项。';
 $s['errorNoMessage'] = '错误消息不可用。';
 
 //Languages
