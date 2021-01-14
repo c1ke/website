@@ -28,21 +28,30 @@ function styleUpper($pageType = 'home', $subtitle = '') {
         $subTitleOnly = $s['uupdump'];
     }
 
+    $darkModeOptions = array(
+        'expires' => time()+60*60*24*30,
+        'path' => '/',
+        'domain' => $_SERVER['HTTP_HOST'],
+        'secure' => true,
+        'httponly' => true,
+        'samesite' => 'Strict'
+    );
+
     $enableDarkMode = -1;
     if(isset($_COOKIE['Dark-Mode'])) {
         switch($_COOKIE['Dark-Mode']) {
             case 0:
-                setcookie('Dark-Mode', 0, time()+2592000);
+                setcookie('Dark-Mode', 0, $darkModeOptions);
                 $enableDarkMode = 0;
                 break;
 
             case 1:
-                setcookie('Dark-Mode', 1, time()+2592000);
+                setcookie('Dark-Mode', 1, $darkModeOptions);
                 $enableDarkMode = 1;
                 break;
 
             default:
-                setcookie('Dark-Mode');
+                setcookie('Dark-Mode', 0, $darkModeOptions);
                 $enableDarkMode = -1;
                 break;
         }
@@ -51,17 +60,17 @@ function styleUpper($pageType = 'home', $subtitle = '') {
     if(isset($_GET['dark'])) {
         switch($_GET['dark']) {
             case 0:
-                setcookie('Dark-Mode', 0, time()+2592000);
+                setcookie('Dark-Mode', 0, $darkModeOptions);
                 $enableDarkMode = 0;
                 break;
 
             case 1:
-                setcookie('Dark-Mode', 1, time()+2592000);
+                setcookie('Dark-Mode', 1, $darkModeOptions);
                 $enableDarkMode = 1;
                 break;
 
             default:
-                setcookie('Dark-Mode');
+                setcookie('Dark-Mode', 0, $darkModeOptions);
                 $enableDarkMode = -1;
                 break;
         }

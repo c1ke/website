@@ -18,12 +18,21 @@ limitations under the License.
 require_once "langs/en-us.php";
 $lang = 'en-us';
 
+$pageLanguageOptions = array(
+    'expires' => time()+60*60*24*30,
+    'path' => '/',
+    'domain' => $_SERVER['HTTP_HOST'],
+    'secure' => true,
+    'httponly' => true,
+    'samesite' => 'Strict'
+);
+
 if(isset($_GET['lang'])) {
     $lang = strtolower($_GET['lang']);
-    setcookie('Page-Language', $lang, time()+2592000);
+    setcookie('Page-Language', $lang, $pageLanguageOptions);
 } elseif(isset($_COOKIE['Page-Language'])) {
     $lang = strtolower($_COOKIE['Page-Language']);
-    setcookie('Page-Language', $lang, time()+2592000);
+    setcookie('Page-Language', $lang, $pageLanguageOptions);
 }
 
 $supportedLangs = array(
