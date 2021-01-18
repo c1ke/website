@@ -15,4 +15,4 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-die("0||00000000-0000-0000-0000-000000000000|Not supported. Please use https://uupdump.ml");
+die("0||00000000-0000-0000-0000-000000000000|Not supported. Please use https://www.uupdump.net");
