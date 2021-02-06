@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2020 whatever127
+Copyright 2021 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -70,6 +70,7 @@ if($autoDl && !$aria2) {
     $info = uupUpdateInfo($updateId);
     $info = @$info['info'];
 
+    $updateSku = isset($info['sku']) ? $info['sku'] : 48;
     $updateBuild = isset($info['build']) ? $info['build'] : 'UNKNOWN';
     $updateArch = isset($info['arch']) ? $info['arch'] : 'UNKNOWN';
 
@@ -128,10 +129,10 @@ if($autoDl && !$aria2) {
                 die();
             }
 
-            if($build < 17107) {
-                echo 'Not available for this build.';
-            } else {
+            if($build > 17107 && $updateSku != 189 && $updateSku != 135) {
                 createUupConvertPackage($url, $archiveName, 1, $desiredVE, $moreOptions);
+            } else {
+                echo 'Not available for this build.';
             }
 
             break;

@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2020 whatever127
+Copyright 2021 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -16,8 +16,8 @@ limitations under the License.
 */
 
 // Website information
-$websiteVersion = '3.43.0';
-$requiredApi = '1.28.0';
+$websiteVersion = '3.44.0';
+$requiredApi = '1.30.0';
 
 require_once dirname(__FILE__).'/../api/shared/main.php';
 require_once dirname(__FILE__).'/utils.php';
