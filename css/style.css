@@ -102,8 +102,15 @@ limitations under the License.
     line-height: 300%;
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1392px) {
     .ui.container {
-        width: 1400px;
+        width: 1308px;
     }
 }
+
+@media only screen and (min-width: 1568px) {
+    .ui.container {
+        width: 1474px;
+    }
+}
+
