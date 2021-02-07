@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2020 whatever127
+Copyright 2021 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -48,12 +48,17 @@ if(!isset($updateInfo['arch'])) {
     $updateArch = $updateInfo['arch'];
 }
 
+if(!isset($updateInfo['sku'])) {
+    $updateSku = 48;
+} else {
+    $updateSku = $updateInfo['sku'];
+}
+
 $build = explode('.', $updateInfo['build']);
 $build = @$build[0];
-if($build < 17107) {
+$disableVE = 0;
+if($build < 17107 || $updateSku == 189 || $updateSku == 135) {
     $disableVE = 1;
-} else {
-    $disableVE = 0;
 }
 
 $updateTitle = $updateTitle.' '.$updateArch;

@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2020 whatever127
+Copyright 2021 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -74,12 +74,12 @@ if(isset($updates['error'])) {
     $hasUpdates = 1;
 }
 
+$updateSku = $files['sku'];
 $build = explode('.', $files['build']);
 $build = @$build[0];
-if($build < 17107) {
+$disableVE = 0;
+if($build < 17107 || $updateSku == 189 || $updateSku == 135) {
     $disableVE = 1;
-} else {
-    $disableVE = 0;
 }
 
 $updateTitle = "{$files['updateName']} {$files['arch']}";
@@ -154,6 +154,13 @@ if(preg_grep('/^ProfessionalN_.*\.esd/i', $filesKeys)) {
     $virtualEditions['ProfessionalEducationN'] = 'Pro Education N';
     $virtualEditions['EducationN'] = 'Education N';
     $virtualEditions['EnterpriseN'] = 'Enterprise N';
+}
+
+$chkone = null;
+$chktwo = 'checked';
+if($updateSku == 189 || $updateSku == 135) {
+    $chkone = 'checked';
+    $chktwo = 'disabled';
 }
 
 styleUpper('downloads', sprintf($s['summaryFor'], "$updateTitle, $selectedLangName, $selectedEditionName"));
@@ -250,7 +257,8 @@ if($updateArch == 'arm64') {
                 <div class="grouped fields">
                     <div class="field">
                         <div class="ui radio checkbox">
-                            <input type="radio" name="autodl" value="1">
+                            <input type="radio" name="autodl" value="1"
+                            <?php echo $chkone; ?>>
                             <label>
                                 <?php echo $s['aria2Opt1']; ?><br/>
                                 <small><?php echo $s['aria2Opt1Desc']; ?></small>
@@ -259,7 +267,8 @@ if($updateArch == 'arm64') {
                     </div>
                     <div class="field">
                         <div class="ui radio checkbox">
-                            <input type="radio" name="autodl" value="2" checked>
+                            <input type="radio" name="autodl" value="2"
+                            <?php echo $chktwo; ?>>
                             <label>
                                 <?php echo $s['aria2Opt2']; ?><br/>
                                 <small><?php echo $s['aria2Opt2Desc']; ?></small>

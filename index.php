@@ -164,34 +164,6 @@ styleUpper('home');
     </tbody>
 </table>
 
-<h3 class="ui centered header">
-    <div class="content">
-        <i class="fitted user md icon"></i>&nbsp;
-        <?php echo $s['advOptions']; ?>
-    </div>
-</h3>
-
-<div class="ui two columns stackable centered grid">
-    <div class="column">
-        <a class="ui top attached fluid labeled icon large button" href="./known.php">
-            <i class="server icon"></i>
-            <?php echo $s['browseBuilds']; ?>
-        </a>
-        <div class="ui bottom attached segment">
-            <?php echo $s['browseBuildsSub']; ?>
-        </div>
-    </div>
-
-    <div class="column">
-        <a class="ui top attached fluid labeled icon large button" href="./latest.php">
-            <i class="fire icon"></i>
-            <?php echo $s['fetchLatest']; ?>
-        </a>
-        <div class="ui bottom attached segment">
-            <?php echo $s['fetchLatestSub']; ?>
-        </div>
-    </div>
-</div>
 <?php
 if($buildsAvailable) {
     echo <<<EOD

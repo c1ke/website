@@ -273,6 +273,7 @@ $s['lang_de-de'] = 'Alemán';
 $s['lang_el-gr'] = 'Griego';
 $s['lang_en-gb'] = 'Inglés (Reino Unido)';
 $s['lang_en-us'] = 'Inglés (Estados Unidos)';
+$s['lang_es-ar'] = 'Español (Argentina)';
 $s['lang_es-es'] = 'Español (España)';
 $s['lang_es-mx'] = 'Español (México)';
 $s['lang_et-ee'] = 'Estonio';
