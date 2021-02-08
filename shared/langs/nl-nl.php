@@ -216,6 +216,13 @@ $s['a4'] = <<<FAQ
 Dat is niet mogelijk. Het converteren zal niet lukken als je dit doet.
 FAQ;
 
+$s['q5'] = 'Dezelfde build bestaat dubbel, maar een van de twee heeft (2) in de naam. Wat betekent dat?';
+$s['a5'] = <<<FAQ
+In het algemeen betekent dit dat de build in meerdere kanalen is uitgebracht.
+De build is bijvoorbeeld eerst in het Dev kannaal en daarna ook in het Beta kanaal uitgebracht.<br/><br/>
+Het maakt niet uit welke van de twee je kiest, ze bevatten beide dezelfde inhoud.
+FAQ;
+
 $s['qUnknown'] = 'Ik heb een vraag die niet in de lijst staat.';
 $s['aUnknown'] =  <<<FAQ
 Je kunt je aanmelden op UUP dump discord server en je vraag daar stellen in de uup-dump-support sectie.
