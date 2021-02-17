@@ -64,6 +64,11 @@ styleUpper('home');
         Dev Channel
     </a>
 
+    <a class="ui mini button" href="known.php?q=19043">
+        <i class="search icon"></i>
+        21H1
+    </a>
+
     <a class="ui mini button" href="known.php?q=19042">
         <i class="search icon"></i>
         20H2
@@ -84,11 +89,6 @@ styleUpper('home');
     <a class="ui mini button" href="known.php?q=regex:18362\.(?!\d{5})">
         <i class="search icon"></i>
         19H1
-    </a>
-
-    <a class="ui mini button" href="known.php?q=17763">
-        <i class="search icon"></i>
-        1809
     </a>
 
     <a class="ui mini button" href="known.php?q=Microsoft+Edge">
