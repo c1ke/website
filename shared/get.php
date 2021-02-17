@@ -352,6 +352,19 @@ CONFIG;
 function createAria2Package($url, $archiveName) {
     $currDir = dirname(__FILE__).'/..';
     $time = gmdate("Y-m-d H:i:s T", time());
+
+    $additionalNotice = "";
+    if(strpos($archiveName, "lite")) {
+        $additionalNotice = <<<TEXT
+
+echo.
+echo You downloaded a set of UUP files for Windows 10X.
+echo After downloading, you should run "uup_convert_xml_10x.cmd" so that the files can be used with converters.
+echo.
+
+TEXT;
+    }
+
     $cmdScript = <<<SCRIPT
 @echo off
 rem Generated on $time
@@ -395,7 +408,7 @@ if NOT [%DETECTED_ERROR%] == [] (
 echo Attempting to download files...
 "%aria2%" --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"%destDir%" -i"%aria2Script%"
 if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
-
+$additionalNotice
 pause
 goto EOF
 
@@ -418,7 +431,7 @@ goto EOF
 
 SCRIPT;
 
-$shellScript = <<<SCRIPT
+    $shellScript = <<<SCRIPT
 #!/bin/bash
 #Generated on $time
 
@@ -475,9 +488,130 @@ fi
 
 SCRIPT;
 
+    $convertXml10XScript = <<<SCRIPT
+@setlocal DisableDelayedExpansion
+@echo off
+
+if not exist "%~dp0UUPs" (
+    echo ==== ERROR ====
+    echo A set of UUP files for Windows 10X is required for this script to work.
+    echo.
+    echo Press any key to exit.
+    pause >nul
+    goto :eof
+)
+
+if not exist "%SystemRoot%\System32\WindowsPowerShell\\v1.0\powershell.exe" (
+    echo ==== ERROR ====
+    echo Windows PowerShell is required for this script to work.
+    echo.
+    echo Press any key to exit.
+    pause >nul
+    goto :eof
+)
+
+set "_batf=%~f0"
+set "_batp=%_batf:'=''%"
+set "_work=%~dp0"
+if "%_work:~-1%"=="\" set "_work=%_work:~0,-1%"
+setlocal EnableDelayedExpansion
+pushd "!_work!\UUPs"
+
+set _cpu=
+if exist "Retail\AMD64\\fre\Microsoft-ModernPC*.cab" (
+    set _cpu=amd64
+) else if exist "Retail\ARM64\\fre\Microsoft-ModernPC*.cab" (
+    set _cpu=arm64
+) else if exist "Retail\\x86\\fre\Microsoft-ModernPC*.cab" (
+    set _cpu=x86
+)
+if not defined _cpu (
+    echo ==== ERROR ====
+    echo Required cab files are not detected.
+    echo Place the script next to [Retail] folder before running.
+    echo.
+    echo Press any key to exit.
+    pause >nul
+    goto :eof
+)
+
+if exist "FMFiles\*FM.xml" goto :skipFMs
+md %SystemDrive%\_t10xml >nul 2>&1
+expand -f:*.xml "Retail\%_cpu%\\fre\*fm~*.cab" %SystemDrive%\_t10xml >nul 2>&1
+md FMFiles >nul 2>&1
+for /f %%# in ('dir /b /s %SystemDrive%\_t10xml\*.xml') do copy /y %%# .\FMFiles >nul
+rd /s /q %SystemDrive%\_t10xml >nul 2>&1
+
+:skipFMs
+set _type=Production
+if exist "Retail\%_cpu%\\fre\*NonProductionFM*.cab" set _type=Test
+md %SystemDrive%\_t10xml >nul 2>&1
+expand -f:*.xml "Retail\%_cpu%\\fre\*%_type%*InboxCompDB*.cab" %SystemDrive%\_t10xml >nul 2>&1
+for /f %%# in ('dir /b /s %SystemDrive%\_t10xml\*InboxCompDB*.xml 2^>nul') do copy /y %%# .\CompDB.xml >nul
+rd /s /q %SystemDrive%\_t10xml >nul 2>&1
+if not exist CompDB.xml (
+    echo ==== Notice ====
+    echo CompDB.xml file is not found.
+    echo.
+    echo Press any key to exit.
+    pause >nul
+    goto :eof
+)
+
+for /f %%# in ('dir /b FMFiles\*AppsFM*.xml') do copy /y FMFiles\%%# .\AppsDB.xml >nul
+if not exist AppsDB.xml (
+    del /f /q CompDB.xml >nul 2>&1
+    echo ==== Notice ====
+    echo AppsDB.xml file is not found.
+    echo.
+    echo Press any key to exit.
+    pause >nul
+    goto :eof
+)
+
+powershell.exe -nop -c "\$f=[IO.File]::ReadAllText('!_batp!') -split ':embed\:.*';iex (\$f[1])"
+del /f /q CompDB.xml AppsDB.xml >nul 2>&1
+echo ==== Done ====
+echo.
+echo You will find the FMFiles folder in %~dp0UUPs
+echo.
+echo Press any key to exit.
+pause >nul
+goto :eof
+
+:embed:
+[Environment]::CurrentDirectory = (Get-Location -PSProvider FileSystem).ProviderPath 
+\$doc = [xml](gc ./CompDB.xml)
+foreach (\$Package in \$doc.CompDB.AppX.AppXPackages.Package) {
+    if (!\$Package.LicenseData) {continue}
+    \$t = [IO.Path]::ChangeExtension(\$Package.Payload.PayloadItem.Path, 'xml')
+    \$p = [IO.Path]::GetDirectoryName(\$t)
+    \$d = \$Package.LicenseData."#cdata-section"
+    \$d = \$Package.LicenseData.InnerText
+    \$null = [IO.Directory]::CreateDirectory(\$p)
+    [IO.File]::WriteAllText(\$t,\$d,[System.Text.Encoding]::ASCII)
+}
+\$xml = [xml](gc ./AppsDB.xml)
+foreach (\$Package in \$xml.FeatureManifest.AppX.AppXPackages.PackageFile) {
+    if (!\$Package.LicenseFile) {continue}
+    \$fl = \$Package.LicenseFile
+    \$fn = [IO.Path]::ChangeExtension(\$Package.Name, 'xml')
+    if (\$fn.ToLower() -eq \$fl.ToLower()) {continue}
+    \$fp = \$Package.Path | %{\$_ -replace "\\$\(mspackageroot\)\\\\",''}
+    \$fn = Join-Path \$fp \$fn
+    \$fl = Join-Path \$fp \$fl
+    if (!(Test-Path \$fl) -and (Test-Path \$fn)) {Move-Item -Path \$fn -Destination \$fl -force}
+    if ((Test-Path \$fl) -and (Test-Path \$fn)) {Remove-Item -Path \$fn -force}
+}
+:embed:
+
+SCRIPT;
+
     $cmdScript = str_replace(["\r\n", "\r"], "\n", $cmdScript);
     $shellScript = str_replace(["\r\n", "\r"], "\n", $shellScript);
+    $convertXml10XScript = str_replace(["\r\n", "\r"], "\n", $convertXml10XScript);
     $cmdScript = str_replace("\n", "\r\n", $cmdScript);
+    $convertXml10XScript = str_replace("\n", "\r\n", $convertXml10XScript);
 
     $zip = new ZipArchive;
     $archive = @tempnam($currDir.'/tmp', 'zip');
@@ -491,6 +625,9 @@ SCRIPT;
         $zip->addFromString('uup_download_windows.cmd', $cmdScript);
         $zip->addFromString('uup_download_linux.sh', $shellScript);
         $zip->addFromString('uup_download_macos.sh', $shellScript);
+        if(strpos($archiveName, "lite")) {
+            $zip->addFromString('uup_convert_xml_10x.cmd', $convertXml10XScript);
+        }
         $zip->addFile($currDir.'/autodl_files/aria2c.exe', 'files/aria2c.exe');
         $zip->close();
     } else {
