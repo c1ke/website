@@ -49,15 +49,15 @@ if(!isset($updateInfo['arch'])) {
 }
 
 if(!isset($updateInfo['sku'])) {
-    $updateSku = 48;
+    $uSku = 48;
 } else {
-    $updateSku = $updateInfo['sku'];
+    $uSku = $updateInfo['sku'];
 }
 
 $build = explode('.', $updateInfo['build']);
 $build = @$build[0];
 $disableVE = 0;
-if($build < 17107 || $updateSku == 189 || $updateSku == 135) {
+if($build < 17107 || $uSku == 7 || $uSku == 8 || $uSku == 12 || $uSku == 13 || $uSku == 79 || $uSku == 80 || $uSku == 120 || $uSku == 145 || $uSku == 146 || $uSku == 147 || $uSku == 148 || $uSku == 159 || $uSku == 160 || $uSku == 406 || $uSku == 407 || $uSku == 408) {
     $disableVE = 1;
 }
 
