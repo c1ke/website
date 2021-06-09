@@ -212,7 +212,7 @@ FAQ;
 $s['q3'] = 'Warum wird bei manchen Windows Server Editionen "Es sind keine Sprachen für diesen Build verfügbar" angezeigt?';
 $s['a3'] = <<<FAQ
 Ältere Windows Server-Updates verfügen nur über Feature-on-Demand-Pakete.<br/>
-Sie können sie nicht für Konvertierungszwecke verwenden.<br/><br/>
+Sie können sie nicht für Konvertierungszwecke verwenden.
 FAQ;
 
 $s['q4'] = 'Kann ich einige Pakete entfernen, die ich vor dem Konvertierungsprozess für nutzlos halte?';

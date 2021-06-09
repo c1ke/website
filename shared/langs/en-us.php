@@ -212,7 +212,7 @@ FAQ;
 $s['q3'] = 'Why do some Windows Server downloads show "There are no languages available for this build."?';
 $s['a3'] = <<<FAQ
 Older Windows Server Updates only have Feature on Demand packages.<br/>
-You cannot use them for conversion purposes.<br/><br/>
+You cannot use them for conversion purposes.
 FAQ;
 
 $s['q4'] = 'Can I remove some packages I think are useless before the conversion process?';
