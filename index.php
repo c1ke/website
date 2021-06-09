@@ -64,6 +64,11 @@ styleUpper('home');
         Dev Channel
     </a>
 
+    <a class="ui mini button" href="known.php?q=20348">
+        <i class="search icon"></i>
+        Server 21H2
+    </h2>
+
     <a class="ui mini button" href="known.php?q=19043">
         <i class="search icon"></i>
         21H1
@@ -82,13 +87,6 @@ styleUpper('home');
     <a class="ui mini button" href="known.php?q=18363">
         <i class="search icon"></i>
         19H2
-    </a>
-
-    <!-- Have you ever been so lazy to make something work properly in your
-    code, so you implemented regex instead to make it work? -->
-    <a class="ui mini button" href="known.php?q=regex:18362\.(?!\d{5})">
-        <i class="search icon"></i>
-        19H1
     </a>
 
     <a class="ui mini button" href="known.php?q=17763">
