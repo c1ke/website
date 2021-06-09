@@ -206,12 +206,14 @@ Apprarirà un elenco con tutte le possibili edizioni virtuali per la tua scelta;
 Da lì puoi scegliere "Enterprise" e creare un pacchetto da scaricare.
 FAQ;
 
+/*
 $s['q3'] = 'Perché gli scaricamenti di Windows Server mostrano "Non ci sono lingue disponibili per questa build."?';
 $s['a3'] = <<<FAQ
 Gli aggiornamenti di Windows Server hanno solo i pacchetti Funzionalità su Richiesta.<br/>
 Non puoi usarli per scopi di conversione.<br/><br/>
 Sono elencati solamente per un accesso facile ai pacchetti Funzionalità su Richiesta.
 FAQ;
+*/
 
 $s['q4'] = 'Posso rimuovere alcuni pacchetti che ritengo essere inutili prima del processo di conversione?';
 $s['a4'] = <<<FAQ

@@ -206,12 +206,14 @@ Aparecerá una lista con todas las ediciones virtuales posibles para lo que haya
 A partir de allí, puedes escoger "Enterprise" y crear un paquete de descarga.
 FAQ;
 
+/*
 $s['q3'] = '¿Por qué las descargas del servidor de Windows dicen "No hay idiomas disponibles para esta compilación"?';
 $s['a3'] = <<<FAQ
 Las actualizaciones del servidor de Windows solo tienen paquetes de características a petición (FoD).<br/>
 No puedes usarlos para hacer conversiones.<br/><br/>
 Solo se muestran para acceder fácilmente a los paquetes de FoD.
 FAQ;
+*/
 
 $s['q4'] = '¿Puedo quitar algunos paquetes que considero inservibles antes del proceso de conversión?';
 $s['a4'] = <<<FAQ

@@ -209,12 +209,10 @@ A list with all possible virtual editions for your selection will appear;<br/><b
 From there you can choose "Enterprise" and create a download package.
 FAQ;
 
-$s['q3'] = 'Why do Windows Server downloads show "There are no languages available for this build."?';
+$s['q3'] = 'Why do some Windows Server downloads show "There are no languages available for this build."?';
 $s['a3'] = <<<FAQ
-Windows Server Updates only have Feature on Demand packages.<br/>
+Older Windows Server Updates only have Feature on Demand packages.<br/>
 You cannot use them for conversion purposes.<br/><br/>
-
-They are only listed for easy access to Feature on Demand packages.
 FAQ;
 
 $s['q4'] = 'Can I remove some packages I think are useless before the conversion process?';
@@ -317,4 +315,3 @@ $s['lang_uk-ua'] = 'Ukrainian';
 $s['lang_zh-cn'] = 'Chinese (Simplified)';
 $s['lang_zh-hk'] = 'Chinese (Hong Kong)';
 $s['lang_zh-tw'] = 'Chinese (Traditional)';
-

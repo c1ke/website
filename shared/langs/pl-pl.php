@@ -195,6 +195,7 @@ Po wybraniu edycji Pro, należy kliknąć "Dalej" i wybrać opcję "Przekonwertu
 Po dokonaniu tego wyboru lista możliwych edycji wirtualnych zostanie wyświetlona, gdzie można wybrać edycję Enterprise i pobrać pakiet pobierający.
 FAQ;
 
+/*
 $s['q3'] = 'Dlaczego pobrania Windows Server wyświetlają "Dla tej kompilacji nie ma dostępnych żadnych języków."?';
 $s['a3'] = <<<FAQ
 Aktualizacje Windows Server zawierają tylko pakiety <i>Features on Demand</i>.<br/>
@@ -202,6 +203,7 @@ Nie można ich użyć do celów konwersji.<br/><br/>
 
 Aktualizacje te są udostępnione tylko w celu łatwego dostępu do wspomnianych pakietów.
 FAQ;
+*/
 
 $s['q4'] = 'Czy przed dokonaniem procesu konwersji mogę usunąć pakiety, które uważam za bezużyteczne?';
 $s['a4'] = <<<FAQ

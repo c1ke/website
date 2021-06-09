@@ -209,6 +209,7 @@ O listă cu toate edițiile virtuale posibile pentru selecția dvs., va apărea;
 De acolo puteți alege "Enterprise" și crea un pachet de descărcare.
 FAQ;
 
+/*
 $s['q3'] = 'De ce descărcările Windows Server arată "Nu sunt limbi disponibile pentru această compilare."?';
 $s['a3'] = <<<FAQ
 Actualizările Windows Server au doar pachete Caracteristici la cerere (Feature on Demand).<br/>
@@ -216,6 +217,7 @@ Nu le puteți folosi în scopuri de transformare.<br/><br/>
 
 Sunt listate doar pentru acces facil la pachetele Caracteristici la cerere (Feature on Demand).
 FAQ;
+*/
 
 $s['q4'] = 'Pot să îndepărtez unele pachete care cred ca nu sunt utile înaintea procesului de transformare?';
 $s['a4'] = <<<FAQ
@@ -317,4 +319,3 @@ $s['lang_uk-ua'] = 'Ucraineană';
 $s['lang_zh-cn'] = 'Chineză (Simplificată)';
 $s['lang_zh-hk'] = 'Chineză (Hong Kong)';
 $s['lang_zh-tw'] = 'Chineză (Tradițională)';
-

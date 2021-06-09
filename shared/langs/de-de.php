@@ -209,12 +209,10 @@ Es erscheint eine Liste mit allen möglichen virtuellen Editionen für Ihre Ausw
 Von dort aus können Sie "Enterprise" wählen und ein Download-Paket erstellen.
 FAQ;
 
-$s['q3'] = 'Warum wird bei Windows Server Editionen angezeigt: "Es sind keine Sprachen für diesen Build verfügbar"?';
+$s['q3'] = 'Warum wird bei manchen Windows Server Editionen "Es sind keine Sprachen für diesen Build verfügbar" angezeigt?';
 $s['a3'] = <<<FAQ
-Windows Server-Updates verfügen nur über Feature-on-Demand-Pakete.<br/>
+Ältere Windows Server-Updates verfügen nur über Feature-on-Demand-Pakete.<br/>
 Sie können sie nicht für Konvertierungszwecke verwenden.<br/><br/>
-
-Sie sind nur für den einfachen Zugang zu den "Feature on Demand"-Paketen aufgeführt.
 FAQ;
 
 $s['q4'] = 'Kann ich einige Pakete entfernen, die ich vor dem Konvertierungsprozess für nutzlos halte?';

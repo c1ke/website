@@ -194,11 +194,13 @@ Uma lista com todas as edições virtuais possíveis irá aparecer;<br/><br/>
 
 A partir dali, você poderá escolher "Enterprise" e criar um pacote de download.';
 
+/*
 $s['q3'] = 'Por que os downloads para Windows Server mostram que "Não existem idiomas disponíveis para esta compilação"?';
 $s['a3'] = 'Atualizações do Windows Server possuem apenas pacotes de Recurso sob Demanda.<br/>
 Você não pode usá-los para fins de conversão.<br/><br/>
 
 Eles somente estão listados para acesso rápido a pacotes de Recurso sob Demanda.';
+*/
 
 $s['q4'] = 'Posso remover pacotes que acredito serem inúteis antes do processo de conversão?';
 $s['a4'] = 'Não. A conversão falhará se você fizer isso.';

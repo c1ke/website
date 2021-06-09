@@ -204,12 +204,14 @@ De lijst met alle mogelijke virtuele edities zal worden getoond;<br/><br/>
 Hier kun je "Enterprise" selecteren en het download pakket aanmaken.
 FAQ;
 
+/*
 $s['q3'] = 'Waarom staat er by Windows Server downloads "Er zijn geen talen beschikbaar voor deze build."?';
 $s['a3'] = <<<FAQ
 Windows Server Updates bevatten alleen Feature on Demand pakketten.<br/>
 Deze kun je je niet gebruiken voor conversie doeleinden.<br/><br/>
 Ze worden alleen vermeld voor gemakkelijke toegang tot Feature on Demand-pakketten.
 FAQ;
+*/
 
 $s['q4'] = 'Kan ik bepaalde bestanden verwijderen omdat ik ze niet denk nodig te hebben?';
 $s['a4'] = <<<FAQ
