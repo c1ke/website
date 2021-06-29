@@ -174,48 +174,48 @@ if(!$disableVE) {
         </thead>
         <tbody>
             <tr>
-                <td>Windows 10 Home Single Language</td>
-                <td>Windows 10 Home</td>
+                <td>Windows Home Single Language</td>
+                <td>Windows Home</td>
             </tr>
             <tr>
-                <td>Windows 10 Pro for Workstations</td>
-                <td>Windows 10 Pro</td>
+                <td>Windows Pro for Workstations</td>
+                <td>Windows Pro</td>
             </tr>
             <tr>
-                <td>Windows 10 Pro Education</td>
-                <td>Windows 10 Pro</td>
+                <td>Windows Pro Education</td>
+                <td>Windows Pro</td>
             </tr>
             <tr>
-                <td>Windows 10 Education</td>
-                <td>Windows 10 Pro</td>
+                <td>Windows Education</td>
+                <td>Windows Pro</td>
             </tr>
             <tr>
-                <td>Windows 10 Enterprise</td>
-                <td>Windows 10 Pro</td>
+                <td>Windows Enterprise</td>
+                <td>Windows Pro</td>
             </tr>
             <tr>
-                <td>Windows 10 Enterprise for Virtual Desktops</td>
-                <td>Windows 10 Pro</td>
+                <td>Windows Enterprise for Virtual Desktops</td>
+                <td>Windows Pro</td>
             </tr>
             <tr>
-                <td>Windows 10 IoT Enterprise</td>
-                <td>Windows 10 Pro</td>
+                <td>Windows IoT Enterprise</td>
+                <td>Windows Pro</td>
             </tr>
             <tr>
-                <td>Windows 10 Pro for Workstations N</td>
-                <td>Windows 10 Pro N</td>
+                <td>Windows Pro for Workstations N</td>
+                <td>Windows Pro N</td>
             </tr>
             <tr>
-                <td>Windows 10 Pro Education N</td>
-                <td>Windows 10 Pro N</td>
+                <td>Windows Pro Education N</td>
+                <td>Windows Pro N</td>
             </tr>
             <tr>
-                <td>Windows 10 Education N</td>
-                <td>Windows 10 Pro N</td>
+                <td>Windows Education N</td>
+                <td>Windows Pro N</td>
             </tr>
             <tr>
-                <td>Windows 10 Enterprise N</td>
-                <td>Windows 10 Pro N</td>
+                <td>Windows Enterprise N</td>
+                <td>Windows Pro N</td>
             </tr>
         </tbody>
     </table>

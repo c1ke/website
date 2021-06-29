@@ -182,25 +182,25 @@ styleUpper('downloads', sprintf($s['summaryFor'], "$updateTitle, $selectedLangNa
 
         <p><b><?php echo $s['learnMoreAdditionalEditions2']; ?></b></p>
 
-        <p><b>Windows 10 Home</b></p>
+        <p><b>Windows Home</b></p>
         <ul>
-            <li>Windows 10 Home Single Language</li>
+            <li>Windows Home Single Language</li>
         </ul>
-        <p><b>Windows 10 Pro</b></p>
+        <p><b>Windows Pro</b></p>
         <ul>
-            <li>Windows 10 Pro for Workstations</li>
-            <li>Windows 10 Pro Education</li>
-            <li>Windows 10 Education</li>
-            <li>Windows 10 Enterprise</li>
-            <li>Windows 10 Enterprise for Virtual Desktops</li>
-            <li>Windows 10 IoT Enterprise</li>
+            <li>Windows Pro for Workstations</li>
+            <li>Windows Pro Education</li>
+            <li>Windows Education</li>
+            <li>Windows Enterprise</li>
+            <li>Windows Enterprise for Virtual Desktops</li>
+            <li>Windows IoT Enterprise</li>
         </ul>
-        <p><b>Windows 10 Pro N</b></p>
+        <p><b>Windows Pro N</b></p>
         <ul>
-            <li>Windows 10 Pro for Workstations N</li>
-            <li>Windows 10 Pro Education N</li>
-            <li>Windows 10 Education N</li>
-            <li>Windows 10 Enterprise N</li>
+            <li>Windows Pro for Workstations N</li>
+            <li>Windows Pro Education N</li>
+            <li>Windows Education N</li>
+            <li>Windows Enterprise N</li>
         </ul>
     </div>
     <div class="actions">
@@ -335,7 +335,7 @@ if(!$disableVE) foreach($virtualEditions as $key => $val) {
 <div class="field">
     <div class="ui checkbox">
         <input class="virtual-edition" type="checkbox" name="virtualEditions[]" value="$key" checked>
-        <label>Windows 10 $val</label>
+        <label>Windows $val</label>
     </div>
 </div>
 
