@@ -154,9 +154,9 @@ $s['selectDownloadOptions'] = 'Select your download options';
 $s['selectDownloadOptionsSub'] = 'Configure how you would like to download your selection';
 $s['downloadMethod'] = 'Download method';
 $s['conversionOptions'] = 'Conversion options';
-$s['convOpt1'] = 'Create ISO with install.esd instead of install.wim';
-$s['convOpt2'] = 'Integrate updates when available (Windows converter only)';
-$s['convOpt3'] = 'Run cleanup after updates integration (Windows converter only)';
+$s['convOpt1'] = 'Use solid (ESD) compression';
+$s['convOpt2'] = 'Include updates (Windows converter only)';
+$s['convOpt3'] = 'Run component cleanup (Windows converter only)';
 $s['convOpt4'] = 'Integrate .NET Framework 3.5 (Windows converter only)';
 $s['startDownload'] = 'Create download package';
 
