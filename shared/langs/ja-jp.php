@@ -49,7 +49,7 @@ $s['sourceCode'] = 'ソースコード';
 $s['menu'] = 'メニュー';
 $s['websiteDesc'] = 'Windows Update サーバからUUPファイルを簡単にダウンロードできます。このプロジェクトは米国Microsoft Corporationとは一切関係ありません。';
 $s['notAffiliated'] = 'このプロジェクトは米国Microsoft Corporationとは一切関係ありません。Microsoft、Windowsは、米国Microsoft Corporationの米国およびその他の国における登録商標または商標です。';
-$s['copyright'] = '© %d %s and contributors.'; //© 2019 whatever127 and contributors.
+$s['copyright'] = '© %d %s と貢献者たち。'; //© 2019 whatever127 and contributors.
 $s['selectLanguage'] = '言語を選択';
 
 //index.php
@@ -82,13 +82,13 @@ $s['weFoundBuilds'] = '<b>%d</b>件 見つかりました。'; //<b>692</b> buil
 //latest.php
 $s['latestFetchLatest'] = '最新ビルドを取得';
 $s['latestTestingOnly'] = 'テスト目的のみ';
-$s['latestTestingOnlyWarn'] = '<b>This page is provided for testing purposes only.</b> Builds retrieved by this page that were not processed by the backend server will be provided using fallback packs, which may provide incomplete results. If you want to download an already known build, please use the known builds page instead.';
+$s['latestTestingOnlyWarn'] = '<b>このページはテスト目的でのみ提供されています。</b>このページで取得され、バックエンドサーバで処理されなかったビルドは、代替えのパックを使用して提供されるため、不完全な結果になる可能性があります。既知のビルドをダウンロードする場合は、既知のビルドページを使用してください。';
 $s['latestDoYouWantKnown'] = '既知のビルドを参照して続行しますか？';
 $s['chooseOptions'] = 'パラメータを選択';
 $s['buildOfPretendedClient'] = 'Windows Updateの疑似的なクライアントビルド番号';
 $s['editionOfPretendedClient'] = 'システムの疑似的なエディション';
-$s['skipAheadLabel'] = 'Skip ahead flight';
-$s['skipAheadOption'] = 'Use skip ahead flighting (Insider Fast only)';
+$s['skipAheadLabel'] = 'フライティングをスキップ';
+$s['skipAheadOption'] = '目の前のフライティングをスキップします (Insider Fast のみ)';
 $s['fetchUpdates'] = '更新を取得';
 $s['fetchUpdatesInfo'] = '<i>更新プログラムの取得</i>ボタンをクリックして、リクエストをWindows Updateサーバーに送信します。';
 
@@ -123,7 +123,7 @@ $s['chooseEdition'] = 'エディションを選択';
 $s['chooseEditionDesc'] = '利用したいエディションを選択してください';
 $s['allEditions'] = 'すべてのエディション';
 $s['selectEditionInfoText'] = '<i>次へ</i>ボタンをクリックして概要ページを開きます。';
-$s['additionalEditionsInfo'] = 'If you need <b>additional editions</b> from the table on the right, select their <b>Required edition</b> above and proceed by clicking <i>Next</i>.<br>On the summary page select the <b>Create additional editions</b> option.';
+$s['additionalEditionsInfo'] = '<b>追加エディション</b>が必要な場合右の表を参照してください。記載されてる<b>必要なエディション</b>を選択し<i>次へ</i>をクリックしてください。<br>そして概要ページで<b>追加エディションの選択</b>を選択してください。';
 
 //download.php
 $s['summary'] = '概要';
@@ -131,7 +131,7 @@ $s['summaryDesc'] = '選択内容を確認し、ダウンロード方法を選�
 $s['summaryFor'] = '%s の概要'; //Summary for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States), Windows 10 Pro
 $s['summaryOfSelection'] = '選択内容の概要';
 $s['browseList'] = 'ファイル一覧を検索';
-$s['browseListDesc'] = 'Opens the page with a list of files in the UUP set for manual download.';
+$s['browseListDesc'] = '手動ダウンロード用に設定されたUUP内のファイルのリストが含まれるページを開きます。';
 $s['aria2Opt1'] = 'UUPセットをダウンロード';
 $s['aria2Opt1Desc'] = '選択したUUPセットを aria2 で簡単にダウンロードできます。';
 $s['aria2Opt2'] = 'ダウンロードしてISOに変換';
@@ -197,41 +197,41 @@ FAQ;
 
 $s['q2'] = 'Windows 10(Enterpriseなど) のISOを作成するには？';
 $s['a2'] = <<<FAQ
-Enterprise is a <b>virtual edition</b> of Windows 10. "Virtual" here does not mean "for virtualization", but rather "not standalone".<br/><br/>
+Enterprise版はWindows10の<b>仮想版</b>です。 ここでいう「仮想」とは「仮想化用」という意味ではなく、スタンドアロンでないという意味です。<br/><br/>
 
-Virtual editions require a "base edition" for conversion.<br/>
-When selecting the edition for a given update, on the right side of the page you will find a table with requirements for different virtual editions.<br/>
-For "Windows 10 Enterprise" the requirement is "Windows 10 Pro", which is what you will need to select first.<br/><br/>
+仮想版ではベースになるエディションがエディションのアップデートに必要になります。<br/>
+ベースになるエディションを選択すると右側にアップデートの要件を満たす仮想版の一覧が表示されます。<br/>
+「Windows 10 Enterprise」の場合「Windows 10 Pro」が要件を満たしているためこれを選択する必要があります。<br/><br/>
 
-After selecting Pro click "Next" and choose the "convert and create additional editions" option.<br/>
-A list with all possible virtual editions for your selection will appear;<br/><br/>
+「Pro」を選択した後、「次へ」をクリックし「追加エディションの選択」のオプションを選択します。<br/>
+選択可能な仮想版がすべて表示されます。<br/><br/>
 
-From there you can choose "Enterprise" and create a download package.
+そこから「Enterprise」を選択してダウンロードパッケージを作成できます。
 FAQ;
 
-$s['q3'] = 'Why do some Windows Server downloads show "There are no languages available for this build."?';
+$s['q3'] = '一部のWindows Serverで「このビルドで使用できる言語はありません」と表示されるのはなぜですか？';
 $s['a3'] = <<<FAQ
-Older Windows Server Updates only have Feature on Demand packages.<br/>
-You cannot use them for conversion purposes.
+古いWindows Server Updateでは、Feature on Demand パッケージしかありません。<br/>
+そのため変換目的で利用することはできません。
 FAQ;
 
-$s['q4'] = 'Can I remove some packages I think are useless before the conversion process?';
+$s['q4'] = '変換処理の前に不要と感じたパッケージを削除出来ますか？';
 $s['a4'] = <<<FAQ
-You can't. The conversion will fail if you do this.
+いいえ。その場合変換処理に失敗します。
 FAQ;
 
-$s['q5'] = 'The same build exists twice, but one with a (2) attached. What does that mean?';
+$s['q5'] = '同じビルドが2回おこなわれていますが、1つは(2)がアタッチされています。これはなぜですか？';
 $s['a5'] = <<<FAQ
-In general, this means that the build was pushed to more than one channel.<br/>
-For example, a build was first pushed into the Dev channel and then pushed into the Beta channel.<br/><br/>
+一般的にビルドが複数のチャネルに反映されたことを意味します。<br/>
+例えば、ビルドは最初にDevチャネルに反映されベータチャネルに反映されます。<br/><br/>
 
-It does not matter which one you choose, they have absolutely the same content.
+まぁ、どちらを選択しても内容は一緒です。
 FAQ;
 
-$s['qUnknown'] = 'I have a question not listed here.';
+$s['qUnknown'] = 'ここに載ってない質問があるんだが？';
 $s['aUnknown'] =  <<<FAQ
-You can join UUP dump discord server and ask your question there.
-Only questions in English will be answered.
+UUP dump の Discordサーバに参加してそこで質問できるぜ！<br/>
+あ。ただ英語の質問だけに答えられるので気をつけてくれよな！
 FAQ;
 
 //Error pages
@@ -250,28 +250,28 @@ $s['error_NO_BUILDS_IN_FILEINFO'] = '<i>fileinfo</i>データベースにビル�
 $s['error_SEARCH_NO_RESULTS'] = '実行されたクエリのアイテムが見つかりませんでした。';
 $s['error_UNKNOWN_ARCH'] = '不明なプロセッサアーキテクチャです。';
 $s['error_UNKNOWN_RING'] = '不明なチャネルです。';
-$s['error_UNKNOWN_FLIGHT'] = 'Unknown flight.';
-$s['error_UNKNOWN_COMBINATION'] = 'The flight and ring combination is not correct. Skip ahead is only supported for Insider Fast ring.';
-$s['error_ILLEGAL_BUILD'] = 'Specified build number is less than %d or larger than %d.'; //Specified build number is less than 9841 or larger than 2147483646.
-$s['error_ILLEGAL_MINOR'] = 'Specified build minor is incorrect.';
-$s['error_NO_UPDATE_FOUND'] = 'The server returned no updates.';
-$s['error_XML_PARSE_ERROR'] = 'Response XML parsing failed. There may be a problem with Microsoft servers. Try again later.';
-$s['error_EMPTY_FILELIST'] = 'The server has returned an empty file list.';
-$s['error_NO_FILES'] = 'There are no files available for your selection.';
-$s['error_NOT_FOUND'] = 'Specified selection cannot be found.';
-$s['error_MISSING_FILES'] = 'The selected UUP set has missing files.';
-$s['error_NO_METADATA_ESD'] = 'There are no metadata ESD files available for your selection.';
-$s['error_UNSUPPORTED_LANG'] = 'Specified language is not supported.';
-$s['error_UNSPECIFIED_LANG'] = 'Language was not specified.';
-$s['error_UNSUPPORTED_EDITION'] = 'Specified edition is not supported.';
-$s['error_UNSUPPORTED_COMBINATION'] = 'The language and edition combination is not correct.';
-$s['error_NOT_CUMULATIVE_UPDATE'] = 'Selected update does not contain a Cumulative Update.';
-$s['error_UPDATE_INFORMATION_NOT_EXISTS'] = 'Information about the specified update doesn\'t exist in the database.';
-$s['error_KEY_NOT_EXISTS'] = 'Specified key does not exist in update information.';
-$s['error_UNSPECIFIED_UPDATE'] = 'Update ID was not specified.';
-$s['error_INCORRECT_ID'] = 'Specified Update ID is incorrect. Please make sure that the specified Update ID is correct.';
-$s['error_RATE_LIMITED'] = 'You are being rate limited. Please try again in a few seconds.';
-$s['error_UNSPECIFIED_VE'] = 'You have not selected any additional editions. If do not wish to create additional editions, please use the <i>Download using aria2 and convert</i> option.';
+$s['error_UNKNOWN_FLIGHT'] = '不明なフライトです。';
+$s['error_UNKNOWN_COMBINATION'] = 'フライトとチャネルの組み合わせが間違っています。「フライティングをスキップ」は、Insider Fast チャネルだけでサポートされています。';
+$s['error_ILLEGAL_BUILD'] = '指定されたビルド番号が %d より小さいか %d より大きいです。'; //Specified build number is less than 9841 or larger than 2147483646.
+$s['error_ILLEGAL_MINOR'] = '指定されたマイナービルドが正しくありません。';
+$s['error_NO_UPDATE_FOUND'] = 'サーバは更新を返しませんでした。';
+$s['error_XML_PARSE_ERROR'] = 'XMLの解析に失敗しました。Microsoftサーバに問題がある可能性があります。後でもう一度お試しください。';
+$s['error_EMPTY_FILELIST'] = 'サーバは空のファイルリストを返しました。';
+$s['error_NO_FILES'] = '選択できるファイルはありません。';
+$s['error_NOT_FOUND'] = '指定した項目は見つかりません。';
+$s['error_MISSING_FILES'] = '選択したUUPセットに不足しているファイルがあります。';
+$s['error_NO_METADATA_ESD'] = '選択できるメタデータESDファイルがありません。';
+$s['error_UNSUPPORTED_LANG'] = '指定した言語はサポートされていません。';
+$s['error_UNSPECIFIED_LANG'] = '言語が指定されていません。';
+$s['error_UNSUPPORTED_EDITION'] = '指定したエディションはサポートされていません。';
+$s['error_UNSUPPORTED_COMBINATION'] = '言語とエディションの組み合わせが正しくありません。';
+$s['error_NOT_CUMULATIVE_UPDATE'] = '選択した更新プログラムに累積更新プログラムが含まれていません。';
+$s['error_UPDATE_INFORMATION_NOT_EXISTS'] = '指定された更新プログラムに関する情報がデータベースに存在しません。';
+$s['error_KEY_NOT_EXISTS'] = '指定されたキーは更新情報に存在しません。';
+$s['error_UNSPECIFIED_UPDATE'] = '更新IDが指定されていません。';
+$s['error_INCORRECT_ID'] = '指定された更新IDが正しくありません。指定された更新IDが正しいことを確認してください。';
+$s['error_RATE_LIMITED'] = 'レート制限が課せられています。数秒後にもう一度お試しください。';
+$s['error_UNSPECIFIED_VE'] = '追加のエディションを選択していません。追加のエディションを作成したくない場合は <i>aria2を使用してダウンロード後に変換</i> のオプションを使用してください。';
 $s['errorNoMessage'] = 'エラーメッセージは利用できません.';
 
 //Languages
