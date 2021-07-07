@@ -90,6 +90,8 @@ if($selectedLang) {
     $selectedLangName = $s['allLangs'];
 }
 
+$editionsNum = count($editions);
+
 styleUpper('downloads', sprintf($s['selectEditionFor'], "$updateTitle, $selectedLangName"));
 ?>
 
@@ -136,6 +138,17 @@ if($updateArch == 'arm64') {
                 <div class="grouped fields">
 <?php
 foreach($editions as $key => $val) {
+if($editionsNum > 1 && $key == 'PPIPRO') {
+    echo <<<EOD
+<div class="field">
+    <div class="ui checkbox">
+        <input type="checkbox" name="edition[]" value="$key" class="edition-selection" null>
+        <label>$val</label>
+    </div>
+</div>
+
+EOD;
+    } else {
     echo <<<EOD
 <div class="field">
     <div class="ui checkbox">
@@ -145,6 +158,7 @@ foreach($editions as $key => $val) {
 </div>
 
 EOD;
+    }
 }
 ?>
                 </div>
