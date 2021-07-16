@@ -37,6 +37,7 @@ $retailLatestBuild = "19041.330";
 // Turns out in some cases a change from retail to beta will require two updates..
 // This entire thing could be done recursively but the API doesn't support that.
 $betaLatestBuild = "19042.330";
+$rpLatestBuild = "19044.1"; // This is stupid
 
 styleUpper('home');
 ?>
@@ -130,9 +131,9 @@ styleUpper('home');
             </td>
             <td><?php echo $s['latestRPReleaseSub']; ?></td>
             <td class="center aligned">
-                <a href="fetchupd.php?arch=amd64&ring=rp&build=<?php echo $retailLatestBuild; ?>"><button class="ui blue button">x64</button>
-                <a href="fetchupd.php?arch=x86&ring=rp&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">x86</button>
-                <a href="fetchupd.php?arch=arm64&ring=rp&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">arm64</button>
+                <a href="fetchupd.php?arch=amd64&ring=rp&build=<?php echo $rpLatestBuild; ?>"><button class="ui blue button">x64</button>
+                <a href="fetchupd.php?arch=x86&ring=rp&build=<?php echo $rpLatestBuild; ?>"><button class="ui button">x86</button>
+                <a href="fetchupd.php?arch=arm64&ring=rp&build=<?php echo $rpLatestBuild; ?>"><button class="ui button">arm64</button>
             </td>
         </tr>
         <tr>
