@@ -196,6 +196,9 @@ if ! which aria2c >/dev/null \\
     # Linux
     echo "If you use Debian or Ubuntu you can install these using:"
     echo "sudo apt-get install aria2 cabextract wimtools chntpw genisoimage"
+    echo ""
+    echo "If you use Arch you can install these like this:"
+    echo "sudo pacman -S aria2 cabextract wimlib chntpw cdrtools"
   elif [ `uname` == "Darwin" ]; then
     # macOS
     echo "macOS requires Homebrew (https://brew.sh) to install the prerequisite software."
@@ -458,6 +461,9 @@ if ! which aria2c >/dev/null; then
   echo ""
   echo "If you use Debian or Ubuntu you can install these using:"
   echo "sudo apt-get install aria2"
+  echo ""
+  echo "If you use Arch you can install these like this:"
+  echo "sudo pacman -S aria2"
   exit 1
 fi
 
