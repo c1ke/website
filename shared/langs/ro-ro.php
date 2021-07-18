@@ -209,15 +209,11 @@ O listă cu toate edițiile virtuale posibile pentru selecția dvs., va apărea;
 De acolo puteți alege "Enterprise" și crea un pachet de descărcare.
 FAQ;
 
-/*
-$s['q3'] = 'De ce descărcările Windows Server arată "Nu sunt limbi disponibile pentru această compilare."?';
+$s['q3'] = 'De ce unele descărcări Windows Server arată "Nu sunt limbi disponibile pentru această compilare."?';
 $s['a3'] = <<<FAQ
-Actualizările Windows Server au doar pachete Caracteristici la cerere (Feature on Demand).<br/>
+Actualizările mai vechi Windows Server au doar pachete Caracteristici la cerere (Feature on Demand).<br/>
 Nu le puteți folosi în scopuri de transformare.<br/><br/>
-
-Sunt listate doar pentru acces facil la pachetele Caracteristici la cerere (Feature on Demand).
 FAQ;
-*/
 
 $s['q4'] = 'Pot să îndepărtez unele pachete care cred ca nu sunt utile înaintea procesului de transformare?';
 $s['a4'] = <<<FAQ
@@ -244,7 +240,7 @@ $s['requestNotSuccessful'] = 'Solicitare fără succes';
 $s['anErrorHasOccurred'] = 'A apărut o eroare în încercarea de a procesa solicitarea dvs.';
 $s['generatedPackNotAvailable'] = 'Pachetul generat nu este disponibil';
 $s['generatedPackNotAvailableDesc'] = 'Această actualizare nu dispune de un pachet care să furnizeze informații complete despre limbile disponibile, ediții și fișiere. Se va folosi pachetul de rezervă, asta poate să nu furnizeze informațiile corecte. Dacă descărcarea eșuează din această cauză, vă rugăm așteptați până când pachetul va fi disponibil.';
-$s['arm64Warning'] = 'Aceasta este o compilare <b>ARM64</b> care <b>nu este compatibilă cu procesoarele PC Intel sau AMD regulare.</b> Dacă sunteți siguri că dispozitivul dvs. de destinație are un procesor <b>ARM64</b> și nu îl confundați cu <b>AMD64</b>, puteți continua în siguranță.';
+$s['arm64Warning'] = 'Aceasta este o compilare <b>ARM64</b> care <b>nu este compatibilă cu procesoarele PC Intel sau AMD obișnuite.</b> Dacă sunteți siguri că dispozitivul dvs. de destinație are un procesor <b>ARM64</b> și nu îl confundați cu <b>AMD64</b>, puteți continua în siguranță.';
 
 //Error messages
 $s['error_ERROR'] = 'Eroare generică.';
