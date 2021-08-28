@@ -32,7 +32,7 @@ if(empty($ids)) {
 }
 
 // Below is the latest build that results in the most accurate 'latest retail' results in fetchupd.php?arch=XXX&ring=retail&build=XXX
-$retailLatestBuild = "19041.330";
+$retailLatestBuild = "19043.330";
 
 // Turns out in some cases a change from retail to beta will require two updates..
 // This entire thing could be done recursively but the API doesn't support that.
