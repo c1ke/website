@@ -86,9 +86,9 @@ $languageCoreSelectorModal = <<<EOD
         <p><a href="{$url}lang=tr-tr"><i class="tr flag"></i>Türkçe</a></p>
         <p><a href="{$url}lang=ar-sa"><i class="sa flag"></i>العربية</a></p>
         <p><a href="{$url}lang=ko-kr"><i class="kr flag"></i>한국어</a></p>
-        <p><a href="{$url}lang=zh-cn"><i class="cn flag"></i>中文（中国）</a></p>
+        <p><a href="{$url}lang=zh-cn"><i class="cn flag"></i>中文（简体）</a></p>
         <p><a href="{$url}lang=ja-jp"><i class="jp flag"></i>日本語</a></p>
-        <p><a href="{$url}lang=zh-tw"><i class="tw flag"></i>中文（台灣）</a></p>
+        <p><a href="{$url}lang=zh-tw"><i class="tw flag"></i>中文（繁體）</a></p>
     </div>
     <div class="actions">
         <div class="ui ok button">

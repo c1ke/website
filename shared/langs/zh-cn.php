@@ -3,8 +3,8 @@
 UUP dump translation file.
 
 Translation information:
-English language name: Chinese (China)
-Localized language name: 中文（中国）
+English language name: Chinese (Simplified)
+Localized language name: 中文（简体）
 Language code: zh-CN
 Authors: wordlesswind, JRJSheep
 */

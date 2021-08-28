@@ -1,11 +1,11 @@
 <?php
 /*
-UUP dump translation file for Chinese (Taiwan).
- - UUP dump 中文 (台灣) 翻譯檔
+UUP dump translation file for Chinese (Traditional).
+ - UUP dump 中文 (繁體) 翻譯檔
 
 Translation information:
-English language name: Chinese (Taiwan)
-Localized language name: 中文（台灣）
+English language name: Chinese (Traditional)
+Localized language name: 中文（繁體）
 Language code: zh-TW
 Authors: pan93412
 */
@@ -19,7 +19,7 @@ $s['uupdump'] = 'UUP dump';
 $s['uupdumpSub'] = '%s - UUP dump'; //Browse known builds - UUP dump
 $s['build'] = '組建';
 $s['arch'] = '架構';
-$s['ring'] = '振鈴 (Ring)'; // TRANSLATOR: 我使用 Windows 中國的翻譯代替。若台灣區有對應翻譯，也請幫忙補上，謝謝！:)
+$s['ring'] = '振鈴 (Ring)'; // TRANSLATOR: 我使用 Windows 簡體中文的翻譯代替。若繁體中文有對應翻譯，也請幫忙補上，謝謝！:)
 $s['updateid'] = '更新 ID';
 $s['update'] = '更新';
 $s['lang'] = '語言';
