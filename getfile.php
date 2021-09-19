@@ -16,7 +16,7 @@ limitations under the License.
 */
 
 $updateId = isset($_GET['id']) ? $_GET['id'] : null;
-$file = isset($_GET['file']) ? strtolower($_GET['file']) : null;
+$file = isset($_GET['file']) ? $_GET['file'] : null;
 $aria2 = isset($_GET['aria2']) ? $_GET['aria2'] : 0;
 
 if(empty($updateId)) die('Unspecified update id');
@@ -49,12 +49,12 @@ if(isset($files['error'])) {
 $files = $files['files'];
 $filesKeys = array_keys($files);
 
-$files[$file]['url'] = str_replace('http://tlu.dl.delivery.mp.microsoft.com', 'https://uupdump.sf.tlu.dl.delivery.mp.microsoft.com', $files[$file]['url']);
-
 if(!isset($files[$file]['url'])) {
     fancyError('NO_FILES', 'downloads', $file);
     die();
 }
+
+$files[$file]['url'] = str_replace('http://tlu.dl.delivery.mp.microsoft.com', 'https://uupdump.sf.tlu.dl.delivery.mp.microsoft.com', $files[$file]['url']);
 
 if($aria2) {
     header('Content-Type: text/plain');
