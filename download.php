@@ -133,11 +133,11 @@ if($usePack && $desiredEdition) {
 $filesKeys = array_keys($files);
 $virtualEditions = array();
 
-if(preg_grep('/^Core_.*\.esd/i', $filesKeys)) {
+if(preg_grep('/^.*Core_.*\.esd/i', $filesKeys)) {
     $virtualEditions['CoreSingleLanguage'] = 'Home Single Language';
 }
 
-if(preg_grep('/^Professional_.*\.esd/i', $filesKeys)) {
+if(preg_grep('/^.*Professional_.*\.esd/i', $filesKeys)) {
     $virtualEditions['ProfessionalWorkstation'] = 'Pro for Workstations';
     $virtualEditions['ProfessionalEducation'] = 'Pro Education';
     $virtualEditions['Education'] = 'Education';
@@ -149,7 +149,7 @@ if(preg_grep('/^Professional_.*\.esd/i', $filesKeys)) {
     }
 }
 
-if(preg_grep('/^ProfessionalN_.*\.esd/i', $filesKeys)) {
+if(preg_grep('/^.*ProfessionalN_.*\.esd/i', $filesKeys)) {
     $virtualEditions['ProfessionalWorkstationN'] = 'Pro N for Workstations';
     $virtualEditions['ProfessionalEducationN'] = 'Pro Education N';
     $virtualEditions['EducationN'] = 'Education N';
