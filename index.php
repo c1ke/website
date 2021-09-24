@@ -65,10 +65,20 @@ styleUpper('home');
         Dev Channel
     </a>
 
+    <a class="ui mini button" href="known.php?q=22000">
+        <i class="search icon"></i>
+        Windows 11 21H2
+    </a>
+
     <a class="ui mini button" href="known.php?q=20348">
         <i class="search icon"></i>
         Server 21H2
     </h2>
+
+    <a class="ui mini button" href="known.php?q=19044">
+        <i class="search icon"></i>
+        21H2
+    </a>
 
     <a class="ui mini button" href="known.php?q=19043">
         <i class="search icon"></i>
