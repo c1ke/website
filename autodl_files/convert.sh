@@ -1,6 +1,8 @@
 #!/bin/bash
-scriptName="UUP Converter v0.6.4"
+scriptName="UUP Converter v0.6.5"
 UUP_CONVERTER_SCRIPT=1
+
+export PATH=${PATH}:/usr/sbin
 
 if [ -f `dirname $0`/convert_ve_plugin ]; then
   . `dirname $0`/convert_ve_plugin
@@ -13,15 +15,18 @@ elif [ -f `dirname $0`/convert_config_macos ] && [ `uname` == "Darwin" ]; then
 else
   VIRTUAL_EDITIONS_LIST="CoreSingleLanguage Enterprise EnterpriseN Education \
   EducationN ProfessionalEducation ProfessionalEducationN \
-  ProfessionalWorkstation ProfessionalWorkstationN ServerRdsh IoTEnterprise"
+  ProfessionalWorkstation ProfessionalWorkstationN ServerRdsh IoTEnterprise \
+  CloudEdition CloudEditionN"
 fi
 
 editions='analogonecore
 andromeda
 cloud
-cloudn
 cloude
 clouden
+cloudn
+cloudedition
+cloudeditionn
 core
 corecountryspecific
 coren
@@ -29,6 +34,10 @@ coresinglelanguage
 coresystemserver
 education
 educationn
+embedded
+embeddede
+embeddedeeval
+embeddedeval
 enterprise
 enterpriseeval
 enterpriseg
@@ -40,9 +49,13 @@ enterpriseseval
 enterprisesn
 enterprisesneval
 holographic
+hubos
 iotenterprise
 iotenterprises
+iotos
 iotuap
+lite
+mobilecore
 onecoreupdateos
 ppipro
 professional
@@ -60,7 +73,6 @@ serverazurecorcore
 serverazurenano
 serverazurenanocore
 serverazurestackhcicor
-serverazurestackhcicorcore
 servercloudstorage
 servercloudstoragecore
 serverdatacenter
@@ -102,8 +114,6 @@ serverstorageworkgroupeval
 serverstorageworkgroupevalcore
 serverturbine
 serverturbinecor
-serverturbinecorcore
-serverturbinecore
 serverweb
 serverwebcore
 starter
@@ -139,6 +149,7 @@ sources/bootsvc.dll
 sources/cmisetup.dll
 sources/compatctrl.dll
 sources/compatprovider.dll
+sources/compliance.ini
 sources/cryptosetup.dll
 sources/diager.dll
 sources/diagnostic.dll
@@ -195,6 +206,7 @@ sources/unattend.dll
 sources/unbcl.dll
 sources/upgloader.dll
 sources/upgrade_frmwrk.xml
+sources/utcapi.dll
 sources/uxlib.dll
 sources/uxlibres.dll
 sources/vhdprovider.dll
@@ -203,6 +215,7 @@ sources/w32uires.dll
 sources/warning.gif
 sources/wdsclient.dll
 sources/wdsclientapi.dll
+sources/wdscommonlib.dll
 sources/wdscore.dll
 sources/wdscsl.dll
 sources/wdsimage.dll
@@ -238,6 +251,7 @@ sources/..-.*/setup.exe.mui
 sources/..-.*/setup_help_upgrade_or_custom.rtf
 sources/..-.*/setupcompat.dll.mui
 sources/..-.*/SetupCore.dll.mui
+sources/..-.*/SetupMgr.dll.mui
 sources/..-.*/setupplatform.exe.mui
 sources/..-.*/SetupPrep.exe.mui
 sources/..-.*/smiengine.dll.mui
@@ -306,6 +320,9 @@ if ! which cabextract >/dev/null 2>&1 \
     # Linux
     echo "If you use Debian or Ubuntu you can install these using:"
     echo "sudo apt-get install cabextract wimtools chntpw genisoimage"
+    echo ""
+    echo "If you use Arch Linux you can install these using:"
+    echo "sudo pacman -S cabextract wimlib chntpw cdrtools"
   elif [ `uname` == "Darwin" ]; then
     # macOS
     echo "macOS requires Homebrew (https://brew.sh) to install the prerequisite software."
@@ -392,7 +409,7 @@ extractDir="$tempDir/extract"
 echo -e "\033[1m$scriptName\033[0m"
 
 updatesDetected=false
-for file in `find "$uupDir" -type f -iname "windows10.0-kb*.cab"`; do
+for file in `find "$uupDir" -type f -iname "windows10.0-kb*.cab" -or -iname "ssu-*.cab"`; do
   updatesDetected=true
 done
 
@@ -406,7 +423,7 @@ if [ $runVirtualEditions -eq 1 ] && [ "$VIRTUAL_EDITIONS_PLUGIN_LOADED" != "1" ]
 fi
 
 reffiles=0
-for file in `find "$uupDir" -type f -iname "*.cab" -not -iname "*windows10.0-kb*.cab"`; do
+for file in `find "$uupDir" -type f -iname "*.cab" -not -iname "*windows10.0-kb*.cab" -not -iname "ssu-*.cab"`; do
   fileName=`basename $file .cab`
   echo -e "$infoColor""CAB -> ESD:""$resetColor"" $fileName"
 
@@ -414,7 +431,9 @@ for file in `find "$uupDir" -type f -iname "*.cab" -not -iname "*windows10.0-kb*
   cabextract -d "$extractDir" "$file" >/dev/null 2>/dev/null
   errorHandler $? "Failed to extract $fileName.cab"
 
-  wimlib-imagex capture "$extractDir" "$tempDir/$fileName.esd" >/dev/null
+  wimlib-imagex capture "$extractDir" "$tempDir/$fileName.esd" \
+    --no-acls --norpfix "Edition Package" "Edition Package" >/dev/null
+
   errorHandler $? "Failed to create $fileName.esd"
 
   let reffiles++
@@ -432,7 +451,7 @@ mkdir ISODIR
 echo ""
 echo -e "$infoColor""Creating ISO structure...""$resetColor"
 
-wimlib-imagex apply "$firstMetadata" 1 ISODIR --no-acls 2>/dev/null
+wimlib-imagex apply "$firstMetadata" 1 ISODIR --no-acls --no-attributes 2>/dev/null
 errorHandler $? "Failed to create ISO structure"
 
 echo ""
@@ -469,8 +488,13 @@ y' | chntpw -e "$tempDir/SOFTWARE" >/dev/null
 wimlib-imagex update ISODIR/sources/boot.wim 1 \
   --command "add $tempDir/SOFTWARE /Windows/System32/config/SOFTWARE" >/dev/null
 
+bckimg=background_cli.bmp
+if [ -e ./ISODIR/sources/background_svr.bmp ]; then
+  bckimg=background_svr.bmp
+fi
+
 wimlib-imagex update ISODIR/sources/boot.wim 1 \
-  --command "add ISODIR/sources/background_cli.bmp /Windows/system32/winre.jpg" >/dev/null
+  --command "add ISODIR/sources/$bckimg /Windows/system32/winre.jpg" >/dev/null
 
 wimlib-imagex update ISODIR/sources/boot.wim 1 \
   --command "delete /Windows/System32/winpeshl.ini" >/dev/null
@@ -497,8 +521,8 @@ list=
 echo "delete /Windows/System32/winpeshl.ini" >"$tempDir/update.txt"
 echo "add ISODIR/setup.exe /setup.exe" >>"$tempDir/update.txt"
 echo "add ISODIR/sources/inf/setup.cfg /sources/inf/setup.cfg" >>"$tempDir/update.txt"
-echo "add ISODIR/sources/background_cli.bmp /sources/background.bmp" >>"$tempDir/update.txt"
-echo "add ISODIR/sources/background_cli.bmp /Windows/system32/winre.jpg" >>"$tempDir/update.txt"
+echo "add ISODIR/sources/$bckimg /sources/background.bmp" >>"$tempDir/update.txt"
+echo "add ISODIR/sources/$bckimg /Windows/system32/winre.jpg" >>"$tempDir/update.txt"
 for i in $files; do
     echo "add ISODIR/$i /$i" >>"$tempDir/update.txt"
 done
@@ -515,13 +539,29 @@ for metadata in $metadataFiles; do
   currentInfo=`wimlib-imagex info "$metadata" 3`
 
   currentEdition=`grep -i "^Edition ID:" <<< "$currentInfo" | sed "s/.*  //g"`
+  currentName=`grep -i "^Name:" <<< "$currentInfo" | sed "s/.*  //g"`
+  currentType=`grep -i "^Installation Type:" <<< "$currentInfo" | sed "s/.*  //g"`
+
+  if [ "$currentType" == "Server Core" ] && [ "$currentEdition" == "ServerStandard" ]; then
+    currentEdition="ServerStandardCore"
+  fi
+  if [ "$currentType" == "Server Core" ] && [ "$currentEdition" == "ServerDatacenter" ]; then
+    currentEdition="ServerDatacenterCore"
+  fi
+
   editionName="Windows 10 $currentEdition"
+  if echo $currentName | grep -ow "Windows 11" >/dev/null; then
+    editionName="Windows 11 $currentEdition"
+  fi
+  if echo $currentEdition | grep -i "^Server" >/dev/null; then
+    editionName="Windows Server 2022 $currentEdition"
+  fi
 
   echo -e "$infoColor""Exporting $editionName to install.$type...""$resetColor"
 
   if [ $reffiles -ge 1 ]; then
     wimlib-imagex export "$metadata" 3 ISODIR/sources/install.$type \
-      "$editionName" $compressParam --ref="$uupDir/*.esd" --ref "$tempDir/*.esd"
+      "$editionName" $compressParam --ref="$uupDir/*.esd" --ref="$tempDir/*.esd"
   else
     wimlib-imagex export "$metadata" 3 ISODIR/sources/install.$type \
       "$editionName" $compressParam --ref="$uupDir/*.esd"
