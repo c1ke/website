@@ -1,5 +1,5 @@
 #!/bin/bash
-scriptName="UUP Converter v0.6.5"
+scriptName="UUP Converter v0.6.6"
 UUP_CONVERTER_SCRIPT=1
 
 export PATH=${PATH}:/usr/sbin
@@ -399,7 +399,10 @@ fi
 
 list=
 
-lang=$(grep -i "_..-.*.esd" <<< "$metadataFiles" | head -1 | tr '[:upper:]' '[:lower:]' | sed 's/.*_//g;s/.esd//g')
+firstMetadata=$(head -1 <<< "$metadataFiles")
+getLang=`wimlib-imagex info "$firstMetadata" 3`
+lang=`grep -i "^Default Language:" <<< "$getLang" | sed "s/.*  //g"`
+#lang=$(grep -i "_..-.*.esd" <<< "$metadataFiles" | head -1 | tr '[:upper:]' '[:lower:]' | sed 's/.*_//g;s/.esd//g')
 metadataFiles=$(grep -i "$lang" <<< "$metadataFiles" | sort | uniq)
 firstMetadata=$(head -1 <<< "$metadataFiles")
 
