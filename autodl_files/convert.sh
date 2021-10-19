@@ -1,5 +1,5 @@
 #!/bin/bash
-scriptName="UUP Converter v0.6.6"
+scriptName="UUP Converter v0.6.7"
 UUP_CONVERTER_SCRIPT=1
 
 export PATH=${PATH}:/usr/sbin
@@ -425,7 +425,7 @@ if [ $runVirtualEditions -eq 1 ] && [ "$VIRTUAL_EDITIONS_PLUGIN_LOADED" != "1" ]
   runVirtualEditions=0
 fi
 
-reffiles=0
+echo ""
 for file in `find "$uupDir" -type f -iname "*.cab" -not -iname "*windows10.0-kb*.cab" -not -iname "ssu-*.cab"`; do
   fileName=`basename $file .cab`
   echo -e "$infoColor""CAB -> ESD:""$resetColor"" $fileName"
@@ -438,8 +438,6 @@ for file in `find "$uupDir" -type f -iname "*.cab" -not -iname "*windows10.0-kb*
     --no-acls --norpfix "Edition Package" "Edition Package" >/dev/null
 
   errorHandler $? "Failed to create $fileName.esd"
-
-  let reffiles++
 
   rm -rf "$extractDir"
 done
@@ -536,6 +534,11 @@ errorHandler $? "Failed to add required files to second index of boot.wim"
 wimlib-imagex optimize ISODIR/sources/boot.wim
 rm "ISODIR/sources/xmllite.dll"
 
+refglobs=false
+for file in `find "$tempDir" -type f -iname "*.esd"`; do
+  refglobs=true
+done
+
 echo ""
 indexesExported=0
 for metadata in $metadataFiles; do
@@ -562,12 +565,12 @@ for metadata in $metadataFiles; do
 
   echo -e "$infoColor""Exporting $editionName to install.$type...""$resetColor"
 
-  if [ $reffiles -ge 1 ]; then
+  if [ $refglobs == true ]; then
     wimlib-imagex export "$metadata" 3 ISODIR/sources/install.$type \
-      "$editionName" $compressParam --ref="$uupDir/*.esd" --ref="$tempDir/*.esd"
+      "$editionName" $compressParam --ref=""$uupDir/*.esd"" --ref=""$tempDir/*.esd""
   else
     wimlib-imagex export "$metadata" 3 ISODIR/sources/install.$type \
-      "$editionName" $compressParam --ref="$uupDir/*.esd"
+      "$editionName" $compressParam --ref=""$uupDir/*.esd""
   fi
 
   errorHandler $? "Failed to export $editionName to install.$type""$resetColor"
