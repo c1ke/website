@@ -1,5 +1,5 @@
 #!/bin/bash
-scriptName="UUP Converter v0.6.7"
+scriptName="UUP Converter v0.6.8"
 UUP_CONVERTER_SCRIPT=1
 
 export PATH=${PATH}:/usr/sbin
@@ -567,10 +567,10 @@ for metadata in $metadataFiles; do
 
   if [ $refglobs == true ]; then
     wimlib-imagex export "$metadata" 3 ISODIR/sources/install.$type \
-      "$editionName" $compressParam --ref=""$uupDir/*.esd"" --ref=""$tempDir/*.esd""
+      "$editionName" $compressParam --ref={"$uupDir","$tempDir"}/*.[eE][sS][dD]
   else
     wimlib-imagex export "$metadata" 3 ISODIR/sources/install.$type \
-      "$editionName" $compressParam --ref=""$uupDir/*.esd""
+      "$editionName" $compressParam --ref="$uupDir"/*.[eE][sS][dD]
   fi
 
   errorHandler $? "Failed to export $editionName to install.$type""$resetColor"
