@@ -36,7 +36,7 @@ $s['file'] = '文件';
 $s['expires'] = '过期日期';
 $s['sha1'] = 'SHA-1';
 $s['size'] = '大小';
-$s['additionalEdition'] = '附加版本';
+$s['additionalEdition'] = '虚拟升级版本';
 $s['requiredEdition'] = '所需版本';
 $s['unknown'] = '未知';
 
