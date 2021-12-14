@@ -54,6 +54,18 @@ $s['selectLanguage'] = 'Proszę wybrać swój język';
 
 //index.php
 $s['slogan'] = 'Pobieraj pliki UUP z serwerów Windows Update z łatwością.';
+$s['quickOptions'] = 'Szybkie opcje';
+$s['tHeadReleaseType'] = 'Rodzaj wydania';
+$s['tHeadDescription'] = 'Opis';
+$s['tHeadArchitectures'] = 'Architektury';
+$s['latestPublicRelease'] = 'Najnowsza Publicznie Wydana kompilacja';
+$s['latestPublicReleaseSub'] = 'Najnowsza kompilacja dla zwykłych użytkowników.';
+$s['latestDevRelease'] = 'Najnowsza kompilacja kanału Dev';
+$s['latestDevReleaseSub'] = 'Poniekąd niepewne kompilacje z najnowszymi funkcjami.<br>Idealne dla użytkowników z kompetencjami technicznymi.';
+$s['latestBetaRelease'] = 'Najnowsza kompilacja kanału Beta';
+$s['latestBetaReleaseSub'] = 'Pewne kompilacje z większością nowych funkcji.<br>Idealne dla wczesnych adaptacji.';
+$s['latestRPRelease'] = 'Najnowsza kompilacja Release Preview';
+$s['latestRPReleaseSub'] = 'Pewne kompilacje z podglądami następnego wydania.<br>Idealne do spróbowania nadchodzących wydań.';
 $s['advOptions'] = 'Opcje zaawansowane';
 $s['browseBuilds'] = 'Przeglądaj listę znanych kompilacji';
 $s['browseBuildsSub'] = 'Wybierz kompilację znajdującą się w lokalnej bazie danych i pobierz ją.';
