@@ -73,7 +73,7 @@ styleUpper('home');
     <a class="ui mini button" href="known.php?q=20348">
         <i class="search icon"></i>
         Server 21H2
-    </h2>
+    </a>
 
     <a class="ui mini button" href="known.php?q=19044">
         <i class="search icon"></i>
@@ -88,11 +88,6 @@ styleUpper('home');
     <a class="ui mini button" href="known.php?q=19042">
         <i class="search icon"></i>
         20H2
-    </a>
-   
-    <a class="ui mini button" href="known.php?q=19041">
-        <i class="search icon"></i>
-        20H1
     </a>
 
     <a class="ui mini button" href="known.php?q=18363">
