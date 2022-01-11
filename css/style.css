@@ -99,7 +99,7 @@ limitations under the License.
 .quick-search-buttons {
     text-align: center;
     margin-top: .5em;
-    line-height: 300%;
+    line-height: 250%;
 }
 
 @media only screen and (min-width: 1392px) {
@@ -113,4 +113,3 @@ limitations under the License.
         width: 1474px;
     }
 }
-
