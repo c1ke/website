@@ -111,7 +111,7 @@ $s['selectLangInfoText1'] = 'Apăsați pe butonul <i>Înainte</i> pentru a selec
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe și Actualizări cumulative pot fi găsite în <i>Toate limbile</i>.';
 $s['allLangsWarn'] = 'Opțiunea <i>Toate limbile</i> nu are suport pentru selectarea ediției.';
 $s['clickNextToOpenFindFiles'] = 'Apăsați pe butonul <i>Înainte</i> pentru a deschide pagina unde puteți găsi fișierele.';
-$s['noLangsAvailable'] = 'Nu sunt limbi disponibile pentru această compilare.<br> Această compilare nu poate fi convertită într-o imagine ISO. <br> Consultați <a href="faq.php"> Întrebări frecvente </a> pentru detalii.';
+$s['noLangsAvailable'] = 'Nu sunt limbi disponibile pentru această compilare.<br> Această compilare nu poate fi convertită într-o imagine ISO. <br> Consultați <a href="https://github.com/uup-dump/website/blob/master/FAQ.md"> Întrebări frecvente </a> pentru detalii.';
 $s['browseFiles'] = 'Răsfoiți fișierele';
 $s['browseFilesDesc'] = 'Răsfoiți rapid fișierele în compilarea selectată';
 $s['searchFiles'] = 'Caută fișiere';
@@ -182,57 +182,6 @@ $s['fileRenamingScriptGenW'] = 'Generează script de redenumire (Windows)';
 $s['fileRenamingScriptGenL'] = 'Generează script de redenumire (Linux, macOS)';
 $s['searchForFiles'] = 'Caută după fișiere...';
 $s['weFoundFiles'] = 'Am găsit <b>%d</b> fișiere potrivite interogării dvs.'; //Am găsit <b>692</b> fișiere potrivite interogării dvs.
-
-//faq.php
-$s['faq'] = 'FAQ';
-$s['faqLong'] = 'Întrebări frecvente';
-
-$s['q1'] = 'Care este diferența între Feature Updates și Cumulative Updates?';
-$s['a1'] = <<<FAQ
-Feature updates conține actualizări de bază și actualizări adiționale.<br/>
-Cumulative updates conține doar actualizări de bază.<br/><br/>
-
-În general pentru generarea unui fișier ISO este recomandat feature updates.
-FAQ;
-
-$s['q2'] = 'Cum creez un fișier ISO cu ediții Windows 10 ca și Enterprise?';
-$s['a2'] = <<<FAQ
-Enterprise este o <b>ediție virtuală</b> de Windows 10. "Virtuală" aici nu înseamnă "pentru virtualizare", ci mai degrabă "nu de sine stătătoare".<br/><br/>
-
-Edițiile virtuale necesită o "ediție de bază" pentru transformare.<br/>
-Când selectați ediția pentru o actualizare dată, în partea dreaptă a paginii veți găsi un tabel cu cerințele pentru diferite ediții virtuale.<br/>
-Pentru "Windows 10 Enterprise" cerința este "Windows 10 Pro", ceea ce va trebui să selectați pentru început.<br/><br/>
-
-După ce ați selectat Pro dați click pe "Înainte" și alegeți opțiunea "transformați și creați ediții suplimentare".<br/>
-O listă cu toate edițiile virtuale posibile pentru selecția dvs., va apărea;<br/><br/>
-
-De acolo puteți alege "Enterprise" și crea un pachet de descărcare.
-FAQ;
-
-$s['q3'] = 'De ce unele descărcări Windows Server arată "Nu sunt limbi disponibile pentru această compilare."?';
-$s['a3'] = <<<FAQ
-Actualizările mai vechi Windows Server au doar pachete Caracteristici la cerere (Feature on Demand).<br/>
-Nu le puteți folosi în scopuri de transformare.<br/><br/>
-FAQ;
-
-$s['q4'] = 'Pot să îndepărtez unele pachete care cred ca nu sunt utile înaintea procesului de transformare?';
-$s['a4'] = <<<FAQ
-Nu, nu puteți. Transformarea va eșua dacă faceți asta.
-FAQ;
-
-$s['q5'] = 'Aceeași compilare există de două ori, dar cu (2) atașat. Ce înseamnă asta?';
-$s['a5'] = <<<FAQ
-În general, asta înseamnă că acea compilație a fost lansată pe mai mult decât un singur canal.<br/>
-De exemplu, o compilație a fost lansată mai întâi pe Dev Channel apoi a fost lansată și pe Beta Channel.<br/><br/>
-
-Nu are importanță pe care o alegeți, au exact același conținut.
-FAQ;
-
-$s['qUnknown'] = 'Am o întrebare care nu este listată aici.';
-$s['aUnknown'] =  <<<FAQ
-Vă puteți alătura la serverul discord UUP dump și puneți întrebarea acolo.
-Doar întrebările în limba engleză vor primi răspuns.
-FAQ;
 
 //Error pages
 $s['error'] = 'Eroare';

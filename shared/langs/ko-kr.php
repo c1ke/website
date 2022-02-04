@@ -110,7 +110,7 @@ $s['selectLangInfoText1'] = '<i>다음</i> 버튼을 클릭하여 다운로드 �
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe 및 누적 업데이트는 <i>전체 언어</i>에서 찾을 수 있습니다.';
 $s['allLangsWarn'] = '<i>전체 언어</i> 옵션은 에디션 선택을 지원하지 않습니다.';
 $s['clickNextToOpenFindFiles'] = '<i>다음</i> 버튼을 클릭하면 파일을 찾을 수 있는 페이지가 열립니다.';
-$s['noLangsAvailable'] = '이 빌드에는 사용할 수 있는 언어가 없습니다.<br>이 빌드는 ISO로 변환 할 수 없습니다.<br><a href="faq.php">FAQ</a>를 참고하여 주십시오.';
+$s['noLangsAvailable'] = '이 빌드에는 사용할 수 있는 언어가 없습니다.<br>이 빌드는 ISO로 변환 할 수 없습니다.<br><a href="https://github.com/uup-dump/website/blob/master/FAQ.md">FAQ</a>를 참고하여 주십시오.';
 $s['browseFiles'] = '파일 찾아보기';
 $s['browseFilesDesc'] = '선택한 빌드에서 빠르게 파일 찾아보기';
 $s['searchFiles'] = '파일 검색';
@@ -181,54 +181,6 @@ $s['fileRenamingScriptGenW'] = '이름 바꾸기 스크립트 생성 (Windows)';
 $s['fileRenamingScriptGenL'] = '이름 바꾸기 스크립트 생성 (Linux, macOS)';
 $s['searchForFiles'] = '파일 검색...';
 $s['weFoundFiles'] = '귀하의 검색어에 대해 <b>%d</ b> 파일을 발견했습니다.'; //We have found <b>692</b> files for your query.
-
-
-//faq.php
-$s['faq'] = 'FAQ';
-$s['faqLong'] = '자주 묻는 질문';
-
-$s['q1'] = '기능 업데이트와 누적 업데이트의 차이점은 무엇 입니까?';
-$s['a1'] = <<<FAQ
-기능 업데이트에는 기본 업데이트 및 추가 업데이트가 포함 됩니다.<br/>
-누적 업데이트에는 기본 업데이트만 있습니다.<br/><br/>
-
-일반적으로 ISO 파일 생성에는 기능 업데이트가 권장 됩니다.
-FAQ;
-
-$s['q2'] = 'Enterprise와 같은 Windows 10 에디션으로 ISO를 생성하려면 어떻게 해야 합니까?';
-$s['a2'] = <<<FAQ
-Enterprise는 Windows 10의 <b>가상 에디션</b> 입니다. 여기서 "가상"은 "가상화 용"이 아니라 "독립형이 아님"을 의미 합니다.<br/><br/>
-가상 에디션은 변환을 위해 "기본 에디션"이 필요합니다.<br/>
-특정 업데이트의 에디션을 선택하면 페이지 오른쪽에 다양한 가상 에디션에 대한 요구 사항이 포함된 표가 있습니다.<br/>
-"Windows 10 Enterprise"의 경우 요구 사항은 "Windows 10 Pro"이며, 먼저 선택해야 합니다.<br/><br/>
-Pro를 선택한 후 "다음"을 클릭하고 "다운로드 하고, 추가 에디션 생성 및 ISO 변환" 옵션을 선택 합니다.<br/>
-선택 가능한 모든 가상 에디션 목록이 표시 됩니다.<br/><br/>
-여기에서 "Enterprise"를 선택하고 다운로드 패키지를 다운로드 패키지를 만들 수 있습니다.
-FAQ;
-
-$s['q3'] = '일부 Windows Server 다운로드에 "이 빌드에 사용 할 수 있는 언어가 없습니다."가 표시되는 이유는 무엇 입니까?';
-$s['a3'] = <<<FAQ
-이전 Windows Server 업데이트에는 주문형 기능 패키지만 있습니다.<br/>
-변환 목적으로 사용 할 수 없습니다.
-FAQ;
-
-$s['q4'] = '변환 프로세스 전에 쓸모 없다고 생각되는 일부 패키지를 제거 할 수 있습니까?';
-$s['a4'] = <<<FAQ
-아닙니다. 그렇게 하면 변환에 실패 합니다.
-FAQ;
-
-$s['q5'] = '동일한 빌드가 두 개 존재 하지만 하나는 (2)가 표시되어 있습니다. 무슨 뜻 입니까?';
-$s['a5'] = <<<FAQ
-일반적으로는 이는 빌드가 두 개 이상의 채널로 릴리스 되었음을 의미 합니다.<br/>
-예를 들어 빌드가 먼저 개발 채널로 릴리스 된 다음 베타 채널로 릴리스 되었습니다.<br/><br/>
-사용자가 어떤 것을 선택하든 상관없이 둘은 완전 같은 내용을 포함하고 있습니다.
-FAQ;
-
-$s['qUnknown'] = '여기에 없는 질문이 있습니다.';
-$s['aUnknown'] =  <<<FAQ
-UUP Dump 디스코드 서버에 가입하여 여기에 질문 하시면 됩니다.
-영어로 질문 해야 답변을 받을 수 있습니다.
-FAQ;
 
 //Error pages
 $s['error'] = '오류';

@@ -111,7 +111,7 @@ $s['selectLangInfoText1'] = '<i>次へ</i>ボタンをクリックして、目�
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exeおよび累積的な更新プログラムは、<i>すべての言語</i>で提供されています。';
 $s['allLangsWarn'] = '<i>すべての言語</i>オプションでは、エディションの選択はサポートされていません。';
 $s['clickNextToOpenFindFiles'] = '<i>次へ</i>ボタンをクリックして、ファイルを検索できるページを開きます。';
-$s['noLangsAvailable'] = 'このビルドで使用できる言語はありません。<br>このビルドはISOイメージに変換できません。<br>詳細は <a href="faq.php">FAQ</a> を参照してください。';
+$s['noLangsAvailable'] = 'このビルドで使用できる言語はありません。<br>このビルドはISOイメージに変換できません。<br>詳細は <a href="https://github.com/uup-dump/website/blob/master/FAQ.md">FAQ</a> を参照してください。';
 $s['browseFiles'] = 'ファイルを参照';
 $s['browseFilesDesc'] = '選択したビルドのファイルをすばやく参照する';
 $s['searchFiles'] = 'ファイルを検索';
@@ -182,57 +182,6 @@ $s['fileRenamingScriptGenW'] = '名前変更スクリプトの生成 (Windows)';
 $s['fileRenamingScriptGenL'] = '名前変更スクリプトを生成(Linux、macOS)';
 $s['searchForFiles'] = 'ファイルを検索...';
 $s['weFoundFiles'] = '<b>%d</b>個 のファイルが見つかりました。'; //We have found <b>692</b> files for your query.
-
-//faq.php
-$s['faq'] = 'FAQ';
-$s['faqLong'] = 'よくある質問 誤訳を報告 ';
-
-$s['q1'] = '機能更新プログラムと累積更新プログラムの違いは何ですか？';
-$s['a1'] = <<<FAQ
-機能更新プログラムには、基本的な更新と追加の更新が含まれます。<br/>
-累積更新プログラムには基本的な更新のみ含まれます。<br/><br/>
-
-一般的には、機能更新プログラムを利用してISOファイルを生成することをお勧めします。
-FAQ;
-
-$s['q2'] = 'Windows 10(Enterpriseなど) のISOを作成するには？';
-$s['a2'] = <<<FAQ
-Enterprise版はWindows10の<b>仮想版</b>です。 ここでいう「仮想」とは「仮想化用」という意味ではなく、スタンドアロンでないという意味です。<br/><br/>
-
-仮想版ではベースになるエディションがエディションのアップデートに必要になります。<br/>
-ベースになるエディションを選択すると右側にアップデートの要件を満たす仮想版の一覧が表示されます。<br/>
-「Windows 10 Enterprise」の場合「Windows 10 Pro」が要件を満たしているためこれを選択する必要があります。<br/><br/>
-
-「Pro」を選択した後、「次へ」をクリックし「追加エディションの選択」のオプションを選択します。<br/>
-選択可能な仮想版がすべて表示されます。<br/><br/>
-
-そこから「Enterprise」を選択してダウンロードパッケージを作成できます。
-FAQ;
-
-$s['q3'] = '一部のWindows Serverで「このビルドで使用できる言語はありません」と表示されるのはなぜですか？';
-$s['a3'] = <<<FAQ
-古いWindows Server Updateでは、Feature on Demand パッケージしかありません。<br/>
-そのため変換目的で利用することはできません。
-FAQ;
-
-$s['q4'] = '変換処理の前に不要と感じたパッケージを削除出来ますか？';
-$s['a4'] = <<<FAQ
-いいえ。その場合変換処理に失敗します。
-FAQ;
-
-$s['q5'] = '同じビルドが2回おこなわれていますが、1つは(2)がアタッチされています。これはなぜですか？';
-$s['a5'] = <<<FAQ
-一般的にビルドが複数のチャネルに反映されたことを意味します。<br/>
-例えば、ビルドは最初にDevチャネルに反映されベータチャネルに反映されます。<br/><br/>
-
-まぁ、どちらを選択しても内容は一緒です。
-FAQ;
-
-$s['qUnknown'] = 'ここに載ってない質問があるんだが？';
-$s['aUnknown'] =  <<<FAQ
-UUP dump の Discordサーバに参加してそこで質問できるぜ！<br/>
-あ。ただ英語の質問だけに答えられるので気をつけてくれよな！
-FAQ;
 
 //Error pages
 $s['error'] = 'Error';
@@ -314,4 +263,4 @@ $s['lang_tr-tr'] = 'トルコ語';
 $s['lang_uk-ua'] = 'ウクライナ語';
 $s['lang_zh-cn'] = '中国語（簡体字）';
 $s['lang_zh-hk'] = '中国語（香港）';
-$s['lang_zh-tw'] = '中国語（繁体字）'; 
+$s['lang_zh-tw'] = '中国語（繁体字）';

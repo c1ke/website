@@ -39,7 +39,7 @@ $s['sha1'] = 'SHA-1';
 $s['size'] = 'Tamanho';
 $s['additionalEdition'] = 'Edição adicional';
 $s['requiredEdition'] = 'Edição necessária';
-$s['unknown'] = 'Desconhecido';	
+$s['unknown'] = 'Desconhecido';
 
 //global
 $s['home'] = 'Início';
@@ -104,7 +104,7 @@ $s['noLangsAvailable'] = 'Não há idiomas disponíveis para esta compilação.'
 $s['browseFiles'] = 'Procurar arquivos';
 $s['browseFilesDesc'] = 'Navegar rapidamente pelos arquivos da compilação selecionada';
 $s['searchFiles'] = 'Procurar arquivos';
-$s['toSearchForCUUseQuery'] = 'Para procurar atualizações cumulativas use <i>% s</i> na pesquisa.'; //Para procurar atualizações cumulativas use <i>Windows 10 KB</i> na pesquisa.	
+$s['toSearchForCUUseQuery'] = 'Para procurar atualizações cumulativas use <i>% s</i> na pesquisa.'; //Para procurar atualizações cumulativas use <i>Windows 10 KB</i> na pesquisa.
 
 //selectedition.php
 $s['selectEditionFor'] = 'Selecione a edição para %s'; //Selecione a edição para o Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
@@ -171,43 +171,6 @@ $s['fileRenamingScriptGenW'] = 'Gerar script de renomeação (Windows)';
 $s['fileRenamingScriptGenL'] = 'Gerar script de renomeação (Linux, macOS)';
 $s['searchForFiles'] = 'Procurar arquivos...';
 $s['weFoundFiles'] = 'Encontramos <b>%d</b> arquivos para sua consulta.';//Encontramos <b>692</b> arquivos para sua consulta.
-
-//faq.php
-$s['faq'] = 'FAQ';
-$s['faqLong'] = 'Perguntas frequentes';
-
-$s['q1'] = 'Qual é a diferença entre Atualizações de Recursos e Atualizações Cumulativas?';
-$s['a1'] = 'Atualizações de recursos contém atualizações base e atualizações adicionais.<br/>
-Atualizações cumulativas têm somente atualizações base.<br/><br/>
-
-Geralmente atualizações de recursos são recomendadas para a geração de arquivos .ISO.';
-
-$s['q2'] = 'Como eu crio uma ISO com edições do Windows 10 como a Enterprise?';
-$s['a2'] = 'A Enterprise é uma <b>edição virtual</b> do Windows 10. "Virtual neste contexto não significa "para virtualização", mas sim "não autônoma".<br/><br/>
-
-Edições virtuais requerem uma "edição base" para conversão.<br/>
-Ao selecionar a edição para uma certa atualização, no lado direito da página você encontrará uma tabela com os requisitos para diferentes edições virtuais.<br/>
-Para "Windows 10 Enterprise" o requisito é "Windows 10 Pro", que é a versão que você precisará selecionar antes.<br/><br/>
-
-Depois de selecionar a Pro, clique "Próximo" e escolha a opção "converter e criar edições adicionais".<br/>
-Uma lista com todas as edições virtuais possíveis irá aparecer;<br/><br/>
-
-A partir dali, você poderá escolher "Enterprise" e criar um pacote de download.';
-
-/*
-$s['q3'] = 'Por que os downloads para Windows Server mostram que "Não existem idiomas disponíveis para esta compilação"?';
-$s['a3'] = 'Atualizações do Windows Server possuem apenas pacotes de Recurso sob Demanda.<br/>
-Você não pode usá-los para fins de conversão.<br/><br/>
-
-Eles somente estão listados para acesso rápido a pacotes de Recurso sob Demanda.';
-*/
-
-$s['q4'] = 'Posso remover pacotes que acredito serem inúteis antes do processo de conversão?';
-$s['a4'] = 'Não. A conversão falhará se você fizer isso.';
-
-$s['qUnknown'] = 'Eu tenho uma pergunta não listada aqui.';
-$s['aUnknown'] = 'Você pode participar do servidor do Discord do UUP Dump e fazer sua pergunta lá.
-Apenas perguntas em inglês serão respondidas.';
 
 //Error pages
 $s['error'] = 'Erro';

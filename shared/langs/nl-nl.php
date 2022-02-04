@@ -182,55 +182,6 @@ $s['fileRenamingScriptGenL'] = 'Maak hernoemings script (Linux, macOS)';
 $s['searchForFiles'] = 'Zoek naar bestanden...';
 $s['weFoundFiles'] = 'We hebben <b>%d</b> bestanden gevonden.'; //We hebben <b>692</b> bestanden gevonden.
 
-//faq.php
-$s['faq'] = 'FAQ';
-$s['faqLong'] = 'Veel gestelde vragen';
-
-$s['q1'] = 'Wat is het verschil tussen Feature Updates en Cumulative Updates?';
-$s['a1'] = <<<FAQ
-Feature updates bevatten basis updates en aanvullende updates.<br/>
-Cumulative updates bevatten alleen basis updates.<br/><br/>
-Over het algemeen is het aangeraden om de Feature update optie te gebruiken voor ISOs mee te maken.
-FAQ;
-
-$s['q2'] = 'Hoe maak je een ISO met Windows 10 edities zoals Enterprise?';
-$s['a2'] = <<<FAQ
-Enterprise is een <b>virtuele editie</b> van Windows 10. "Virtueel" betekent hier niet "voor virtualizatie", maar "niet op zichzelf staand".<br/><br/>
-Virtuele edities hebben een "basis editie" nodig om aangemaakt te kunnen worden.<br/>
-Wanneer je een editie selecteert voor een bepaalde update vindt je aan de rechterkant van de pagina een tabel met de vereiste basis edities voor de verschillende virtuele edities.<br/>
-Voor "Windows 10 Enterprise", "Windows 10 Pro" is de vereiste basis editie, welke je eerst moet selecteren.<br/><br/>
-Na het selecteren van Pro klik "Volgende" en selecteer "Download de UUP bestanden makkelijk dmv aria2, creeer de extra edities en converteer naar ISO" optie.<br/>
-De lijst met alle mogelijke virtuele edities zal worden getoond;<br/><br/>
-Hier kun je "Enterprise" selecteren en het download pakket aanmaken.
-FAQ;
-
-/*
-$s['q3'] = 'Waarom staat er by Windows Server downloads "Er zijn geen talen beschikbaar voor deze build."?';
-$s['a3'] = <<<FAQ
-Windows Server Updates bevatten alleen Feature on Demand pakketten.<br/>
-Deze kun je je niet gebruiken voor conversie doeleinden.<br/><br/>
-Ze worden alleen vermeld voor gemakkelijke toegang tot Feature on Demand-pakketten.
-FAQ;
-*/
-
-$s['q4'] = 'Kan ik bepaalde bestanden verwijderen omdat ik ze niet denk nodig te hebben?';
-$s['a4'] = <<<FAQ
-Dat is niet mogelijk. Het converteren zal niet lukken als je dit doet.
-FAQ;
-
-$s['q5'] = 'Dezelfde build bestaat dubbel, maar een van de twee heeft (2) in de naam. Wat betekent dat?';
-$s['a5'] = <<<FAQ
-In het algemeen betekent dit dat de build in meerdere kanalen is uitgebracht.
-De build is bijvoorbeeld eerst in het Dev kannaal en daarna ook in het Beta kanaal uitgebracht.<br/><br/>
-Het maakt niet uit welke van de twee je kiest, ze bevatten beide dezelfde inhoud.
-FAQ;
-
-$s['qUnknown'] = 'Ik heb een vraag die niet in de lijst staat.';
-$s['aUnknown'] =  <<<FAQ
-Je kunt je aanmelden op UUP dump discord server en je vraag daar stellen in de uup-dump-support sectie.
-Alleen vragen in het engeks worden beantwoord.
-FAQ;
-
 //Error pages
 $s['error'] = 'Fout';
 $s['requestNotSuccessful'] = 'Verzoek niet succesvol';

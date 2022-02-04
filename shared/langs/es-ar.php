@@ -111,7 +111,7 @@ $s['selectLangInfoText1'] = 'Cliquea <i>Siguiente</i> para seleccionar la edici�
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe y las actualizaciones acumulativas pueden encontrarse en la opción <i>Todos los idiomas</i>.';
 $s['allLangsWarn'] = 'La opción <i>Todos los idiomas</i> no soporta selección de edición.';
 $s['clickNextToOpenFindFiles'] = 'Cliquea <i>Siguiente</i> para abrir la página que te permitirá buscar los archivos.';
-$s['noLangsAvailable'] = 'No hay idiomas disponibles para esta compilación.<br>No se puede crear un ISO con esta compilación.<br>Revisa las <a href="faq.php">FAQ</a> para obtener más detalles.';
+$s['noLangsAvailable'] = 'No hay idiomas disponibles para esta compilación.<br>No se puede crear un ISO con esta compilación.<br>Revisa las <a href="https://github.com/uup-dump/website/blob/master/FAQ.md">FAQ</a> para obtener más detalles.';
 $s['browseFiles'] = 'Examinar archivos';
 $s['browseFilesDesc'] = 'Examina rápidamente los archivos en la compilación seleccionada';
 $s['searchFiles'] = 'Buscar archivos';
@@ -183,48 +183,6 @@ $s['fileRenamingScriptGenW'] = 'Generar un script para renombrar (Windows)';
 $s['fileRenamingScriptGenL'] = 'Generar un script para renombrar (Linux)';
 $s['searchForFiles'] = 'Buscar archivos...';
 $s['weFoundFiles'] = 'Hemos encontrado <b>%d</b> archivos para tu consulta.'; //Hemos encontrado <b>692</b> archivos para tu consulta.
-
-//faq.php
-$s['faq'] = 'FAQ';
-$s['faqLong'] = 'Preguntas más frecuentes';
-
-$s['q1'] = '¿Cuál es la diferencia entre la actualización de características (Feature Update) y la actualización acumulativa (Cumulative Update)?';
-$s['a1'] = <<<FAQ
-Las actualizaciones de características contienen las actualizaciones base y otras actualizaciones.<br/>
-Las actualizaciones acumulativas solo contienen las actualizaciones base.<br/><br/>
-Suele recomendarse las actualizaciones de características para generar un ISO.
-FAQ;
-
-$s['q2'] = '¿Cómo creo un ISO con ediciones de Windows 10, como la Enterprise?';
-$s['a2'] = <<<FAQ
-Enterprise es una <b>edición virtual</b> de Windows 10. "Virtual" no significa "para virtualización", más bien significa que "no es independiente".<br/><br/>
-Las ediciones virtuales requieren una "edición base" para la conversión.<br/>
-Tras haber seleccionado la edición para cierta actualización, a la derecha de la página, verás una tabla con los requisitos para las diferentes ediciciones virtuales.<br/>
-Para "Windows 10 Enterprise", el requisito es "Windows 10 Pro", que es lo que deberás seleccionar primero.<br/><br/>
-Después de haber seleccionado "Pro", cliquea "Siguiente" y escoge la opción "Convertir y crear ediciones adicionales".<br/>
-Aparecerá una lista con todas las ediciones virtuales posibles para lo que hayas seleccionado.<br/><br/>
-A partir de allí, puedes escoger "Enterprise" y crear un paquete de descarga.
-FAQ;
-
-/*
-$s['q3'] = '¿Por qué las descargas del servidor de Windows dicen "No hay idiomas disponibles para esta compilación"?';
-$s['a3'] = <<<FAQ
-Las actualizaciones del servidor de Windows solo tienen paquetes de características a petición (FoD).<br/>
-No puedes usarlos para hacer conversiones.<br/><br/>
-Solo se muestran para acceder fácilmente a los paquetes de FoD.
-FAQ;
-*/
-
-$s['q4'] = '¿Puedo quitar algunos paquetes que considero inservibles antes del proceso de conversión?';
-$s['a4'] = <<<FAQ
-No. Si haces esto, la conversión fallará.
-FAQ;
-
-$s['qUnknown'] = 'Tengo una pregunta que no aparece aquí.';
-$s['aUnknown'] =  <<<FAQ
-Puedes unirte al servidor Discord de UUP dump para preguntar allí.
-Solo responderemos las preguntas en inglés.
-FAQ;
 
 //Error pages
 $s['error'] = 'Error';

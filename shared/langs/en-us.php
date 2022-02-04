@@ -111,7 +111,7 @@ $s['selectLangInfoText1'] = 'Click the <i>Next</i> button to select the desired 
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe and Cumulative updates can be found in the <i>All languages</i> language.';
 $s['allLangsWarn'] = 'The <i>All languages</i> option does not support edition selection.';
 $s['clickNextToOpenFindFiles'] = 'Click the <i>Next</i> button to open the page, which allows finding files.';
-$s['noLangsAvailable'] = 'There are no languages available for this build.<br>This build cannot be converted to an ISO image.<br>See the <a href="faq.php">FAQ</a> for details.';
+$s['noLangsAvailable'] = 'There are no languages available for this build.<br>This build cannot be converted to an ISO image.<br>See the <a href="https://github.com/uup-dump/website/blob/master/FAQ.md">FAQ</a> for details.';
 $s['browseFiles'] = 'Browse files';
 $s['browseFilesDesc'] = 'Quickly browse files in selected build';
 $s['searchFiles'] = 'Search files';
@@ -182,57 +182,6 @@ $s['fileRenamingScriptGenW'] = 'Generate renaming script (Windows)';
 $s['fileRenamingScriptGenL'] = 'Generate renaming script (Linux, macOS)';
 $s['searchForFiles'] = 'Search for files...';
 $s['weFoundFiles'] = 'We have found <b>%d</b> files for your query.'; //We have found <b>692</b> files for your query.
-
-//faq.php
-$s['faq'] = 'FAQ';
-$s['faqLong'] = 'Frequently asked questions';
-
-$s['q1'] = 'What is the difference between Feature Updates and Cumulative Updates?';
-$s['a1'] = <<<FAQ
-Feature updates contain base updates and additional updates.<br/>
-Cumulative updates only have base updates.<br/><br/>
-
-Generally feature updates are recommended for generating ISO files.
-FAQ;
-
-$s['q2'] = 'How do I create an ISO with Windows 10 editions such as Enterprise?';
-$s['a2'] = <<<FAQ
-Enterprise is a <b>virtual edition</b> of Windows 10. "Virtual" here does not mean "for virtualization", but rather "not standalone".<br/><br/>
-
-Virtual editions require a "base edition" for conversion.<br/>
-When selecting the edition for a given update, on the right side of the page you will find a table with requirements for different virtual editions.<br/>
-For "Windows 10 Enterprise" the requirement is "Windows 10 Pro", which is what you will need to select first.<br/><br/>
-
-After selecting Pro click "Next" and choose the "convert and create additional editions" option.<br/>
-A list with all possible virtual editions for your selection will appear;<br/><br/>
-
-From there you can choose "Enterprise" and create a download package.
-FAQ;
-
-$s['q3'] = 'Why do some Windows Server downloads show "There are no languages available for this build."?';
-$s['a3'] = <<<FAQ
-Older Windows Server Updates only have Feature on Demand packages.<br/>
-You cannot use them for conversion purposes.
-FAQ;
-
-$s['q4'] = 'Can I remove some packages I think are useless before the conversion process?';
-$s['a4'] = <<<FAQ
-You can't. The conversion will fail if you do this.
-FAQ;
-
-$s['q5'] = 'The same build exists twice, but one with a (2) attached. What does that mean?';
-$s['a5'] = <<<FAQ
-In general, this means that the build was pushed to more than one channel.<br/>
-For example, a build was first pushed into the Dev channel and then pushed into the Beta channel.<br/><br/>
-
-It does not matter which one you choose, they have absolutely the same content.
-FAQ;
-
-$s['qUnknown'] = 'I have a question not listed here.';
-$s['aUnknown'] =  <<<FAQ
-You can join UUP dump discord server and ask your question there.
-Only questions in English will be answered.
-FAQ;
 
 //Error pages
 $s['error'] = 'Error';

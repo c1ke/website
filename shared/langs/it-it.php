@@ -184,48 +184,6 @@ $s['fileRenamingScriptGenL'] = 'Genera script di rinomina (Linux, macOS)';
 $s['searchForFiles'] = 'Cerca i file...';
 $s['weFoundFiles'] = 'Sono stati trovati <b>%d</b> file per la tua richiesta.'; //Sono stati trovati <b>692</b> file per la tua richiesta.
 
-//faq.php
-$s['faq'] = 'FAQ';
-$s['faqLong'] = 'Domande richieste frequentemente';
-
-$s['q1'] = 'Qual è la differenza tra gli Aggiornamenti delle Funzionalità e gli Aggiornamenti Cumulativi?';
-$s['a1'] = <<<FAQ
-Gli aggiornamenti delle funzionalità contengono gli aggiornamenti di base e gli aggiornamenti aggiuntivi.<br/>
-Gli aggiornamenti cumulativi hanno solo gli aggiornamenti di base.<br/><br/>
-Di norma gli aggiornamenti delle funzionalità sono raccomandati per generare i files ISO.
-FAQ;
-
-$s['q2'] = 'Come creo una ISO con le edizioni di Windows 10 come la Enterprise?';
-$s['a2'] = <<<FAQ
-La Enterprise è una <b>edizione virtuale</b> di Windows 10. "Virtuale" qui non significa "per la virtualizzazione", ma piuttosto "non indipendente".<br/><br/>
-Le edizioni virtuali richiedono una "edizione di base" per la conversione.<br/>
-Quando si seleziona l'edizione per un dato aggiornamento, sulla parte destra della pagina troverai una tabella con i requisiti per le diverse edizioni virtuali.<br/>
-Per "Windows 10 Enterprise" il requisito è "Windows 10 Pro", che è ciò che avrai bisogno di selezionare per primo.<br/><br/>
-Dopo aver selezionato Pro clicca su "Avanti" e scegli l'opzione "converti e crea edizioni aggiuntive".<br/>
-Apprarirà un elenco con tutte le possibili edizioni virtuali per la tua scelta;<br/><br/>
-Da lì puoi scegliere "Enterprise" e creare un pacchetto da scaricare.
-FAQ;
-
-/*
-$s['q3'] = 'Perché gli scaricamenti di Windows Server mostrano "Non ci sono lingue disponibili per questa build."?';
-$s['a3'] = <<<FAQ
-Gli aggiornamenti di Windows Server hanno solo i pacchetti Funzionalità su Richiesta.<br/>
-Non puoi usarli per scopi di conversione.<br/><br/>
-Sono elencati solamente per un accesso facile ai pacchetti Funzionalità su Richiesta.
-FAQ;
-*/
-
-$s['q4'] = 'Posso rimuovere alcuni pacchetti che ritengo essere inutili prima del processo di conversione?';
-$s['a4'] = <<<FAQ
-Non puoi. La conversione fallirà se lo fai.
-FAQ;
-
-$s['qUnknown'] = 'Ho una domanda che qui non è elencata.';
-$s['aUnknown'] =  <<<FAQ
-Puoi entrare sul server discord di UUP dump e formulare lì la tua domanda.
-Verrà data risposta solo alle domande in Inglese.
-FAQ;
-
 //Error pages
 $s['error'] = 'Errore';
 $s['requestNotSuccessful'] = 'Richiesta non andata a buon fine';
