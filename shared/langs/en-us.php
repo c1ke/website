@@ -183,6 +183,8 @@ $s['fileRenamingScriptGenL'] = 'Generate renaming script (Linux, macOS)';
 $s['searchForFiles'] = 'Search for files...';
 $s['weFoundFiles'] = 'We have found <b>%d</b> files for your query.'; //We have found <b>692</b> files for your query.
 
+$s['faq'] = 'FAQ';
+
 //Error pages
 $s['error'] = 'Error';
 $s['requestNotSuccessful'] = 'Request not successful';
