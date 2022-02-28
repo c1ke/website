@@ -79,7 +79,7 @@ foreach($langs['langList'] as $lang) {
     if(isset($s["lang_$lang"])) {
         $langsTemp[$lang] = $s["lang_$lang"];
     } else {
-        $langsTemp[$lang] = $langs['fancyLangNames'][$lang];
+        $langsTemp[$lang] = $langs['langFancyNames'][$lang];
     }
 }
 
