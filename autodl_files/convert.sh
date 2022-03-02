@@ -1,5 +1,5 @@
 #!/bin/bash
-scriptName="UUP Converter v0.6.8"
+scriptName="UUP Converter v0.6.9"
 UUP_CONVERTER_SCRIPT=1
 
 export PATH=${PATH}:/usr/sbin
@@ -492,6 +492,10 @@ wimlib-imagex update ISODIR/sources/boot.wim 1 \
 bckimg=background_cli.bmp
 if [ -e ./ISODIR/sources/background_svr.bmp ]; then
   bckimg=background_svr.bmp
+elif [ -e ./ISODIR/sources/background_cli.png ]; then
+  bckimg=background_cli.png
+elif [ -e ./ISODIR/sources/background_svr.png ]; then
+  bckimg=background_svr.png
 fi
 
 wimlib-imagex update ISODIR/sources/boot.wim 1 \
@@ -522,8 +526,12 @@ list=
 echo "delete /Windows/System32/winpeshl.ini" >"$tempDir/update.txt"
 echo "add ISODIR/setup.exe /setup.exe" >>"$tempDir/update.txt"
 echo "add ISODIR/sources/inf/setup.cfg /sources/inf/setup.cfg" >>"$tempDir/update.txt"
-echo "add ISODIR/sources/$bckimg /sources/background.bmp" >>"$tempDir/update.txt"
 echo "add ISODIR/sources/$bckimg /Windows/system32/winre.jpg" >>"$tempDir/update.txt"
+if [ "${bckimg: -3}" == "bmp" ]; then
+  echo "add ISODIR/sources/$bckimg /sources/background.bmp" >>"$tempDir/update.txt"
+else
+  echo "add ISODIR/sources/$bckimg /sources/background.png" >>"$tempDir/update.txt"
+fi
 for i in $files; do
     echo "add ISODIR/$i /$i" >>"$tempDir/update.txt"
 done
