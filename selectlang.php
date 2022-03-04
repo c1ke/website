@@ -237,7 +237,7 @@ EOD;
 <?php
 printf(
     $s['toSearchForCUUseQuery'],
-    "<a href=\"$findFilesUrl&q=Windows10 KB\">Windows10 KB</a>"
+    "<a href=\"$findFilesUrl&q=Windows KB\">Windows KB</a>"
 );
 ?>
         </div>

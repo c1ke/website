@@ -48,9 +48,9 @@ $filesKeys = array_keys($files);
 
 if($search) {
     $searchSafe = preg_quote($search, '/');
-    if($searchSafe == "Windows10 KB") {
-        $searchSafe = "Windows10 KB|SSU-";
-        if($updateBuild > 21380) $searchSafe = "Windows10 KB|SSU-|DesktopDeployment|AggregatedMetadata";
+    if($searchSafe == "Windows KB") {
+        $searchSafe = "Windows KB|SSU-";
+        if($updateBuild > 21380) $searchSafe = "Windows KB|SSU-|DesktopDeployment|AggregatedMetadata";
     }
     if(preg_match('/^".*"$/', $searchSafe)) {
         $searchSafe = preg_replace('/^"|"$/', '', $searchSafe);
@@ -59,8 +59,8 @@ if($search) {
     }
 
     $removeKeys = preg_grep('/.*'.$searchSafe.'.*/i', $filesKeys, PREG_GREP_INVERT);
-    if($search == "Windows10 KB") {
-        $removeKeys = array_merge($removeKeys, preg_grep('/Windows10\.0-KB.*-EXPRESS|SSU-.*-.{3,5}-EXPRESS|SSU-.*?\.psf/i', $filesKeys));
+    if($search == "Windows KB") {
+        $removeKeys = array_merge($removeKeys, preg_grep('/Windows(10|11)\.0-KB.*-EXPRESS|SSU-.*-.{3,5}-EXPRESS|SSU-.*?\.psf/i', $filesKeys));
     }
 
     foreach($removeKeys as $value) {
