@@ -57,7 +57,7 @@ if(!isset($updateInfo['sku'])) {
 $build = explode('.', $updateInfo['build']);
 $build = @$build[0];
 $disableVE = 0;
-if($build < 17107 || $uSku == 7 || $uSku == 8 || $uSku == 12 || $uSku == 13 || $uSku == 79 || $uSku == 80 || $uSku == 120 || $uSku == 145 || $uSku == 146 || $uSku == 147 || $uSku == 148 || $uSku == 159 || $uSku == 160 || $uSku == 406 || $uSku == 407 || $uSku == 408) {
+if($build < 17107 || in_array($uSku, [7,8,12,13,79,80,120,145,146,147,148,159,160,406,407,408])) {
     $disableVE = 1;
 }
 
@@ -91,6 +91,10 @@ if($selectedLang) {
 }
 
 $editionsNum = count($editions);
+
+if($editionsNum == 1) foreach($editions as $key => $val) {
+    if($key == 'APP') $disableVE = 1;
+}
 
 styleUpper('downloads', sprintf($s['selectEditionFor'], "$updateTitle, $selectedLangName"));
 ?>
@@ -208,7 +212,7 @@ if(!$disableVE) {
                 <td>Windows Pro</td>
             </tr>
             <tr>
-                <td>Windows Enterprise for Virtual Desktops</td>
+                <td>Windows Enterprise multi-session / Virtual Desktops</td>
                 <td>Windows Pro</td>
             </tr>
             <tr>

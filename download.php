@@ -78,7 +78,7 @@ $uSku = $files['sku'];
 $build = explode('.', $files['build']);
 $build = @$build[0];
 $disableVE = 0;
-if($build < 17107 || $uSku == 7 || $uSku == 8 || $uSku == 12 || $uSku == 13 || $uSku == 79 || $uSku == 80 || $uSku == 120 || $uSku == 145 || $uSku == 146 || $uSku == 147 || $uSku == 148 || $uSku == 159 || $uSku == 160 || $uSku == 406 || $uSku == 407 || $uSku == 408) {
+if($desiredEdition == 'app' || $build < 17107 || in_array($uSku, [7,8,12,13,79,80,120,145,146,147,148,159,160,406,407,408])) {
     $disableVE = 1;
 }
 
@@ -142,7 +142,7 @@ if(preg_grep('/^.*Professional_.*\.esd/i', $filesKeys)) {
     $virtualEditions['ProfessionalEducation'] = 'Pro Education';
     $virtualEditions['Education'] = 'Education';
     $virtualEditions['Enterprise'] = 'Enterprise';
-    $virtualEditions['ServerRdsh'] = 'Enterprise for Virtual Desktops';
+    $virtualEditions['ServerRdsh'] = 'Enterprise multi-session / Virtual Desktops';
 
     if($build >= 18277) {
         $virtualEditions['IoTEnterprise'] = 'IoT Enterprise';
@@ -158,7 +158,7 @@ if(preg_grep('/^.*ProfessionalN_.*\.esd/i', $filesKeys)) {
 
 $chkone = null;
 $chktwo = 'checked';
-if($uSku == 189 || $uSku == 135) {
+if($desiredEdition == 'app' || $uSku == 189 || $uSku == 135) {
     $chkone = 'checked';
     $chktwo = 'disabled';
 }
@@ -192,7 +192,7 @@ styleUpper('downloads', sprintf($s['summaryFor'], "$updateTitle, $selectedLangNa
             <li>Windows Pro Education</li>
             <li>Windows Education</li>
             <li>Windows Enterprise</li>
-            <li>Windows Enterprise for Virtual Desktops</li>
+            <li>Windows Enterprise multi-session / Virtual Desktops</li>
             <li>Windows IoT Enterprise</li>
         </ul>
         <p><b>Windows Pro N</b></p>
