@@ -1,5 +1,5 @@
 #!/bin/bash
-scriptName="UUP Converter v0.6.9"
+scriptName="UUP Converter v0.7.0"
 UUP_CONVERTER_SCRIPT=1
 
 export PATH=${PATH}:/usr/sbin
@@ -164,7 +164,10 @@ sources/ext-ms-win-advapi32-encryptedfile-l1-1-0.dll
 sources/folderprovider.dll
 sources/hwcompat.dll
 sources/hwcompat.txt
+sources/hwcompatPE.txt
 sources/hwexclude.txt
+sources/hwexcludePE.txt
+sources/hwreqchk.dll
 sources/idwbinfo.txt
 sources/imagelib.dll
 sources/imagingprovider.dll
@@ -412,7 +415,7 @@ extractDir="$tempDir/extract"
 echo -e "\033[1m$scriptName\033[0m"
 
 updatesDetected=false
-for file in `find "$uupDir" -type f -iname "windows10.0-kb*.cab" -or -iname "ssu-*.cab"`; do
+for file in `find "$uupDir" -type f -iname "*windows1*-kb*.cab" -or -iname "ssu-*.cab"`; do
   updatesDetected=true
 done
 
@@ -426,7 +429,7 @@ if [ $runVirtualEditions -eq 1 ] && [ "$VIRTUAL_EDITIONS_PLUGIN_LOADED" != "1" ]
 fi
 
 echo ""
-for file in `find "$uupDir" -type f -iname "*.cab" -not -iname "*windows10.0-kb*.cab" -not -iname "ssu-*.cab"`; do
+for file in `find "$uupDir" -type f -iname "*.cab" -not -iname "*windows1*-kb*.cab" -not -iname "ssu-*.cab" -not -iname "*desktopdeployment*.cab" -not -iname "*aggregatedmetadata*.cab"`; do
   fileName=`basename $file .cab`
   echo -e "$infoColor""CAB -> ESD:""$resetColor"" $fileName"
 
@@ -489,6 +492,9 @@ y' | chntpw -e "$tempDir/SOFTWARE" >/dev/null
 wimlib-imagex update ISODIR/sources/boot.wim 1 \
   --command "add $tempDir/SOFTWARE /Windows/System32/config/SOFTWARE" >/dev/null
 
+wimlib-imagex extract ISODIR/sources/boot.wim 1 "/Windows/System32/winpe.jpg" \
+  --no-acls --dest-dir="ISODIR/sources" >/dev/null 2>/dev/null
+
 bckimg=background_cli.bmp
 if [ -e ./ISODIR/sources/background_svr.bmp ]; then
   bckimg=background_svr.bmp
@@ -496,7 +502,12 @@ elif [ -e ./ISODIR/sources/background_cli.png ]; then
   bckimg=background_cli.png
 elif [ -e ./ISODIR/sources/background_svr.png ]; then
   bckimg=background_svr.png
+elif [ -e ./ISODIR/sources/winpe.jpg ]; then
+  bckimg=winpe.jpg
 fi
+
+wimlib-imagex update ISODIR/sources/boot.wim 1 \
+  --command "add ISODIR/sources/$bckimg /Windows/system32/winpe.jpg" >/dev/null
 
 wimlib-imagex update ISODIR/sources/boot.wim 1 \
   --command "add ISODIR/sources/$bckimg /Windows/system32/winre.jpg" >/dev/null
@@ -526,12 +537,10 @@ list=
 echo "delete /Windows/System32/winpeshl.ini" >"$tempDir/update.txt"
 echo "add ISODIR/setup.exe /setup.exe" >>"$tempDir/update.txt"
 echo "add ISODIR/sources/inf/setup.cfg /sources/inf/setup.cfg" >>"$tempDir/update.txt"
+echo "add ISODIR/sources/$bckimg /sources/background.bmp" >>"$tempDir/update.txt"
+echo "add ISODIR/sources/$bckimg /Windows/system32/setup.bmp" >>"$tempDir/update.txt"
+echo "add ISODIR/sources/$bckimg /Windows/system32/winpe.jpg" >>"$tempDir/update.txt"
 echo "add ISODIR/sources/$bckimg /Windows/system32/winre.jpg" >>"$tempDir/update.txt"
-if [ "${bckimg: -3}" == "bmp" ]; then
-  echo "add ISODIR/sources/$bckimg /sources/background.bmp" >>"$tempDir/update.txt"
-else
-  echo "add ISODIR/sources/$bckimg /sources/background.png" >>"$tempDir/update.txt"
-fi
 for i in $files; do
     echo "add ISODIR/$i /$i" >>"$tempDir/update.txt"
 done
@@ -541,6 +550,9 @@ errorHandler $? "Failed to add required files to second index of boot.wim"
 
 wimlib-imagex optimize ISODIR/sources/boot.wim
 rm "ISODIR/sources/xmllite.dll"
+if [ -e ./ISODIR/sources/winpe.jpg ]; then
+  rm "ISODIR/sources/winpe.jpg"
+fi
 
 refglobs=false
 for file in `find "$tempDir" -type f -iname "*.esd"`; do
