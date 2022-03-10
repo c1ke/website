@@ -159,6 +159,10 @@ $s['convOpt2'] = 'Include updates (Windows converter only)';
 $s['convOpt3'] = 'Run component cleanup (Windows converter only)';
 $s['convOpt4'] = 'Integrate .NET Framework 3.5 (Windows converter only)';
 $s['startDownload'] = 'Create download package';
+$s['legalCopeHarder'] = 'By clicking the <i>Create download package</i> button you agree with the following:';
+$s['legalCope1'] = 'Installation images created using scripts provided by this website should be only used for <b>evaluation purposes</b>';
+$s['legalCope2'] = 'Mentioned above images and installations made using them are <b>not supported</b> in any manner by Microsoft Corporation';
+$s['legalCope3'] = '<b>Authors are not liable for any damages</b> caused by usage of resources provided by this website';
 
 //get.php
 $s['listOfFilesFor'] = 'List of files for %s'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
