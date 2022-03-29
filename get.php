@@ -86,14 +86,20 @@ if($autoDl && !$aria2) {
     $archiveName = "{$updateBuild}_{$updateArch}_{$langDir}_{$editDir}_{$id}";
 
     $url = '';
+    $app = '';
     if(isset($_SERVER['HTTPS'])) {
         $url .= 'https://';
+        $app .= 'https://';
     } else {
         $url .= 'http://';
+        $app .= 'http://';
     }
 
     $url .=  $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
     $url .= '?id='.$updateId.'&pack='.$usePack.'&edition='.$desiredEdition.'&aria2=2';
+
+    $app .=  $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+    $app .= '?id='.$updateId.'&pack=neutral&edition=app&aria2=2';
 
     if(!isset($_GET['autodl'])) {
         $updates = isset($_POST['updates']) ? $_POST['updates'] : 0;
@@ -120,11 +126,23 @@ if($autoDl && !$aria2) {
 
     switch($autoDl) {
         case 1:
-            createAria2Package($url, $archiveName);
+            if($build > 22557) {
+                if($editDir == 'app' || $langDir == 'neutral') {
+                    createAria2Package($url, $archiveName);
+                } else {
+                    createAria2Package($url, $archiveName, $app);
+                }
+            } else {
+                createAria2Package($url, $archiveName);
+            }
             break;
 
         case 2:
-            createUupConvertPackage($url, $archiveName, 0, ["Enterprise"], $moreOptions);
+            if($build > 22557) {
+                createUupConvertPackage($url, $archiveName, 0, ["Enterprise"], $moreOptions, $app);
+            } else {
+                createUupConvertPackage($url, $archiveName, 0, ["Enterprise"], $moreOptions);
+            }
             break;
 
         case 3:
@@ -132,13 +150,15 @@ if($autoDl && !$aria2) {
                 fancyError('UNSPECIFIED_VE', 'downloads');
                 die();
             }
-
-            if(!$disableVE) {
-                createUupConvertPackage($url, $archiveName, 1, $desiredVE, $moreOptions);
-            } else {
+            if($disableVE) {
                 echo 'Not available for this build.';
+                break;
             }
-
+            if($build > 22557) {
+                createUupConvertPackage($url, $archiveName, 1, $desiredVE, $moreOptions, $app);
+            } else {
+                createUupConvertPackage($url, $archiveName, 1, $desiredVE, $moreOptions);
+            }
             break;
 
         default:
@@ -176,7 +196,7 @@ if($aria2) {
         echo '  out='.$val."\n";
         echo '  checksum=sha-1='.$files[$val]['sha1']."\n\n";
     }
-
+    /*
     //add debugging information to the file
     echo "# --- BEGIN UUP DUMP DEBUG INFO ---\n";
     foreach($filesKeys as $val) {
@@ -187,6 +207,7 @@ if($aria2) {
         echo "\n";
     }
     echo "# --- END UUP DUMP DEBUG INFO ---\n";
+    */
     die();
 }
 
@@ -222,7 +243,7 @@ if($renameScript) {
         foreach($filesKeys as $val) {
             echo 'mv "'.$files[$val]['uuid'].'" "'.$val."\" 2>/dev/null\n";
         }
-
+        /*
         //add debugging information to the file
         echo "\n# --- BEGIN UUP DUMP DEBUG INFO ---\n";
         foreach($filesKeys as $val) {
@@ -233,7 +254,7 @@ if($renameScript) {
             echo "\n";
         }
         echo "# --- END UUP DUMP DEBUG INFO ---\n";
-
+        */
         die();
     }
 
@@ -245,7 +266,7 @@ if($renameScript) {
         echo "IF EXIST \"{$files[$val]['uuid']}\" ";
         echo 'RENAME "'.$files[$val]['uuid'].'" "'.$val."\"\r\n";
     }
-
+    /*
     //add debugging information to the file
     echo "\n:: --- BEGIN UUP DUMP DEBUG INFO ---\n";
     foreach($filesKeys as $val) {
@@ -256,7 +277,7 @@ if($renameScript) {
         echo "\n";
     }
     echo ":: --- END UUP DUMP DEBUG INFO ---\n";
-
+    */
     die();
 }
 
