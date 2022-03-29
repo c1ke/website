@@ -351,6 +351,15 @@ EOL;
                 </div>
             </div>
 
+            <div class="ui message" id="legal-cope">
+				<p><i class="balance scale icon"></i> <?php echo $s['legalCopeHarder']; ?></p>
+				<ul>
+					<li><?php echo $s['legalCope1']; ?></li>
+					<li><?php echo $s['legalCope2']; ?></li>
+					<li><?php echo $s['legalCope3']; ?></li>
+				</ul>
+            </div>
+
             <button class="ui fluid right labeled icon primary button" type="submit">
                 <i class="download icon"></i>
                 <?php echo $s['startDownload']; ?>
@@ -490,6 +499,12 @@ function learnMoreUpdates() {
 
 function checkDlOpt() {
     autodl = $('input[name="autodl"]:checked').val();
+
+	if(autodl < 2) {
+		$('#legal-cope').slideUp(300);
+	} else {
+        $('#legal-cope').slideDown(300);
+	}
 
     if(autodl == 1) {
         $('#conversion-options').slideUp(300);
