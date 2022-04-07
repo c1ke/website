@@ -159,6 +159,10 @@ $s['convOpt2'] = '当可用时集成更新（仅限 Windows 转换程序）';
 $s['convOpt3'] = '在集成更新后运行清理（仅限 Windows 转换程序）';
 $s['convOpt4'] = '集成 .NET Framework 3.5（仅限 Windows 转换程序）';
 $s['startDownload'] = '创建下载包';
+$s['legalCopeHarder'] = '点击<i>创建下载包</i>按钮即表示你同意以下内容：';
+$s['legalCope1'] = '使用 UUP dump 提供的脚本创建的安装映像仅可用于<b>评估目的</b>';
+$s['legalCope2'] = 'Microsoft Corporation <b>不以任何方式支持</b>映像及其部署';
+$s['legalCope3'] = '根据项目许可条款，<b>作者不对任何损害负责</b>';
 
 //get.php
 $s['listOfFilesFor'] = '%s 的文件列表'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
