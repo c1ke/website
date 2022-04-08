@@ -6,7 +6,8 @@ Translation information:
 English language name: Portuguese (Brazil)
 Localized language name: Português (Brasil)
 Language code: pt-BR
-Author: Hélio de Souza / hdstec2018 (https://forums.mydigitallife.net/members/hdstec2018.1060506/)
+Authors: Hélio de Souza / hdstec2018 (https://forums.mydigitallife.net/members/hdstec2018.1060506/) & Lucas Fell (https://github.com/fell-lucas)
+https://sway.office.com/RVue6qySNJ2DzYrs
 */
 
 //Language information
@@ -16,7 +17,7 @@ $s['timeZone'] = 'America/Sao_Paulo'; //Supported timezones: https://www.php.net
 //shared strings
 $s['uupdump'] = 'UUP dump';
 $s['uupdumpSub'] = '%s - UUP dump'; //Procurar compilações - UUP dump
-$s['build'] = 'Complilação';
+$s['build'] = 'Compilação';
 $s['arch'] = 'Arquitetura';
 $s['ring'] = 'Canal';
 $s['updateid'] = 'ID da atualização';
@@ -36,6 +37,9 @@ $s['file'] = 'Arquivo';
 $s['expires'] = 'Expira em';
 $s['sha1'] = 'SHA-1';
 $s['size'] = 'Tamanho';
+$s['additionalEdition'] = 'Edição adicional';
+$s['requiredEdition'] = 'Edição necessária';
+$s['unknown'] = 'Desconhecido';
 
 //global
 $s['home'] = 'Início';
@@ -90,12 +94,17 @@ $s['chooseLangDesc'] = 'Escolha o idioma desejado';
 $s['allLangs'] = 'Todos os Idiomas';
 $s['selLangFiles'] = 'Arquivos';
 $s['allFiles'] = 'Todos Arquivos';
-$s['wubOnly'] = 'WindowsUpdateBox only';
+$s['wubOnly'] = 'Apenas WindowsUpdateBox';
 $s['updateOnly'] = 'Somente atualização';
 $s['selectLangInfoText1'] = 'Clique no botão <i>Próximo</i> para selecionar a edição que deseja baixar.';
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe e Atualizações Cumulativas podem ser encontradas no idioma<i>Todos os Idiomas</i>.';
 $s['allLangsWarn'] = 'A opção <i>Todos os Idiomas</i> não suporta a seleção de edições.';
 $s['clickNextToOpenFindFiles'] = 'Clique no botão <i>Próximo</i> para abrir a página que permite encontrar os arquivos.';
+$s['noLangsAvailable'] = 'Não há idiomas disponíveis para esta compilação.';
+$s['browseFiles'] = 'Procurar arquivos';
+$s['browseFilesDesc'] = 'Navegar rapidamente pelos arquivos da compilação selecionada';
+$s['searchFiles'] = 'Procurar arquivos';
+$s['toSearchForCUUseQuery'] = 'Para procurar atualizações cumulativas use <i>% s</i> na pesquisa.'; //Para procurar atualizações cumulativas use <i>Windows 10 KB</i> na pesquisa.
 
 //selectedition.php
 $s['selectEditionFor'] = 'Selecione a edição para %s'; //Selecione a edição para o Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
@@ -103,6 +112,7 @@ $s['chooseEdition'] = 'Escolha a edição';
 $s['chooseEditionDesc'] = 'Escolha a sua edição desejada';
 $s['allEditions'] = 'Todas as edições';
 $s['selectEditionInfoText'] = 'Clique no botão <i>Próximo</i> para abrir a página com o resumo da sua seleção.';
+$s['additionalEditionsInfo'] = 'Se você precisar de uma edição adicional que pode ser encontrado na tabela à direita, selecione a edição requerida indicada e clique em <i>Próximo</i>. Na página de resumo, você poderá selecionar as edições adicionais desejadas na opção de download apropriado. ';
 
 //download.php
 $s['summary'] = 'Resumo';
@@ -129,13 +139,22 @@ $s['systemWithAdk'] = '%s com o Windows 10 ADK instalado'; //Windows 7 com o Win
 $s['additionalUpdates'] = 'Atualizações adicionais';
 $s['additionalUpdatesDesc'] = 'Este conjunto UUP contém atualizações adicionais que serão integradas durante o processo de conversão, aumentando significativamente o tempo de criação.';
 $s['browseUpdatesList'] = 'Navegar pela lista de atualizações';
+$s['selectDownloadOptions'] = 'Selecione suas opções de download';
+$s['selectDownloadOptionsSub'] = 'Configure como você deseja baixar sua seleção';
+$s['downloadMethod'] = 'Método de download';
+$s['conversionOptions'] = 'Opções de conversão';
+$s['convOpt1'] = 'Criar ISO com install.esd em vez de install.wim';
+$s['convOpt2'] = 'Integrar atualizações quando disponível (Conversor do Windows apenas)';
+$s['convOpt3'] = 'Executar a limpeza após a integração de atualizações  (Conversor do Windows apenas)';
+$s['convOpt4'] = 'Integrar o .Net Framework 3.5 (Conversor do Windows apenas)';
+$s['startDownload'] = 'Criar pacote de download';
 
 //get.php
 $s['listOfFilesFor'] = 'Lista de arquivos para %s'; //Lista de arquivos para o Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['totalSizeOfFiles'] = 'Tamanho total dos arquivos: %s'; //Tamanho total dos arquivos: 2.86 GiB
 $s['fileRenamingScript'] = 'Script de renomeação de arquivos';
 $s['fileRenamingScriptDesc1'] = 'O script abaixo pode ser usado para renomear rapidamente os arquivos baixados.';
-$s['fileRenamingScriptDesc2'] = 'Basta copiar o conteúdo do formulário abaixo para um novo arquivo com a extensão <code>cmd</code>, colocá-lo na pasta com os arquivos baixados e executar.';
+$s['fileRenamingScriptDesc2'] = 'Copie o conteúdo do formulário abaixo em um novo arquivo com a extensão <code>cmd</code>, coloque-o na pasta com os arquivos baixados e execute.';
 $s['sha1File'] = 'Arquivo SHA-1';
 $s['sha1FileDesc'] = 'Você pode usar esse arquivo para verificar rapidamente se os arquivos foram baixados corretamente.';
 $s['aria2NoticeTitle'] = 'Aviso sobre o download usando a opção aria2';
@@ -143,15 +162,15 @@ $s['aria2NoticeText1'] = 'O download usando as opções aria2 cria um arquivo qu
 $s['aria2NoticeText2'] = 'Para iniciar o processo de download, use um script para sua plataforma:';
 $s['aria2NoticeText3'] = 'Aria2 é um projeto de código aberto. Você pode encontrá-lo aqui: %s.'; //Aria2 é um projeto de código aberto. Você pode encontrá-lo aqui: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'O script de conversão UUP (versão Windows) foi criado por %s.'; //O script de conversão UUP (versão Windows) foi criado por abbodi1406.
-$s['aria2NoticeText5'] = 'O script de conversão UUP (versão Linux) é de código aberto. Você pode encontrá-lo aqui: %s.'; //O script de conversão UUP (versão Linux) é de código aberto. Você pode encontrá-lo aqui: https://github.com/uup-dump/converter.
+$s['aria2NoticeText5'] = 'O script de conversão UUP (versão Linux, versão macOS) é de código aberto. Você pode encontrá-lo aqui: %s.'; //O script de conversão UUP (versão Linux, versão macOS) é de código aberto. Você pode encontrá-lo aqui: https://github.com/uup-dump/converter.
 
 //findfiles.php
 $s['findFilesIn'] = 'Encontrar arquivos em %s'; //Localizar arquivos no Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['fileRenamingScriptDescFindFiles'] = 'Se deseja renomear rapidamente os arquivos baixados desta página, você pode gerar um script de renomeação, que fará isso automaticamente.';
 $s['fileRenamingScriptGenW'] = 'Gerar script de renomeação (Windows)';
-$s['fileRenamingScriptGenL'] = 'Gerar script de renomeação (Linux)';
+$s['fileRenamingScriptGenL'] = 'Gerar script de renomeação (Linux, macOS)';
 $s['searchForFiles'] = 'Procurar arquivos...';
-$s['weFoundFiles'] = 'Encontramos <b>%d</b> arquivos para sua consulta.'; //Encontramos <b>692</b> arquivos para sua consulta.
+$s['weFoundFiles'] = 'Encontramos <b>%d</b> arquivos para sua consulta.';//Encontramos <b>692</b> arquivos para sua consulta.
 
 //Error pages
 $s['error'] = 'Erro';

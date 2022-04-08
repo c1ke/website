@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 whatever127
+Copyright 2021 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -34,18 +34,34 @@ if(!checkUpdateIdValidity($updateId)) {
     die();
 }
 
-$url = "./get.php?id=$updateId&pack=$usePack&edition=$desiredEdition";
-if(!$usePack && !$desiredEdition) {
+if(!$usePack) {
     $url = "./findfiles.php?id=$updateId";
-}
 
-if(!$usePack || $desiredEdition == 'updateOnly' || $desiredEdition == 'wubFile') {
     header("Location: $url");
     echo "<h1>Moved to <a href=\"$url\">here</a>.";
     die();
 }
 
-$files = uupGetFiles($updateId, $usePack, $desiredEdition, 2);
+if(is_array($desiredEdition)) {
+    $desiredEditionMixed = $desiredEdition;
+    $desiredEdition = implode(';', $desiredEdition);
+} else {
+    $desiredEditionMixed = explode(';', $desiredEdition);
+
+    if(count($desiredEditionMixed) == 1)
+        $desiredEditionMixed = $desiredEdition;
+}
+
+$desiredEdition = strtolower($desiredEdition);
+$url = "./get.php?id=$updateId&pack=$usePack&edition=$desiredEdition";
+
+if($desiredEdition == 'wubfile' || $desiredEdition == 'updateonly') {
+    header("Location: $url");
+    echo "<h1>Moved to <a href=\"$url\">here</a>.";
+    die();
+}
+
+$files = uupGetFiles($updateId, $usePack, $desiredEditionMixed, 2);
 if(isset($files['error'])) {
     fancyError($files['error'], 'downloads');
     die();
@@ -58,12 +74,12 @@ if(isset($updates['error'])) {
     $hasUpdates = 1;
 }
 
+$uSku = $files['sku'];
 $build = explode('.', $files['build']);
 $build = @$build[0];
-if($build < 17107) {
+$disableVE = 0;
+if($desiredEdition == 'app' || $build < 17107 || in_array($uSku, [7,8,12,13,79,80,120,145,146,147,148,159,160,406,407,408])) {
     $disableVE = 1;
-} else {
-    $disableVE = 0;
 }
 
 $updateTitle = "{$files['updateName']} {$files['arch']}";
@@ -100,7 +116,16 @@ if($usePack && $desiredEdition) {
     $editions = uupListEditions($usePack, $updateId);
     $editions = $editions['editionFancyNames'];
 
-    $selectedEditionName = $editions[strtoupper($desiredEdition)];
+    if(isset($editions[strtoupper($desiredEdition)])) {
+        $selectedEditionName = $editions[strtoupper($desiredEdition)];
+    } else {
+        $fancyNames = [];
+        foreach($desiredEditionMixed as $edition) {
+            $fancyNames[] = $editions[strtoupper($edition)];
+        }
+
+        $selectedEditionName = implode(', ', $fancyNames);
+    }
 } else {
     $selectedEditionName = $s['allEditions'];
 }
@@ -108,73 +133,45 @@ if($usePack && $desiredEdition) {
 $filesKeys = array_keys($files);
 $virtualEditions = array();
 
-if(preg_grep('/^Core_.*\.esd/i', $filesKeys)) {
+if(preg_grep('/^.*Core_.*\.esd/i', $filesKeys)) {
     $virtualEditions['CoreSingleLanguage'] = 'Home Single Language';
 }
 
-if(preg_grep('/^Professional_.*\.esd/i', $filesKeys)) {
+if(preg_grep('/^.*Professional_.*\.esd/i', $filesKeys)) {
     $virtualEditions['ProfessionalWorkstation'] = 'Pro for Workstations';
     $virtualEditions['ProfessionalEducation'] = 'Pro Education';
     $virtualEditions['Education'] = 'Education';
     $virtualEditions['Enterprise'] = 'Enterprise';
-    $virtualEditions['ServerRdsh'] = 'Enterprise for Virtual Desktops';
+    $virtualEditions['ServerRdsh'] = 'Enterprise multi-session / Virtual Desktops';
 
     if($build >= 18277) {
         $virtualEditions['IoTEnterprise'] = 'IoT Enterprise';
     }
 }
 
-if(preg_grep('/^ProfessionalN_.*\.esd/i', $filesKeys)) {
+if(preg_grep('/^.*ProfessionalN_.*\.esd/i', $filesKeys)) {
     $virtualEditions['ProfessionalWorkstationN'] = 'Pro N for Workstations';
     $virtualEditions['ProfessionalEducationN'] = 'Pro Education N';
     $virtualEditions['EducationN'] = 'Education N';
     $virtualEditions['EnterpriseN'] = 'Enterprise N';
 }
 
+$chkone = null;
+$chktwo = 'checked';
+if($desiredEdition == 'app' || $uSku == 189 || $uSku == 135) {
+    $chkone = 'checked';
+    $chktwo = 'disabled';
+}
+
 styleUpper('downloads', sprintf($s['summaryFor'], "$updateTitle, $selectedLangName, $selectedEditionName"));
 ?>
 
-<form class="ui normal mini modal virtual-editions form"
-action="<?php echo $url; ?>&autodl=3" method="post">
-    <div class="header">
-        <?php echo $s['selAdditionalEditions']; ?>
-    </div>
+<h3 class="ui centered header">
     <div class="content">
-<?php
-foreach($virtualEditions as $key => $val) {
-    echo <<<EOD
-<div class="field">
-    <div class="ui checkbox">
-        <input type="checkbox" name="virtualEditions[]" value="$key" checked>
-        <label>Windows 10 $val</label>
+        <i class="fitted briefcase icon"></i>&nbsp;
+        <?php echo $s['summaryOfSelection']; ?>
     </div>
-</div>
-
-EOD;
-}
-
-if(!count($virtualEditions)) echo <<<EOL
-<p>{$s['noAdditionalEditions']}</p>
-
-EOL;
-?>
-    </div>
-    <div class="actions">
-        <div class="ui ok button">
-            <i class="close icon"></i>
-            <?php echo $s['cancel']; ?>
-        </div>
-<?php
-if(count($virtualEditions)) echo <<<EOD
-<button type="submit" class="ui primary ok button">
-    <i class="checkmark icon"></i>
-    {$s['ok']}
-</button>
-
-EOD;
-?>
-    </div>
-</form>
+</h3>
 
 <div class="ui normal modal virtual-editions-info">
     <div class="header">
@@ -185,25 +182,25 @@ EOD;
 
         <p><b><?php echo $s['learnMoreAdditionalEditions2']; ?></b></p>
 
-        <p><b>Windows 10 Home</b></p>
+        <p><b>Windows Home</b></p>
         <ul>
-            <li>Windows 10 Home Single Language</li>
+            <li>Windows Home Single Language</li>
         </ul>
-        <p><b>Windows 10 Pro</b></p>
+        <p><b>Windows Pro</b></p>
         <ul>
-            <li>Windows 10 Pro for Workstations</li>
-            <li>Windows 10 Pro Education</li>
-            <li>Windows 10 Education</li>
-            <li>Windows 10 Enterprise</li>
-            <li>Windows 10 Enterprise for Virtual Desktops</li>
-            <li>Windows 10 IoT Enterprise</li>
+            <li>Windows Pro for Workstations</li>
+            <li>Windows Pro Education</li>
+            <li>Windows Education</li>
+            <li>Windows Enterprise</li>
+            <li>Windows Enterprise multi-session / Virtual Desktops</li>
+            <li>Windows IoT Enterprise</li>
         </ul>
-        <p><b>Windows 10 Pro N</b></p>
+        <p><b>Windows Pro N</b></p>
         <ul>
-            <li>Windows 10 Pro for Workstations N</li>
-            <li>Windows 10 Pro Education N</li>
-            <li>Windows 10 Education N</li>
-            <li>Windows 10 Enterprise N</li>
+            <li>Windows Pro for Workstations N</li>
+            <li>Windows Pro Education N</li>
+            <li>Windows Education N</li>
+            <li>Windows Enterprise N</li>
         </ul>
     </div>
     <div class="actions">
@@ -223,7 +220,6 @@ EOD;
         <ul>
             <li>Windows 10</li>
             <li><?php printf($s['systemWithAdk'], 'Windows 8.1'); ?></li>
-            <li><?php printf($s['systemWithAdk'], 'Windows 7'); ?></li>
         </ul>
         <p><?php echo $s['learnMoreUpdates2']; ?></p>
     </div>
@@ -233,10 +229,6 @@ EOD;
             <?php echo $s['ok']; ?>
         </div>
     </div>
-</div>
-
-<div class="ui horizontal divider">
-    <h3><i class="briefcase icon"></i><?php echo $s['summaryOfSelection']; ?></h3>
 </div>
 
 <?php
@@ -251,75 +243,180 @@ if($updateArch == 'arm64') {
 
 <div class="ui two columns mobile reversed stackable centered grid">
     <div class="column">
-        <a class="ui top attached fluid labeled icon large button"
-        href="<?php echo $url; ?>">
-            <i class="list icon"></i>
-            <?php echo $s['browseList']; ?>
-        </a>
-        <div class="ui bottom attached segment">
-            <?php echo $s['browseListDesc']; ?>
-        </div>
+        <h3 class="ui header">
+            <i class="download icon"></i>
+            <div class="content">
+                <?php echo $s['selectDownloadOptions']; ?>
+                <div class="sub header"><?php echo $s['selectDownloadOptionsSub']; ?></div>
+            </div>
+        </h3>
 
-        <a class="ui top attached fluid labeled icon large button"
-        href="<?php echo $url; ?>&autodl=1">
-            <i class="archive icon"></i>
-            <?php echo $s['aria2Opt1']; ?>
-        </a>
-        <div class="ui bottom attached segment">
-            <?php echo $s['aria2Opt1Desc']; ?>
-        </div>
+        <form class="ui form" action="<?php echo $url; ?>" method="post" id="download-options">
+            <div class="field">
+                <label><?php echo $s['downloadMethod']; ?></label>
+                <div class="grouped fields">
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="autodl" value="1"
+                            <?php echo $chkone; ?>>
+                            <label>
+                                <?php echo $s['aria2Opt1']; ?><br/>
+                                <small><?php echo $s['aria2Opt1Desc']; ?></small>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="autodl" value="2"
+                            <?php echo $chktwo; ?>>
+                            <label>
+                                <?php echo $s['aria2Opt2']; ?><br/>
+                                <small><?php echo $s['aria2Opt2Desc']; ?></small>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div id="VEConvertOpt" class="ui radio checkbox">
+                            <input type="radio" name="autodl" value="3"
+                            <?php if($disableVE) echo 'disabled'; ?>>
+                            <label>
+                                <?php echo $s['aria2Opt3']; ?><br/>
+                                <small>
+                                    <?php echo $s['aria2Opt3Desc']; ?>
+                                    <span id="VEConvertLearnMoreLink" style="display: none;">
+                                        <a href="javascript:void(0)" onClick="learnMoreVE();">
+                                            <?php echo $s['learnMore']; ?>
+                                        </a>
+                                    </span>
+                                </small>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <a class="ui top attached fluid labeled icon large blue button"
-        href="<?php echo $url; ?>&autodl=2">
-            <i class="archive icon"></i>
-            <?php echo $s['aria2Opt2']; ?>
-        </a>
-        <div class="ui bottom attached segment">
-            <?php echo $s['aria2Opt2Desc']; ?>
-        </div>
+            <div class="field" id="conversion-options">
+                <label><?php echo $s['conversionOptions']; ?></label>
+                <div class="grouped fields">
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="updates" value="1" checked class="conversion-option">
+                            <label><?php echo $s['convOpt2']; ?></label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="cleanup" value="1" class="conversion-option">
+                            <label><?php echo $s['convOpt3']; ?></label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="netfx" value="1" class="conversion-option">
+                            <label><?php echo $s['convOpt4']; ?></label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="esd" value="1" class="conversion-option">
+                            <label><?php echo $s['convOpt1']; ?></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <a class="ui top attached fluid labeled icon large disabled button"
-        href="javascript:void(0)" onClick="getVirtualEditions();"
-        id="VEConvertBtn">
-            <i class="archive icon"></i>
-            <?php echo $s['aria2Opt3']; ?>
-        </a>
-        <div class="ui bottom attached segment">
-            <?php echo $s['aria2Opt3Desc']; ?>
-            <span id="VEConvertMsgNoJs"><?php echo $s['jsRequiredToConf']; ?></span>
-            <span id="VEConvertLearnMoreLink" style="display: none;">
-                <a href="javascript:void(0)" onClick="learnMoreVE();">
-                    <?php echo $s['learnMore']; ?>
-                </a>
-            </span>
-        </div>
+            <div class="field" id="additional-editions-list">
+                <label><?php echo $s['selAdditionalEditions']; ?></label>
+                <div class="grouped fields">
+<?php
+$printedEditions = 0;
+if(!$disableVE) foreach($virtualEditions as $key => $val) {
+    echo <<<EOD
+<div class="field">
+    <div class="ui checkbox">
+        <input class="virtual-edition" type="checkbox" name="virtualEditions[]" value="$key" checked>
+        <label>Windows $val</label>
+    </div>
+</div>
+
+EOD;
+    $printedEditions++;
+}
+
+if(!$printedEditions) echo <<<EOL
+<p>{$s['noAdditionalEditions']}</p>
+
+EOL;
+?>
+                </div>
+            </div>
+
+            <div class="ui message" id="legal-cope">
+				<p><i class="balance scale icon"></i> <?php echo $s['legalCopeHarder']; ?></p>
+				<ul>
+					<li><?php echo $s['legalCope1']; ?></li>
+					<li><?php echo $s['legalCope2']; ?></li>
+					<li><?php echo $s['legalCope3']; ?></li>
+				</ul>
+            </div>
+
+            <button class="ui fluid right labeled icon primary button" type="submit">
+                <i class="download icon"></i>
+                <?php echo $s['startDownload']; ?>
+            </button>
+        </form>
     </div>
 
     <div class="column">
-        <h4><?php echo $s['update']; ?></h4>
-        <p><?php echo $updateTitle; ?></p>
+        <h4 class="ui header">
+            <i class="cubes icon"></i>
+            <div class="content">
+                <?php echo $s['update']; ?>
+                <div class="sub header"><?php echo htmlentities($updateTitle); ?></div>
+            </div>
+        </h4>
 
-        <h4><?php echo $s['lang']; ?></h4>
-        <p><?php echo $selectedLangName; ?></p>
+        <h4 class="ui header">
+            <i class="globe icon"></i>
+            <div class="content">
+                <?php echo $s['lang']; ?>
+                <div class="sub header"><?php echo $selectedLangName; ?></div>
+            </div>
+        </h4>
 
-        <h4><?php echo $s['edition']; ?></h4>
-        <p><?php echo $selectedEditionName; ?></p>
+        <h4 class="ui header">
+            <i class="archive icon"></i>
+            <div class="content">
+                <?php echo $s['edition']; ?>
+                <div class="sub header"><?php echo $selectedEditionName; ?></div>
+            </div>
+        </h4>
 
-        <h4><?php echo $s['totalDlSize']; ?></h4>
-        <p><?php echo $totalSize; ?></p>
+        <h4 class="ui header">
+            <i class="download icon"></i>
+            <div class="content">
+                <?php echo $s['totalDlSize']; ?>
+                <div class="sub header"><?php echo $totalSize; ?></div>
+            </div>
+        </h4>
 
 <?php
 if($hasUpdates) {
     echo <<<INFO
-<h4>{$s['additionalUpdates']}</h4>
-<p>
-    {$s['additionalUpdatesDesc']}
+<h4 class="ui header">
+    <i class="info icon"></i>
+    <div class="content">
+        {$s['additionalUpdates']}
+        <div class="sub header">
+            {$s['additionalUpdatesDesc']}
 
-    <a href="javascript:void(0)" onClick="learnMoreUpdates();"
-    id="LearnMoreUpdatesLink" style="display: none;">
-        {$s['learnMore']}
-    </a>
-</p>
+            <a href="javascript:void(0)" onClick="learnMoreUpdates();"
+            id="LearnMoreUpdatesLink" style="display: none;">
+                {$s['learnMore']}
+            </a>
+        </div>
+    </div>
+</h4>
 
 <a class="ui tiny labeled icon button"
 href="./get.php?id=$updateId&pack=0&edition=updateOnly">
@@ -334,6 +431,11 @@ document.getElementById('LearnMoreUpdatesLink').style.display = "inline";
 INFO;
 }
 ?>
+        <div class="ui divider"></div>
+        <a class="ui fluid right labeled icon button" href="<?php echo $url; ?>">
+            <i class="list icon"></i>
+            <?php echo $s['browseList']; ?>
+        </a>
     </div>
 </div>
 
@@ -344,8 +446,9 @@ INFO;
     <p><?php echo $s['aria2NoticeText1']; ?></p>
 
     <p><b><?php echo $s['aria2NoticeText2']; ?></b><br/>
-    - Windows: <code>aria2_download_windows.cmd</code><br/>
-    - Linux: <code>aria2_download_linux.sh</code><br/>
+    - Windows: <code>uup_download_windows.cmd</code><br/>
+    - Linux: <code>uup_download_linux.sh</code><br/>
+    - macOS: <code>uup_download_macos.sh</code><br/>
     </p>
 
     <p>
@@ -386,10 +489,6 @@ INFO;
 </div>
 
 <script>
-function getVirtualEditions() {
-    $('.ui.modal.virtual-editions').modal('show');
-}
-
 function learnMoreVE() {
     $('.ui.modal.virtual-editions-info').modal('show');
 }
@@ -398,16 +497,44 @@ function learnMoreUpdates() {
     $('.ui.modal.updates').modal('show');
 }
 
+function checkDlOpt() {
+    autodl = $('input[name="autodl"]:checked').val();
+
+	if(autodl < 2) {
+		$('#legal-cope').slideUp(300);
+	} else {
+        $('#legal-cope').slideDown(300);
+	}
+
+    if(autodl == 1) {
+        $('#conversion-options').slideUp(300);
+        disabled_co = true;
+    } else {
+        $('#conversion-options').slideDown(300);
+        disabled_co = false;
+    }
+
+    if(autodl == 3) {
+        $('#additional-editions-list').slideDown(300);
+        disabled_ve = false;
+    } else {
+        $('#additional-editions-list').slideUp(300);
+        disabled_ve = true;
+    }
+
+    $('.virtual-edition').prop('disabled', disabled_ve);
+    $('.conversion-option').prop('disabled', disabled_co);
+}
+
 $('.ui.checkbox').checkbox();
 
-<?php
-if(!$disableVE) {
-    echo "document.getElementById('VEConvertBtn').classList.remove(\"disabled\");";
-}
-?>
+$('input[name="autodl"]').on('click change', function() {
+    checkDlOpt();
+});
 
-document.getElementById('VEConvertMsgNoJs').style.display = "none";
-document.getElementById('VEConvertLearnMoreLink').style.display = "inline";
+$('#additional-editions-list').hide();
+$('#VEConvertLearnMoreLink').css('display', 'inline');
+checkDlOpt();
 </script>
 
 <?php

@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 whatever127
+Copyright 2021 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -21,18 +21,19 @@ $flight = isset($_GET['flight']) ? $_GET['flight'] : 'Active';
 $build = isset($_GET['build']) ? $_GET['build'] : 16251;
 $minor = isset($_GET['minor']) ? $_GET['minor'] : 0;
 $sku = isset($_GET['sku']) ? $_GET['sku'] : 48;
+$type = isset($_GET['type']) ? $_GET['type'] : 'Production';
 
 require_once 'api/fetchupd.php';
 require_once 'shared/style.php';
 require_once 'shared/ratelimits.php';
 
-$resource = hash('sha1', strtolower("fetch-$arch-$ring-$flight-$build-$minor-$sku"));
+$resource = hash('sha1', strtolower("fetch-$arch-$ring-$flight-$build-$minor-$sku-$type"));
 if(checkIfUserIsRateLimited($resource)) {
     fancyError('RATE_LIMITED', 'downloads');
     die();
 }
 
-$fetchUpd = uupFetchUpd($arch, $ring, $flight, $build, $minor, $sku, 1);
+$fetchUpd = uupFetchUpd($arch, $ring, $flight, $build, $minor, $sku, $type, 1);
 if(isset($fetchUpd['error'])) {
     fancyError($fetchUpd['error'], 'downloads');
     die();
@@ -42,9 +43,12 @@ $updateArray = $fetchUpd['updateArray'];
 styleUpper('downloads', $s['responseFromServer']);
 ?>
 
-<div class="ui horizontal divider">
-    <h3><i class="wizard icon"></i><?php echo $s['responseFromServer']; ?></h3>
-</div>
+<h3 class="ui centered header">
+    <div class="content">
+        <i class="fitted wizard icon"></i>&nbsp;
+        <?php echo $s['responseFromServer']; ?>
+    </div>
+</h3>
 
 <div class="ui icon info message">
     <i class="check info circle icon"></i>

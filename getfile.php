@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 UUP dump authors
+Copyright 2019 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -16,30 +16,45 @@ limitations under the License.
 */
 
 $updateId = isset($_GET['id']) ? $_GET['id'] : null;
-$file = isset($_GET['file']) ? strtolower($_GET['file']) : null;
+$file = isset($_GET['file']) ? $_GET['file'] : null;
 $aria2 = isset($_GET['aria2']) ? $_GET['aria2'] : 0;
 
 if(empty($updateId)) die('Unspecified update id');
 if(empty($file)) die('Unspecified file');
 
-require_once 'shared/main.php';
 require_once 'api/get.php';
+require_once 'shared/style.php';
+require_once 'shared/ratelimits.php';
 
 if(!checkUpdateIdValidity($updateId)) {
-    die('Incorrect update id');
+    fancyError('INCORRECT_ID', 'downloads');
+    die();
+}
+
+$resource = hash('sha1', strtolower("get-$updateId"));
+if(checkIfUserIsRateLimited($resource, 5, 0)) {
+    fancyError('RATE_LIMITED', 'downloads');
+    die();
 }
 
 $files = uupGetFiles($updateId, 0, 0, 1);
 if(isset($files['error'])) {
-    die($files['error']);
+    $resource = hash('sha1', strtolower("get-$updateId-failed"));
+    checkIfUserIsRateLimited($resource, 0, 0);
+
+    fancyError($files['error'], 'downloads');
+    die();
 }
 
 $files = $files['files'];
 $filesKeys = array_keys($files);
 
 if(!isset($files[$file]['url'])) {
-    die('We couldn\'t find file '.$file);
+    fancyError('NO_FILES', 'downloads', $file);
+    die();
 }
+
+$files[$file]['url'] = str_replace('http://tlu.dl.delivery.mp.microsoft.com', 'https://uupdump.sf.tlu.dl.delivery.mp.microsoft.com', $files[$file]['url']);
 
 if($aria2) {
     header('Content-Type: text/plain');
@@ -52,4 +67,3 @@ if($aria2) {
 $url = $files[$file]['url'];
 header('Location: '.$url);
 echo '<h1>Moved to <a href="'.$url.'">here</a>.';
-?>

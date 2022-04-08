@@ -32,11 +32,21 @@ if(empty($ids)) {
     die();
 }
 
-styleUpper('downloads', $s['browseKnown']);
+if($search) {
+    $pageTitle = "$search - {$s['browseKnown']}";
+} else {
+    $pageTitle = $s['browseKnown'];
+}
+
+styleUpper('downloads', $pageTitle);
 ?>
-<div class="ui horizontal divider">
-    <h3><i class="cubes icon"></i><?php echo $s['chooseBuild']; ?></h3>
-</div>
+
+<h3 class="ui centered header">
+    <div class="content">
+        <i class="fitted shopping basket icon"></i>&nbsp;
+        <?php echo $s['browseKnown']; ?>
+    </div>
+</h3>
 
 <div class="ui top attached segment">
     <form class="ui form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
@@ -58,6 +68,7 @@ styleUpper('downloads', $s['browseKnown']);
         <tr>
             <th><?php echo $s['build']; ?></th>
             <th><?php echo $s['arch']; ?></th>
+            <th><?php echo $s['dateAdded']; ?></th>
             <th><?php echo $s['updateid']; ?></th>
         </tr>
     </thead>
@@ -68,12 +79,18 @@ foreach($ids as $val) {
 
     echo '<tr><td>';
     echo '<i class="windows icon"></i>';
-    echo '<a href="./selectlang.php?id='.$val['uuid'].'">'
-         .$val['title'].' '.$val['arch']."</a>";
+    echo '<a href="./selectlang.php?id='.htmlentities($val['uuid']).'">'
+         .htmlentities($val['title']).' '.htmlentities($val['arch'])."</a>";
     echo '</td><td>';
     echo $arch;
     echo '</td><td>';
-    echo '<code>'.$val['uuid'].'</code>';
+    if($val['created'] == null) {
+       echo 'Unknown';
+    } else {
+       echo date("Y-m-d H:i:s T", $val['created']);
+    }
+    echo '</td><td>';
+    echo '<code>'.htmlentities($val['uuid']).'</code>';
     echo "</td></tr>\n";
 }
 ?>

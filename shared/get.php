@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 UUP dump authors
+Copyright 2019 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -30,10 +30,44 @@ function createUupConvertPackage(
     $url,
     $archiveName,
     $virtualEditions = 0,
-    $desiredVE = array('Enterprise')
+    $desiredVE = array('Enterprise'),
+    $moreOptions = [],
+    $app = null
 ) {
+    $updates = isset($moreOptions['updates']) ? $moreOptions['updates'] : 0;
+    $cleanup = isset($moreOptions['cleanup']) ? $moreOptions['cleanup'] : 0;
+    $netfx = isset($moreOptions['netfx']) ? $moreOptions['netfx'] : 0;
+    $esd = isset($moreOptions['esd']) ? $moreOptions['esd'] : 0;
+
+    $type = $esd ? 'esd' : 'wim';
+
     $currDir = dirname(__FILE__).'/..';
     $time = gmdate("Y-m-d H:i:s T", time());
+
+    $downloadapp = "";
+    if(!empty($app)) {
+        $downloadapp = <<<TEXT
+
+echo Retrieving aria2 script for Apps...
+"%aria2%" --no-conf --log-level=info --log="aria2_download.log" -o"%aria2Script%" --allow-overwrite=true --auto-file-renaming=false "$app"
+if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
+
+for /F "tokens=2 delims=:" %%i in ('findstr #UUPDUMP_ERROR: "%aria2Script%"') do set DETECTED_ERROR=%%i
+if NOT [%DETECTED_ERROR%] == [] (
+    echo Unable to retrieve data from Windows Update servers. Reason: %DETECTED_ERROR%
+    echo If this problem persists, most likely the set you are attempting to download was removed from Windows Update servers.
+    echo.
+    pause
+    goto :EOF
+)
+
+echo Attempting to download Apps files...
+"%aria2%" --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j25 -c -R -d"%destDir%" -i"%aria2Script%"
+if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
+
+TEXT;
+    }
+
     $cmdScript = <<<SCRIPT
 @echo off
 rem Generated on $time
@@ -63,14 +97,15 @@ if NOT "%cd%"=="%cd: =%" (
     goto :EOF
 )
 
-REG QUERY HKU\\S-1-5-19\\Environment >NUL 2>&1
-IF %ERRORLEVEL% EQU 0 goto :START_PROCESS
+if "[%1]" == "[49127c4b-02dc-482e-ac4f-ec4d659b7547]" goto :START_PROCESS
+REG QUERY HKU\S-1-5-19\Environment >NUL 2>&1 && goto :START_PROCESS
 
-set "command="""%~f0""" %*"
-set "command=%command:'=''%"
+set command="""%~f0""" 49127c4b-02dc-482e-ac4f-ec4d659b7547
+SETLOCAL ENABLEDELAYEDEXPANSION
+set "command=!command:'=''!"
 
 powershell -NoProfile Start-Process -FilePath '%COMSPEC%' ^
--ArgumentList '/c """%command%"""' -Verb RunAs 2>NUL
+-ArgumentList '/c """!command!"""' -Verb RunAs 2>NUL
 
 IF %ERRORLEVEL% GTR 0 (
     echo =====================================================
@@ -80,31 +115,41 @@ IF %ERRORLEVEL% GTR 0 (
     pause
 )
 
+SETLOCAL DISABLEDELAYEDEXPANSION
 goto :EOF
 
 :START_PROCESS
 set "aria2=files\\aria2c.exe"
 set "a7z=files\\7zr.exe"
 set "uupConv=files\\uup-converter-wimlib.7z"
-set "aria2Script=files\\aria2_script.txt"
+set "aria2Script=files\\aria2_script.%random%.txt"
 set "destDir=UUPs"
 
 if NOT EXIST %aria2% goto :NO_ARIA2_ERROR
 if NOT EXIST %a7z% goto :NO_FILE_ERROR
 if NOT EXIST %uupConv% goto :NO_FILE_ERROR
+if NOT EXIST ConvertConfig.ini goto :NO_FILE_ERROR
 
 echo Extracting UUP converter...
-"%a7z%" -y x "%uupConv%" >NUL
-copy /y files\\ConvertConfig.ini . >NUL
+"%a7z%" -x!ConvertConfig.ini -y x "%uupConv%" >NUL
 echo.
-
-echo Retrieving updated aria2 script...
-"%aria2%" --log-level=info --log="aria2_download.log" -o"%aria2Script%" --allow-overwrite=true --auto-file-renaming=false "$url"
+$downloadapp
+echo Retrieving aria2 script...
+"%aria2%" --no-conf --log-level=info --log="aria2_download.log" -o"%aria2Script%" --allow-overwrite=true --auto-file-renaming=false "$url"
 if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
 echo.
 
-echo Starting download of files...
-"%aria2%" --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"%destDir%" -i"%aria2Script%"
+for /F "tokens=2 delims=:" %%i in ('findstr #UUPDUMP_ERROR: "%aria2Script%"') do set DETECTED_ERROR=%%i
+if NOT [%DETECTED_ERROR%] == [] (
+    echo Unable to retrieve data from Windows Update servers. Reason: %DETECTED_ERROR%
+    echo If this problem persists, most likely the set you are attempting to download was removed from Windows Update servers.
+    echo.
+    pause
+    goto :EOF
+)
+
+echo Attempting to download files...
+"%aria2%" --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"%destDir%" -i"%aria2Script%"
 if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
 
 if EXIST convert-UUP.cmd goto :START_CONVERT
@@ -130,6 +175,7 @@ pause
 goto :EOF
 
 :DOWNLOAD_ERROR
+echo.
 echo We have encountered an error while downloading files.
 pause
 goto :EOF
@@ -162,49 +208,62 @@ if ! which aria2c >/dev/null \\
 || ! which cabextract >/dev/null \\
 || ! which wimlib-imagex >/dev/null \\
 || ! which chntpw >/dev/null \\
-|| ! which genisoimage >/dev/null; then
+|| ! which genisoimage >/dev/null \\
+&& ! which mkisofs >/dev/null; then
   echo "One of required applications is not installed."
   echo "The following applications need to be installed to use this script:"
   echo " - aria2c"
   echo " - cabextract"
   echo " - wimlib-imagex"
   echo " - chntpw"
-  echo " - genisoimage"
+  echo " - genisoimage or mkisofs"
   echo ""
-  echo "If you use Debian or Ubuntu you can install these using:"
-  echo "sudo apt-get install aria2 cabextract wimtools chntpw genisoimage"
+  if [ `uname` == "Linux" ]; then
+    # Linux
+    echo "If you use Debian or Ubuntu you can install these using:"
+    echo "sudo apt-get install aria2 cabextract wimtools chntpw genisoimage"
+    echo ""
+    echo "If you use Arch Linux you can install these using:"
+    echo "sudo pacman -S aria2 cabextract wimlib chntpw cdrtools"
+  elif [ `uname` == "Darwin" ]; then
+    # macOS
+    echo "macOS requires Homebrew (https://brew.sh) to install the prerequisite software."
+    echo "If you use Homebrew, you can install these using:"
+    echo "brew tap sidneys/homebrew"
+    echo "brew install aria2 cabextract wimlib cdrtools sidneys/homebrew/chntpw"
+  fi
   exit 1
 fi
 
 destDir="UUPs"
-tempDir=`mktemp -d`
-tempScript="\$tempDir/aria2.txt"
+tempScript="aria2_script.\$RANDOM.txt"
 
-function cleanup() {
-  rm -rf "\$tempDir"
-}
-
-echo "Retrieving updated aria2 script..."
-aria2c --log-level=info --log="aria2_download.log" -o"aria2.txt" -d"\$tempDir" --allow-overwrite=true --auto-file-renaming=false "$url"
+echo "Retrieving aria2 script..."
+aria2c --no-conf --log-level=info --log="aria2_download.log" -o"\$tempScript" --allow-overwrite=true --auto-file-renaming=false "$url"
 if [ $? != 0 ]; then
   echo "Failed to retrieve aria2 script"
-  cleanup
   exit 1
 fi
 
+detectedError=`grep '#UUPDUMP_ERROR:' "\$tempScript" | sed 's/#UUPDUMP_ERROR://g'`
+if [ ! -z \$detectedError ]; then
+    echo "Unable to retrieve data from Windows Update servers. Reason: \$detectedError"
+    echo "If this problem persists, most likely the set you are attempting to download was removed from Windows Update servers."
+    exit 1
+fi
+
 echo ""
-echo "Starting download of files..."
-aria2c --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"\$destDir" -i"\$tempScript"
+echo "Attempting to download files..."
+aria2c --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"\$destDir" -i"\$tempScript"
 if [ $? != 0 ]; then
   echo "We have encountered an error while downloading files."
-  cleanup
   exit 1
 fi
 
 echo ""
 if [ -e ./files/convert.sh ]; then
   chmod +x ./files/convert.sh
-  ./files/convert.sh wim "\$destDir" $virtualEditions
+  ./files/convert.sh $type "\$destDir" $virtualEditions
 fi
 
 SCRIPT;
@@ -226,21 +285,30 @@ foreach($desiredVE as $edition) {
     $convertConfig = <<<CONFIG
 [convert-UUP]
 AutoStart    =1
-AddUpdates   =1
+AddUpdates   =$updates
+Cleanup      =$cleanup
 ResetBase    =0
-NetFx3       =0
+NetFx3       =$netfx
 StartVirtual =$virtualEditions
-wim2esd      =0
+wim2esd      =$esd
 SkipISO      =0
 SkipWinRE    =0
+LCUwinre     =0
+UpdtBootFiles=0
 ForceDism    =0
 RefESD       =0
+SkipEdge     =0
+AutoExit     =0
+
+[Store_Apps]
+SkipApps     =0
+AppsLevel    =0
 
 [create_virtual_editions]
 vAutoStart   =1
 vDeleteSource=0
 vPreserve    =0
-vwim2esd     =0
+vwim2esd     =$esd
 vSkipISO     =0
 vAutoEditions=$desiredVirtualEditions
 
@@ -284,10 +352,12 @@ CONFIG;
     }
 
     if($open === TRUE) {
-        $zip->addFromString('aria2_download_windows.cmd', $cmdScript);
-        $zip->addFromString('aria2_download_linux.sh', $shellScript);
-        $zip->addFromString('files/ConvertConfig.ini', $convertConfig);
+        $zip->addFromString('uup_download_windows.cmd', $cmdScript);
+        $zip->addFromString('uup_download_linux.sh', $shellScript);
+        $zip->addFromString('uup_download_macos.sh', $shellScript);
+        $zip->addFromString('ConvertConfig.ini', $convertConfig);
         $zip->addFromString('files/convert_config_linux', $convertConfigLinux);
+        $zip->addFromString('files/convert_config_macos', $convertConfigLinux);
         $zip->addFile($currDir.'/autodl_files/aria2c.exe', 'files/aria2c.exe');
         $zip->addFile($currDir.'/autodl_files/convert.sh', 'files/convert.sh');
         $zip->addFile($currDir.'/autodl_files/convert_ve_plugin', 'files/convert_ve_plugin');
@@ -316,9 +386,34 @@ CONFIG;
 }
 
 //Create aria2 download package only
-function createAria2Package($url, $archiveName) {
+function createAria2Package($url, $archiveName, $app = null) {
     $currDir = dirname(__FILE__).'/..';
     $time = gmdate("Y-m-d H:i:s T", time());
+
+    $downloadapp = "";
+    if(!empty($app)) {
+        $downloadapp = <<<TEXT
+
+echo Retrieving aria2 script for Apps...
+"%aria2%" --no-conf --log-level=info --log="aria2_download.log" -o"%aria2Script%" --allow-overwrite=true --auto-file-renaming=false "$app"
+if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
+
+for /F "tokens=2 delims=:" %%i in ('findstr #UUPDUMP_ERROR: "%aria2Script%"') do set DETECTED_ERROR=%%i
+if NOT [%DETECTED_ERROR%] == [] (
+    echo Unable to retrieve data from Windows Update servers. Reason: %DETECTED_ERROR%
+    echo If this problem persists, most likely the set you are attempting to download was removed from Windows Update servers.
+    echo.
+    pause
+    goto :EOF
+)
+
+echo Attempting to download Apps files...
+"%aria2%" --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j25 -c -R -d"%destDir%" -i"%aria2Script%"
+if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
+
+TEXT;
+    }
+
     $cmdScript = <<<SCRIPT
 @echo off
 rem Generated on $time
@@ -340,21 +435,29 @@ set "all_proxy="
 :: End of proxy configuration
 
 set "aria2=files\\aria2c.exe"
-set "aria2Script=files\\aria2_script.txt"
+set "aria2Script=files\\aria2_script.%random%.txt"
 set "destDir=UUPs"
 
 cd /d "%~dp0"
 if NOT EXIST %aria2% goto :NO_ARIA2_ERROR
-
-echo Retrieving updated aria2 script...
-"%aria2%" --log-level=info --log="aria2_download.log" -o"%aria2Script%" --allow-overwrite=true --auto-file-renaming=false "$url"
+$downloadapp
+echo Retrieving aria2 script...
+"%aria2%" --no-conf --log-level=info --log="aria2_download.log" -o"%aria2Script%" --allow-overwrite=true --auto-file-renaming=false "$url"
 if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
 
-echo Starting download of files...
-"%aria2%" --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"%destDir%" -i"%aria2Script%"
+for /F "tokens=2 delims=:" %%i in ('findstr #UUPDUMP_ERROR: "%aria2Script%"') do set DETECTED_ERROR=%%i
+if NOT [%DETECTED_ERROR%] == [] (
+    echo Unable to retrieve data from Windows Update servers. Reason: %DETECTED_ERROR%
+    echo If this problem persists, most likely the set you are attempting to download was removed from Windows Update servers.
+    echo.
+    pause
+    goto :EOF
+)
+
+echo Attempting to download files...
+"%aria2%" --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"%destDir%" -i"%aria2Script%"
 if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
 
-erase /q /s "%aria2Script%" >NUL 2>&1
 pause
 goto EOF
 
@@ -368,6 +471,7 @@ pause
 goto EOF
 
 :DOWNLOAD_ERROR
+echo.
 echo We have encountered an error while downloading files.
 pause
 goto EOF
@@ -376,7 +480,7 @@ goto EOF
 
 SCRIPT;
 
-$shellScript = <<<SCRIPT
+    $shellScript = <<<SCRIPT
 #!/bin/bash
 #Generated on $time
 
@@ -403,31 +507,34 @@ if ! which aria2c >/dev/null; then
   echo ""
   echo "If you use Debian or Ubuntu you can install these using:"
   echo "sudo apt-get install aria2"
+  echo ""
+  echo "If you use Arch Linux you can install these using:"
+  echo "sudo pacman -S aria2"
   exit 1
 fi
 
 destDir="UUPs"
-tempDir=`mktemp -d`
-tempScript="\$tempDir/aria2.txt"
+tempScript="aria2_script.\$RANDOM.txt"
 
-function cleanup() {
-  rm -rf "\$tempDir"
-}
-
-echo "Retrieving updated aria2 script..."
-aria2c --log-level=info --log="aria2_download.log" -o"aria2.txt" -d"\$tempDir" --allow-overwrite=true --auto-file-renaming=false "$url"
+echo "Retrieving aria2 script..."
+aria2c --no-conf --log-level=info --log="aria2_download.log" -o"\$tempScript" --allow-overwrite=true --auto-file-renaming=false "$url"
 if [ $? != 0 ]; then
   echo "Failed to retrieve aria2 script"
-  cleanup
   exit 1
 fi
 
+detectedError=`grep '#UUPDUMP_ERROR:' "\$tempScript" | sed 's/#UUPDUMP_ERROR://g'`
+if [ ! -z \$detectedError ]; then
+    echo "Unable to retrieve data from Windows Update servers. Reason: \$detectedError"
+    echo "If this problem persists, most likely the set you are attempting to download was removed from Windows Update servers."
+    exit 1
+fi
+
 echo ""
-echo "Starting download of files..."
-aria2c --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"\$destDir" -i"\$tempScript"
+echo "Attempting to download files..."
+aria2c --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"\$destDir" -i"\$tempScript"
 if [ $? != 0 ]; then
   echo "We have encountered an error while downloading files."
-  cleanup
   exit 1
 fi
 
@@ -446,8 +553,9 @@ SCRIPT;
     }
 
     if($open === TRUE) {
-        $zip->addFromString('aria2_download_windows.cmd', $cmdScript);
-        $zip->addFromString('aria2_download_linux.sh', $shellScript);
+        $zip->addFromString('uup_download_windows.cmd', $cmdScript);
+        $zip->addFromString('uup_download_linux.sh', $shellScript);
+        $zip->addFromString('uup_download_macos.sh', $shellScript);
         $zip->addFile($currDir.'/autodl_files/aria2c.exe', 'files/aria2c.exe');
         $zip->close();
     } else {
@@ -464,4 +572,3 @@ SCRIPT;
 
     echo $content;
 }
-?>

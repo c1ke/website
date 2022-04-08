@@ -239,6 +239,8 @@ $s['aUnknown'] =  <<<FAQ
 你可以加入 UUP dump discord 服务器，并在那里提出你的问题。
 仅回答使用英语提出的问题。
 FAQ;
+=======
+
 
 //Error pages
 $s['error'] = '错误';
@@ -308,7 +310,6 @@ $s['lang_ko-kr'] = '朝鲜语';
 $s['lang_lt-lt'] = '立陶宛语';
 $s['lang_lv-lv'] = '拉脱维亚语';
 $s['lang_nb-no'] = '挪威语（博克马尔语）';
-$s['lang_neutral'] = '语言中性';
 $s['lang_nl-nl'] = '荷兰语';
 $s['lang_pl-pl'] = '波兰语';
 $s['lang_pt-br'] = '葡萄牙语（巴西）';

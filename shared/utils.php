@@ -115,3 +115,17 @@ function locasort(&$data, $locale = 'en_US') {
         return asort($data);
     }
 }
+
+function readableSize($size, $round = 0) {
+    $prefixes = array('', 'Ki', 'Mi', 'Gi', 'Ti', 'Pi', 'Ei', 'Zi', 'Yi');
+
+    for($i = 0; $i < count($prefixes)-1; $i++) {
+        if($size < 1024) break;
+        $size /= 1024;
+    }
+
+    $size = round($size, $round);
+    $prefix = $prefixes[$i];
+
+    return "$size {$prefix}B";
+}

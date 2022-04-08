@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 whatever127
+Copyright 2020 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -31,6 +31,14 @@ if(empty($ids)) {
     $buildsAvailable = 0;
 }
 
+// Below is the latest build that results in the most accurate 'latest retail' results in fetchupd.php?arch=XXX&ring=retail&build=XXX
+$retailLatestBuild = "19043.330";
+
+// Turns out in some cases a change from retail to beta will require two updates..
+// This entire thing could be done recursively but the API doesn't support that.
+$betaLatestBuild = "19042.330";
+$rpLatestBuild = "19044.1"; // This is stupid
+
 styleUpper('home');
 ?>
 
@@ -39,48 +47,144 @@ styleUpper('home');
     <p class="sub"><i><?php echo $s['slogan']; ?></i></p>
 </div>
 
-<form class="ui form" action="./known.php" method="get">
+<form class="ui form" action="known.php" method="get">
     <div class="field">
         <div class="ui big action input">
             <input type="text" name="q" placeholder="<?php echo $s['seachForBuilds']; ?>">
             <button class="ui big blue icon button" type="submit"><i class="search icon"></i></button>
         </div>
-        </div>
+    </div>
 </form>
 
-<div class="ui horizontal section divider"><h3><i class="ui user md icon"></i><?php echo $s['advOptions']; ?></h3></div>
 
-<div class="ui two columns stackable centered grid">
-    <div class="column">
-        <a class="ui top attached fluid labeled icon large blue button" href="./known.php">
-            <i class="server icon"></i>
-            <?php echo $s['browseBuilds']; ?>
-        </a>
-        <div class="ui bottom attached segment">
-            <?php echo $s['browseBuildsSub']; ?>
-        </div>
-    </div>
+<div class="quick-search-buttons">
+    <i class="thumbtack icon"></i>
 
-    <div class="column">
-        <a class="ui top attached fluid labeled icon large button" href="./latest.php">
-            <i class="fire icon"></i>
-            <?php echo $s['fetchLatest']; ?>
-        </a>
-        <div class="ui bottom attached segment">
-            <?php echo $s['fetchLatestSub']; ?>
-        </div>
-    </div>
+    <a class="ui mini button" href="known.php?q=regex:[2-9]\d[4-9]\d{2}\.">
+        <i class="search icon"></i>
+        Dev Channel
+    </a>
+
+    <a class="ui mini button" href="known.php?q=22000">
+        <i class="search icon"></i>
+        Windows 11 21H2
+    </a>
+
+    <a class="ui mini button" href="known.php?q=20348">
+        <i class="search icon"></i>
+        Server 21H2
+    </a>
+
+    <a class="ui mini button" href="known.php?q=19044">
+        <i class="search icon"></i>
+        21H2
+    </a>
+
+    <a class="ui mini button" href="known.php?q=19043">
+        <i class="search icon"></i>
+        21H1
+    </a>
+
+    <a class="ui mini button" href="known.php?q=19042">
+        <i class="search icon"></i>
+        20H2
+    </a>
+
+    <a class="ui mini button" href="known.php?q=18363">
+        <i class="search icon"></i>
+        19H2
+    </a>
+
+    <a class="ui mini button" href="known.php?q=17763">
+        <i class="search icon"></i>
+        1809
+    </a>
 </div>
+
+<h3 class="ui centered header">
+    <div class="content">
+        <i class="fitted rocket icon"></i>&nbsp;
+        <?php echo $s['quickOptions']; ?>
+    </div>
+</h3>
+
+<table class="ui large blue tablet stackable padded table">
+    <thead>
+        <tr>
+            <th><?php echo $s['tHeadReleaseType']; ?></th>
+            <th><?php echo $s['tHeadDescription']; ?></th>
+            <th><?php echo $s['tHeadArchitectures']; ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="collapsing">
+                <i class="large box icon"></i>
+                <b><?php echo $s['latestPublicRelease']; ?></b>
+            </td>
+            <td><?php echo $s['latestPublicReleaseSub']; ?></td>
+            <td class="center aligned collapsing">
+                <a href="fetchupd.php?arch=amd64&ring=retail&build=<?php echo $retailLatestBuild; ?>"><button class="ui blue button">x64</button></a>
+                <a href="fetchupd.php?arch=x86&ring=retail&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">x86</button>
+                <a href="fetchupd.php?arch=arm64&ring=retail&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">arm64</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="collapsing">
+                <i class="large fire extinguisher icon"></i>
+                <b><?php echo $s['latestRPRelease']; ?></b>
+            </td>
+            <td><?php echo $s['latestRPReleaseSub']; ?></td>
+            <td class="center aligned">
+                <a href="fetchupd.php?arch=amd64&ring=rp&build=<?php echo $rpLatestBuild; ?>"><button class="ui blue button">x64</button>
+                <a href="fetchupd.php?arch=x86&ring=rp&build=<?php echo $rpLatestBuild; ?>"><button class="ui button">x86</button>
+                <a href="fetchupd.php?arch=arm64&ring=rp&build=<?php echo $rpLatestBuild; ?>"><button class="ui button">arm64</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="collapsing">
+                <i class="large fire icon"></i>
+                <b><?php echo $s['latestBetaRelease']; ?></b>
+            </td>
+            <td><?php echo $s['latestBetaReleaseSub']; ?></td>
+            <td class="center aligned">
+                <a href="fetchupd.php?arch=amd64&ring=wis&build=<?php echo $betaLatestBuild; ?>"><button class="ui blue button">x64</button>
+                <a href="fetchupd.php?arch=x86&ring=wis&build=<?php echo $betaLatestBuild; ?>"><button class="ui button">x86</button>
+                <a href="fetchupd.php?arch=arm64&ring=wis&build=<?php echo $betaLatestBuild; ?>"><button class="ui button">arm64</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="collapsing">
+                <i class="large bomb icon"></i>
+                <b><?php echo $s['latestDevRelease']; ?></b>
+            </td>
+            <td><?php echo $s['latestDevReleaseSub']; ?></td>
+            <td class="center aligned">
+                <a href="fetchupd.php?arch=amd64&ring=wif&build=latest"><button class="ui blue button">x64</button></a>
+                <a href="fetchupd.php?arch=x86&ring=wif&build=latest"><button class="ui button">x86</button></a>
+                <a href="fetchupd.php?arch=arm64&ring=wif&build=latest"><button class="ui button">arm64</button></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 <?php
 if($buildsAvailable) {
     echo <<<EOD
-<div class="ui horizontal section divider"><h3><i class="ui star outline icon"></i>${s['newlyAdded']}</h3></div>
-<table class="ui celled striped table">
+<h3 class="ui centered header">
+    <div class="content">
+        <i class="fitted star outline icon"></i>&nbsp;
+        ${s['newlyAdded']}
+    </div>
+</h3>
+
+<table class="ui striped table">
     <thead>
         <tr>
             <th>${s['build']}</th>
             <th>${s['arch']}</th>
             <th>${s['dateAdded']}</th>
+            <th>${s['updateid']}</th>
         </tr>
     </thead>
 EOD;
@@ -95,10 +199,10 @@ EOD;
 
         echo '<tr><td>';
         echo '<i class="windows icon"></i>';
-        echo '<a href="./selectlang.php?id='.$val['uuid'].'">'
-             .$val['title'].' '.$val['arch']."</a>";
+        echo '<a href="selectlang.php?id='.htmlentities($val['uuid']).'">'
+             .htmlentities($val['title']).' '.htmlentities($val['arch'])."</a>";
         echo '</td><td>';
-        echo $arch;
+        echo htmlentities($arch);
         echo '</td><td>';
 
         if($val['created'] == null) {
@@ -106,14 +210,11 @@ EOD;
         } else {
             echo date("Y-m-d H:i:s T", $val['created']);
         }
-
+        echo '</td><td>';
+        echo '<code>'.htmlentities($val['uuid']).'</code>';
         echo "</td></tr>\n";
     }
     echo '</table>';
 }
-?>
 
-<div class="ui hidden divider"></div>
-<?php
 styleLower();
-?>

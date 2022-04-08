@@ -18,7 +18,7 @@ $s['uupdump'] = 'UUP dump';
 $s['uupdumpSub'] = '%s - UUP dump'; //Browse known builds - UUP dump
 $s['build'] = 'Build';
 $s['arch'] = 'Architecture';
-$s['ring'] = 'Ring';
+$s['ring'] = 'Channel';
 $s['updateid'] = 'Update ID';
 $s['update'] = 'Update';
 $s['lang'] = 'Language';
@@ -36,6 +36,9 @@ $s['file'] = 'File';
 $s['expires'] = 'Expires';
 $s['sha1'] = 'SHA-1';
 $s['size'] = 'Size';
+$s['additionalEdition'] = 'Additional edition';
+$s['requiredEdition'] = 'Required edition';
+$s['unknown'] = 'Unknown';
 
 //global
 $s['home'] = 'Home';
@@ -51,34 +54,46 @@ $s['selectLanguage'] = 'Please select your language';
 
 //index.php
 $s['slogan'] = 'Download UUP files from Windows Update servers with ease.';
+$s['quickOptions'] = 'Quick options';
+$s['tHeadReleaseType'] = 'Release type';
+$s['tHeadDescription'] = 'Description';
+$s['tHeadArchitectures'] = 'Architectures';
+$s['latestPublicRelease'] = 'Latest Public Release build';
+$s['latestPublicReleaseSub'] = 'Latest updated build for regular users.';
+$s['latestDevRelease'] = 'Latest Dev Channel build';
+$s['latestDevReleaseSub'] = 'Somewhat unreliable builds with the latest features.<br>Ideal for highly technical users.';
+$s['latestBetaRelease'] = 'Latest Beta Channel build';
+$s['latestBetaReleaseSub'] = 'Reliable builds with most upcoming features available.<br>Ideal for early adopters.';
+$s['latestRPRelease'] = 'Latest Release Preview build';
+$s['latestRPReleaseSub'] = 'Reliable builds for previewing the next release.<br>Ideal for trying out upcoming releases.';
 $s['advOptions'] = 'Advanced options';
-$s['browseBuilds'] = 'Browse the list of known builds';
-$s['browseBuildsSub'] = 'Choose a build that is already known in the local database and download it.';
+$s['browseBuilds'] = 'Browse known builds';
+$s['browseBuildsSub'] = 'Choose an already discovered build and download it.';
 $s['fetchLatest'] = 'Fetch the latest build';
 $s['fetchLatestSub'] = 'Retrieve the latest build information from Windows Update servers.';
-$s['newlyAdded'] = 'Newly added builds';
+$s['newlyAdded'] = 'Recently added builds';
 $s['dateAdded'] = 'Date added';
 
 //known.php
 $s['browseKnown'] = 'Browse known builds';
 $s['chooseBuild'] = 'Choose build';
-$s['weFoundBuilds'] = 'We have found <b>%d</b> builds for your query.'; //We have found <b>692</b> builds for your query.
+$s['weFoundBuilds'] = '<b>%d</b> builds were found for your query.'; //<b>692</b> builds were found for your query.
 
 //latest.php
 $s['latestFetchLatest'] = 'Fetch the latest build';
 $s['latestTestingOnly'] = 'Testing purposes only';
 $s['latestTestingOnlyWarn'] = '<b>This page is provided for testing purposes only.</b> Builds retrieved by this page that were not processed by the backend server will be provided using fallback packs, which may provide incomplete results. If you want to download an already known build, please use the known builds page instead.';
-$s['latestDoYouWantKnown'] = 'Would you like to continue by browsing the list of known builds?';
-$s['chooseOptions'] = 'Choose options';
+$s['latestDoYouWantKnown'] = 'Would you like to continue by browsing known builds?';
+$s['chooseOptions'] = 'Choose parameters';
 $s['buildOfPretendedClient'] = 'Build number of mock Windows Update client';
 $s['editionOfPretendedClient'] = 'Edition of mock system';
 $s['skipAheadLabel'] = 'Skip ahead flight';
 $s['skipAheadOption'] = 'Use skip ahead flighting (Insider Fast only)';
 $s['fetchUpdates'] = 'Fetch updates';
-$s['fetchUpdatesInfo'] = 'Click the <i>Fetch updates</i> button to send your request to the Windows Update servers.';
+$s['fetchUpdatesInfo'] = 'Click the <i>Fetch updates</i> button to send your request to Windows Update servers.';
 
 //fetchupd.php
-$s['responseFromServer'] = 'Response from the server';
+$s['responseFromServer'] = 'Server response';
 $s['foundUpdates'] = 'Found %d update(s)'; //Found 1 update(s)
 $s['foundTheseUpdates'] = 'The following updates were found. Click the name of your desired update to continue.';
 $s['buildNumber'] = 'Build number: %s'; //Build number: 18890.1000
@@ -92,10 +107,15 @@ $s['selLangFiles'] = 'Files';
 $s['allFiles'] = 'All files';
 $s['wubOnly'] = 'WindowsUpdateBox only';
 $s['updateOnly'] = 'Update only';
-$s['selectLangInfoText1'] = 'Click the <i>Next</i> button to select the edition you want to download.';
+$s['selectLangInfoText1'] = 'Click the <i>Next</i> button to select the desired edition.';
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe and Cumulative updates can be found in the <i>All languages</i> language.';
 $s['allLangsWarn'] = 'The <i>All languages</i> option does not support edition selection.';
 $s['clickNextToOpenFindFiles'] = 'Click the <i>Next</i> button to open the page, which allows finding files.';
+$s['noLangsAvailable'] = 'There are no languages available for this build.<br>This build cannot be converted to an ISO image.<br>See the <a href="https://github.com/uup-dump/website/blob/master/FAQ.md">FAQ</a> for details.';
+$s['browseFiles'] = 'Browse files';
+$s['browseFilesDesc'] = 'Quickly browse files in selected build';
+$s['searchFiles'] = 'Search files';
+$s['toSearchForCUUseQuery'] = 'To search for Cumulative Updates use the <i>%s</i> search query.'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.
 
 //selectedition.php
 $s['selectEditionFor'] = 'Select edition for %s'; //Select edition for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
@@ -103,23 +123,24 @@ $s['chooseEdition'] = 'Choose edition';
 $s['chooseEditionDesc'] = 'Choose your desired edition';
 $s['allEditions'] = 'All editions';
 $s['selectEditionInfoText'] = 'Click the <i>Next</i> button to open the summary page of your selection.';
+$s['additionalEditionsInfo'] = 'If you need <b>additional editions</b> from the table on the right, select their <b>Required edition</b> above and proceed by clicking <i>Next</i>.<br>On the summary page select the <b>Create additional editions</b> option.';
 
 //download.php
 $s['summary'] = 'Summary';
 $s['summaryDesc'] = 'Review your selection and choose the download method';
 $s['summaryFor'] = 'Summary for %s'; //Summary for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States), Windows 10 Pro
-$s['summaryOfSelection'] = 'Summary of your selection';
-$s['browseList'] = 'Browse a list of files';
+$s['summaryOfSelection'] = 'Summary for your selection';
+$s['browseList'] = 'Browse the file list';
 $s['browseListDesc'] = 'Opens the page with a list of files in the UUP set for manual download.';
-$s['aria2Opt1'] = 'Download using aria2';
+$s['aria2Opt1'] = 'Download UUP set';
 $s['aria2Opt1Desc'] = 'Easily download the selected UUP set using aria2.';
-$s['aria2Opt2'] = 'Download using aria2 and convert';
+$s['aria2Opt2'] = 'Download and convert to ISO';
 $s['aria2Opt2Desc'] = 'Easily download the selected UUP set using aria2 and convert it to ISO.';
-$s['aria2Opt3'] = 'Download using aria2, convert and create additional editions';
+$s['aria2Opt3'] = 'Download, add additional editions and convert to ISO';
 $s['aria2Opt3Desc'] = 'Easily download the selected UUP set using aria2, convert, create additional editions and finally create an ISO image.';
 $s['jsRequiredToConf'] = 'JavaScript is required to configure and use this option.';
 $s['selAdditionalEditions'] = 'Select additional editions';
-$s['noAdditionalEditions'] = 'No additional editions are available for this selection.';
+$s['noAdditionalEditions'] = 'No additional editions are available for your selected editions.';
 $s['learnMore'] = 'Learn more';
 $s['learnMoreAdditionalEditions1'] = 'This option enables automatic creation of selected additional editions.';
 $s['learnMoreAdditionalEditions2'] = 'The list of additional editions is determined by the selected base editions. Below you can check the list of base editions which are needed to create the desired additional editions:';
@@ -129,10 +150,23 @@ $s['systemWithAdk'] = '%s with Windows 10 ADK installed'; //Windows 7 with Windo
 $s['additionalUpdates'] = 'Additional updates';
 $s['additionalUpdatesDesc'] = 'This UUP set contains additional updates which will be integrated during the conversion process, significantly increasing the creation time.';
 $s['browseUpdatesList'] = 'Browse the list of updates';
+$s['selectDownloadOptions'] = 'Select your download options';
+$s['selectDownloadOptionsSub'] = 'Configure how you would like to download your selection';
+$s['downloadMethod'] = 'Download method';
+$s['conversionOptions'] = 'Conversion options';
+$s['convOpt1'] = 'Use solid (ESD) compression';
+$s['convOpt2'] = 'Include updates (Windows converter only)';
+$s['convOpt3'] = 'Run component cleanup (Windows converter only)';
+$s['convOpt4'] = 'Integrate .NET Framework 3.5 (Windows converter only)';
+$s['startDownload'] = 'Create download package';
+$s['legalCopeHarder'] = 'By clicking the <i>Create download package</i> button you agree with the following:';
+$s['legalCope1'] = 'Installation images created using the scripts provided by UUP dump are meant only for <b>evaluation purposes</b>';
+$s['legalCope2'] = 'The images and their deployments are <b>not supported</b> in any way by Microsoft Corporation';
+$s['legalCope3'] = '<b>The authors are not liable for any damages</b> as per the terms of the project\'s license';
 
 //get.php
 $s['listOfFilesFor'] = 'List of files for %s'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
-$s['totalSizeOfFiles'] = 'Total size of files: %s'; //Total size of files: 2.86 GiB
+$s['totalSizeOfFiles'] = 'Total file size: %s'; //Total size of files: 2.86 GiB
 $s['fileRenamingScript'] = 'File renaming script';
 $s['fileRenamingScriptDesc1'] = 'The script found below can be used to quickly rename downloaded files.';
 $s['fileRenamingScriptDesc2'] = 'Simply copy the contents of the form below to a new file with <code>cmd</code> extension, put it in folder with downloaded files and run.';
@@ -143,23 +177,25 @@ $s['aria2NoticeText1'] = 'Download using aria2 options create an archive which n
 $s['aria2NoticeText2'] = 'To start the download process use a script for your platform:';
 $s['aria2NoticeText3'] = 'Aria2 is an open source project. You can find it here: %s.'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'The UUP Conversion script (Windows version) has been created by %s.'; //UUP Conversion script (Windows version) has been created by abbodi1406.
-$s['aria2NoticeText5'] = 'The UUP Conversion script (Linux version) is open source. You can find it here: %s.'; //UUP Conversion script (Linux version) is open source. You can find it here: https://github.com/uup-dump/converter.
+$s['aria2NoticeText5'] = 'The UUP Conversion script (Linux version, macOS version) is open source. You can find it here: %s.'; //UUP Conversion script (Linux version, macOS version) is open source. You can find it here: https://github.com/uup-dump/converter.
 
 //findfiles.php
 $s['findFilesIn'] = 'Find files in %s'; //Find files in Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['fileRenamingScriptDescFindFiles'] = 'If you want to quickly rename files downloaded from this page, you can generate a renaming script, which will automatically do this for you.';
 $s['fileRenamingScriptGenW'] = 'Generate renaming script (Windows)';
-$s['fileRenamingScriptGenL'] = 'Generate renaming script (Linux)';
+$s['fileRenamingScriptGenL'] = 'Generate renaming script (Linux, macOS)';
 $s['searchForFiles'] = 'Search for files...';
 $s['weFoundFiles'] = 'We have found <b>%d</b> files for your query.'; //We have found <b>692</b> files for your query.
+
+$s['faq'] = 'FAQ';
 
 //Error pages
 $s['error'] = 'Error';
 $s['requestNotSuccessful'] = 'Request not successful';
 $s['anErrorHasOccurred'] = 'An error has occurred while attempting to process your request.';
 $s['generatedPackNotAvailable'] = 'Generated pack not available';
-$s['generatedPackNotAvailableDesc'] = 'The update you are attempting to download does not have a generated pack that provides full information about available languages, editions and files. The fallback pack will be used, and it may not provide the correct information. If the download fails because of this, please wait for the automatically generated pack to become available.';
-$s['arm64Warning'] = 'You have selected an ARM64 build which is <b>only compatible with ARM64 based devices</b> and will not work with regular Intel or AMD based PCs. For <b>64-bit</b> PCs please use <b>amd64</b> builds. For <b>32-bit</b> PCs please use <b>x86</b> builds. If you are absolutely sure that the destination device is ARM64 based, you can safely ignore this message.';
+$s['generatedPackNotAvailableDesc'] = 'This update does not have a generated pack that provides full information about available languages, editions and files. The fallback pack will be used, and it may not provide the correct information. If the download fails because of this, please wait a while for the pack to become available.';
+$s['arm64Warning'] = 'This is an <b>ARM64</b> build which is <b>not compatible with common Intel/AMD processors</b>.<br>If you are sure that your target device has an <b>ARM64</b> processor and you didn\'t confuse it with <b>AMD64</b> you can safely continue.';
 
 //Error messages
 $s['error_ERROR'] = 'Generic error.';
@@ -168,7 +204,7 @@ $s['error_NO_FILEINFO_DIR'] = 'The <i>fileinfo</i> directory does not exist.';
 $s['error_NO_BUILDS_IN_FILEINFO'] = 'The <i>fileinfo</i> database does not contain any build.';
 $s['error_SEARCH_NO_RESULTS'] = 'No items found for the performed query.';
 $s['error_UNKNOWN_ARCH'] = 'Unknown processor architecture.';
-$s['error_UNKNOWN_RING'] = 'Unknown ring.';
+$s['error_UNKNOWN_RING'] = 'Unknown channel.';
 $s['error_UNKNOWN_FLIGHT'] = 'Unknown flight.';
 $s['error_UNKNOWN_COMBINATION'] = 'The flight and ring combination is not correct. Skip ahead is only supported for Insider Fast ring.';
 $s['error_ILLEGAL_BUILD'] = 'Specified build number is less than %d or larger than %d.'; //Specified build number is less than 9841 or larger than 2147483646.

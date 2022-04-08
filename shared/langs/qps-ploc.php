@@ -3,14 +3,14 @@
 UUP dump translation file.
 
 Translation information:
-English language name: Pseudo
-Localized language name: [972d] Ƥşḗŭḓǿ
-Language code: qps-ploc
+English language name: English (United States)
+Localized language name: English (United States)
+Language code: en-US
 Authors: whatever127 and mspaintmsi
 */
 
 //Language information
-$s['code'] = 'qps-ploc';
+$s['code'] = 'en-US';
 $s['timeZone'] = 'UTC'; //Supported timezones: https://www.php.net/manual/en/timezones.php
 
 //shared strings
@@ -36,6 +36,9 @@ $s['file'] = '[2d66] Ƒīŀḗ';
 $s['expires'] = '[6f4c] Ḗẋƥīřḗş';
 $s['sha1'] = '[db52] ŞĦȦ-1';
 $s['size'] = '[c4e2] Şīzḗ';
+$s['additionalEdition'] = '[4d46] Ȧḓḓīŧīǿƞȧŀ ḗḓīŧīǿƞ';
+$s['requiredEdition'] = '[274b] Řḗɋŭīřḗḓ ḗḓīŧīǿƞ';
+$s['unknown'] = '[70dd] Ŭƞķƞǿẇƞ';
 
 //global
 $s['home'] = '[c667] Ħǿḿḗ';
@@ -96,6 +99,11 @@ $s['selectLangInfoText1'] = '[0eb9] Ƈŀīƈķ ŧħḗ <i>Ƞḗẋŧ</i> ƀŭŧ�
 $s['selectLangInfoText2'] = '[7b0a] ẆīƞḓǿẇşŬƥḓȧŧḗƁǿẋ.ḗẋḗ ȧƞḓ Ƈŭḿŭŀȧŧīṽḗ ŭƥḓȧŧḗş ƈȧƞ ƀḗ ƒǿŭƞḓ īƞ ŧħḗ <i>Ȧŀŀ ŀȧƞɠŭȧɠḗş</i> ŀȧƞɠŭȧɠḗ.';
 $s['allLangsWarn'] = '[ba3e] Ŧħḗ <i>Ȧŀŀ ŀȧƞɠŭȧɠḗş</i> ǿƥŧīǿƞ ḓǿḗş ƞǿŧ şŭƥƥǿřŧ ḗḓīŧīǿƞ şḗŀḗƈŧīǿƞ.';
 $s['clickNextToOpenFindFiles'] = '[c58a] Ƈŀīƈķ ŧħḗ <i>Ƞḗẋŧ</i> ƀŭŧŧǿƞ ŧǿ ǿƥḗƞ ŧħḗ ƥȧɠḗ, ẇħīƈħ ȧŀŀǿẇş ƒīƞḓīƞɠ ƒīŀḗş.';
+$s['noLangsAvailable'] = '[7e73] Ŧħḗřḗ ȧřḗ ƞǿ ŀȧƞɠŭȧɠḗş ȧṽȧīŀȧƀŀḗ ƒǿř ŧħīş ƀŭīŀḓ.';
+$s['browseFiles'] = '[ff06] Ɓřǿẇşḗ ƒīŀḗş';
+$s['browseFilesDesc'] = '[2f28] Ɋŭīƈķŀẏ ƀřǿẇşḗ ƒīŀḗş īƞ şḗŀḗƈŧḗḓ ƀŭīŀḓ';
+$s['searchFiles'] = '[2d22] Şḗȧřƈħ ƒīŀḗş';
+$s['toSearchForCUUseQuery'] = '[16ee] Ŧǿ şḗȧřƈħ ƒǿř Ƈŭḿŭŀȧŧīṽḗ Ŭƥḓȧŧḗş ŭşḗ ŧħḗ <i>%s</i> şḗȧřƈħ ɋŭḗřẏ.'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.
 
 //selectedition.php
 $s['selectEditionFor'] = '[fcb7] Şḗŀḗƈŧ ḗḓīŧīǿƞ ƒǿř %s'; //Select edition for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
@@ -103,6 +111,7 @@ $s['chooseEdition'] = '[cae4] Ƈħǿǿşḗ ḗḓīŧīǿƞ';
 $s['chooseEditionDesc'] = '[dafa] Ƈħǿǿşḗ ẏǿŭř ḓḗşīřḗḓ ḗḓīŧīǿƞ';
 $s['allEditions'] = '[ad07] Ȧŀŀ ḗḓīŧīǿƞş';
 $s['selectEditionInfoText'] = '[7593] Ƈŀīƈķ ŧħḗ <i>Ƞḗẋŧ</i> ƀŭŧŧǿƞ ŧǿ ǿƥḗƞ ŧħḗ şŭḿḿȧřẏ ƥȧɠḗ ǿƒ ẏǿŭř şḗŀḗƈŧīǿƞ.';
+$s['additionalEditionsInfo'] = '[910c] Īƒ ẏǿŭ ƞḗḗḓ ȧƞ ȧḓḓīŧīǿƞȧŀ ḗḓīŧīǿƞ ẇħīƈħ ƈȧƞ ƀḗ ƒǿŭƞḓ īƞ ŧħḗ ŧȧƀŀḗ ǿƞ ŧħḗ řīɠħŧ, ƥŀḗȧşḗ şḗŀḗƈŧ ŧħḗ īƞḓīƈȧŧḗḓ řḗɋŭīřḗḓ ḗḓīŧīǿƞ ȧƞḓ ƈŀīƈķ <i>Ƞḗẋŧ</i>. Ǿƞ ŧħḗ şŭḿḿȧřẏ ƥȧɠḗ ẏǿŭ ẇīŀŀ ƀḗ ȧƀŀḗ ŧǿ şḗŀḗƈŧ ẏǿŭř ḓḗşīřḗḓ ȧḓḓīŧīǿƞȧŀ ḗḓīŧīǿƞş ŭƞḓḗř ŧħḗ ȧƥƥřǿƥřīȧŧḗ ḓǿẇƞŀǿȧḓ ǿƥŧīǿƞ.';
 
 //download.php
 $s['summary'] = '[56f7] Şŭḿḿȧřẏ';
@@ -129,6 +138,15 @@ $s['systemWithAdk'] = '[8d7a] %s ẇīŧħ Ẇīƞḓǿẇş 10 ȦḒĶ īƞşŧ
 $s['additionalUpdates'] = '[79da] Ȧḓḓīŧīǿƞȧŀ ŭƥḓȧŧḗş';
 $s['additionalUpdatesDesc'] = '[b968] Ŧħīş ŬŬƤ şḗŧ ƈǿƞŧȧīƞş ȧḓḓīŧīǿƞȧŀ ŭƥḓȧŧḗş ẇħīƈħ ẇīŀŀ ƀḗ īƞŧḗɠřȧŧḗḓ ḓŭřīƞɠ ŧħḗ ƈǿƞṽḗřşīǿƞ ƥřǿƈḗşş, şīɠƞīƒīƈȧƞŧŀẏ īƞƈřḗȧşīƞɠ ŧħḗ ƈřḗȧŧīǿƞ ŧīḿḗ.';
 $s['browseUpdatesList'] = '[62e4] Ɓřǿẇşḗ ŧħḗ ŀīşŧ ǿƒ ŭƥḓȧŧḗş';
+$s['selectDownloadOptions'] = '[2516] Şḗŀḗƈŧ ẏǿŭř ḓǿẇƞŀǿȧḓ ǿƥŧīǿƞş';
+$s['selectDownloadOptionsSub'] = '[ac95] Ƈǿƞƒīɠŭřḗ ħǿẇ ẇǿŭŀḓ ẏǿŭ ŀīķḗ ŧǿ ḓǿẇƞŀǿȧḓ ẏǿŭř şḗŀḗƈŧīǿƞ';
+$s['downloadMethod'] = '[263f] Ḓǿẇƞŀǿȧḓ ḿḗŧħǿḓ';
+$s['conversionOptions'] = '[5110] Ƈǿƞṽḗřşīǿƞ ǿƥŧīǿƞş';
+$s['convOpt1'] = '[6f66] Ƈřḗȧŧḗ ĪŞǾ ẇīŧħ īƞşŧȧŀŀ.ḗşḓ īƞşŧḗȧḓ ǿƒ īƞşŧȧŀŀ.ẇīḿ';
+$s['convOpt2'] = '[f999] Īƞŧḗɠřȧŧḗ ŭƥḓȧŧḗş ẇħḗƞ ȧṽȧīŀȧƀŀḗ (Ẇīƞḓǿẇş ƈǿƞṽḗřŧḗř ǿƞŀẏ)';
+$s['convOpt3'] = '[5084] Řŭƞ ƈŀḗȧƞŭƥ ȧƒŧḗř ŭƥḓȧŧḗş īƞŧḗɠřȧŧīǿƞ (Ẇīƞḓǿẇş ƈǿƞṽḗřŧḗř ǿƞŀẏ)';
+$s['convOpt4'] = '[45d6] Īƞŧḗɠřȧŧḗ .ȠḖŦ Ƒřȧḿḗẇǿřķ 3.5 (Ẇīƞḓǿẇş ƈǿƞṽḗřŧḗř ǿƞŀẏ)';
+$s['startDownload'] = '[21cf] Ƈřḗȧŧḗ ḓǿẇƞŀǿȧḓ ƥȧƈķȧɠḗ';
 
 //get.php
 $s['listOfFilesFor'] = '[1d4f] Ŀīşŧ ǿƒ ƒīŀḗş ƒǿř %s'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
@@ -143,13 +161,13 @@ $s['aria2NoticeText1'] = '[5d83] Ḓǿẇƞŀǿȧḓ ŭşīƞɠ ȧřīȧ2 ǿƥŧ
 $s['aria2NoticeText2'] = '[f3a9] Ŧǿ şŧȧřŧ ŧħḗ ḓǿẇƞŀǿȧḓ ƥřǿƈḗşş ŭşḗ ȧ şƈřīƥŧ ƒǿř ẏǿŭř ƥŀȧŧƒǿřḿ:';
 $s['aria2NoticeText3'] = '[ad6a] Ȧřīȧ2 īş ȧƞ ǿƥḗƞ şǿŭřƈḗ ƥřǿĵḗƈŧ. Ẏǿŭ ƈȧƞ ƒīƞḓ īŧ ħḗřḗ: %s.'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
 $s['aria2NoticeText4'] = '[d701] Ŧħḗ ŬŬƤ Ƈǿƞṽḗřşīǿƞ şƈřīƥŧ (Ẇīƞḓǿẇş ṽḗřşīǿƞ) ħȧş ƀḗḗƞ ƈřḗȧŧḗḓ ƀẏ %s.'; //UUP Conversion script (Windows version) has been created by abbodi1406.
-$s['aria2NoticeText5'] = '[1021] Ŧħḗ ŬŬƤ Ƈǿƞṽḗřşīǿƞ şƈřīƥŧ (Ŀīƞŭẋ ṽḗřşīǿƞ) īş ǿƥḗƞ şǿŭřƈḗ. Ẏǿŭ ƈȧƞ ƒīƞḓ īŧ ħḗřḗ: %s.'; //UUP Conversion script (Linux version) is open source. You can find it here: https://github.com/uup-dump/converter.
+$s['aria2NoticeText5'] = '[1021] Ŧħḗ ŬŬƤ Ƈǿƞṽḗřşīǿƞ şƈřīƥŧ (Ŀīƞŭẋ ṽḗřşīǿƞ, ḿȧƈǾŞ ṽḗřşīǿƞ) īş ǿƥḗƞ şǿŭřƈḗ. Ẏǿŭ ƈȧƞ ƒīƞḓ īŧ ħḗřḗ: %s.'; //UUP Conversion script (Linux version, macOS version) is open source. You can find it here: https://github.com/uup-dump/converter.
 
 //findfiles.php
 $s['findFilesIn'] = '[0ec3] Ƒīƞḓ ƒīŀḗş īƞ %s'; //Find files in Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['fileRenamingScriptDescFindFiles'] = '[ce12] Īƒ ẏǿŭ ẇȧƞŧ ŧǿ ɋŭīƈķŀẏ řḗƞȧḿḗ ƒīŀḗş ḓǿẇƞŀǿȧḓḗḓ ƒřǿḿ ŧħīş ƥȧɠḗ, ẏǿŭ ƈȧƞ ɠḗƞḗřȧŧḗ ȧ řḗƞȧḿīƞɠ şƈřīƥŧ, ẇħīƈħ ẇīŀŀ ȧŭŧǿḿȧŧīƈȧŀŀẏ ḓǿ ŧħīş ƒǿř ẏǿŭ.';
 $s['fileRenamingScriptGenW'] = '[25c5] Ɠḗƞḗřȧŧḗ řḗƞȧḿīƞɠ şƈřīƥŧ (Ẇīƞḓǿẇş)';
-$s['fileRenamingScriptGenL'] = '[ed2e] Ɠḗƞḗřȧŧḗ řḗƞȧḿīƞɠ şƈřīƥŧ (Ŀīƞŭẋ)';
+$s['fileRenamingScriptGenL'] = '[ed2e] Ɠḗƞḗřȧŧḗ řḗƞȧḿīƞɠ şƈřīƥŧ (Ŀīƞŭẋ, ḿȧƈǾŞ)';
 $s['searchForFiles'] = '[afde] Şḗȧřƈħ ƒǿř ƒīŀḗş...';
 $s['weFoundFiles'] = '[18ae] Ẇḗ ħȧṽḗ ƒǿŭƞḓ <b>%d</b> ƒīŀḗş ƒǿř ẏǿŭř ɋŭḗřẏ.'; //We have found <b>692</b> files for your query.
 

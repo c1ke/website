@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 whatever127
+Copyright 2020 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -22,60 +22,109 @@ function styleUpper($pageType = 'home', $subtitle = '') {
 
     if($subtitle) {
         $title = sprintf($s['uupdumpSub'], "$subtitle");
+        $subTitleOnly = $subtitle;
     } else {
         $title = $s['uupdump'];
+        $subTitleOnly = $s['uupdump'];
     }
 
-    $enableDarkMode = 0;
+    $darkModeOptions = array(
+        'expires' => time()+60*60*24*30,
+        'path' => '/',
+        'domain' => $_SERVER['HTTP_HOST'],
+        'secure' => true,
+        'httponly' => true,
+        'samesite' => 'Strict'
+    );
+
+    $enableDarkMode = -1;
     if(isset($_COOKIE['Dark-Mode'])) {
-        if($_COOKIE['Dark-Mode'] == 1) {
-            $enableDarkMode = 1;
-            setcookie('Dark-Mode', 1, time()+2592000);
+        switch($_COOKIE['Dark-Mode']) {
+            case 0:
+                setcookie('Dark-Mode', 0, $darkModeOptions);
+                $enableDarkMode = 0;
+                break;
+
+            case 1:
+                setcookie('Dark-Mode', 1, $darkModeOptions);
+                $enableDarkMode = 1;
+                break;
+
+            default:
+                setcookie('Dark-Mode', 0, $darkModeOptions);
+                $enableDarkMode = -1;
+                break;
         }
     }
 
     if(isset($_GET['dark'])) {
-        if($_GET['dark'] == 1) {
-            setcookie('Dark-Mode', 1, time()+2592000);
-            $enableDarkMode = 1;
-        } elseif($_GET['dark'] == 0) {
-            setcookie('Dark-Mode');
-            $enableDarkMode = 0;
+        switch($_GET['dark']) {
+            case 0:
+                setcookie('Dark-Mode', 0, $darkModeOptions);
+                $enableDarkMode = 0;
+                break;
+
+            case 1:
+                setcookie('Dark-Mode', 1, $darkModeOptions);
+                $enableDarkMode = 1;
+                break;
+
+            default:
+                setcookie('Dark-Mode', 0, $darkModeOptions);
+                $enableDarkMode = -1;
+                break;
         }
     }
 
     $baseUrl = getBaseUrl();
-    $url = getUrlWithoutParam('dark');
+    $fullUrl = htmlentities(getBaseUrl().$_SERVER['REQUEST_URI']);
+    $url = htmlentities(getUrlWithoutParam('dark'));
 
-    if($enableDarkMode) {
-        $darkMode = '<link rel="stylesheet" href="shared/darkmode.css">'."\n";
-        $darkSwitch = '<a class="item" href="'.$url.'dark=0"><i class="eye slash icon"></i>'.$s['lightMode'].'</a>';
-    } else {
-        $darkMode = '';
-        $darkSwitch = '<a class="item" href="'.$url.'dark=1"><i class="eye icon"></i>'.$s['darkMode'].'</a>';
+    $darkSwitch = <<<EOD
+<a class="item light-mode-btn" href="{$url}dark=0">
+    <i class="eye slash icon"></i>
+    {$s['lightMode']}
+</a>
+<a class="item dark-mode-btn" href="{$url}dark=1">
+    <i class="eye icon"></i>
+    {$s['darkMode']}
+</a>
+EOD;
+
+    $darkMode = '';
+    if($enableDarkMode == 1) {
+        $darkMode = '<link rel="stylesheet" href="css/darkmode.css">'."\n";
+    } elseif($enableDarkMode < 0) {
+        $darkMode = '<style>@import url(\'css/darkmode.css\') (prefers-color-scheme: dark);</style>';
     }
 
     switch ($pageType) {
         case 'home':
             $navbarLink = '<a class="active item" href="./"><i class="home icon"></i>'.$s['home'].'</a>'.
-                          '<a class="item" href="./known.php"><i class="download icon"></i>'.$s['downloads'].'</a>';
-            break;
+                          '<a class="item" href="known.php"><i class="download icon"></i>'.$s['downloads'].'</a>'.
+                          '<a class="item" target=_blank href="https://github.com/uup-dump/website/blob/master/FAQ.md"><i class="question circle icon"></i>'.$s['faq'].'</a>';
+        break;
+
         case 'downloads':
             $navbarLink = '<a class="item" href="./"><i class="home icon"></i>'.$s['home'].'</a>'.
-                          '<a class="active item"><i class="download icon"></i>'.$s['downloads'].'</a>';
-            break;
+                          '<a class="active item"><i class="download icon"></i>'.$s['downloads'].'</a>'.
+                          '<a class="item" target=_blank href="https://github.com/uup-dump/website/blob/master/FAQ.md"><i class="question circle icon"></i>'.$s['faq'].'</a>';
+        break;
+
         default:
             $navbarLink = '<a class="active item" href="./">'.$s['home'].'</a>';
-            break;
+        break;
     }
 
     $langSelect = '<a class="item" onClick="openLanguageSelector();"><i class="globe icon"></i>'.$s['currentLanguage'].'</a>';
     $sourceCodeLink = '<a class="item" href="https://github.com/uup-dump"><i class="code icon"></i>'.$s['sourceCode'].'</a>';
+    $discordInvite = '<a class="item" href="https://discord.gg/yVRbtb2"><i class="discord icon"></i>Discord</a>';
 
-    $navbarRight = $langSelect.$darkSwitch.$sourceCodeLink;
-    $navbarMobile = $darkSwitch.$sourceCodeLink.$langSelect;
+    $navbarRight = $langSelect.$darkSwitch.$sourceCodeLink.$discordInvite;
+    $navbarMobile = $darkSwitch.$sourceCodeLink.$discordInvite.$langSelect;
 
     $iso639lang = preg_replace("/-.*/i", "", $s['code']);
+    $title = htmlentities($title);
 
     echo <<<HTML
 <!DOCTYPE html>
@@ -85,13 +134,16 @@ function styleUpper($pageType = 'home', $subtitle = '') {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="description" content="{$s['websiteDesc']}">
 
-        <meta property="og:title" content="$title">
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="og:site_name" content="{$s['uupdump']}">
+        <meta property="og:title" content="$subTitleOnly">
         <meta property="og:type" content="website">
         <meta property="og:description" content="{$s['websiteDesc']}">
-        <meta property="og:image" content="$baseUrl/shared/img/icon.png">
+        <meta property="og:image" content="$baseUrl/img/cover.png">
+        <meta property="og:url" content="$fullUrl">
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css">
-        <link rel="stylesheet" href="shared/style.css">
+        <link rel="stylesheet" href="css/style.css">
         $darkMode
         <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.js"></script>
@@ -120,11 +172,8 @@ function styleUpper($pageType = 'home', $subtitle = '') {
         <div class="pusher">
             <div class="page-header">
                 <div class="ui title container">
-                    <h1>
-                        <img src="shared/img/logo.svg" class="logo" alt="">{$s['uupdump']}
-                        <span class="version">
-                            v$websiteVersion
-                        </span>
+                    <h1 title="{$s['uupdump']} v$websiteVersion">
+                        <img src="img/logo.svg" class="logo" alt="">{$s['uupdump']}
                     </h1>
                 </div>
 
@@ -235,6 +284,7 @@ function fancyError($errorCode = 'ERROR', $pageType = 'home', $moreText = 0) {
             $errorFancy = $s['error_EMPTY_FILELIST'];
             break;
         case 'NO_FILES':
+            $errorNumber = 404;
             $errorFancy = $s['error_NO_FILES'];
             break;
         case 'NOT_FOUND':
@@ -304,12 +354,16 @@ function fancyError($errorCode = 'ERROR', $pageType = 'home', $moreText = 0) {
         header('Retry-After: 10');
     }
 
-    styleUpper($pageType, 'Error');
+    styleUpper($pageType, $s['error']);
 
     echo <<<ERROR
-<div class="ui horizontal divider">
-    <h3><i class="warning icon"></i>{$s['requestNotSuccessful']}</h3>
-</div>
+<h3 class="ui centered header">
+    <div class="content">
+        <i class="fitted exclamation triangle icon"></i>&nbsp;
+        {$s['requestNotSuccessful']}
+    </div>
+</h3>
+
 <div class="ui negative icon message">
     <i class="remove circle icon"></i>
     <div class="content">
@@ -327,13 +381,11 @@ function styleNoPackWarn() {
     global $s;
 
     echo <<<INFO
-<div class="ui icon warning message">
-    <i class="warning circle icon"></i>
-    <div class="content">
-        <div class="header">{$s['generatedPackNotAvailable']}</div>
-        <p>{$s['generatedPackNotAvailableDesc']}</p>
-    </div>
-</div>
+<table class="ui very basic very compact table">
+    <td class="center aligned"><i class="big red exclamation icon"></i></td>
+    <td><p>{$s['generatedPackNotAvailableDesc']}</p></td>
+</table>
+<div class="ui divider"></div>
 
 INFO;
 }
@@ -342,12 +394,11 @@ function styleCluelessUserArm64Warn() {
     global $s;
 
     echo <<<INFO
-<div class="ui small icon error message">
-    <i class="bomb icon"></i>
-    <div class="content">
-        <p>{$s['arm64Warning']}</p>
-    </div>
-</div>
+<table class="ui very basic very compact table">
+    <td class="center aligned"><i class="big bomb icon"></i></td>
+    <td><p>{$s['arm64Warning']}</p></td>
+</table>
+<div class="ui divider"></div>
 
 INFO;
 }

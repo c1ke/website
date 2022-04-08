@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright 2019 whatever127
+Copyright 2021 whatever127
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@ limitations under the License.
 
 $updateId = isset($_GET['id']) ? $_GET['id'] : null;
 $search = isset($_GET['q']) ? $_GET['q'] : null;
+$aria2 = isset($_GET['aria2']) ? $_GET['aria2'] : null;
 
 require_once 'api/get.php';
 require_once 'api/updateinfo.php';
@@ -47,6 +48,10 @@ $filesKeys = array_keys($files);
 
 if($search) {
     $searchSafe = preg_quote($search, '/');
+    if($searchSafe == "Windows KB") {
+        $searchSafe = "Windows KB|SSU-";
+        if($updateBuild > 21380) $searchSafe = "Windows KB|SSU-|DesktopDeployment|AggregatedMetadata";
+    }
     if(preg_match('/^".*"$/', $searchSafe)) {
         $searchSafe = preg_replace('/^"|"$/', '', $searchSafe);
     } else {
@@ -54,8 +59,8 @@ if($search) {
     }
 
     $removeKeys = preg_grep('/.*'.$searchSafe.'.*/i', $filesKeys, PREG_GREP_INVERT);
-    if($search == "Windows10 KB") {
-        $removeKeys = array_merge($removeKeys, preg_grep('/Windows10\.0-KB.*-EXPRESS/i', $filesKeys));
+    if($search == "Windows KB") {
+        $removeKeys = array_merge($removeKeys, preg_grep('/Windows(10|11)\.0-KB.*-EXPRESS|SSU-.*-.{3,5}-EXPRESS|SSU-.*?\.psf/i', $filesKeys));
     }
 
     foreach($removeKeys as $value) {
@@ -71,13 +76,36 @@ if($search) {
     $filesKeys = array_keys($files);
 }
 
-$urlBase = "./getfile.php?id=$updateId";
-styleUpper('downloads', sprintf($s['findFilesIn'], "$updateName $updateArch"));
+$urlBase = "getfile.php?id=$updateId";
+
+if($aria2) {
+    $urlBase = getBaseUrl()."/".$urlBase;
+    header('Content-Type: text/plain');
+
+    usort($filesKeys, 'sortBySize');
+    foreach($filesKeys as $val) {
+        echo "$urlBase&file=$val\n";
+        echo '  out='.$val."\n";
+        echo '  checksum=sha-1='.$files[$val]['sha1']."\n\n";
+    }
+
+    die();
+}
+
+$pageTitle = sprintf($s['findFilesIn'], "$updateName $updateArch");
+if($search) {
+    $pageTitle = "$search - ".$pageTitle;
+}
+
+styleUpper('downloads', $pageTitle);
 ?>
 
-<div class="ui horizontal divider">
-    <h3><i class="list icon"></i><?php echo $updateName.' '.$updateArch; ?></h3>
-</div>
+<h3 class="ui centered header">
+    <div class="content">
+        <i class="fitted list icon"></i>&nbsp;
+        <?php echo htmlentities($updateName.' '.$updateArch); ?>
+    </div>
+</h3>
 
 <div class="ui top attached segment">
     <form class="ui form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
@@ -95,39 +123,25 @@ styleUpper('downloads', sprintf($s['findFilesIn'], "$updateName $updateArch"));
     <?php printf($s['weFoundFiles'], count($files)); ?>
 </div>
 
-<table class="ui celled striped table">
+<table class="ui fixed celled striped tablet stackable table">
     <thead>
         <tr>
-            <th><?php echo $s['file']; ?></th>
-            <th><?php echo $s['sha1']; ?></th>
-            <th><?php echo $s['size']; ?></th>
+            <th class="eight wide"><?php echo $s['file']; ?></th>
+            <th class="six wide"><?php echo $s['sha1']; ?></th>
+            <th class="two wide"><?php echo $s['size']; ?></th>
         </tr>
     </thead>
 <?php
 $totalSize = 0;
-$prefixes = array('', 'Ki', 'Mi', 'Gi', 'Ti', 'Pi', 'Ei', 'Zi', 'Yi');
-
 foreach($filesKeys as $val) {
-    $totalSize = $totalSize + $files[$val]['size'];
     $size = $files[$val]['size'];
-
-    foreach($prefixes as $prefix) {
-        if($size < 1024) break;
-        $size = $size / 1024;
-    }
-    $size = round($size, 2);
-    $size = "$size {$prefix}B";
+    $totalSize = $totalSize + $size;
+    $size = readableSize($size, 2);
 
     echo "<tr><td><a href=\"$urlBase&file=$val\">$val</a></td>";
     echo '<td><code>'.$files[$val]['sha1'].'</code></td><td>'.$size.'</td></tr>'."\n";
 }
-
-foreach($prefixes as $prefix) {
-    if($totalSize < 1024) break;
-    $totalSize = $totalSize / 1024;
-}
-$totalSize = round($totalSize, 2);
-$totalSize = "$totalSize {$prefix}B";
+$totalSize = readableSize($totalSize, 2);
 
 if(count($filesKeys)+3 > 30) {
     $filesRows = 30;

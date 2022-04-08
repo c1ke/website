@@ -36,6 +36,9 @@ $s['file'] = 'File';
 $s['expires'] = 'Expira';
 $s['sha1'] = 'SHA-1';
 $s['size'] = 'Tamanho';
+$s['additionalEdition'] = 'Edição Adicional';
+$s['requiredEdition'] = 'Edição Exigida';
+$s['unknown'] = 'Desconhecida';
 
 //global
 $s['home'] = 'Página Principal';
@@ -57,7 +60,7 @@ $s['browseBuildsSub'] = 'Escolha uma compilação que já seja conhecida no banc
 $s['fetchLatest'] = 'Buscar a compilação mais recente';
 $s['fetchLatestSub'] = 'Recupere a informação da compilação mais recente dos servidores do Windows Update.';
 $s['newlyAdded'] = 'Novas compilações adicionadas';
-$s['dateAdded'] = 'Adicionado em';
+$s['dateAdded'] = 'Adicionada em';
 
 //known.php
 $s['browseKnown'] = 'Pesquisar compilações conhecidas';
@@ -96,6 +99,11 @@ $s['selectLangInfoText1'] = 'Clique no botão <i>Avançar</i> para selecionar a 
 $s['selectLangInfoText2'] = 'O WindowsUpdateBox.exe e a Atualização Cumulativa podem ser encontrados no idioma <i>Todos os idiomas</i>.';
 $s['allLangsWarn'] = 'A opção <i>Todos os idiomas</i> não suporta a seleção de edição.';
 $s['clickNextToOpenFindFiles'] = 'Clique no botão <i>Avançar</i> para abrir a página que permite localizar ficheiros.';
+$s['noLangsAvailable'] = 'Não há idiomas disponíveis para esta compilação.';
+$s['browseFiles'] = 'Procurar ficheiros';
+$s['browseFilesDesc'] = 'Navegue rapidamente pelos ficheiros na versão selecionada';
+$s['searchFiles'] = 'Procurar ficheiros';
+$s['toSearchForCUUseQuery'] = 'Para procurar por Atualizações Cumulativas, use a consulta de pesquisa <i>%s</i>.';//Para procurar por Atualizações Cumulativas, use a consulta de pesquisa <i>Windows10 KB</i>.
 
 //selectedition.php
 $s['selectEditionFor'] = 'Selecione a edição para %s'; //Select edition for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
@@ -103,6 +111,7 @@ $s['chooseEdition'] = 'Selecione a edição';
 $s['chooseEditionDesc'] = 'Escolha a sua edição desejada';
 $s['allEditions'] = 'Todas as edições';
 $s['selectEditionInfoText'] = 'Clique no botão <i>Avançar</i> para abrir a página de resumo da sua seleção.';
+$s['additionalEditionsInfo'] = 'Se precisar de uma edição adicional, que pode ser encontrada na tabela à direita, selecione a edição necessária e clique em <i>Avançar</i>. Na página de resumo, poderá selecionar as edições adicionais desejadas sob a opção de download apropriada. ';
 
 //download.php
 $s['summary'] = 'Resumo';
@@ -129,6 +138,15 @@ $s['systemWithAdk'] = '%s com o Windows 10 ADK instalado'; //Windows 7 with Wind
 $s['additionalUpdates'] = 'Atualizações adicionais';
 $s['additionalUpdatesDesc'] = 'Este conjunto UUP contém atualizações adicionais que serão integradas durante o processo de conversão, aumentando significativamente o tempo de criação.';
 $s['browseUpdatesList'] = 'Pesquise na lista de atualizações';
+$s['selectDownloadOptions'] = 'Selecione as suas opções de download';
+$s['selectDownloadOptionsSub'] = 'Configure como gostaria de transferir a sua seleção';
+$s['downloadMethod'] = 'Método de download';
+$s['conversionOptions'] = 'Opções de conversão';
+$s['convOpt1'] = 'Criar ISO com install.esd em vez de install.wim';
+$s['convOpt2'] = 'Integrar atualizações quando disponíveis (apenas no conversor Windows)';
+$s['convOpt3'] = 'Execute a limpeza após a integração das atualizações (apenas no conversor do Windows)';
+$s['convOpt4'] = 'Integrar .NET Framework 3.5 (apenas no conversor Windows)';
+$s['startDownload'] = 'Criar pacote de download';
 
 //get.php
 $s['listOfFilesFor'] = 'Lista de ficheiros para %s'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
@@ -143,13 +161,13 @@ $s['aria2NoticeText1'] = 'Fazer o download usando as opções aria2 cria um fich
 $s['aria2NoticeText2'] = 'Para iniciar o processo de download, use um script para a sua plataforma:';
 $s['aria2NoticeText3'] = 'Aria2 é um projeto de código aberto. Pode encontrá-lo aqui: %s.'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
 $s['aria2NoticeText4'] = 'O script de conversão UUP (versão Windows) foi criado por %s.'; //UUP Conversion script (Windows version) has been created by abbodi1406.
-$s['aria2NoticeText5'] = 'O script de conversão UUP (versão Linux) é de código aberto. Pode encontrá-lo aqui: %s.'; //UUP Conversion script (Linux version) is open source. You can find it here: https://github.com/uup-dump/converter.
+$s['aria2NoticeText5'] = 'O script de conversão UUP (versão Linux, versão macOS) é de código aberto. Pode encontrá-lo aqui: %s.'; //UUP Conversion script (Linux version, macOS version) is open source. You can find it here: https://github.com/uup-dump/converter.
 
 //findfiles.php
 $s['findFilesIn'] = 'Encontre ficheiros em %s'; //Find files in Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['fileRenamingScriptDescFindFiles'] = 'Se quiser renomear rapidamente os ficheiros transferidos desta página, pode gerar um script de renomeação, que fará isso automaticamente.';
 $s['fileRenamingScriptGenW'] = 'Gerar script de renomeação (Windows)';
-$s['fileRenamingScriptGenL'] = 'Gerar script de renomeação (Linux)';
+$s['fileRenamingScriptGenL'] = 'Gerar script de renomeação (Linux, macOS)';
 $s['searchForFiles'] = 'Procurar ficheiros ...';
 $s['weFoundFiles'] = 'Encontrámos ficheiros <b>%d</b> para a sua consulta.'; //We have found <b>692</b> files for your query.
 
