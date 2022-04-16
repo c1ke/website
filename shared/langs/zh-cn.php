@@ -159,6 +159,10 @@ $s['convOpt2'] = '当可用时集成更新（仅限 Windows 转换程序）';
 $s['convOpt3'] = '在集成更新后运行清理（仅限 Windows 转换程序）';
 $s['convOpt4'] = '集成 .NET Framework 3.5（仅限 Windows 转换程序）';
 $s['startDownload'] = '创建下载包';
+$s['legalCopeHarder'] = '点击<i>创建下载包</i>按钮即表示你同意以下内容：';
+$s['legalCope1'] = '使用 UUP dump 提供的脚本创建的安装映像仅可用于<b>评估目的</b>';
+$s['legalCope2'] = 'Microsoft Corporation <b>不以任何方式支持</b>映像及其部署';
+$s['legalCope3'] = '根据项目许可条款，<b>作者不对任何损害负责</b>';
 
 //get.php
 $s['listOfFilesFor'] = '%s 的文件列表'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
@@ -182,6 +186,61 @@ $s['fileRenamingScriptGenW'] = '生成重命名脚本（Windows）';
 $s['fileRenamingScriptGenL'] = '生成重命名脚本（Linux、macOS）';
 $s['searchForFiles'] = '查找文件……';
 $s['weFoundFiles'] = '在你的查询中我们找到了 <b>%d</b> 个文件。'; //We have found <b>692</b> files for your query.
+
+//faq.php
+$s['faq'] = 'FAQ';
+$s['faqLong'] = '常见问题';
+
+$s['q1'] = '功能更新和累积更新之间有什么区别？';
+$s['a1'] = <<<FAQ
+功能更新包含基本更新和附加更新。<br/>
+累积更新仅包含基本更新。<br/><br/>
+
+一般推荐使用功能更新来生成 ISO 文件。
+FAQ;
+
+$s['q2'] = '我如何使用 Windows 10 版本（如企业版）创建 ISO？';
+$s['a2'] = <<<FAQ
+企业版是 Windows 10 的<b>虚拟版本</b>。此处的“虚拟”并不表示“用于虚拟化”，而是表示“非独立”。<br/><br/>
+
+虚拟版本需要“基本版本”进行转换。<br/>
+选择给定更新的版本时，在页面的右侧，你会找到一个表格，其中列出了不同虚拟版本的要求。<br/>
+对于“Windows 10 企业版”，其要求是“Windows 10 专业版”，这是你首先需要选择的。<br/><br/>
+
+在选择专业版后，单击“下一步”，然后选择“转换并创建其他版本”选项。<br/>
+将会出现一个列表，其中会包含所有可能的虚拟版本供你选择；<br/><br/>
+
+在这里，你可以选择“企业版”并创建一个下载包。
+FAQ;
+
+$s['q3'] = '为什么 Windows Server 下载会显示“在此内部版本中没有可用的语言。”？';
+$s['a3'] = <<<FAQ
+较旧的 Windows Server 更新仅具有按需功能包的功能。<br/>
+你不能将它们用于转换目的。<br/><br/>
+
+将它们列出只是为了方便访问按需功能包。
+FAQ;
+
+$s['q4'] = '我可以在转换过程之前删除一些我认为没有用的软件包吗？';
+$s['a4'] = <<<FAQ
+你不能这样做。如果你这样做，转换就会失败。
+FAQ;
+
+$s['q5'] = '同一内部版本存在两个，但其中一个附加了 (2)。那是什么意思？';
+$s['a5'] = <<<FAQ
+通常，这意味着此内部版本被推送到多个通道中。<br/>
+例如，一个内部版本首先被推送到 Dev 通道，然后再被推送到 Beta 通道。<br/><br/>
+
+选择任何一个都无所谓，它们具有完全相同的内容。
+FAQ;
+
+$s['qUnknown'] = '我提出的问题没有在这里列出。';
+$s['aUnknown'] =  <<<FAQ
+你可以加入 UUP dump discord 服务器，并在那里提出你的问题。
+仅回答使用英语提出的问题。
+FAQ;
+=======
+
 
 //Error pages
 $s['error'] = '错误';
@@ -226,6 +285,7 @@ $s['errorNoMessage'] = '错误消息不可用。';
 //Languages
 $s['lang_ar-sa'] = '阿拉伯语（沙特阿拉伯）';
 $s['lang_bg-bg'] = '保加利亚语';
+$s['lang_ca-es'] = '加泰罗尼亚语（西班牙）';
 $s['lang_cs-cz'] = '捷克语';
 $s['lang_da-dk'] = '丹麦语';
 $s['lang_de-de'] = '德语';
@@ -233,14 +293,17 @@ $s['lang_el-gr'] = '希腊语';
 $s['lang_en-gb'] = '英语（英国）';
 $s['lang_en-us'] = '英语（美国）';
 $s['lang_es-es'] = '西班牙语（西班牙）';
+$s['lang_eu-es'] = '巴斯克语（西班牙）';
 $s['lang_es-mx'] = '西班牙语（墨西哥）';
 $s['lang_et-ee'] = '爱沙尼亚语';
 $s['lang_fi-fi'] = '芬兰语';
 $s['lang_fr-ca'] = '法语（加拿大）';
 $s['lang_fr-fr'] = '法语（法国）';
+$s['lang_gl-es'] = '加利西亚语（西班牙）';
 $s['lang_he-il'] = '希伯来语';
 $s['lang_hr-hr'] = '克罗地亚语';
 $s['lang_hu-hu'] = '匈牙利语';
+$s['lang_id-id'] = '印度尼西亚语（印度尼西亚）';
 $s['lang_it-it'] = '意大利语';
 $s['lang_ja-jp'] = '日语';
 $s['lang_ko-kr'] = '朝鲜语';
@@ -261,6 +324,7 @@ $s['lang_sv-se'] = '瑞典语';
 $s['lang_th-th'] = '泰语';
 $s['lang_tr-tr'] = '土耳其语';
 $s['lang_uk-ua'] = '乌克兰语';
+$s['lang_vi-vn'] = '越南语（越南）';
 $s['lang_zh-cn'] = '中文（简体）';
 $s['lang_zh-hk'] = '中文（香港）';
 $s['lang_zh-tw'] = '中文（繁体）';
