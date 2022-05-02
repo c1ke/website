@@ -33,7 +33,7 @@ $s['cancel'] = '取消';
 $s['information'] = '信息';
 $s['totalDlSize'] = '总下载大小';
 $s['file'] = '文件';
-$s['expires'] = '过期日期';
+$s['expires'] = '过期时间';
 $s['sha1'] = 'SHA-1';
 $s['size'] = '大小';
 $s['additionalEdition'] = '虚拟升级版本';
@@ -77,7 +77,7 @@ $s['dateAdded'] = '添加日期';
 //known.php
 $s['browseKnown'] = '浏览已知内部版本';
 $s['chooseBuild'] = '选择内部版本';
-$s['weFoundBuilds'] = '根据你的查询，我们找到了 <b>%d</b> 个内部版本。'; //We have found <b>692</b> builds for your query.
+$s['weFoundBuilds'] = '根据你的查询，我们找到了 <b>%d</b> 个内部版本。'; //<b>692</b> builds were found for your query.
 
 //latest.php
 $s['latestFetchLatest'] = '获取最新内部版本';
@@ -85,7 +85,7 @@ $s['latestTestingOnly'] = '仅用于测试目的';
 $s['latestTestingOnlyWarn'] = '<b>此页面仅供测试目的。</b>此页面检索到的内部版本未被后端服务器处理，因此仅提供替代包，并且可能仅有不完整的检索结果。如果要下载已知的内部版本，请使用已知内部版本的下载页面。';
 $s['latestDoYouWantKnown'] = '你想继续浏览已知内部版本列表吗？';
 $s['chooseOptions'] = '选择选项';
-$s['buildOfPretendedClient'] = '模拟 Windows 更新客户端版本号';
+$s['buildOfPretendedClient'] = '模拟 Windows 更新客户端内部版本号';
 $s['editionOfPretendedClient'] = '模拟系统版本';
 $s['skipAheadLabel'] = '跳跃预览通道';
 $s['skipAheadOption'] = '使用跳跃预览通道（仅限快速环）';
@@ -94,7 +94,7 @@ $s['fetchUpdatesInfo'] = '点击<i>获取更新</i>按钮将你的请求发送�
 
 //fetchupd.php
 $s['responseFromServer'] = '来自服务器的响应';
-$s['foundUpdates'] = '找到 %d 个更新'; //Found 1 update(s)
+$s['foundUpdates'] = '已找到 %d 个更新'; //Found 1 update(s)
 $s['foundTheseUpdates'] = '找到了以下更新，点击所需更新的名称以继续。';
 $s['buildNumber'] = '内部版本号：%s'; //Build number: 18890.1000
 
@@ -102,7 +102,7 @@ $s['buildNumber'] = '内部版本号：%s'; //Build number: 18890.1000
 $s['selectLangFor'] = '选择 %s 的语言'; //Select language for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
 $s['chooseLang'] = '选择语言';
 $s['chooseLangDesc'] = '选择你想要的语言';
-$s['allLangs'] = '全语言';
+$s['allLangs'] = '全部语言';
 $s['selLangFiles'] = '文件';
 $s['allFiles'] = '全部文件';
 $s['wubOnly'] = '仅限 WindowsUpdateBox';
@@ -154,7 +154,7 @@ $s['selectDownloadOptions'] = '请选择你的下载选项';
 $s['selectDownloadOptionsSub'] = '使用何种配置方式下载你所选择的内容';
 $s['downloadMethod'] = '下载方式';
 $s['conversionOptions'] = '转换选项';
-$s['convOpt1'] = '使用 install.esd 而非 install.wim 创建 ISO';
+$s['convOpt1'] = '使用固实压缩（ESD）';
 $s['convOpt2'] = '当可用时集成更新（仅限 Windows 转换程序）';
 $s['convOpt3'] = '在集成更新后运行清理（仅限 Windows 转换程序）';
 $s['convOpt4'] = '集成 .NET Framework 3.5（仅限 Windows 转换程序）';
