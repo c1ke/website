@@ -209,7 +209,7 @@ function styleLower() {
     $copyright = sprintf(
         $s['copyright'],
         date('Y'),
-        '<a href="https://github.com/whatever127">whatever127</a>'
+        'whatever127'
     );
 
     echo <<<HTML
