@@ -291,6 +291,7 @@ ResetBase    =0
 NetFx3       =$netfx
 StartVirtual =$virtualEditions
 wim2esd      =$esd
+wim2swm      =0
 SkipISO      =0
 SkipWinRE    =0
 LCUwinre     =0
@@ -303,12 +304,14 @@ AutoExit     =0
 [Store_Apps]
 SkipApps     =0
 AppsLevel    =0
+CustomList   =0
 
 [create_virtual_editions]
 vAutoStart   =1
 vDeleteSource=0
 vPreserve    =0
 vwim2esd     =$esd
+vwim2swm     =0
 vSkipISO     =0
 vAutoEditions=$desiredVirtualEditions
 
@@ -390,6 +393,24 @@ function createAria2Package($url, $archiveName, $app = null) {
     $currDir = dirname(__FILE__).'/..';
     $time = gmdate("Y-m-d H:i:s T", time());
 
+    $ariacmd = <<<TEXT
+"%aria2%" --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"%destDir%" -i"%aria2Script%"
+TEXT;
+
+    $ariabash = <<<TEXT
+aria2c --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"\$destDir" -i"\$tempScript"
+TEXT;
+
+    if(strpos($archiveName, "_app")) {
+        $ariacmd = <<<TEXT
+"%aria2%" --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j25 -c -R -d"%destDir%" -i"%aria2Script%"
+TEXT;
+
+        $ariabash = <<<TEXT
+aria2c --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j25 -c -R -d"\$destDir" -i"\$tempScript"
+TEXT;
+    }
+
     $downloadapp = "";
     if(!empty($app)) {
         $downloadapp = <<<TEXT
@@ -455,7 +476,7 @@ if NOT [%DETECTED_ERROR%] == [] (
 )
 
 echo Attempting to download files...
-"%aria2%" --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"%destDir%" -i"%aria2Script%"
+$ariacmd
 if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
 
 pause
@@ -532,7 +553,7 @@ fi
 
 echo ""
 echo "Attempting to download files..."
-aria2c --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"\$destDir" -i"\$tempScript"
+$ariabash
 if [ $? != 0 ]; then
   echo "We have encountered an error while downloading files."
   exit 1
