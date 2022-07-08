@@ -65,7 +65,7 @@ styleUpper('home');
         Dev Channel
     </a>
 
-    <a class="ui mini button" href="known.php?q=22621">
+    <a class="ui mini button" href="known.php?q=regex:2262\d">
         <i class="search icon"></i>
         Windows 11 22H2
     </a>
