@@ -75,7 +75,8 @@ rem Generated on $time
 :: Proxy configuration
 :: If you need to configure a proxy to be able to connect to the internet,
 :: then you can do this by configuring the all_proxy environment variable.
-:: By default this variable is empty, configuring aria2c to not use any proxy.
+:: By default this variable is commented out, configuring aria2c to use 
+:: the proxy settings specified by the system.
 ::
 :: Usage: set "all_proxy=proxy_address"
 :: For example: set "all_proxy=127.0.0.1:8888"
@@ -84,7 +85,10 @@ rem Generated on $time
 :: https://aria2.github.io/manual/en/html/aria2c.html#cmdoption-all-proxy
 :: https://aria2.github.io/manual/en/html/aria2c.html#environment
 
-set "all_proxy="
+:: Uncomment the following line to override the proxy settings specified
+:: by the system.
+::
+:: set "all_proxy="
 
 :: End of proxy configuration
 
