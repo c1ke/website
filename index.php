@@ -75,9 +75,14 @@ styleUpper('home');
         Windows 11 21H2
     </a>
 
-    <a class="ui mini button" href="known.php?q=20348">
+    <a class="ui mini button" href="known.php?q=regex:2034\d">
         <i class="search icon"></i>
-        Server 21H2
+        Server 21H2/22H2
+    </a>
+
+    <a class="ui mini button" href="known.php?q=19045">
+        <i class="search icon"></i>
+        22H2
     </a>
 
     <a class="ui mini button" href="known.php?q=19044">
