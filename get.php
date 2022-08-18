@@ -73,6 +73,7 @@ if($autoDl && !$aria2) {
     $uSku = isset($info['sku']) ? $info['sku'] : 48;
     $updateBuild = isset($info['build']) ? $info['build'] : 'UNKNOWN';
     $updateArch = isset($info['arch']) ? $info['arch'] : 'UNKNOWN';
+    $updateTitle = isset($info['title']) ? $info['title'] : 'UNKNOWN';
 
     $langDir = $usePack ? $usePack : 'all';
 
@@ -124,6 +125,10 @@ if($autoDl && !$aria2) {
         $disableVE = 1;
     }
 
+    if($build > 22557 && preg_match('/Cumulative Update/i', $updateTitle)) {
+       $editDir = 'app';
+    }
+
     switch($autoDl) {
         case 1:
             if($build > 22557) {
@@ -139,7 +144,11 @@ if($autoDl && !$aria2) {
 
         case 2:
             if($build > 22557) {
-                createUupConvertPackage($url, $archiveName, 0, ["Enterprise"], $moreOptions, $app);
+                if($editDir == 'app' || $langDir == 'neutral') {
+                    createUupConvertPackage($url, $archiveName, 0, ["Enterprise"], $moreOptions);
+                } else {
+                    createUupConvertPackage($url, $archiveName, 0, ["Enterprise"], $moreOptions, $app);
+                }
             } else {
                 createUupConvertPackage($url, $archiveName, 0, ["Enterprise"], $moreOptions);
             }
@@ -155,7 +164,11 @@ if($autoDl && !$aria2) {
                 break;
             }
             if($build > 22557) {
-                createUupConvertPackage($url, $archiveName, 1, $desiredVE, $moreOptions, $app);
+                if($editDir == 'app' || $langDir == 'neutral') {
+                    createUupConvertPackage($url, $archiveName, 1, $desiredVE, $moreOptions);
+                } else {
+                    createUupConvertPackage($url, $archiveName, 1, $desiredVE, $moreOptions, $app);
+                }
             } else {
                 createUupConvertPackage($url, $archiveName, 1, $desiredVE, $moreOptions);
             }
