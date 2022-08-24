@@ -33,7 +33,7 @@ if(empty($ids)) {
 
 $retailLatestBuild = "22000.856";
 $betaLatestBuild = "22621.382";
-$rpLatestBuild = "22621.382";
+$rpLatestBuild = "22000.856";
 
 styleUpper('home');
 ?>
