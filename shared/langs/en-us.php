@@ -124,6 +124,7 @@ $s['chooseEditionDesc'] = 'Choose your desired edition';
 $s['allEditions'] = 'All editions';
 $s['selectEditionInfoText'] = 'Click the <i>Next</i> button to open the summary page of your selection.';
 $s['additionalEditionsInfo'] = 'If you need <b>additional editions</b> from the table on the right, select their <b>Required edition</b> above and proceed by clicking <i>Next</i>.<br>On the summary page select the <b>Create additional editions</b> option.';
+$s['showHiddenEditions'] = 'Show hidden editions (not recommended)';
 
 //download.php
 $s['summary'] = 'Summary';

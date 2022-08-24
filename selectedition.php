@@ -54,6 +54,8 @@ if(!isset($updateInfo['sku'])) {
     $uSku = $updateInfo['sku'];
 }
 
+$hiddenEditions = ['PPIPRO'];
+
 $build = explode('.', $updateInfo['build']);
 $build = @$build[0];
 $disableVE = 0;
@@ -142,29 +144,24 @@ if($updateArch == 'arm64') {
                 <div class="grouped fields">
 <?php
 foreach($editions as $key => $val) {
-if($editionsNum > 1 && $key == 'PPIPRO') {
+    $isHidden = $editionsNum > 1 && in_array($key, $hiddenEditions);
+    $checked = $isHidden ? '' : 'checked';
+    $classHidden = $isHidden ? 'hidden-edition' : '';
+
     echo <<<EOD
-<div class="field">
+<div class="field $classHidden">
     <div class="ui checkbox">
-        <input type="checkbox" name="edition[]" value="$key" class="edition-selection" null>
+        <input type="checkbox" name="edition[]" value="$key" class="edition-selection" $checked>
         <label>$val</label>
     </div>
 </div>
 
 EOD;
-    } else {
-    echo <<<EOD
-<div class="field">
-    <div class="ui checkbox">
-        <input type="checkbox" name="edition[]" value="$key" class="edition-selection" checked>
-        <label>$val</label>
-    </div>
-</div>
-
-EOD;
-    }
 }
 ?>
+                    <button id="show-hidden-editions" type="button" class="ui mini button" style="display: none;">
+                        <?php echo $s['showHiddenEditions']; ?>
+                    </button>
                 </div>
             </div>
 
@@ -281,9 +278,25 @@ function checkEditions() {
     }
 }
 
+function showHiddenEditions() {
+    $('.hidden-edition').show();
+    $('.hidden-edition .edition-selection').prop('disabled', 0);
+    $('#show-hidden-editions').hide();
+}
+
 $('.edition-selection').on('click change', function() {
     checkEditions();
 });
+
+$('#show-hidden-editions').on('click', function() {
+    showHiddenEditions();
+});
+
+if($('.hidden-edition').length > 0) {
+    $('#show-hidden-editions').show();
+    $('.hidden-edition .edition-selection').prop('disabled', 1);
+    $('.hidden-edition').hide();    
+}
 
 checkEditions();
 </script>
