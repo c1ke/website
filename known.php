@@ -69,7 +69,6 @@ styleUpper('downloads', $pageTitle);
             <th><?php echo $s['build']; ?></th>
             <th><?php echo $s['arch']; ?></th>
             <th><?php echo $s['dateAdded']; ?></th>
-            <th><?php echo $s['updateid']; ?></th>
         </tr>
     </thead>
 <?php
@@ -89,8 +88,6 @@ foreach($ids as $val) {
     } else {
        echo date("Y-m-d H:i:s T", $val['created']);
     }
-    echo '</td><td>';
-    echo '<code>'.htmlentities($val['uuid']).'</code>';
     echo "</td></tr>\n";
 }
 ?>
