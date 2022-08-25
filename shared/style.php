@@ -206,6 +206,13 @@ function styleLower() {
     global $websiteVersion, $s;
     $api = uupApiVersion();
 
+    $config = uupDumpApiGetConfig();
+    $renderText = '';
+    if(isset($config['show_render_time']) && $config['show_render_time']) {
+        $render = floor((microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"])*1000);
+        $renderText = "Page rendered in $render ms.";
+    }
+
     $copyright = sprintf(
         $s['copyright'],
         date('Y'),
@@ -215,7 +222,7 @@ function styleLower() {
     echo <<<HTML
                 <div class="footer">
                     <div class="ui divider"></div>
-                    <p><i>
+                    <p><i>$renderText
                         <b>{$s['uupdump']}</b> v$websiteVersion
                         (<b>API</b> v$api)
                         $copyright
