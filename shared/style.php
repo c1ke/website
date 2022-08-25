@@ -22,9 +22,11 @@ function styleUpper($pageType = 'home', $subtitle = '') {
 
     if($subtitle) {
         $title = sprintf($s['uupdumpSub'], "$subtitle");
+        $description = sprintf($s['uupDumpDescSub'], "$subtitle");
         $subTitleOnly = $subtitle;
     } else {
         $title = $s['uupdump'];
+        $description = sprintf($s['uupDumpDesc'], "$subtitle");
         $subTitleOnly = $s['uupdump'];
     }
 
@@ -132,13 +134,13 @@ EOD;
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta property="description" content="{$s['websiteDesc']}">
+        <meta property="description" content="{$description}">
 
         <meta property="twitter:card" content="summary_large_image">
         <meta property="og:site_name" content="{$s['uupdump']}">
         <meta property="og:title" content="$subTitleOnly">
         <meta property="og:type" content="website">
-        <meta property="og:description" content="{$s['websiteDesc']}">
+        <meta property="og:description" content="{$description}">
         <meta property="og:image" content="$baseUrl/img/cover.png">
         <meta property="og:url" content="$fullUrl">
 
@@ -214,9 +216,8 @@ function styleLower() {
     }
 
     $copyright = sprintf(
-        $s['copyright'],
-        date('Y'),
-        'whatever127'
+        $s['copyrightNew'],
+        date('Y')
     );
 
     echo <<<HTML
