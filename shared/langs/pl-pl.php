@@ -6,7 +6,7 @@ Translation information:
 English language name: Polish
 Localized language name: polski
 Language code: pl-PL
-Author: whatever127
+Author: whatever127, awuctl, eraseyourknees
 */
 
 //Language information
@@ -50,7 +50,10 @@ $s['menu'] = 'Menu';
 $s['websiteDesc'] = 'Pobieraj pliki UUP z serwerów Windows Update z łatwością. Ten projekt nie jest powiązany z Microsoft Corporation.';
 $s['notAffiliated'] = 'Ten projekt nie jest powiązany z Microsoft Corporation. Windows jest zarejestrowanym znakiem towarowym firmy Microsoft Corporation.';
 $s['copyright'] = '© %d %s i współtwórcy.'; //© 2019 whatever127 and contributors.
+$s['copyrightNew'] = '© %d Autorzy oraz współtwórcy UUP dump.';
 $s['selectLanguage'] = 'Proszę wybrać swój język';
+$s['uupDumpDesc'] = 'UUP dump umożliwia Ci pobieranie plików Unified Update Platform, takich jak aktualizacje programu Windows Insider, bezpośrednio z usługi Windows Update.';
+$s['uupDumpDescSub'] = '%s na UUP dump. UUP dump umożliwia Ci pobieranie plików Unified Update Platform, takich jak aktualizacje programu Windows Insider, bezpośrednio z usługi Windows Update.'; //Select language for Windows 11 Insider Preview 25188.1000 (rs_prerelease) amd64 on UUP dump. UUP dump lets you download Unified Update Platform files, like Windows Insider updates, directly from Windows Update.
 
 //index.php
 $s['slogan'] = 'Pobieraj pliki UUP z serwerów Windows Update z łatwością.';
@@ -124,6 +127,7 @@ $s['chooseEditionDesc'] = 'Wybierz żądaną edycję';
 $s['allEditions'] = 'Wszystkie edycje';
 $s['selectEditionInfoText'] = 'Kliknij przycisk <i>Dalej</i> w celu otworzenia strony z podsumowaniem wyboru.';
 $s['additionalEditionsInfo'] = 'W przypadku, gdy wymagana jest dodatkowa edycja znajdująca się w tabeli z prawej strony, proszę wybrać odpowiednią wymaganą edycję i kliknąć <i>Dalej</i>. Po przejściu do strony podsumowania można będzie dokonać wyboru żądanej dodatkowej edycji przy użyciu odpowiedniej opcji pobrania.';
+$s['showHiddenEditions'] = 'Wyświetl ukryte edycje (niezalecane)';
 
 //download.php
 $s['summary'] = 'Podsumowanie';
@@ -150,12 +154,6 @@ $s['systemWithAdk'] = '%s z zainstalowanym Windows 10 ADK'; //Windows 7 with Win
 $s['additionalUpdates'] = 'Dodatkowe aktualizacje';
 $s['additionalUpdatesDesc'] = 'Ten zestaw UUP zawiera dodatkowe aktualizacje, które zostaną automatycznie dodane podczas procesu konwersji znacząco wydłużając czas tworzenia.';
 $s['browseUpdatesList'] = 'Przeglądaj listę aktualizacji';
-$s['aria2NoticeTitle'] = 'Informacja dotycząca opcji <i>Pobierz przy użyciu programu aria2</i>';
-$s['aria2NoticeText1'] = 'Opcje <i>Pobierz przy użyciu programu aria2</i> tworzą archiwum, które należy pobrać. Pobrane archiwum zawiera wszystkie niezbędne pliki do wykonania wybranego zadania.';
-$s['aria2NoticeText2'] = 'Aby rozpocząć proces użyj skryptu przeznaczonego dla Twojej platformy:';
-$s['aria2NoticeText3'] = 'Aria2 jest projektem otwartoźródłowym. Możesz znaleźć go tutaj: %s.'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
-$s['aria2NoticeText4'] = 'Skrypt konwersji UUP (wersja dla Windows) został stworzony przez %s.'; //UUP Conversion script (Windows version) has been created by abbodi1406.
-$s['aria2NoticeText5'] = 'Skrypt konwersji UUP (wersja dla Linux oraz macOS) jest otwartoźródłowy. Możesz znaleźć go tutaj: %s.'; //UUP Conversion script (Linux version, macOS version) is open source. You can find it here: https://github.com/uup-dump/converter.
 $s['selectDownloadOptions'] = 'Wybierz opcje pobierania';
 $s['selectDownloadOptionsSub'] = 'Skonfiguruj w jaki sposob chcesz pobrać swój wybór';
 $s['downloadMethod'] = 'Metoda pobierania';
@@ -165,6 +163,10 @@ $s['convOpt2'] = 'Zintegruj aktualizacje jeśli dostępne (tylko konwerter Windo
 $s['convOpt3'] = 'Uruchom oczyszczanie po integracji aktualizacji (tylko konwerter Windows)';
 $s['convOpt4'] = 'Zintegruj .NET Framework 3.5 (tylko konwerter Windows)';
 $s['startDownload'] = 'Utwórz paczkę pobierającą';
+$s['legalCopeHarder'] = 'Poprzez kliknięcie przycisku <i>Utwórz paczkę pobierającą</i> zgadzasz się z następującym:';
+$s['legalCope1'] = 'Obrazy instalacyjne stworzone przez skrypty udostępniane przez UUP dump przeznaczone są wyłącznie do <b>celów ewaluacyjnych</b>';
+$s['legalCope2'] = 'Obrazy te oraz ich wdrożenia <b>nie są wspierane</b> w żaden sposób przez Microsoft Corporation';
+$s['legalCope3'] = 'Zgodnie z postanowieniami licencyjnymi projektu <b>autorzy nie ponoszą odpowiedzialności za jakiekolwiek szkody</b>';
 
 //get.php
 $s['listOfFilesFor'] = 'Lista plików dla %s'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
@@ -174,6 +176,12 @@ $s['fileRenamingScriptDesc1'] = 'Skrypt, który można znaleźć poniżej może 
 $s['fileRenamingScriptDesc2'] = 'Aby użyć, skopiuj zawartość poniższego pola, zapisz do pliku z rozszerzeniem <code>cmd</code>, umieść w folderze z pobranymi plikami i uruchom.';
 $s['sha1File'] = 'Plik sum kontronych SHA-1';
 $s['sha1FileDesc'] = 'Możesz użyć tego pliku w celu szybkiej weryfikacji czy pliki zostały pobrane poprawnie.';
+$s['aria2NoticeTitle'] = 'Informacja dotycząca opcji <i>Pobierz przy użyciu programu aria2</i>';
+$s['aria2NoticeText1'] = 'Opcje <i>Pobierz przy użyciu programu aria2</i> tworzą archiwum, które należy pobrać. Pobrane archiwum zawiera wszystkie niezbędne pliki do wykonania wybranego zadania.';
+$s['aria2NoticeText2'] = 'Aby rozpocząć proces użyj skryptu przeznaczonego dla Twojej platformy:';
+$s['aria2NoticeText3'] = 'Aria2 jest projektem otwartoźródłowym. Możesz znaleźć go tutaj: %s.'; //Aria2 is an open source project. You can find it here: https://aria2.github.io/.
+$s['aria2NoticeText4'] = 'Skrypt konwersji UUP (wersja dla Windows) został stworzony przez %s.'; //UUP Conversion script (Windows version) has been created by abbodi1406.
+$s['aria2NoticeText5'] = 'Skrypt konwersji UUP (wersja dla Linux oraz macOS) jest otwartoźródłowy. Możesz znaleźć go tutaj: %s.'; //UUP Conversion script (Linux version, macOS version) is open source. You can find it here: https://github.com/uup-dump/converter.
 
 //findfiles.php
 $s['findFilesIn'] = 'Szukaj plików w %s'; //Find files in Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
@@ -182,6 +190,8 @@ $s['fileRenamingScriptGenW'] = 'Wygeneruj skrypt zmiany nazw (wersja dla Windows
 $s['fileRenamingScriptGenL'] = 'Wygeneruj skrypt zmiany nazw (wersja dla Linux oraz macOS)';
 $s['searchForFiles'] = 'Szukaj plików...';
 $s['weFoundFiles'] = 'Znaleźliśmy <b>%d</b> plików dla Twojego zapytania.'; //We have found <b>692</b> files for your query.
+
+$s['faq'] = 'Często zadawane pytania';
 
 //Error pages
 $s['error'] = 'Błąd';

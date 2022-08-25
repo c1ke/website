@@ -67,12 +67,7 @@ if(isset($files['error'])) {
     die();
 }
 
-$updates = uupGetFiles($updateId, 0, 'updateOnly', 2);
-if(isset($updates['error'])) {
-    $hasUpdates = 0;
-} else {
-    $hasUpdates = 1;
-}
+$hasUpdates = $files['hasUpdates'];
 
 $uSku = $files['sku'];
 $build = explode('.', $files['build']);

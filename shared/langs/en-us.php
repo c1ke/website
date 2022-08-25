@@ -6,7 +6,7 @@ Translation information:
 English language name: English (United States)
 Localized language name: English (United States)
 Language code: en-US
-Authors: whatever127 and mspaintmsi
+Authors: whatever127, mspaintmsi, awuctl, eraseyourknees
 */
 
 //Language information
@@ -50,7 +50,10 @@ $s['menu'] = 'Menu';
 $s['websiteDesc'] = 'Download UUP files from Windows Update servers with ease. This project is not affiliated with Microsoft Corporation.';
 $s['notAffiliated'] = 'This project is not affiliated with Microsoft Corporation. Windows is a registered trademark of Microsoft Corporation.';
 $s['copyright'] = '© %d %s and contributors.'; //© 2019 whatever127 and contributors.
+$s['copyrightNew'] = '© %d UUP dump authors and contributors.';
 $s['selectLanguage'] = 'Please select your language';
+$s['uupDumpDesc'] = 'UUP dump lets you download Unified Update Platform files, like Windows Insider updates, directly from Windows Update.';
+$s['uupDumpDescSub'] = '%s on UUP dump. UUP dump lets you download Unified Update Platform files, like Windows Insider updates, directly from Windows Update.'; //Select language for Windows 11 Insider Preview 25188.1000 (rs_prerelease) amd64 on UUP dump. UUP dump lets you download Unified Update Platform files, like Windows Insider updates, directly from Windows Update.
 
 //index.php
 $s['slogan'] = 'Download UUP files from Windows Update servers with ease.';
@@ -124,6 +127,7 @@ $s['chooseEditionDesc'] = 'Choose your desired edition';
 $s['allEditions'] = 'All editions';
 $s['selectEditionInfoText'] = 'Click the <i>Next</i> button to open the summary page of your selection.';
 $s['additionalEditionsInfo'] = 'If you need <b>additional editions</b> from the table on the right, select their <b>Required edition</b> above and proceed by clicking <i>Next</i>.<br>On the summary page select the <b>Create additional editions</b> option.';
+$s['showHiddenEditions'] = 'Show hidden editions (not recommended)';
 
 //download.php
 $s['summary'] = 'Summary';

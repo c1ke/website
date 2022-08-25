@@ -21,23 +21,16 @@ require_once 'shared/style.php';
 $buildsAvailable = 1;
 $ids = uupListIds(null, 1);
 
-if(isset($ids['error'])) {
+if(isset($ids['error']) || !isset($ids['builds']) || empty($ids['builds'])) {
     $buildsAvailable = 0;
+    $ids = [];
+} else {
+    $ids = $ids['builds'];
 }
 
-$ids = $ids['builds'];
-
-if(empty($ids)) {
-    $buildsAvailable = 0;
-}
-
-// Below is the latest build that results in the most accurate 'latest retail' results in fetchupd.php?arch=XXX&ring=retail&build=XXX
-$retailLatestBuild = "19043.330";
-
-// Turns out in some cases a change from retail to beta will require two updates..
-// This entire thing could be done recursively but the API doesn't support that.
-$betaLatestBuild = "19042.330";
-$rpLatestBuild = "19044.1"; // This is stupid
+$retailLatestBuild = "22000.856";
+$betaLatestBuild = "22621.382";
+$rpLatestBuild = "22000.856";
 
 styleUpper('home');
 ?>
@@ -90,16 +83,6 @@ styleUpper('home');
         21H2
     </a>
 
-    <a class="ui mini button" href="known.php?q=19043">
-        <i class="search icon"></i>
-        21H1
-    </a>
-
-    <a class="ui mini button" href="known.php?q=19042">
-        <i class="search icon"></i>
-        20H2
-    </a>
-
     <a class="ui mini button" href="known.php?q=17763">
         <i class="search icon"></i>
         1809
@@ -130,7 +113,6 @@ styleUpper('home');
             <td><?php echo $s['latestPublicReleaseSub']; ?></td>
             <td class="center aligned collapsing">
                 <a href="fetchupd.php?arch=amd64&ring=retail&build=<?php echo $retailLatestBuild; ?>"><button class="ui blue button">x64</button></a>
-                <a href="fetchupd.php?arch=x86&ring=retail&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">x86</button>
                 <a href="fetchupd.php?arch=arm64&ring=retail&build=<?php echo $retailLatestBuild; ?>"><button class="ui button">arm64</button>
             </td>
         </tr>
@@ -142,7 +124,6 @@ styleUpper('home');
             <td><?php echo $s['latestRPReleaseSub']; ?></td>
             <td class="center aligned">
                 <a href="fetchupd.php?arch=amd64&ring=rp&build=<?php echo $rpLatestBuild; ?>"><button class="ui blue button">x64</button>
-                <a href="fetchupd.php?arch=x86&ring=rp&build=<?php echo $rpLatestBuild; ?>"><button class="ui button">x86</button>
                 <a href="fetchupd.php?arch=arm64&ring=rp&build=<?php echo $rpLatestBuild; ?>"><button class="ui button">arm64</button>
             </td>
         </tr>
@@ -154,7 +135,6 @@ styleUpper('home');
             <td><?php echo $s['latestBetaReleaseSub']; ?></td>
             <td class="center aligned">
                 <a href="fetchupd.php?arch=amd64&ring=wis&build=<?php echo $betaLatestBuild; ?>"><button class="ui blue button">x64</button>
-                <a href="fetchupd.php?arch=x86&ring=wis&build=<?php echo $betaLatestBuild; ?>"><button class="ui button">x86</button>
                 <a href="fetchupd.php?arch=arm64&ring=wis&build=<?php echo $betaLatestBuild; ?>"><button class="ui button">arm64</button>
             </td>
         </tr>
@@ -166,7 +146,6 @@ styleUpper('home');
             <td><?php echo $s['latestDevReleaseSub']; ?></td>
             <td class="center aligned">
                 <a href="fetchupd.php?arch=amd64&ring=wif&build=latest"><button class="ui blue button">x64</button></a>
-                <a href="fetchupd.php?arch=x86&ring=wif&build=latest"><button class="ui button">x86</button></a>
                 <a href="fetchupd.php?arch=arm64&ring=wif&build=latest"><button class="ui button">arm64</button></a>
             </td>
         </tr>
@@ -189,7 +168,6 @@ if($buildsAvailable) {
             <th>${s['build']}</th>
             <th>${s['arch']}</th>
             <th>${s['dateAdded']}</th>
-            <th>${s['updateid']}</th>
         </tr>
     </thead>
 EOD;
@@ -215,8 +193,6 @@ EOD;
         } else {
             echo date("Y-m-d H:i:s T", $val['created']);
         }
-        echo '</td><td>';
-        echo '<code>'.htmlentities($val['uuid']).'</code>';
         echo "</td></tr>\n";
     }
     echo '</table>';

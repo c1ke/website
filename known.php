@@ -25,12 +25,12 @@ if(isset($ids['error'])) {
     die();
 }
 
-$ids = $ids['builds'];
-
-if(empty($ids)) {
+if(!isset($ids['builds']) || empty($ids['builds'])) {
     fancyError('NO_BUILDS_IN_FILEINFO', 'downloads');
     die();
 }
+
+$ids = $ids['builds'];
 
 if($search) {
     $pageTitle = "$search - {$s['browseKnown']}";
@@ -69,7 +69,6 @@ styleUpper('downloads', $pageTitle);
             <th><?php echo $s['build']; ?></th>
             <th><?php echo $s['arch']; ?></th>
             <th><?php echo $s['dateAdded']; ?></th>
-            <th><?php echo $s['updateid']; ?></th>
         </tr>
     </thead>
 <?php
@@ -89,8 +88,6 @@ foreach($ids as $val) {
     } else {
        echo date("Y-m-d H:i:s T", $val['created']);
     }
-    echo '</td><td>';
-    echo '<code>'.htmlentities($val['uuid']).'</code>';
     echo "</td></tr>\n";
 }
 ?>
