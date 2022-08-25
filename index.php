@@ -21,14 +21,11 @@ require_once 'shared/style.php';
 $buildsAvailable = 1;
 $ids = uupListIds(null, 1);
 
-if(isset($ids['error'])) {
+if(isset($ids['error']) || !isset($ids['builds']) || empty($ids['builds'])) {
     $buildsAvailable = 0;
-}
-
-$ids = $ids['builds'];
-
-if(empty($ids)) {
-    $buildsAvailable = 0;
+    $ids = [];
+} else {
+    $ids = $ids['builds'];
 }
 
 $retailLatestBuild = "22000.856";

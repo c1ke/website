@@ -25,12 +25,12 @@ if(isset($ids['error'])) {
     die();
 }
 
-$ids = $ids['builds'];
-
-if(empty($ids)) {
+if(!isset($ids['builds']) || empty($ids['builds'])) {
     fancyError('NO_BUILDS_IN_FILEINFO', 'downloads');
     die();
 }
+
+$ids = $ids['builds'];
 
 if($search) {
     $pageTitle = "$search - {$s['browseKnown']}";
