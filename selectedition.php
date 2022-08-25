@@ -33,7 +33,7 @@ if(!checkUpdateIdValidity($updateId)) {
     die();
 }
 
-$updateInfo = uupUpdateInfo($updateId);
+$updateInfo = uupUpdateInfo($updateId, false, true);
 $updateInfo = isset($updateInfo['info']) ? $updateInfo['info'] : array();
 
 if(!isset($updateInfo['title'])) {
