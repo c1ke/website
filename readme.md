@@ -4,4 +4,4 @@ This repository contains the code code of the UUP dump website.
 
 Requirements
 ------------
-* UUP dump API: >1.33.0
+* UUP dump API: >=1.33.0
