@@ -37,7 +37,6 @@ if(isset($_GET['lang'])) {
 
 $supportedLangs = array(
     'en-us',
-    'qps-ploc',
     'pl-pl',
     'de-de',
     'pt-br',
