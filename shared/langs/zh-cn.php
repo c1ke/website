@@ -50,7 +50,10 @@ $s['menu'] = '菜单';
 $s['websiteDesc'] = '你可以轻松地从 Windows 更新服务器下载 UUP 文件。此项目与 Microsoft Corporation 无关。';
 $s['notAffiliated'] = '此项目与 Microsoft Corporation 无关。Windows 是 Microsoft Corporation 的注册商标。';
 $s['copyright'] = '© %d %s 和贡献者们。'; //© 2019 whatever127 and contributors.
+$s['copyrightNew'] = '© %d UUP dump 作者和贡献者们。';
 $s['selectLanguage'] = '请选择你的语言';
+$s['uupDumpDesc'] = 'UUP dump 允许你直接从 Windows 更新下载统一更新平台（Unified Update Platform）的文件，例如 Windows 预览体验计划更新。';
+$s['uupDumpDescSub'] = '在 UUP dump 上%s。UUP dump 允许你直接从 Windows 更新下载统一更新平台（Unified Update Platform）的文件，例如 Windows 预览体验计划更新。'; //Select language for Windows 11 Insider Preview 25188.1000 (rs_prerelease) amd64 on UUP dump. UUP dump lets you download Unified Update Platform files, like Windows Insider updates, directly from Windows Update.
 
 //index.php
 $s['slogan'] = '轻松地从 Windows 更新服务器下载 UUP 文件。';
@@ -124,6 +127,7 @@ $s['chooseEditionDesc'] = '选择你想要的版本';
 $s['allEditions'] = '全版本';
 $s['selectEditionInfoText'] = '点击<i>下一步</i>按钮以打开所选内容的版本摘要页面。';
 $s['additionalEditionsInfo'] = '如果你需要可在右侧表格中找到的其他版本，请选择指定的所需版本，然后单击<i>下一步</i>按钮。在摘要页面上，你可以在相应的下载选项下选择所需的其他版本。';
+$s['showHiddenEditions'] = '显示隐藏的版本（不推荐）';
 
 //download.php
 $s['summary'] = '摘要';
@@ -232,7 +236,6 @@ $s['errorNoMessage'] = '错误消息不可用。';
 //Languages
 $s['lang_ar-sa'] = '阿拉伯语（沙特阿拉伯）';
 $s['lang_bg-bg'] = '保加利亚语';
-$s['lang_ca-es'] = '加泰罗尼亚语（西班牙）';
 $s['lang_cs-cz'] = '捷克语';
 $s['lang_da-dk'] = '丹麦语';
 $s['lang_de-de'] = '德语';
@@ -240,17 +243,14 @@ $s['lang_el-gr'] = '希腊语';
 $s['lang_en-gb'] = '英语（英国）';
 $s['lang_en-us'] = '英语（美国）';
 $s['lang_es-es'] = '西班牙语（西班牙）';
-$s['lang_eu-es'] = '巴斯克语（西班牙）';
 $s['lang_es-mx'] = '西班牙语（墨西哥）';
 $s['lang_et-ee'] = '爱沙尼亚语';
 $s['lang_fi-fi'] = '芬兰语';
 $s['lang_fr-ca'] = '法语（加拿大）';
 $s['lang_fr-fr'] = '法语（法国）';
-$s['lang_gl-es'] = '加利西亚语（西班牙）';
 $s['lang_he-il'] = '希伯来语';
 $s['lang_hr-hr'] = '克罗地亚语';
 $s['lang_hu-hu'] = '匈牙利语';
-$s['lang_id-id'] = '印度尼西亚语（印度尼西亚）';
 $s['lang_it-it'] = '意大利语';
 $s['lang_ja-jp'] = '日语';
 $s['lang_ko-kr'] = '朝鲜语';
@@ -261,7 +261,6 @@ $s['lang_nl-nl'] = '荷兰语';
 $s['lang_pl-pl'] = '波兰语';
 $s['lang_pt-br'] = '葡萄牙语（巴西）';
 $s['lang_pt-pt'] = '葡萄牙语（葡萄牙）';
-$s['lang_qps-ploc'] = '伪语言环境';
 $s['lang_ro-ro'] = '罗马尼亚语';
 $s['lang_ru-ru'] = '俄语';
 $s['lang_sk-sk'] = '斯洛伐克语';
