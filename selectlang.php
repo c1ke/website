@@ -101,15 +101,15 @@ if(in_array(strtolower($s['code']), array_keys($langs))) {
 
 //Set fancy name for channel and flight of build
 if($ring == 'WIF' && $flight == 'Skip') {
-    $fancyChannelName = 'Skip Ahead';
+    $fancyChannelName = $s['channel_skipAhead'];
 } elseif($ring == 'WIF' && $flight == 'Active') {
-    $fancyChannelName = 'Dev Channel';
+    $fancyChannelName = $s['channel_dev'];
 } elseif($ring == 'WIS' && $flight == 'Active') {
-    $fancyChannelName = 'Beta Channel';
+    $fancyChannelName = $s['channel_beta'];
 } elseif($ring == 'RP' && $flight == 'Current') {
-    $fancyChannelName = 'Release Preview Channel';
+    $fancyChannelName = $s['channel_releasepreview'];
 } elseif($ring == 'RETAIL') {
-    $fancyChannelName = 'Retail';
+    $fancyChannelName = $s['channel_retail'];
 } else {
     if($ring && $flight) {
         $fancyChannelName = "$ring, $flight";

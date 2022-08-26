@@ -275,3 +275,10 @@ $s['lang_uk-ua'] = 'Ukrainian';
 $s['lang_zh-cn'] = 'Chinese (Simplified)';
 $s['lang_zh-hk'] = 'Chinese (Hong Kong)';
 $s['lang_zh-tw'] = 'Chinese (Traditional)';
+
+//Channels
+$s['channel_skipAhead'] = 'Skip Ahead';
+$s['channel_dev'] = 'Dev Channel';
+$s['channel_beta'] = 'Beta Channel';
+$s['channel_releasepreview'] = 'Release Preview Channel';
+$s['channel_retail'] = 'Retail';
