@@ -81,6 +81,7 @@ $s['dateAdded'] = 'Data dodania';
 $s['browseKnown'] = 'Przeglądaj znane kompilacje';
 $s['chooseBuild'] = 'Wybierz kompilację';
 $s['weFoundBuilds'] = 'Znaleźliśmy <b>%d</b> kompilacji dla Twojego zapytania.'; //We have found <b>692</b> builds for your query.
+$s['sortByDate'] = 'Sortuj rezultaty po dacie dodania';
 
 //latest.php
 $s['latestFetchLatest'] = 'Znajdź najnowszą kompilację';

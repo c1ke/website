@@ -16,10 +16,12 @@ limitations under the License.
 */
 
 $search = isset($_GET['q']) ? $_GET['q'] : null;
+$sort = isset($_GET['sort']) ? $_GET['sort'] : null;
 
 require_once 'api/listid.php';
 require_once 'shared/style.php';
-$ids = uupListIds($search);
+
+$ids = uupListIds($search, $sort);
 if(isset($ids['error'])) {
     fancyError($ids['error'], 'downloads');
     die();
@@ -38,6 +40,8 @@ if($search) {
     $pageTitle = $s['browseKnown'];
 }
 
+$dateSortChecked = $sort ? 'checked' : '';
+
 styleUpper('downloads', $pageTitle);
 ?>
 
@@ -54,6 +58,12 @@ styleUpper('downloads', $pageTitle);
             <div class="ui big action input">
                 <input type="text" name="q" value="<?php echo htmlentities($search); ?>" placeholder="<?php echo $s['seachForBuilds']; ?>">
                 <button class="ui big blue icon button" type="submit"><i class="search icon"></i></button>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui toggle checkbox">
+                <input type="checkbox" name="sort" value="1" <?php echo $dateSortChecked; ?>>
+                <label><?php echo $s['sortByDate']; ?></label>
             </div>
         </div>
     </form>
@@ -92,6 +102,8 @@ foreach($ids as $val) {
 }
 ?>
 </table>
+
+<script>$('.ui.checkbox').checkbox();</script>
 
 <?php
 styleLower();

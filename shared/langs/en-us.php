@@ -81,6 +81,7 @@ $s['dateAdded'] = 'Date added';
 $s['browseKnown'] = 'Browse known builds';
 $s['chooseBuild'] = 'Choose build';
 $s['weFoundBuilds'] = '<b>%d</b> builds were found for your query.'; //<b>692</b> builds were found for your query.
+$s['sortByDate'] = 'Sort results by addition date';
 
 //latest.php
 $s['latestFetchLatest'] = 'Fetch the latest build';
