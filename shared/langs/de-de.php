@@ -50,7 +50,10 @@ $s['menu'] = 'Menü';
 $s['websiteDesc'] = 'Laden Sie UUP-Dateien von Windows Update-Servern mit Leichtigkeit herunter. Dieses Projekt ist nicht mit der Microsoft Corporation verbunden.';
 $s['notAffiliated'] = 'Dieses Projekt ist nicht mit der Microsoft Corporation verbunden. Windows ist ein eingetragenes Warenzeichen der Microsoft Corporation.';
 $s['copyright'] = '© %d %s und Mitwirkende.'; //© 2019 whatever127 and contributors.
+$s['copyrightNew'] = '© %d UUP Dump Autoren und Mitwirkende.';
 $s['selectLanguage'] = 'Bitte wählen Sie Ihre Sprache aus';
+$s['uupDumpDesc'] = 'Mit dem UUP Dump können Sie Unified Update Plattform-Dateien, wie Windows Insider Updates, direkt von Windows Update herunterladen.';
+$s['uupDumpDescSub'] = '%s über UUP-Dump. Mit dem UUP Dump können Sie Unified Update Plattform-Dateien, wie Windows Insider Updates, direkt von Windows Update herunterladen.'; //Select language for Windows 11 Insider Preview 25188.1000 (rs_prerelease) amd64 on UUP dump. UUP dump lets you download Unified Update Platform files, like Windows Insider updates, directly from Windows Update.
 
 //index.php
 $s['slogan'] = 'Laden Sie UUP-Dateien von Windows Update-Servern mit Leichtigkeit herunter.';
@@ -124,6 +127,7 @@ $s['chooseEditionDesc'] = 'Wählen Sie die gewünschte Edition aus';
 $s['allEditions'] = 'Alle Editionen';
 $s['selectEditionInfoText'] = 'Klicken Sie auf die Schaltfläche <i>Weiter</i>, um die Zusammenfassungsseite Ihrer Auswahl zu öffnen.';
 $s['additionalEditionsInfo'] = 'Wenn Sie eine zusätzliche Edition benötigen, die Sie in der rechten Tabelle finden, wählen sie die Erforderliche Edition und klicken Sie auf <i>Weiter</i>. Wählen Sie auf der Zusammenfassungsseite die Option <b>Herunterladen, zusätzliche Editionen hinzufügen und in eine ISO konvertieren</b> aus.';
+$s['showHiddenEditions'] = 'Ausgeblendete Editionen anzeigen (nicht empfohlen)';
 
 //download.php
 $s['summary'] = 'Zusammenfassung';
@@ -159,6 +163,10 @@ $s['convOpt2'] = 'Updates integrieren, wenn verfügbar (nur Windows-Konverter)';
 $s['convOpt3'] = 'Bereinigung nach der Update-Integration durchführen (nur Windows-Konverter)';
 $s['convOpt4'] = 'Integration von.NET Framework 3.5 (nur Windows-Konverter)';
 $s['startDownload'] = 'Downloadpaket erstellen';
+$s['legalCopeHarder'] = 'Indem Sie auf die Schaltfläche <i>Downloadpaket erstellen</i> klicken, erklären Sie sich mit Folgendem einverstanden:';
+$s['legalCope1'] = 'Installations-Images, die mit den von UUP dump zur Verfügung gestellten Skripten erstellt wurden, sind nur für <b>Evaluierungszwecke</b> gedacht.';
+$s['legalCope2'] = 'Die Images und ihre Bereitstellung werden <b>nicht in irgendeiner Weise von der Microsoft Corporation unterstützt</b>';
+$s['legalCope3'] = '<b>Die Autoren haften nicht für Schäden</b> gemäß den Bedingungen der Projektlizenz';
 
 //get.php
 $s['listOfFilesFor'] = 'Liste der Dateien für %s'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
