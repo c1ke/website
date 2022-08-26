@@ -119,6 +119,7 @@ $s['browseFiles'] = 'Browse files';
 $s['browseFilesDesc'] = 'Quickly browse files in selected build';
 $s['searchFiles'] = 'Search files';
 $s['toSearchForCUUseQuery'] = 'To search for Cumulative Updates use the <i>%s</i> search query.'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.
+$s['updateNotProcessed'] = 'UUP dump hasn\'t processed this update\'s metadata yet - this happens automatically once every %d minutes. You can only browse the update\'s file list until then.'; //UUP dump hasn't processed this update's metadata yet - this happens automatically once every 30 minutes. You can only browse the update's file list until then.
 
 //selectedition.php
 $s['selectEditionFor'] = 'Select edition for %s'; //Select edition for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)

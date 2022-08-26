@@ -122,6 +122,15 @@ if($ring == 'WIF' && $flight == 'Skip') {
 
 $findFilesUrl = "./findfiles.php?id=".htmlentities($updateId);
 
+$noLangsIcon = 'info';
+$noLangsCause = $s['noLangsAvailable'];
+
+$packsAvailable = file_exists('packs/'.$updateId.'.json.gz');
+if(!$packsAvailable) {
+    $noLangsIcon = 'hourglass half';
+    $noLangsCause = sprintf($s['updateNotProcessed'], 30);
+}
+
 styleUpper('downloads', sprintf($s['selectLangFor'], $updateTitle));
 ?>
 
@@ -133,10 +142,6 @@ styleUpper('downloads', sprintf($s['selectLangFor'], $updateTitle));
 </h3>
 
 <?php
-if(!file_exists('packs/'.$updateId.'.json.gz')) {
-    styleNoPackWarn();
-}
-
 if($updateArch == 'arm64') {
     styleCluelessUserArm64Warn();
 }
@@ -153,7 +158,7 @@ if($updateArch == 'arm64') {
         </h3>
 
 <?php
-if(count($langs) > 0) {
+if(count($langs) > 0 && $packsAvailable) {
     echo <<<EOD
 <form class="ui form" action="./selectedition.php" method="get" id="langForm">
     <input type="hidden" name="id" value="$updateId">
@@ -191,12 +196,12 @@ EOD;
 <div class="ui center aligned one column padded relaxed grid">
     <div class="row">
         <div class="column">
-            <i class="huge info icon"></i>
+            <i class="huge $noLangsIcon icon"></i>
         </div>
     </div>
     <div class="row">
         <div class="column">
-            <p>{$s['noLangsAvailable']}</p>
+            <p>$noLangsCause</p>
         </div>
     </div>
 </div>
