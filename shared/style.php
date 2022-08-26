@@ -33,7 +33,7 @@ function styleUpper($pageType = 'home', $subtitle = '') {
     $darkModeOptions = array(
         'expires' => time()+60*60*24*30,
         'path' => '/',
-        'domain' => $_SERVER['HTTP_HOST'],
+        'domain' => $_SERVER['SERVER_NAME'],
         'secure' => true,
         'httponly' => true,
         'samesite' => 'Strict'
