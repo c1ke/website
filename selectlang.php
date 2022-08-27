@@ -21,6 +21,24 @@ require_once 'api/listlangs.php';
 require_once 'api/updateinfo.php';
 require_once 'shared/style.php';
 
+function getLangs($updateId) {
+    $langs = uupListLangs($updateId);
+    $langsTemp = array();
+
+    foreach($langs['langList'] as $lang) {
+        if(isset($s["lang_$lang"])) {
+            $langsTemp[$lang] = $s["lang_$lang"];
+        } else {
+            $langsTemp[$lang] = $langs['langFancyNames'][$lang];
+        }
+    }
+
+    $langs = $langsTemp;
+    locasort($langs, $s['code']);
+
+    return $langs;
+}
+
 if(!$updateId) {
     fancyError('UNSPECIFIED_UPDATE', 'downloads');
     die();
@@ -78,20 +96,7 @@ $isCumulative = str_contains($updateTitle, 'Cumulative Update');
 $isServer = str_contains($updateTitle, 'Server');
 $updateBlocked = $buildNum >= 22557 && $isCumulative && !$isServer;
 
-$langs = $updateBlocked ? [] : uupListLangs($updateId);
-$langsTemp = array();
-
-foreach($langs['langList'] as $lang) {
-    if(isset($s["lang_$lang"])) {
-        $langsTemp[$lang] = $s["lang_$lang"];
-    } else {
-        $langsTemp[$lang] = $langs['langFancyNames'][$lang];
-    }
-}
-
-$langs = $langsTemp;
-unset($langsTemp);
-locasort($langs, $s['code']);
+$langs = $updateBlocked ? [] : getLangs($updateId);
 
 if(in_array(strtolower($s['code']), array_keys($langs))) {
     $defaultLang = strtolower($s['code']);
