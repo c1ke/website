@@ -170,6 +170,8 @@ $s['legalCopeHarder'] = 'Poprzez kliknięcie przycisku <i>Utwórz paczkę pobier
 $s['legalCope1'] = 'Obrazy instalacyjne stworzone przez skrypty udostępniane przez UUP dump przeznaczone są wyłącznie do <b>celów ewaluacyjnych</b>';
 $s['legalCope2'] = 'Obrazy te oraz ich wdrożenia <b>nie są wspierane</b> w żaden sposób przez Microsoft Corporation';
 $s['legalCope3'] = 'Zgodnie z postanowieniami licencyjnymi projektu <b>autorzy nie ponoszą odpowiedzialności za jakiekolwiek szkody</b>';
+$s['win1122h2OrLater'] = 'System Windows 11, wersja 22H2 bądź nowszy';
+$s['requiresWindows102004'] = 'Ta kompilacja wymaga użycia systemu Windows 10, wersja 2004 bądź nowszego w celu poprawnego stworzenia obrazu ISO. Skrypty dla pozostałych platform utworzą uszkodzone obrazy.';
 
 //get.php
 $s['listOfFilesFor'] = 'Lista plików dla %s'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64

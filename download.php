@@ -395,7 +395,21 @@ EOL;
             </div>
         </h4>
 
+        
+
 <?php
+if($build > 22557) {
+    echo <<<INFO
+<h4 class="ui red header">
+    <i class="exclamation triangle icon"></i>
+    <div class="content">
+        {$s['win1122h2OrLater']}
+        <div class="sub header">{$s['requiresWindows102004']}</div>
+    </div>
+</h4>
+INFO;
+}
+
 if($hasUpdates) {
     echo <<<INFO
 <h4 class="ui header">
