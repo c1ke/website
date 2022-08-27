@@ -34,7 +34,7 @@ if(!isset($ids['builds']) || empty($ids['builds'])) {
 
 $ids = $ids['builds'];
 
-if($search) {
+if($search != null) {
     $pageTitle = "$search - {$s['browseKnown']}";
 } else {
     $pageTitle = $s['browseKnown'];

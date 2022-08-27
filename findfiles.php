@@ -46,7 +46,7 @@ $updateArch = $files['arch'];
 $files = $files['files'];
 $filesKeys = array_keys($files);
 
-if($search) {
+if($search != null) {
     $searchSafe = preg_quote($search, '/');
     if($searchSafe == "Windows KB") {
         $searchSafe = "Windows KB|SSU-";
