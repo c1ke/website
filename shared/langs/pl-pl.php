@@ -121,7 +121,7 @@ $s['browseFilesDesc'] = 'Szybko przejrzyj pliki w wybranej kompilacji';
 $s['searchFiles'] = 'Przeszukaj pliki';
 $s['toSearchForCUUseQuery'] = 'W celu wyszukania aktualizacji kumulacyjnych użyj frazy <i>%s</i>.'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.
 $s['updateNotProcessed'] = 'Metadane tej aktualizacji nie zostały jeszcze przetworzone przez UUP dump - dzieje się to automatycznie raz na %d minut. Do tego momentu możesz wyłącznie przeglądać listę plików tej aktualizacji.'; //UUP dump hasn't processed this update's metadata yet - this happens automatically once every 30 minutes. You can only browse the update's file list until then.
-$s['updateIsBlocked'] = 'Ta aktualizacja posiada znane błędy uniemożliwiające stworzenie działającego obrazu ISO. Z tego powodu możesz wyłącznie przeglądać jej pliki.';
+$s['updateIsBlocked'] = 'Ta aktualizacja posiada znane problemy uniemożliwiające stworzenie działającego obrazu ISO. Z tego powodu możesz wyłącznie przeglądać jej pliki.';
 
 //selectedition.php
 $s['selectEditionFor'] = 'Wybierz edycję dla %s'; //Select edition for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
