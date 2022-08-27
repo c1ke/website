@@ -94,7 +94,7 @@ $updateTitle = $updateTitle.' '.$updateArch;
 
 $isCumulative = str_contains($updateTitle, 'Cumulative Update');
 $isServer = str_contains($updateTitle, 'Server');
-$updateBlocked = $buildNum >= 22557 && $isCumulative && !$isServer;
+$updateBlocked = $buildNum > 22557 && $isCumulative && !$isServer;
 
 $langs = $updateBlocked ? [] : getLangs($updateId);
 
