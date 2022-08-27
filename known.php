@@ -61,7 +61,7 @@ styleUpper('downloads', $pageTitle);
             </div>
         </div>
         <div class="field">
-            <div class="ui toggle checkbox">
+            <div class="ui checkbox">
                 <input type="checkbox" name="sort" value="1" <?php echo $dateSortChecked; ?>>
                 <label><?php echo $s['sortByDate']; ?></label>
             </div>
