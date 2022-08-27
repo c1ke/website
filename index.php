@@ -53,7 +53,7 @@ styleUpper('home');
 <div class="quick-search-buttons">
     <i class="thumbtack icon"></i>
 
-    <a class="ui mini button" href="known.php?q=regex:[2-9]\d[4-9]\d{2}\.|[2-9][5-9]\d{3}\.">
+    <a class="ui mini button" href="known.php?q=regex:(2(?!262\d)2[4-9]|[2-9][5-9]\d)\d{2}\.">
         <i class="search icon"></i>
         Dev Channel
     </a>
