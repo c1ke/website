@@ -74,7 +74,11 @@ if(!isset($updateInfo['created'])) {
 
 $updateTitle = $updateTitle.' '.$updateArch;
 
-$langs = uupListLangs($updateId);
+$isCumulative = str_contains($updateTitle, 'Cumulative Update');
+$isServer = str_contains($updateTitle, 'Server');
+$updateBlocked = $buildNum >= 22557 && $isCumulative && !$isServer;
+
+$langs = $updateBlocked ? [] : uupListLangs($updateId);
 $langsTemp = array();
 
 foreach($langs['langList'] as $lang) {
@@ -118,25 +122,17 @@ if($ring == 'WIF' && $flight == 'Skip') {
 
 $findFilesUrl = "./findfiles.php?id=".htmlentities($updateId);
 
-$isCumulative = str_contains($updateTitle, 'Cumulative Update');
-$isServer = str_contains($updateTitle, 'Server');
 $langsAvailable = count($langs) > 0;
 $packsAvailable = file_exists('packs/'.$updateId.'.json.gz');
-$blockCumulative = $buildNum >= 22557 && $isCumulative && !$isServer;
 
-$noLangsIcon = 'question mark';
-$noLangsCause = '???';
-$updateBlocked = false;
+$noLangsIcon = 'times circle outline';
+$noLangsCause = $s['updateIsBlocked'];
 
 if(!$packsAvailable) {
     $noLangsIcon = 'hourglass half';
     $noLangsCause = sprintf($s['updateNotProcessed'], 30);
     $updateBlocked = true;
-} else if($blockCumulative) {
-    $noLangsIcon = 'times circle outline';
-    $noLangsCause = $s['updateIsBlocked'];
-    $updateBlocked = true;
-} else if(!$langsAvailable) {
+} else if(!$updateBlocked && !$langsAvailable) {
     $noLangsIcon = 'info';
     $noLangsCause = $s['noLangsAvailable'];
     $updateBlocked = true;
