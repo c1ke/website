@@ -21,7 +21,7 @@ require_once 'api/listlangs.php';
 require_once 'api/updateinfo.php';
 require_once 'shared/style.php';
 
-function getLangs($updateId) {
+function getLangs($updateId, $s) {
     $langs = uupListLangs($updateId);
     $langsTemp = array();
 
@@ -96,7 +96,7 @@ $isCumulative = str_contains($updateTitle, 'Cumulative Update');
 $isServer = str_contains($updateTitle, 'Server');
 $updateBlocked = $buildNum > 22557 && $isCumulative && !$isServer;
 
-$langs = $updateBlocked ? [] : getLangs($updateId);
+$langs = $updateBlocked ? [] : getLangs($updateId, $s);
 
 if(in_array(strtolower($s['code']), array_keys($langs))) {
     $defaultLang = strtolower($s['code']);
