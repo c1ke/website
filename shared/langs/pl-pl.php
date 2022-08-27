@@ -204,7 +204,7 @@ $s['requestNotSuccessful'] = 'Żądanie nie powiodło się';
 $s['anErrorHasOccurred'] = 'Wystąpił błąd podczas próby przetworzenia Twojego żądania.';
 $s['generatedPackNotAvailable'] = 'Wygenerowana paczka nie jest dostępna';
 $s['generatedPackNotAvailableDesc'] = 'Aktualizacja, którą próbujesz pobrać nie posiada wygenerowanej paczki, która zawiera pełne informacje o dostępnych językach, edycjach i plikach. Zostanie użyta paczka zastępcza, która może nie zawierać poprawnych informacji. Jeżeli pobranie nie powiedzie się z tego powodu, proszę zaczekać aż automatycznie wygenerowana paczka stanie się dostępna.';
-$s['arm64Warning'] = 'Wybrano kompilację ARM64, która jest <b>wyłącznie kompatybilna z urządzeniami o architekturze ARM64</b> i nie będzie działać z komputerami bazowanymi na procesorach Intel oraz AMD. Dla <b>64-bitowych</b> komputerów proszę użyć kompilacji <b>amd64</b>. Dla <b>32-bitowych</b> komputerów proszę użyć kompilacji <b>x86</b>. Można bezpiecznie zignorować tę wiadomość, jeżeli istnieje absolutna pewność, że urządzenie docelowe jest bazowane na architekturze ARM64.';
+$s['arm64Warning'] = 'To jest kompilacja <b>ARM64</b>, która <b>nie jest kompatybilna z typowymi procesorami Intel/AMD</b>.<br>Tą wiadomość można bezpiecznie zignorować w przypadku pewności, że urządzenie docelowe posiada procesor <b>ARM64</b> i nie zaszła pomyłka z <b>AMD64</b>.';
 
 //Error messages
 $s['error_ERROR'] = 'Błąd ogólny.';
