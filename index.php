@@ -55,7 +55,7 @@ styleUpper('home');
 
     <a class="ui mini button" href="known.php?q=regex:(2(?!262\d)2[4-9]|[2-9][5-9]\d)\d{2}\.">
         <i class="search icon"></i>
-        Dev Channel
+        <?php echo $s['channel_dev']; ?>
     </a>
 
     <a class="ui mini button" href="known.php?q=regex:2262\d">
