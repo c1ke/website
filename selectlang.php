@@ -48,8 +48,10 @@ if(!isset($updateInfo['arch'])) {
 
 if(!isset($updateInfo['build'])) {
     $build = $s['unknown'];
+    $buildNum = false;
 } else {
     $build = $updateInfo['build'];
+    $buildNum = @explode('.', $build)[0];
 }
 
 if(!isset($updateInfo['ring'])) {
@@ -122,13 +124,28 @@ if($ring == 'WIF' && $flight == 'Skip') {
 
 $findFilesUrl = "./findfiles.php?id=".htmlentities($updateId);
 
-$noLangsIcon = 'info';
-$noLangsCause = $s['noLangsAvailable'];
-
+$isCumulative = str_contains($updateTitle, 'Cumulative Update');
+$isServer = str_contains($updateTitle, 'Server');
+$langsAvailable = count($langs) > 0;
 $packsAvailable = file_exists('packs/'.$updateId.'.json.gz');
+$blockCumulative = $buildNum >= 22557 && $isCumulative && !$isServer;
+
+$noLangsIcon = 'question mark';
+$noLangsCause = '???';
+$updateBlocked = false;
+
 if(!$packsAvailable) {
     $noLangsIcon = 'hourglass half';
     $noLangsCause = sprintf($s['updateNotProcessed'], 30);
+    $updateBlocked = true;
+} else if($blockCumulative) {
+    $noLangsIcon = 'times circle outline';
+    $noLangsCause = $s['updateIsBlocked'];
+    $updateBlocked = true;
+} else if(!$langsAvailable) {
+    $noLangsIcon = 'info';
+    $noLangsCause = $s['noLangsAvailable'];
+    $updateBlocked = true;
 }
 
 styleUpper('downloads', sprintf($s['selectLangFor'], $updateTitle));
@@ -158,7 +175,7 @@ if($updateArch == 'arm64') {
         </h3>
 
 <?php
-if(count($langs) > 0 && $packsAvailable) {
+if(!$updateBlocked) {
     echo <<<EOD
 <form class="ui form" action="./selectedition.php" method="get" id="langForm">
     <input type="hidden" name="id" value="$updateId">
