@@ -89,12 +89,6 @@ $langs = $langsTemp;
 unset($langsTemp);
 locasort($langs, $s['code']);
 
-if(isset($updateInfo['containsCU']) && $updateInfo['containsCU'] = 1) {
-    $containsCU = 1;
-} else {
-    $containsCU = 0;
-}
-
 if(in_array(strtolower($s['code']), array_keys($langs))) {
     $defaultLang = strtolower($s['code']);
 } else {
