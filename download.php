@@ -213,6 +213,7 @@ styleUpper('downloads', sprintf($s['summaryFor'], "$updateTitle, $selectedLangNa
     <div class="content">
         <p><?php echo $s['learnMoreUpdates1']; ?></p>
         <ul>
+            <li>Windows 11</li>
             <li>Windows 10</li>
             <li><?php printf($s['systemWithAdk'], 'Windows 8.1'); ?></li>
         </ul>
