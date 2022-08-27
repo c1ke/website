@@ -180,7 +180,7 @@ EOD;
                 </div>
 
                 <div class="ui one column grid page-header-menu">
-                    <div class="ui attached secondary inverted menu computer only column">
+                    <div class="ui attached secondary menu computer only column">
                         <div class="ui container">
                             $navbarLink
                             <div class="right menu">
@@ -188,7 +188,7 @@ EOD;
                             </div>
                         </div>
                     </div>
-                    <div class="ui attached secondary inverted menu mobile tablet only column">
+                    <div class="ui attached secondary menu mobile tablet only column">
                         <div class="ui container">
                             <a class="item" onClick="sidebar();"><i class="bars icon"></i>{$s['menu']}</a>
                         </div>
