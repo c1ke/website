@@ -81,6 +81,7 @@ $s['dateAdded'] = 'Date added';
 $s['browseKnown'] = 'Browse known builds';
 $s['chooseBuild'] = 'Choose build';
 $s['weFoundBuilds'] = '<b>%d</b> builds were found for your query.'; //<b>692</b> builds were found for your query.
+$s['sortByDate'] = 'Sort results by addition date';
 
 //latest.php
 $s['latestFetchLatest'] = 'Fetch the latest build';
@@ -119,6 +120,8 @@ $s['browseFiles'] = 'Browse files';
 $s['browseFilesDesc'] = 'Quickly browse files in selected build';
 $s['searchFiles'] = 'Search files';
 $s['toSearchForCUUseQuery'] = 'To search for Cumulative Updates use the <i>%s</i> search query.'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.
+$s['updateNotProcessed'] = 'UUP dump hasn\'t processed this update\'s metadata yet - this happens automatically once every %d minutes. You can only browse the update\'s file list until then.'; //UUP dump hasn't processed this update's metadata yet - this happens automatically once every 30 minutes. You can only browse the update's file list until then.
+$s['updateIsBlocked'] = 'This update has known issues preventing the creation of a working ISO. Because of this, you can only manually browse its files.';
 
 //selectedition.php
 $s['selectEditionFor'] = 'Select edition for %s'; //Select edition for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
@@ -167,6 +170,8 @@ $s['legalCopeHarder'] = 'By clicking the <i>Create download package</i> button y
 $s['legalCope1'] = 'Installation images created using the scripts provided by UUP dump are meant only for <b>evaluation purposes</b>';
 $s['legalCope2'] = 'The images and their deployments are <b>not supported</b> in any way by Microsoft Corporation';
 $s['legalCope3'] = '<b>The authors are not liable for any damages</b> as per the terms of the project\'s license';
+$s['win1122h2OrLater'] = 'Windows 11, version 22H2 or later';
+$s['requiresWindows102004'] = 'This build requires using Windows 10, version 2004 or later for the ISO to be properly created. Scripts for other platforms will output a broken ISO.';
 
 //get.php
 $s['listOfFilesFor'] = 'List of files for %s'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
@@ -274,3 +279,10 @@ $s['lang_uk-ua'] = 'Ukrainian';
 $s['lang_zh-cn'] = 'Chinese (Simplified)';
 $s['lang_zh-hk'] = 'Chinese (Hong Kong)';
 $s['lang_zh-tw'] = 'Chinese (Traditional)';
+
+//Channels
+$s['channel_skipAhead'] = 'Skip Ahead';
+$s['channel_dev'] = 'Dev Channel';
+$s['channel_beta'] = 'Beta Channel';
+$s['channel_releasepreview'] = 'Release Preview Channel';
+$s['channel_retail'] = 'Retail';

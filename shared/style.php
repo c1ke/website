@@ -21,19 +21,19 @@ function styleUpper($pageType = 'home', $subtitle = '') {
     global $websiteVersion, $s, $languageCoreSelectorModal;
 
     if($subtitle) {
-        $title = sprintf($s['uupdumpSub'], "$subtitle");
-        $description = sprintf($s['uupDumpDescSub'], "$subtitle");
-        $subTitleOnly = $subtitle;
+        $title = sprintf($s['uupdumpSub'], $subtitle);
+        $description = htmlentities(sprintf($s['uupDumpDescSub'], $subtitle));
+        $subTitleOnly = htmlentities($subtitle);
     } else {
         $title = $s['uupdump'];
-        $description = sprintf($s['uupDumpDesc'], "$subtitle");
-        $subTitleOnly = $s['uupdump'];
+        $description = htmlentities($s['uupDumpDesc']);
+        $subTitleOnly = htmlentities($s['uupdump']);
     }
 
     $darkModeOptions = array(
         'expires' => time()+60*60*24*30,
         'path' => '/',
-        'domain' => $_SERVER['HTTP_HOST'],
+        'domain' => $_SERVER['SERVER_NAME'],
         'secure' => true,
         'httponly' => true,
         'samesite' => 'Strict'
@@ -134,13 +134,13 @@ EOD;
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta property="description" content="{$description}">
+        <meta property="description" content="$description">
 
         <meta property="twitter:card" content="summary_large_image">
         <meta property="og:site_name" content="{$s['uupdump']}">
         <meta property="og:title" content="$subTitleOnly">
         <meta property="og:type" content="website">
-        <meta property="og:description" content="{$description}">
+        <meta property="og:description" content="$description">
         <meta property="og:image" content="$baseUrl/img/cover.png">
         <meta property="og:url" content="$fullUrl">
 
@@ -180,7 +180,7 @@ EOD;
                 </div>
 
                 <div class="ui one column grid page-header-menu">
-                    <div class="ui attached secondary inverted menu computer only column">
+                    <div class="ui attached secondary menu computer only column">
                         <div class="ui container">
                             $navbarLink
                             <div class="right menu">
@@ -188,7 +188,7 @@ EOD;
                             </div>
                         </div>
                     </div>
-                    <div class="ui attached secondary inverted menu mobile tablet only column">
+                    <div class="ui attached secondary menu mobile tablet only column">
                         <div class="ui container">
                             <a class="item" onClick="sidebar();"><i class="bars icon"></i>{$s['menu']}</a>
                         </div>

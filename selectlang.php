@@ -21,6 +21,24 @@ require_once 'api/listlangs.php';
 require_once 'api/updateinfo.php';
 require_once 'shared/style.php';
 
+function getLangs($updateId, $s) {
+    $langs = uupListLangs($updateId);
+    $langsTemp = array();
+
+    foreach($langs['langList'] as $lang) {
+        if(isset($s["lang_$lang"])) {
+            $langsTemp[$lang] = $s["lang_$lang"];
+        } else {
+            $langsTemp[$lang] = $langs['langFancyNames'][$lang];
+        }
+    }
+
+    $langs = $langsTemp;
+    locasort($langs, $s['code']);
+
+    return $langs;
+}
+
 if(!$updateId) {
     fancyError('UNSPECIFIED_UPDATE', 'downloads');
     die();
@@ -48,8 +66,10 @@ if(!isset($updateInfo['arch'])) {
 
 if(!isset($updateInfo['build'])) {
     $build = $s['unknown'];
+    $buildNum = false;
 } else {
     $build = $updateInfo['build'];
+    $buildNum = @explode('.', $build)[0];
 }
 
 if(!isset($updateInfo['ring'])) {
@@ -72,26 +92,11 @@ if(!isset($updateInfo['created'])) {
 
 $updateTitle = $updateTitle.' '.$updateArch;
 
-$langs = uupListLangs($updateId);
-$langsTemp = array();
+$isCumulative = str_contains($updateTitle, 'Cumulative Update');
+$isServer = str_contains($updateTitle, 'Server');
+$updateBlocked = $buildNum > 22557 && $isCumulative && !$isServer;
 
-foreach($langs['langList'] as $lang) {
-    if(isset($s["lang_$lang"])) {
-        $langsTemp[$lang] = $s["lang_$lang"];
-    } else {
-        $langsTemp[$lang] = $langs['langFancyNames'][$lang];
-    }
-}
-
-$langs = $langsTemp;
-unset($langsTemp);
-locasort($langs, $s['code']);
-
-if(isset($updateInfo['containsCU']) && $updateInfo['containsCU'] = 1) {
-    $containsCU = 1;
-} else {
-    $containsCU = 0;
-}
+$langs = $updateBlocked ? [] : getLangs($updateId, $s);
 
 if(in_array(strtolower($s['code']), array_keys($langs))) {
     $defaultLang = strtolower($s['code']);
@@ -101,15 +106,15 @@ if(in_array(strtolower($s['code']), array_keys($langs))) {
 
 //Set fancy name for channel and flight of build
 if($ring == 'WIF' && $flight == 'Skip') {
-    $fancyChannelName = 'Skip Ahead';
+    $fancyChannelName = $s['channel_skipAhead'];
 } elseif($ring == 'WIF' && $flight == 'Active') {
-    $fancyChannelName = 'Dev Channel';
+    $fancyChannelName = $s['channel_dev'];
 } elseif($ring == 'WIS' && $flight == 'Active') {
-    $fancyChannelName = 'Beta Channel';
+    $fancyChannelName = $s['channel_beta'];
 } elseif($ring == 'RP' && $flight == 'Current') {
-    $fancyChannelName = 'Release Preview Channel';
+    $fancyChannelName = $s['channel_releasepreview'];
 } elseif($ring == 'RETAIL') {
-    $fancyChannelName = 'Retail';
+    $fancyChannelName = $s['channel_retail'];
 } else {
     if($ring && $flight) {
         $fancyChannelName = "$ring, $flight";
@@ -122,6 +127,22 @@ if($ring == 'WIF' && $flight == 'Skip') {
 
 $findFilesUrl = "./findfiles.php?id=".htmlentities($updateId);
 
+$langsAvailable = count($langs) > 0;
+$packsAvailable = file_exists('packs/'.$updateId.'.json.gz');
+
+$noLangsIcon = 'times circle outline';
+$noLangsCause = $s['updateIsBlocked'];
+
+if(!$packsAvailable) {
+    $noLangsIcon = 'hourglass half';
+    $noLangsCause = sprintf($s['updateNotProcessed'], 30);
+    $updateBlocked = true;
+} else if(!$updateBlocked && !$langsAvailable) {
+    $noLangsIcon = 'info';
+    $noLangsCause = $s['noLangsAvailable'];
+    $updateBlocked = true;
+}
+
 styleUpper('downloads', sprintf($s['selectLangFor'], $updateTitle));
 ?>
 
@@ -133,10 +154,6 @@ styleUpper('downloads', sprintf($s['selectLangFor'], $updateTitle));
 </h3>
 
 <?php
-if(!file_exists('packs/'.$updateId.'.json.gz')) {
-    styleNoPackWarn();
-}
-
 if($updateArch == 'arm64') {
     styleCluelessUserArm64Warn();
 }
@@ -153,7 +170,7 @@ if($updateArch == 'arm64') {
         </h3>
 
 <?php
-if(count($langs) > 0) {
+if(!$updateBlocked) {
     echo <<<EOD
 <form class="ui form" action="./selectedition.php" method="get" id="langForm">
     <input type="hidden" name="id" value="$updateId">
@@ -191,12 +208,12 @@ EOD;
 <div class="ui center aligned one column padded relaxed grid">
     <div class="row">
         <div class="column">
-            <i class="huge info icon"></i>
+            <i class="huge $noLangsIcon icon"></i>
         </div>
     </div>
     <div class="row">
         <div class="column">
-            <p>{$s['noLangsAvailable']}</p>
+            <p>$noLangsCause</p>
         </div>
     </div>
 </div>

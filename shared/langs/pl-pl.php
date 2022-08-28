@@ -18,7 +18,7 @@ $s['uupdump'] = 'UUP dump';
 $s['uupdumpSub'] = '%s - UUP dump'; //Browse known builds - UUP dump
 $s['build'] = 'Kompilacja';
 $s['arch'] = 'Architektura';
-$s['ring'] = 'Pierścień';
+$s['ring'] = 'Kanał';
 $s['updateid'] = 'Identyfikator aktualizacji';
 $s['update'] = 'Aktualizacja';
 $s['lang'] = 'Język';
@@ -61,13 +61,13 @@ $s['quickOptions'] = 'Szybkie opcje';
 $s['tHeadReleaseType'] = 'Rodzaj wydania';
 $s['tHeadDescription'] = 'Opis';
 $s['tHeadArchitectures'] = 'Architektury';
-$s['latestPublicRelease'] = 'Najnowsza Publicznie Wydana kompilacja';
+$s['latestPublicRelease'] = 'Najnowsza publicznie wydana kompilacja';
 $s['latestPublicReleaseSub'] = 'Najnowsza kompilacja dla zwykłych użytkowników.';
-$s['latestDevRelease'] = 'Najnowsza kompilacja kanału Dev';
+$s['latestDevRelease'] = 'Najnowsza kompilacja kanału deweloperów';
 $s['latestDevReleaseSub'] = 'Poniekąd niepewne kompilacje z najnowszymi funkcjami.<br>Idealne dla użytkowników z kompetencjami technicznymi.';
-$s['latestBetaRelease'] = 'Najnowsza kompilacja kanału Beta';
+$s['latestBetaRelease'] = 'Najnowsza kompilacja kanału beta';
 $s['latestBetaReleaseSub'] = 'Pewne kompilacje z większością nowych funkcji.<br>Idealne dla wczesnych adaptacji.';
-$s['latestRPRelease'] = 'Najnowsza kompilacja Release Preview';
+$s['latestRPRelease'] = 'Najnowsza kompilacja zapoznawcza';
 $s['latestRPReleaseSub'] = 'Pewne kompilacje z podglądami następnego wydania.<br>Idealne do spróbowania nadchodzących wydań.';
 $s['advOptions'] = 'Opcje zaawansowane';
 $s['browseBuilds'] = 'Przeglądaj listę znanych kompilacji';
@@ -81,6 +81,7 @@ $s['dateAdded'] = 'Data dodania';
 $s['browseKnown'] = 'Przeglądaj znane kompilacje';
 $s['chooseBuild'] = 'Wybierz kompilację';
 $s['weFoundBuilds'] = 'Znaleźliśmy <b>%d</b> kompilacji dla Twojego zapytania.'; //We have found <b>692</b> builds for your query.
+$s['sortByDate'] = 'Sortuj rezultaty po dacie dodania';
 
 //latest.php
 $s['latestFetchLatest'] = 'Znajdź najnowszą kompilację';
@@ -114,11 +115,13 @@ $s['selectLangInfoText1'] = 'Kliknij przycisk <i>Dalej</i> w celu przejścia do 
 $s['selectLangInfoText2'] = 'WindowsUpdateBox.exe i aktualizacje kumulacyjne mogą zostać znalezione w opcji języka <i>Wszystkie języki</i>.';
 $s['allLangsWarn'] = 'Opcja <i>Wszystkie języki</i> nie obsługuje wyboru edycji.';
 $s['clickNextToOpenFindFiles'] = 'Kliknij przycisk <i>Dalej</i> aby otworzyć stronę umożliwiającą wyszukiwanie plików.';
-$s['noLangsAvailable'] = 'Dla tej kompilacji nie ma dostępnych żadnych języków.';
+$s['noLangsAvailable'] = 'Dla tej kompilacji nie ma dostępnych żadnych języków.<br>Ta kompilacja nie może zostać przekonwertowana na obraz ISO.<br>Odwiedź <a href="https://github.com/uup-dump/website/blob/master/FAQ.md">często zadawane pytania</a> w celu uzyskania szczegółów.';
 $s['browseFiles'] = 'Przeglądaj pliki';
 $s['browseFilesDesc'] = 'Szybko przejrzyj pliki w wybranej kompilacji';
 $s['searchFiles'] = 'Przeszukaj pliki';
 $s['toSearchForCUUseQuery'] = 'W celu wyszukania aktualizacji kumulacyjnych użyj frazy <i>%s</i>.'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.
+$s['updateNotProcessed'] = 'Metadane tej aktualizacji nie zostały jeszcze przetworzone przez UUP dump - dzieje się to automatycznie raz na %d minut. Do tego momentu możesz wyłącznie przeglądać listę plików tej aktualizacji.'; //UUP dump hasn't processed this update's metadata yet - this happens automatically once every 30 minutes. You can only browse the update's file list until then.
+$s['updateIsBlocked'] = 'Ta aktualizacja posiada znane problemy uniemożliwiające stworzenie działającego obrazu ISO. Z tego powodu możesz wyłącznie przeglądać jej pliki.';
 
 //selectedition.php
 $s['selectEditionFor'] = 'Wybierz edycję dla %s'; //Select edition for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
@@ -136,12 +139,12 @@ $s['summaryFor'] = 'Podsumowanie dla %s'; //Summary for Windows 10 Insider Previ
 $s['summaryOfSelection'] = 'Podsumowanie Twojego wyboru';
 $s['browseList'] = 'Przeglądaj listę plików';
 $s['browseListDesc'] = 'Otwiera listę plików zawartych w zestawie UUP do ręcznego pobrania.';
-$s['aria2Opt1'] = 'Pobierz przy użyciu programu aria2';
-$s['aria2Opt1Desc'] = 'Z łatwością pobierz wybrany zestaw UUP przy użyciu programu aria2.';
-$s['aria2Opt2'] = 'Pobierz przy użyciu programu aria2 i przekonwertuj';
-$s['aria2Opt2Desc'] = 'Z łatwością pobierz wybrany zestaw UUP przy użyciu programu aria2 i przekonwertuj na obraz ISO.';
-$s['aria2Opt3'] = 'Pobierz przy użyciu programu aria2, przekonwertuj i utwórz dodatkowe edycje';
-$s['aria2Opt3Desc'] = 'Z łatwością pobierz wybrany zestaw UUP przy użyciu programu aria2, stwórz dodatkowe edycje a następnie przekonwertuj na obraz ISO.';
+$s['aria2Opt1'] = 'Pobierz zestaw UUP';
+$s['aria2Opt1Desc'] = 'Łatwo pobierz wybrany zestaw UUP przy użyciu programu aria2.';
+$s['aria2Opt2'] = 'Pobierz i przekonwertuj na obraz ISO';
+$s['aria2Opt2Desc'] = 'Łatwo pobierz wybrany zestaw UUP przy użyciu programu aria2 i przekonwertuj na obraz ISO.';
+$s['aria2Opt3'] = 'Pobierz, dodaj dodatkowe edycje i przekonwertuj na obraz ISO';
+$s['aria2Opt3Desc'] = 'Łatwo pobierz wybrany zestaw UUP przy użyciu programu aria2, stwórz dodatkowe edycje a następnie przekonwertuj na obraz ISO.';
 $s['jsRequiredToConf'] = 'Obsługa JavaScript jest wymagana, aby móc skonfigurować i użyć tej opcji.';
 $s['selAdditionalEditions'] = 'Wybierz dodatkowe edycje';
 $s['noAdditionalEditions'] = 'Brak dodatkowych edycji dostępnych dla tego wyboru.';
@@ -158,15 +161,17 @@ $s['selectDownloadOptions'] = 'Wybierz opcje pobierania';
 $s['selectDownloadOptionsSub'] = 'Skonfiguruj w jaki sposob chcesz pobrać swój wybór';
 $s['downloadMethod'] = 'Metoda pobierania';
 $s['conversionOptions'] = 'Opcje konwersji';
-$s['convOpt1'] = 'Stwórz obraz ISO z plikiem install.esd zamiast install.wim';
+$s['convOpt1'] = 'Użyj kompresji z użyciem bloku ciągłego (ESD)';
 $s['convOpt2'] = 'Zintegruj aktualizacje jeśli dostępne (tylko konwerter Windows)';
-$s['convOpt3'] = 'Uruchom oczyszczanie po integracji aktualizacji (tylko konwerter Windows)';
+$s['convOpt3'] = 'Uruchom oczyszczanie komponentów (tylko konwerter Windows)';
 $s['convOpt4'] = 'Zintegruj .NET Framework 3.5 (tylko konwerter Windows)';
 $s['startDownload'] = 'Utwórz paczkę pobierającą';
 $s['legalCopeHarder'] = 'Poprzez kliknięcie przycisku <i>Utwórz paczkę pobierającą</i> zgadzasz się z następującym:';
 $s['legalCope1'] = 'Obrazy instalacyjne stworzone przez skrypty udostępniane przez UUP dump przeznaczone są wyłącznie do <b>celów ewaluacyjnych</b>';
 $s['legalCope2'] = 'Obrazy te oraz ich wdrożenia <b>nie są wspierane</b> w żaden sposób przez Microsoft Corporation';
 $s['legalCope3'] = 'Zgodnie z postanowieniami licencyjnymi projektu <b>autorzy nie ponoszą odpowiedzialności za jakiekolwiek szkody</b>';
+$s['win1122h2OrLater'] = 'System Windows 11, wersja 22H2 bądź nowszy';
+$s['requiresWindows102004'] = 'Ta kompilacja wymaga użycia systemu Windows 10, wersja 2004 bądź nowszego w celu poprawnego stworzenia obrazu ISO. Skrypty dla pozostałych platform utworzą uszkodzone obrazy.';
 
 //get.php
 $s['listOfFilesFor'] = 'Lista plików dla %s'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
@@ -199,7 +204,7 @@ $s['requestNotSuccessful'] = 'Żądanie nie powiodło się';
 $s['anErrorHasOccurred'] = 'Wystąpił błąd podczas próby przetworzenia Twojego żądania.';
 $s['generatedPackNotAvailable'] = 'Wygenerowana paczka nie jest dostępna';
 $s['generatedPackNotAvailableDesc'] = 'Aktualizacja, którą próbujesz pobrać nie posiada wygenerowanej paczki, która zawiera pełne informacje o dostępnych językach, edycjach i plikach. Zostanie użyta paczka zastępcza, która może nie zawierać poprawnych informacji. Jeżeli pobranie nie powiedzie się z tego powodu, proszę zaczekać aż automatycznie wygenerowana paczka stanie się dostępna.';
-$s['arm64Warning'] = 'Wybrano kompilację ARM64, która jest <b>wyłącznie kompatybilna z urządzeniami o architekturze ARM64</b> i nie będzie działać z komputerami bazowanymi na procesorach Intel oraz AMD. Dla <b>64-bitowych</b> komputerów proszę użyć kompilacji <b>amd64</b>. Dla <b>32-bitowych</b> komputerów proszę użyć kompilacji <b>x86</b>. Można bezpiecznie zignorować tę wiadomość, jeżeli istnieje absolutna pewność, że urządzenie docelowe jest bazowane na architekturze ARM64.';
+$s['arm64Warning'] = 'To jest kompilacja <b>ARM64</b>, która <b>nie jest kompatybilna z typowymi procesorami Intel/AMD</b>.<br>Tą wiadomość można bezpiecznie zignorować w przypadku pewności, że urządzenie docelowe posiada procesor <b>ARM64</b> i nie zaszła pomyłka z <b>AMD64</b>.';
 
 //Error messages
 $s['error_ERROR'] = 'Błąd ogólny.';
@@ -274,3 +279,10 @@ $s['lang_uk-ua'] = 'ukraiński';
 $s['lang_zh-cn'] = 'chiński (uproszczony)';
 $s['lang_zh-hk'] = 'chiński (Hong Kong)';
 $s['lang_zh-tw'] = 'chiński (tradycyjny)';
+
+//Channels
+$s['channel_skipAhead'] = 'Skip Ahead';
+$s['channel_dev'] = 'Kanał deweloperów';
+$s['channel_beta'] = 'Kanał beta';
+$s['channel_releasepreview'] = 'Wersja zapoznawcza';
+$s['channel_retail'] = 'Wydanie publiczne';

@@ -213,6 +213,7 @@ styleUpper('downloads', sprintf($s['summaryFor'], "$updateTitle, $selectedLangNa
     <div class="content">
         <p><?php echo $s['learnMoreUpdates1']; ?></p>
         <ul>
+            <li>Windows 11</li>
             <li>Windows 10</li>
             <li><?php printf($s['systemWithAdk'], 'Windows 8.1'); ?></li>
         </ul>
@@ -346,7 +347,7 @@ EOL;
                 </div>
             </div>
 
-            <div class="ui message" id="legal-cope">
+            <div class="ui negative message" id="legal-cope">
 				<p><i class="balance scale icon"></i> <?php echo $s['legalCopeHarder']; ?></p>
 				<ul>
 					<li><?php echo $s['legalCope1']; ?></li>
@@ -395,7 +396,21 @@ EOL;
             </div>
         </h4>
 
+        
+
 <?php
+if($build > 22557) {
+    echo <<<INFO
+<h4 class="ui red header">
+    <i class="exclamation triangle icon"></i>
+    <div class="content">
+        {$s['win1122h2OrLater']}
+        <div class="sub header">{$s['requiresWindows102004']}</div>
+    </div>
+</h4>
+INFO;
+}
+
 if($hasUpdates) {
     echo <<<INFO
 <h4 class="ui header">
