@@ -347,7 +347,7 @@ EOL;
                 </div>
             </div>
 
-            <div class="ui message" id="legal-cope">
+            <div class="ui negative message" id="legal-cope">
 				<p><i class="balance scale icon"></i> <?php echo $s['legalCopeHarder']; ?></p>
 				<ul>
 					<li><?php echo $s['legalCope1']; ?></li>
