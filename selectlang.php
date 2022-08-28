@@ -49,7 +49,7 @@ if(!checkUpdateIdValidity($updateId)) {
     die();
 }
 
-$updateInfo = uupUpdateInfo($updateId, false, true);
+$updateInfo = uupUpdateInfo($updateId, ignoreFiles: true);
 $updateInfo = isset($updateInfo['info']) ? $updateInfo['info'] : array();
 
 if(!isset($updateInfo['title'])) {
