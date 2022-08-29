@@ -129,3 +129,10 @@ function readableSize($size, $round = 0) {
 
     return "$size {$prefix}B";
 }
+
+function isUpdateBlocked($buildNum, $updateTitle) {
+    $isCumulative = str_contains($updateTitle, 'Cumulative Update');
+    $isServer = str_contains($updateTitle, 'Server');
+
+    return $buildNum > 22557 && $isCumulative && !$isServer;
+}

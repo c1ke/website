@@ -33,6 +33,7 @@ require_once 'api/updateinfo.php';
 require_once 'shared/get.php';
 require_once 'shared/style.php';
 require_once 'shared/ratelimits.php';
+require_once 'shared/autodl.php';
 
 if(!$updateId) {
     fancyError('UNSPECIFIED_UPDATE', 'downloads');
@@ -61,122 +62,16 @@ if(is_array($desiredEdition)) {
 }
 
 if($autoDl && !$aria2) {
-    $files = uupGetFiles($updateId, $usePack, $desiredEditionMixed, 2);
-    if(isset($files['error'])) {
-        fancyError($files['error'], 'downloads');
-        die();
-    }
+    $autoDlConfig = new AutoDlConfig(
+        $autoDl,
+        $updateId,
+        $usePack,
+        $desiredEdition,
+        $desiredEditionMixed,
+        $desiredVE
+    );
 
-    $info = uupUpdateInfo($updateId);
-    $info = @$info['info'];
-
-    $uSku = isset($info['sku']) ? $info['sku'] : 48;
-    $updateBuild = isset($info['build']) ? $info['build'] : 'UNKNOWN';
-    $updateArch = isset($info['arch']) ? $info['arch'] : 'UNKNOWN';
-    $updateTitle = isset($info['title']) ? $info['title'] : 'UNKNOWN';
-
-    $langDir = $usePack ? $usePack : 'all';
-
-    if(is_array($desiredEditionMixed)) {
-        $editDir = count($desiredEditionMixed) == 1 ? strtolower($desiredEditionMixed[0]) : 'multi';
-    } else {
-        $editDir = $desiredEditionMixed ? strtolower($desiredEditionMixed) : 'all';
-    }
-
-    $id = substr($updateId, 0, 8);
-    $archiveName = "{$updateBuild}_{$updateArch}_{$langDir}_{$editDir}_{$id}";
-
-    $url = '';
-    $app = '';
-    if(isset($_SERVER['HTTPS'])) {
-        $url .= 'https://';
-        $app .= 'https://';
-    } else {
-        $url .= 'http://';
-        $app .= 'http://';
-    }
-
-    $url .=  $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
-    $url .= '?id='.$updateId.'&pack='.$usePack.'&edition='.$desiredEdition.'&aria2=2';
-
-    $app .=  $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
-    $app .= '?id='.$updateId.'&pack=neutral&edition=app&aria2=2';
-
-    if(!isset($_GET['autodl'])) {
-        $updates = isset($_POST['updates']) ? $_POST['updates'] : 0;
-    } else {
-        $updates = 1;
-    }
-
-    $cleanup = isset($_POST['cleanup']) ? $_POST['cleanup'] : 0;
-    $netfx = isset($_POST['netfx']) ? $_POST['netfx'] : 0;
-    $esd = isset($_POST['esd']) ? $_POST['esd'] : 0;
-
-    $moreOptions = [];
-    $moreOptions['updates'] = $updates;
-    $moreOptions['cleanup'] = $cleanup;
-    $moreOptions['netfx'] = $netfx;
-    $moreOptions['esd'] = $esd;
-
-    $build = explode('.', $updateBuild);
-    $build = @$build[0];
-    $disableVE = 0;
-    if($editDir == 'app' || $build < 17107 || in_array($uSku, [7,8,12,13,79,80,120,145,146,147,148,159,160,406,407,408])) {
-        $disableVE = 1;
-    }
-
-    if($build > 22557 && preg_match('/Cumulative Update/i', $updateTitle)) {
-       $editDir = 'app';
-    }
-
-    switch($autoDl) {
-        case 1:
-            if($build > 22557) {
-                if($editDir == 'app' || $langDir == 'neutral') {
-                    createAria2Package($url, $archiveName);
-                } else {
-                    createAria2Package($url, $archiveName, $app);
-                }
-            } else {
-                createAria2Package($url, $archiveName);
-            }
-            break;
-
-        case 2:
-            if($build > 22557) {
-                if($editDir == 'app' || $langDir == 'neutral') {
-                    createUupConvertPackage($url, $archiveName, 0, ["Enterprise"], $moreOptions);
-                } else {
-                    createUupConvertPackage($url, $archiveName, 0, ["Enterprise"], $moreOptions, $app);
-                }
-            } else {
-                createUupConvertPackage($url, $archiveName, 0, ["Enterprise"], $moreOptions);
-            }
-            break;
-
-        case 3:
-            if(!count($desiredVE)) {
-                fancyError('UNSPECIFIED_VE', 'downloads');
-                die();
-            }
-            if($disableVE) {
-                echo 'Not available for this build.';
-                break;
-            }
-            if($build > 22557) {
-                if($editDir == 'app' || $langDir == 'neutral') {
-                    createUupConvertPackage($url, $archiveName, 1, $desiredVE, $moreOptions);
-                } else {
-                    createUupConvertPackage($url, $archiveName, 1, $desiredVE, $moreOptions, $app);
-                }
-            } else {
-                createUupConvertPackage($url, $archiveName, 1, $desiredVE, $moreOptions);
-            }
-            break;
-
-        default:
-            echo 'Unknown package';
-    }
+    $autoDlConfig->createPackage();
     die();
 }
 
