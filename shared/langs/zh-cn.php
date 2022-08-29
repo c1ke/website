@@ -120,8 +120,8 @@ $s['browseFiles'] = '浏览文件';
 $s['browseFilesDesc'] = '快速浏览所选内部版本中的文件';
 $s['searchFiles'] = '搜索文件';
 $s['toSearchForCUUseQuery'] = '若要搜索累积更新，请使用 <i>%s</i> 搜索查询。'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.
-$s['updateNotProcessed'] = 'UUP dump hasn\'t processed this update\'s metadata yet - this happens automatically once every %d minutes. You can only browse the update\'s file list until then.'; //UUP dump hasn't processed this update's metadata yet - this happens automatically once every 30 minutes. You can only browse the update's file list until then.
-$s['updateIsBlocked'] = 'This update has known issues preventing the creation of a working ISO. Because of this, you can only manually browse its files.';
+$s['updateNotProcessed'] = 'UUP dump 尚未处理此更新的元数据 —— 这会每 %d 分钟自动发生一次。在此之前，你只能浏览更新的文件列表。'; //UUP dump hasn't processed this update's metadata yet - this happens automatically once every 30 minutes. You can only browse the update's file list until then.
+$s['updateIsBlocked'] = '此更新存在阻止创建工作 ISO 文件的已知问题。因此，你只能手动浏览其文件。';
 
 //selectedition.php
 $s['selectEditionFor'] = '选择 %s 的版本'; //Select edition for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
@@ -282,7 +282,7 @@ $s['lang_zh-tw'] = '中文（繁体）';
 
 //Channels
 $s['channel_skipAhead'] = 'Skip Ahead';
-$s['channel_dev'] = 'Dev Channel';
-$s['channel_beta'] = 'Beta Channel';
-$s['channel_releasepreview'] = 'Release Preview Channel';
+$s['channel_dev'] = 'Dev 渠道';
+$s['channel_beta'] = 'Beta 渠道';
+$s['channel_releasepreview'] = 'Release Preview 渠道';
 $s['channel_retail'] = 'Retail';
