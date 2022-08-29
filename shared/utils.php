@@ -15,6 +15,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+require_once 'api/shared/utils.php';
+
 function checkApi() {
     global $requiredApi;
     $apiVer = parseSemVer(uupApiVersion());
@@ -135,4 +137,9 @@ function isUpdateBlocked($buildNum, $updateTitle) {
     $isServer = str_contains($updateTitle, 'Server');
 
     return $buildNum > 22557 && $isCumulative && !$isServer;
+}
+
+function areVirtualEditonsSupported($build, $sku) {
+    $isServer = uupApiIsServer($sku);
+    return $build >= 17107 && !$isServer;
 }

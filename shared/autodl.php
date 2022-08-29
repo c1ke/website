@@ -148,15 +148,14 @@ class AutoDlConfig {
     }
 
     private function isVeAvailable() {
-        $isServer = uupApiIsServer($this->sku);
-        $supportsVE = $this->buildNum >= 17107;
+        $supportsVE = areVirtualEditonsSupported($this->buildNum, $this->sku);
         $isApps = $this->edition == 'app';
 
-        return $isApps || !$supportsVE || $isServer;
+        return $supportsVE && !$isApps;
     }
 
     private function verifyVeAndDieOnError() {
-        if($this->isVeAvailable()) {
+        if(!$this->isVeAvailable()) {
             fancyError('VE_UNAVAILABLE', 'downloads');
             die();
         } else if (count($this->desiredVE) == 0) {
