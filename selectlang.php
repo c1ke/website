@@ -20,6 +20,7 @@ $updateId = isset($_GET['id']) ? $_GET['id'] : 0;
 require_once 'api/listlangs.php';
 require_once 'api/updateinfo.php';
 require_once 'shared/style.php';
+require_once 'shared/utils.php';
 
 function getLangs($updateId, $s) {
     $langs = uupListLangs($updateId);
@@ -49,7 +50,7 @@ if(!checkUpdateIdValidity($updateId)) {
     die();
 }
 
-$updateInfo = uupUpdateInfo($updateId, false, true);
+$updateInfo = uupUpdateInfo($updateId, ignoreFiles: true);
 $updateInfo = isset($updateInfo['info']) ? $updateInfo['info'] : array();
 
 if(!isset($updateInfo['title'])) {
@@ -92,10 +93,7 @@ if(!isset($updateInfo['created'])) {
 
 $updateTitle = $updateTitle.' '.$updateArch;
 
-$isCumulative = str_contains($updateTitle, 'Cumulative Update');
-$isServer = str_contains($updateTitle, 'Server');
-$updateBlocked = $buildNum > 22557 && $isCumulative && !$isServer;
-
+$updateBlocked = isUpdateBlocked($buildNum, $updateTitle);
 $langs = $updateBlocked ? [] : getLangs($updateId, $s);
 
 if(in_array(strtolower($s['code']), array_keys($langs))) {

@@ -23,6 +23,7 @@ require_once 'api/get.php';
 require_once 'api/listlangs.php';
 require_once 'api/listeditions.php';
 require_once 'shared/style.php';
+require_once 'shared/utils.php';
 
 if(!$updateId) {
     fancyError('UNSPECIFIED_UPDATE', 'downloads');
@@ -72,8 +73,9 @@ $hasUpdates = $files['hasUpdates'];
 $uSku = $files['sku'];
 $build = explode('.', $files['build']);
 $build = @$build[0];
+
 $disableVE = 0;
-if($desiredEdition == 'app' || $build < 17107 || in_array($uSku, [7,8,12,13,79,80,120,145,146,147,148,159,160,406,407,408])) {
+if($desiredEdition == 'app' || !areVirtualEditonsSupported($build, $uSku)) {
     $disableVE = 1;
 }
 
@@ -86,13 +88,7 @@ foreach($files as $file) {
     $totalSize += $file['size'];
 }
 
-$prefixes = array('', 'Ki', 'Mi', 'Gi', 'Ti', 'Pi', 'Ei', 'Zi', 'Yi');
-foreach($prefixes as $prefix) {
-    if($totalSize < 1024) break;
-    $totalSize = $totalSize / 1024;
-}
-$totalSize = round($totalSize, 2);
-$totalSize = "$totalSize {$prefix}B";
+$totalSize = readableSize($totalSize, 2);
 
 if($usePack) {
     if(isset($s['lang_'.strtolower($usePack)])) {

@@ -22,6 +22,7 @@ require_once 'api/listlangs.php';
 require_once 'api/listeditions.php';
 require_once 'api/updateinfo.php';
 require_once 'shared/style.php';
+require_once 'shared/utils.php';
 
 if(!$updateId) {
     fancyError('UNSPECIFIED_UPDATE', 'downloads');
@@ -33,7 +34,7 @@ if(!checkUpdateIdValidity($updateId)) {
     die();
 }
 
-$updateInfo = uupUpdateInfo($updateId, false, true);
+$updateInfo = uupUpdateInfo($updateId, ignoreFiles: true);
 $updateInfo = isset($updateInfo['info']) ? $updateInfo['info'] : array();
 
 if(!isset($updateInfo['title'])) {
@@ -59,7 +60,7 @@ $hiddenEditions = ['PPIPRO'];
 $build = explode('.', $updateInfo['build']);
 $build = @$build[0];
 $disableVE = 0;
-if($build < 17107 || in_array($uSku, [7,8,12,13,79,80,120,145,146,147,148,159,160,406,407,408])) {
+if(!areVirtualEditonsSupported($build, $uSku)) {
     $disableVE = 1;
 }
 

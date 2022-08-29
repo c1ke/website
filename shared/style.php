@@ -348,6 +348,10 @@ function fancyError($errorCode = 'ERROR', $pageType = 'home', $moreText = 0) {
             $errorNumber = 400;
             $errorFancy = $s['error_UNSPECIFIED_VE'];
             break;
+        case 'VE_UNAVAILABLE':
+            $errorNumber = 400;
+            $errorFancy = $s['error_VE_UNAVAILABLE'];
+            break;
         default:
             $errorFancy = "<i>{$s['errorNoMessage']}</i><br><br>$errorCode";
             break;

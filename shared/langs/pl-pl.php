@@ -236,6 +236,7 @@ $s['error_UNSPECIFIED_UPDATE'] = 'Nie określono identyfikatora aktualizacji.';
 $s['error_INCORRECT_ID'] = 'Określony identyfikator aktualizacji nie jest poprawny. Proszę upewnić się, że podano poprawny identyfikator aktualizacji.';
 $s['error_RATE_LIMITED'] = 'Szybkość Twoich żądań została ograniczona. Proszę spróbować ponownie za kilka sekund.';
 $s['error_UNSPECIFIED_VE'] = 'Nie wybrano żadnych edycji dodatkowych. Jeżeli nie chcesz tworzyć edycji dodatkowych, wybierz opcję <i>Pobierz przy użyciu programu aria2 i przekonwertuj</i>.';
+$s['error_VE_UNAVAILABLE'] = 'Dodatkowe edycje nie są obsługiwane dla tego wyboru.';
 $s['errorNoMessage'] = 'Wiadomość o błędzie nie jest dostępna.';
 
 //Languages

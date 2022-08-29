@@ -15,6 +15,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+require_once 'api/shared/utils.php';
+
 function checkApi() {
     global $requiredApi;
     $apiVer = parseSemVer(uupApiVersion());
@@ -128,4 +130,16 @@ function readableSize($size, $round = 0) {
     $prefix = $prefixes[$i];
 
     return "$size {$prefix}B";
+}
+
+function isUpdateBlocked($buildNum, $updateTitle) {
+    $isCumulative = str_contains($updateTitle, 'Cumulative Update');
+    $isServer = str_contains($updateTitle, 'Server');
+
+    return $buildNum > 22557 && $isCumulative && !$isServer;
+}
+
+function areVirtualEditonsSupported($build, $sku) {
+    $isServer = uupApiIsServer($sku);
+    return $build >= 17107 && !$isServer;
 }
