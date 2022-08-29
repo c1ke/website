@@ -94,6 +94,7 @@ $s['skipAheadLabel'] = '跳跃预览通道';
 $s['skipAheadOption'] = '使用跳跃预览通道（仅限快速环）';
 $s['fetchUpdates'] = '获取更新';
 $s['fetchUpdatesInfo'] = '点击<i>获取更新</i>按钮将你的请求发送到 Windows 更新服务器。';
+$s['sortByDate'] = '按添加日期排序结果';
 
 //fetchupd.php
 $s['responseFromServer'] = '来自服务器的响应';
@@ -119,6 +120,8 @@ $s['browseFiles'] = '浏览文件';
 $s['browseFilesDesc'] = '快速浏览所选内部版本中的文件';
 $s['searchFiles'] = '搜索文件';
 $s['toSearchForCUUseQuery'] = '若要搜索累积更新，请使用 <i>%s</i> 搜索查询。'; //To search for Cumulative Updates use the <i>Windows10 KB</i> search query.
+$s['updateNotProcessed'] = 'UUP dump 尚未处理此更新的元数据 —— 这会每 %d 分钟自动发生一次。在此之前，你只能浏览更新的文件列表。'; //UUP dump hasn't processed this update's metadata yet - this happens automatically once every 30 minutes. You can only browse the update's file list until then.
+$s['updateIsBlocked'] = '此更新存在阻止创建工作 ISO 文件的已知问题。因此，你只能手动浏览其文件。';
 
 //selectedition.php
 $s['selectEditionFor'] = '选择 %s 的版本'; //Select edition for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64, English (United States)
@@ -136,15 +139,15 @@ $s['summaryFor'] = '%s 的摘要'; //Summary for Windows 10 Insider Preview 1889
 $s['summaryOfSelection'] = '来自你所选择版本的摘要';
 $s['browseList'] = '浏览文件列表';
 $s['browseListDesc'] = '打开包含 UUP 集文件的列表页面，以供手动下载。';
-$s['aria2Opt1'] = '使用 aria2 下载';
+$s['aria2Opt1'] = '下载 UUP 集';
 $s['aria2Opt1Desc'] = '使用 aria2 轻松下载所选的 UUP 集。';
-$s['aria2Opt2'] = '使用 aria2 下载并转换';
-$s['aria2Opt2Desc'] = '使用 aria2 轻松下载所选的 UUP 集并将其转换为 ISO。';
-$s['aria2Opt3'] = '使用 aria2 下载、转换并创建其他版本';
-$s['aria2Opt3Desc'] = '使用 aria2 轻松下载所选 UUP 集，转换并创建其他版本，最后创建 ISO 镜像。';
+$s['aria2Opt2'] = '下载并转换为 ISO 文件';
+$s['aria2Opt2Desc'] = '使用 aria2 轻松下载所选的 UUP 集，并转换它为 ISO 文件。';
+$s['aria2Opt3'] = '下载、添加附加版本并转换为 ISO 文件';
+$s['aria2Opt3Desc'] = '使用 aria2 轻松下载所选的 UUP 集，转换、创建附加版本并最终创建一个 ISO 镜像。';
 $s['jsRequiredToConf'] = '配置并使用此选项需要 JavaScript。';
-$s['selAdditionalEditions'] = '选择其他版本';
-$s['noAdditionalEditions'] = '在此选项中没有其他版本可用。';
+$s['selAdditionalEditions'] = '选择附加版本';
+$s['noAdditionalEditions'] = '你选择的版本没有附加版本可用。';
 $s['learnMore'] = '了解更多信息';
 $s['learnMoreAdditionalEditions1'] = '此选项可以自动创建所选的其他版本。';
 $s['learnMoreAdditionalEditions2'] = '其他版本的列表由所选的基本版本确定，你可以在下面查看创建其他版本所需的基本版本的列表：';
@@ -167,6 +170,8 @@ $s['legalCopeHarder'] = '点击<i>创建下载包</i>按钮即表示你同意以
 $s['legalCope1'] = '使用 UUP dump 提供的脚本创建的安装映像仅可用于<b>评估目的</b>';
 $s['legalCope2'] = 'Microsoft Corporation <b>不以任何方式支持</b>映像及其部署';
 $s['legalCope3'] = '根据项目许可条款，<b>作者不对任何损害负责</b>';
+$s['win1122h2OrLater'] = 'Windows 11，版本 22H2 及以上';
+$s['requiresWindows102004'] = '此版本需要使用 Windows 10 版本 2004 或更高版本才能正确创建 ISO。其他平台的脚本将会输出一个损坏的 ISO 文件。';
 
 //get.php
 $s['listOfFilesFor'] = '%s 的文件列表'; //List of files for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
@@ -274,3 +279,10 @@ $s['lang_vi-vn'] = '越南语（越南）';
 $s['lang_zh-cn'] = '中文（简体）';
 $s['lang_zh-hk'] = '中文（香港）';
 $s['lang_zh-tw'] = '中文（繁体）';
+
+//Channels
+$s['channel_skipAhead'] = 'Skip Ahead';
+$s['channel_dev'] = 'Dev 渠道';
+$s['channel_beta'] = 'Beta 渠道';
+$s['channel_releasepreview'] = 'Release Preview 渠道';
+$s['channel_retail'] = 'Retail';
