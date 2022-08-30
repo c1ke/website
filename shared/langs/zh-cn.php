@@ -286,4 +286,4 @@ $s['channel_skipAhead'] = 'Skip Ahead';
 $s['channel_dev'] = 'Dev 渠道';
 $s['channel_beta'] = 'Beta 渠道';
 $s['channel_releasepreview'] = '发布预览渠道';
-$s['channel_retail'] = 'Retail';
+$s['channel_retail'] = '零售';
