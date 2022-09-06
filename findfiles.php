@@ -92,10 +92,15 @@ if($aria2) {
     die();
 }
 
+$htmlQuery = '';
 $pageTitle = sprintf($s['findFilesIn'], "$updateName $updateArch");
-if($search) {
+
+if($search != null) {
     $pageTitle = "$search - ".$pageTitle;
+    $htmlQuery = htmlentities($search);
 }
+
+
 
 styleUpper('downloads', $pageTitle);
 ?>
@@ -112,7 +117,7 @@ styleUpper('downloads', $pageTitle);
         <div class="field">
             <div class="ui big action input">
                 <input type="hidden" name="id" value="<?php echo htmlentities($updateId); ?>">
-                <input type="text" name="q" value="<?php echo htmlentities($search); ?>" placeholder="<?php echo $s['searchForFiles']; ?>">
+                <input type="text" name="q" value="<?php echo $htmlQuery; ?>" placeholder="<?php echo $s['searchForFiles']; ?>">
                 <button class="ui big blue icon button" type="submit"><i class="search icon"></i></button>
             </div>
         </div>

@@ -36,8 +36,10 @@ $ids = $ids['builds'];
 
 if($search != null) {
     $pageTitle = "$search - {$s['browseKnown']}";
+    $htmlQuery = htmlentities($search);
 } else {
     $pageTitle = $s['browseKnown'];
+    $htmlQuery = '';
 }
 
 $dateSortChecked = $sort ? 'checked' : '';
@@ -56,7 +58,7 @@ styleUpper('downloads', $pageTitle);
     <form class="ui form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
         <div class="field">
             <div class="ui big action input">
-                <input type="text" name="q" value="<?php echo htmlentities($search); ?>" placeholder="<?php echo $s['seachForBuilds']; ?>">
+                <input type="text" name="q" value="<?php echo $htmlQuery ?>" placeholder="<?php echo $s['seachForBuilds']; ?>">
                 <button class="ui big blue icon button" type="submit"><i class="search icon"></i></button>
             </div>
         </div>
