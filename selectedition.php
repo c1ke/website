@@ -57,15 +57,14 @@ if(!isset($updateInfo['sku'])) {
 
 $hiddenEditions = ['PPIPRO'];
 
-$build = explode('.', $updateInfo['build']);
-$build = @$build[0];
+$build = isset($updateInfo['build']) ? $updateInfo['build'] : null;
+$buildNum = uupApiBuildMajor($build);
 $disableVE = 0;
-if(!areVirtualEditonsSupported($build, $uSku)) {
+if(!areVirtualEditonsSupported($buildNum, $uSku)) {
     $disableVE = 1;
 }
 
 $updateTitle = $updateTitle.' '.$updateArch;
-$build = floor($updateInfo['build']);
 
 if($selectedLang) {
     if(isset($s['lang_'.strtolower($selectedLang)])) {

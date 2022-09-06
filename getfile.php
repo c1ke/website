@@ -54,7 +54,7 @@ if(!isset($files[$file]['url'])) {
     die();
 }
 
-$files[$file]['url'] = str_replace('http://tlu.dl.delivery.mp.microsoft.com', 'https://uupdump.sf.tlu.dl.delivery.mp.microsoft.com', $files[$file]['url']);
+$files[$file]['url'] = uupApiFixDownloadLink($files[$file]['url']);
 
 if($aria2) {
     header('Content-Type: text/plain');
