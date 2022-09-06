@@ -15,11 +15,18 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+require_once 'shared/style.php';
+
 $updateId = isset($_POST['id']) ? $_POST['id'] : null;
 $usePack = isset($_POST['pack']) ? $_POST['pack'] : 0;
 $desiredEdition = isset($_POST['edition']) ? $_POST['edition'] : 0;
-$desiredEdition = strtolower(implode(';', $desiredEdition));
 
+if($desiredEdition == null || !is_array($desiredEdition)) {
+   fancyError('UNSUPPORTED_COMBINATION');
+   die();
+}
+
+$desiredEdition = strtolower(implode(';', $desiredEdition));
 $url = "download.php?id=$updateId&pack=$usePack&edition=$desiredEdition";
 
 header("Location: $url");
