@@ -130,9 +130,15 @@ set "aria2Script=files\\aria2_script.%random%.txt"
 set "destDir=UUPs"
 
 if NOT EXIST %aria2% goto :NO_ARIA2_ERROR
+if NOT EXIST ConvertConfig.ini goto :NO_FILE_ERROR
+
+echo Downloading converters...
+"%aria2%" --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j5 --allow-overwrite=true --auto-file-renaming=false -d"files" -i"files/converter_win"
+if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
+echo.
+
 if NOT EXIST %a7z% goto :NO_FILE_ERROR
 if NOT EXIST %uupConv% goto :NO_FILE_ERROR
-if NOT EXIST ConvertConfig.ini goto :NO_FILE_ERROR
 
 echo Extracting UUP converter...
 "%a7z%" -x!ConvertConfig.ini -y x "%uupConv%" >NUL
@@ -242,6 +248,14 @@ fi
 destDir="UUPs"
 tempScript="aria2_script.\$RANDOM.txt"
 
+echo "Downloading converters..."
+aria2c --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j5 --allow-overwrite=true --auto-file-renaming=false -d"files" -i"files/converter_multi"
+if [ $? != 0 ]; then
+  echo "We have encountered an error while downloading files."
+  exit 1
+fi
+
+echo ""
 echo "Retrieving aria2 script..."
 aria2c --no-conf --log-level=info --log="aria2_download.log" -o"\$tempScript" --allow-overwrite=true --auto-file-renaming=false "$url"
 if [ $? != 0 ]; then
@@ -338,43 +352,33 @@ CONFIG;
     $archive = @tempnam($currDir.'/tmp', 'zip');
     $open = $zip->open($archive, ZipArchive::CREATE+ZipArchive::OVERWRITE);
 
+    if($open !== TRUE) {
+        echo 'Failed to create archive.';
+        die();
+    }
+
     if(!file_exists($currDir.'/autodl_files/aria2c.exe')) {
         die('aria2c.exe does not exist');
     }
 
-    if(!file_exists($currDir.'/autodl_files/convert.sh')) {
-        die('convert.sh does not exist');
+    if(!file_exists($currDir.'/autodl_files/converter_multi')) {
+        die('converter_multi does not exist');
     }
 
-    if(!file_exists($currDir.'/autodl_files/convert_ve_plugin')) {
-        die('convert_ve_plugin does not exist');
+    if(!file_exists($currDir.'/autodl_files/converter_win')) {
+        die('converter_win does not exist');
     }
 
-    if(!file_exists($currDir.'/autodl_files/7zr.exe')) {
-        die('7zr.exe does not exist');
-    }
-
-    if(!file_exists($currDir.'/autodl_files/uup-converter-wimlib.7z')) {
-        die('uup-converter-wimlib.7z does not exist');
-    }
-
-    if($open === TRUE) {
-        $zip->addFromString('uup_download_windows.cmd', $cmdScript);
-        $zip->addFromString('uup_download_linux.sh', $shellScript);
-        $zip->addFromString('uup_download_macos.sh', $shellScript);
-        $zip->addFromString('ConvertConfig.ini', $convertConfig);
-        $zip->addFromString('files/convert_config_linux', $convertConfigLinux);
-        $zip->addFromString('files/convert_config_macos', $convertConfigLinux);
-        $zip->addFile($currDir.'/autodl_files/aria2c.exe', 'files/aria2c.exe');
-        $zip->addFile($currDir.'/autodl_files/convert.sh', 'files/convert.sh');
-        $zip->addFile($currDir.'/autodl_files/convert_ve_plugin', 'files/convert_ve_plugin');
-        $zip->addFile($currDir.'/autodl_files/7zr.exe', 'files/7zr.exe');
-        $zip->addFile($currDir.'/autodl_files/uup-converter-wimlib.7z', 'files/uup-converter-wimlib.7z');
-        $zip->close();
-    } else {
-        echo 'Failed to create archive.';
-        die();
-    }
+    $zip->addFromString('uup_download_windows.cmd', $cmdScript);
+    $zip->addFromString('uup_download_linux.sh', $shellScript);
+    $zip->addFromString('uup_download_macos.sh', $shellScript);
+    $zip->addFromString('ConvertConfig.ini', $convertConfig);
+    $zip->addFromString('files/convert_config_linux', $convertConfigLinux);
+    $zip->addFromString('files/convert_config_macos', $convertConfigLinux);
+    $zip->addFile($currDir.'/autodl_files/aria2c.exe', 'files/aria2c.exe');
+    $zip->addFile($currDir.'/autodl_files/converter_multi', 'files/converter_multi');
+    $zip->addFile($currDir.'/autodl_files/converter_win', 'files/converter_win');
+    $zip->close();
 
     if($virtualEditions) {
         $suffix = '_virtual';
