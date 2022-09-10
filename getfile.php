@@ -31,8 +31,8 @@ if(!checkUpdateIdValidity($updateId)) {
     die();
 }
 
-$resource = hash('sha1', strtolower("get-$updateId-$file"));
-if(checkIfUserIsRateLimited($resource, 5, 5)) {
+$resource = hash('sha1', strtolower("getfile-$updateId-$file"));
+if(checkIfUserIsRateLimited($resource, 10, 10)) {
     fancyError('RATE_LIMITED', 'downloads');
     die();
 }
