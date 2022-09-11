@@ -2,6 +2,5 @@ User-agent: *
 Disallow: /getfile.php
 Disallow: /fetchupd.php
 Disallow: /findfiles.php
-Disallow: /selectlang.php
 Disallow: /get.php
 Disallow: /download.php
