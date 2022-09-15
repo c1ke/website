@@ -166,7 +166,7 @@ if(!isset($templateOk)) die();
             </td><td>
 
             <?php if($val['created'] == null): ?>
-                Unknown
+                <?= $s['unknown'] ?>
             <?php else: ?>
                 <?= date("Y-m-d H:i:s T", $val['created']) ?>
             <?php endif; ?>
