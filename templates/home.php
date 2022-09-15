@@ -156,8 +156,8 @@ if(!isset($templateOk)) die();
         <?php $arch = $val['arch']; ?>
         <?php if($arch == 'amd64') $arch = 'x64'; ?>
 
-        <tr>
-            <td><i class="windows icon"></i>
+        <tr><td>
+            <i class="windows icon"></i>
             <a href="selectlang.php?id=<?= htmlentities($val['uuid']) ?>">
                 <?= htmlentities($val['title']) ?> <?= htmlentities($val['arch']) ?>
             </a>
@@ -170,8 +170,6 @@ if(!isset($templateOk)) die();
             <?php else: ?>
                 <?= date("Y-m-d H:i:s T", $val['created']) ?>
             <?php endif; ?>
-
-            </td>
-        </tr>
+        </td></tr>
     <?php endforeach; ?>
 </table>
