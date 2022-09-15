@@ -42,7 +42,7 @@ if(!isset($templateOk)) die();
 
 <div class="ui bottom attached success message">
     <i class="search icon"></i>
-    <?php printf($s['weFoundBuilds'], count($ids)); ?>
+    <?php printf($s['weFoundBuilds'], $count); ?>
 </div>
 
 <table class="ui celled striped table">
@@ -53,7 +53,7 @@ if(!isset($templateOk)) die();
             <th><?= $s['dateAdded'] ?></th>
         </tr>
     </thead>
-    <?php foreach($ids as $val): ?>
+    <?php foreach($idsPaginated as $val): ?>
         <?php $arch = $val['arch']; ?>
         <?php if($arch == 'amd64') $arch = 'x64'; ?>
 
@@ -74,5 +74,17 @@ if(!isset($templateOk)) die();
         </td></tr>
     <?php endforeach; ?>
 </table>
+
+<div class="ui large fluid buttons">
+    <a class="ui <?= $page == 1 ? 'disabled' : '' ?> icon button" href="<?= $prevPageUrl ?>">
+        <i class="arrow left icon"></i>
+    </a>
+    <a class="ui disabled button">
+        <?= $page ?> / <?= $pages ?>
+    </p>
+    <a class="ui <?= $page == $pages ? 'disabled' : '' ?> icon button" href="<?= $nextPageUrl ?>">
+        <i class="arrow right icon"></i>
+    </a>
+</div>
 
 <script>$('.ui.checkbox').checkbox();</script>

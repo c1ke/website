@@ -16,6 +16,7 @@ limitations under the License.
 */
 
 $search = isset($_GET['q']) ? $_GET['q'] : null;
+$page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 $sort = isset($_GET['sort']) ? $_GET['sort'] : null;
 
 require_once 'api/listid.php';
@@ -33,6 +34,21 @@ if(!isset($ids['builds']) || empty($ids['builds'])) {
 }
 
 $ids = $ids['builds'];
+$count = count($ids);
+
+$perPage = 100;
+$pages = ceil($count / $perPage);
+$startItem = ($page - 1) * $perPage;
+
+$prevPageUrl = ($page != 1) ? getUrlWithoutParam('p').'p='.$page - 1 : '';
+$nextPageUrl = ($page != $pages) ? getUrlWithoutParam('p').'p='.$page + 1 : '';
+
+if($page < 1 || $page > $pages) {
+    fancyError('INVALID_PAGE', 'downloads');
+    die();
+}
+
+$idsPaginated = array_splice($ids, $startItem, $perPage);
 
 if($search != null) {
     $pageTitle = "$search - {$s['browseKnown']}";
