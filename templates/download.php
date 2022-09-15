@@ -1,4 +1,3 @@
-
 <?php 
 /*
 Copyright 2022 UUP dump authors
