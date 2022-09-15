@@ -51,10 +51,12 @@ if(!isset($templateOk)) die();
                 <div class="grouped fields">
                     <?php foreach($editions as $key => $val): ?>
                         <?php $isHidden = $editionsNum > 1 && in_array($key, $hiddenEditions); ?>
+                        <?php $isRecommended = !$recommend || in_array($key, $recommendedEditions); ?>
+                        <?php $isChecked = !$isHidden && $isRecommended; ?>
 
                         <div class="field <?= $isHidden ? 'hidden-edition' : '' ?>">
                             <div class="ui checkbox">
-                                <input type="checkbox" name="edition[]" value="<?= $key ?>" class="edition-selection" <?= $isHidden ? '' : 'checked' ?>>
+                                <input type="checkbox" name="edition[]" value="<?= $key ?>" class="edition-selection" <?= $isChecked ? 'checked' : '' ?>>
                                 <label><?= $val ?></label>
                             </div>
                         </div>

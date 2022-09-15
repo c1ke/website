@@ -61,6 +61,7 @@ if(!isset($updateInfo['sku'])) {
 }
 
 $hiddenEditions = ['PPIPRO'];
+$recommendedEditions = ['CORE', 'PROFESSIONAL'];
 
 $build = isset($updateInfo['build']) ? $updateInfo['build'] : null;
 $buildNum = uupApiBuildMajor($build);
@@ -98,6 +99,8 @@ if($selectedLang) {
 }
 
 $editionsNum = count($editions);
+
+$recommend = !array_diff($recommendedEditions, array_keys($editions));
 
 if($editionsNum == 1 && isset($editions['APP'])) 
     $disableVE = 1;
