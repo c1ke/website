@@ -50,7 +50,7 @@ if(!isset($templateOk)) die();
             </div>
         <?php else: ?>
             <form class="ui form" action="./selectedition.php" method="get" id="langForm">
-                <input type="hidden" name="id" value="$updateId">
+                <input type="hidden" name="id" value="<?= $updateId ?>">
                 <div class="field">
                     <label><?= $s['lang'] ?></label>
                     <select class="ui search dropdown" name="pack">
