@@ -126,7 +126,7 @@ if($ring == 'WIF' && $flight == 'Skip') {
 $findFilesUrl = "./findfiles.php?id=".htmlentities($updateId);
 
 $langsAvailable = count($langs) > 0;
-$packsAvailable = file_exists('packs/'.$updateId.'.json.gz');
+$packsAvailable = uupApiPacksExist($updateId);
 
 $noLangsIcon = 'times circle outline';
 $noLangsCause = $s['updateIsBlocked'];
