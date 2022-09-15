@@ -133,7 +133,7 @@ $s['chooseEdition'] = 'Wybierz edycję';
 $s['chooseEditionDesc'] = 'Wybierz żądaną edycję';
 $s['allEditions'] = 'Wszystkie edycje';
 $s['selectEditionInfoText'] = 'Kliknij przycisk <i>Dalej</i> w celu otworzenia strony z podsumowaniem wyboru.';
-$s['additionalEditionsInfo'] = 'W przypadku, gdy wymagana jest dodatkowa edycja znajdująca się w tabeli z prawej strony, proszę wybrać odpowiednią wymaganą edycję i kliknąć <i>Dalej</i>. Po przejściu do strony podsumowania można będzie dokonać wyboru żądanej dodatkowej edycji przy użyciu odpowiedniej opcji pobrania.';
+$s['additionalEditionsInfo'] = 'W przypadku, gdy potrzebna jest <b>dodatkowa edycja</b> znajdująca się w tabeli po prawej, wybierz <b>wymaganą edycję</b> powyżej i kontynuuj używając przycisku <i>Dalej</i>.<br>Na stronie podsumowania użyj opcji <b>Utwórz dodatkowe edycje</b>.';
 $s['showHiddenEditions'] = 'Wyświetl ukryte edycje (niezalecane)';
 
 //download.php
