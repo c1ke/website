@@ -40,51 +40,8 @@ if(isset($fetchUpd['error'])) {
 }
 
 $updateArray = $fetchUpd['updateArray'];
+
+$templateOk = true;
 styleUpper('downloads', $s['responseFromServer']);
-?>
-
-<h3 class="ui centered header">
-    <div class="content">
-        <i class="fitted wizard icon"></i>&nbsp;
-        <?php echo $s['responseFromServer']; ?>
-    </div>
-</h3>
-
-<div class="ui icon info message">
-    <i class="check info circle icon"></i>
-    <div class="content">
-        <div class="header">
-            <?php printf($s['foundUpdates'], count($updateArray)); ?>
-        </div>
-        <p><?php echo $s['foundTheseUpdates']; ?></p>
-    </div>
-</div>
-<table class="ui celled striped table">
-    <thead>
-        <tr>
-            <th><?php echo $s['update']; ?></th>
-            <th><?php echo $s['arch']; ?></th>
-            <th><?php echo $s['updateid']; ?></th>
-        </tr>
-    </thead>
-<?php
-foreach($updateArray as $update) {
-    echo '<tr><td>';
-    echo '<a href="./selectlang.php?id='.$update['updateId'].'"><big><b>';
-    echo $update['updateTitle'];
-    echo "</b></big></a>";
-    echo '<p><i>';
-    printf($s['buildNumber'], $update['foundBuild']);
-    echo '</i></p>';
-    echo '</td><td>';
-    echo $update['arch'];
-    echo '</td><td>';
-    echo '<code>'.$update['updateId'].'</code>';
-    echo "</td></tr>\n";
-}
-?>
-</table>
-
-<?php
+require 'templates/fetchupd.php';
 styleLower();
-?>
