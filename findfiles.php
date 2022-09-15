@@ -24,6 +24,7 @@ require_once 'api/get.php';
 require_once 'api/updateinfo.php';
 require_once 'shared/get.php';
 require_once 'shared/style.php';
+require_once 'shared/ratelimits.php';
 
 if(!$updateId) {
     fancyError('UNSPECIFIED_UPDATE', 'downloads');
@@ -32,6 +33,12 @@ if(!$updateId) {
 
 if(!checkUpdateIdValidity($updateId)) {
     fancyError('INCORRECT_ID', 'downloads');
+    die();
+}
+
+$resource = hash('sha1', strtolower("findfiles-$updateId"));
+if(checkIfUserIsRateLimited($resource, 2, 1)) {
+    fancyError('RATE_LIMITED', 'downloads');
     die();
 }
 
