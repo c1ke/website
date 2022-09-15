@@ -240,6 +240,7 @@ $s['error_INCORRECT_ID'] = 'Specified Update ID is incorrect. Please make sure t
 $s['error_RATE_LIMITED'] = 'You are being rate limited. Please try again in a few seconds.';
 $s['error_UNSPECIFIED_VE'] = 'You have not selected any additional editions. If do not wish to create additional editions, please use the <i>Download using aria2 and convert</i> option.';
 $s['error_VE_UNAVAILABLE'] = 'Additional editions are not supported for this selection.';
+$s['error_INVALID_PAGE'] = 'Specified page is invalid';
 $s['errorNoMessage'] = 'Error message unavailable.';
 
 //Languages
