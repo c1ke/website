@@ -100,116 +100,13 @@ if($search != null) {
     $htmlQuery = htmlentities($search);
 }
 
+$sha1TextArea = '';
+foreach($filesKeys as $val) {
+    $sha1TextArea .= $files[$val]['sha1'].' *'.$val."\n";
+}
 
+$templateOk = true;
 
 styleUpper('downloads', $pageTitle);
-?>
-
-<h3 class="ui centered header">
-    <div class="content">
-        <i class="fitted list icon"></i>&nbsp;
-        <?php echo htmlentities($updateName.' '.$updateArch); ?>
-    </div>
-</h3>
-
-<div class="ui top attached segment">
-    <form class="ui form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
-        <div class="field">
-            <div class="ui big action input">
-                <input type="hidden" name="id" value="<?php echo htmlentities($updateId); ?>">
-                <input type="text" name="q" value="<?php echo $htmlQuery; ?>" placeholder="<?php echo $s['searchForFiles']; ?>">
-                <button class="ui big blue icon button" type="submit"><i class="search icon"></i></button>
-            </div>
-        </div>
-    </form>
-</div>
-<div class="ui bottom attached success message">
-    <i class="search icon"></i>
-    <?php printf($s['weFoundFiles'], count($files)); ?>
-</div>
-
-<table class="ui fixed celled striped tablet stackable table">
-    <thead>
-        <tr>
-            <th class="eight wide"><?php echo $s['file']; ?></th>
-            <th class="six wide"><?php echo $s['sha1']; ?></th>
-            <th class="two wide"><?php echo $s['size']; ?></th>
-        </tr>
-    </thead>
-<?php
-$totalSize = 0;
-foreach($filesKeys as $val) {
-    $size = $files[$val]['size'];
-    $totalSize = $totalSize + $size;
-    $size = readableSize($size, 2);
-
-    echo "<tr><td><a href=\"$urlBase&file=$val\">$val</a></td>";
-    echo '<td><code>'.$files[$val]['sha1'].'</code></td><td>'.$size.'</td></tr>'."\n";
-}
-$totalSize = readableSize($totalSize, 2);
-
-if(count($filesKeys)+3 > 30) {
-    $filesRows = 30;
-} else {
-    $filesRows = count($filesKeys)+3;
-}
-?>
-</table>
-<div class="ui info message">
-    <i class="info icon"></i>
-    <?php printf($s['totalSizeOfFiles'], $totalSize); ?>
-</div>
-
-<div class="ui divider"></div>
-
-<div class="ui icon message">
-    <i class="terminal icon"></i>
-    <div class="content">
-        <div class="header"><?php echo $s['fileRenamingScript']; ?></div>
-        <p><?php echo $s['fileRenamingScriptDescFindFiles']; ?></p>
-
-        <div class="ui two columns stackable grid">
-            <div class="column">
-                <a class="ui fluid labeled icon button"
-                href="./get.php?id=<?php echo $updateId; ?>&renscript=1">
-                    <i class="windows icon"></i>
-                    <?php echo $s['fileRenamingScriptGenW']; ?>
-                </a>
-            </div>
-
-            <div class="column">
-                <a class="ui fluid labeled icon button"
-                href="./get.php?id=<?php echo $updateId; ?>&renscript=2">
-                    <i class="linux icon"></i>
-                    <?php echo $s['fileRenamingScriptGenL']; ?>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="ui divider"></div>
-
-<div class="ui icon message">
-    <i class="check circle outline icon"></i>
-    <div class="content">
-        <div class="header"><?php echo $s['sha1File']; ?></div>
-        <p><?php echo $s['sha1FileDesc']; ?></p>
-    </div>
-</div>
-
-<div class="ui form">
-    <div class="field">
-        <textarea readonly rows="<?php echo $filesRows ?>" style="font-family: monospace;">
-<?php
-foreach($filesKeys as $val) {
-    echo $files[$val]['sha1'].' *'.$val."\n";
-}
-?>
-</textarea>
-    </div>
-</div>
-
-<?php
+require 'templates/findfiles.php';
 styleLower();
-?>
