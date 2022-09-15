@@ -192,8 +192,6 @@ $s['sizeOfShownFiles'] = 'Size of shown files: %s'; //Size of shown files: 2.86 
 $s['error'] = 'Error';
 $s['requestNotSuccessful'] = 'Request not successful';
 $s['anErrorHasOccurred'] = 'An error has occurred while attempting to process your request.';
-$s['generatedPackNotAvailable'] = 'Generated pack not available';
-$s['generatedPackNotAvailableDesc'] = 'This update does not have a generated pack that provides full information about available languages, editions and files. The fallback pack will be used, and it may not provide the correct information. If the download fails because of this, please wait a while for the pack to become available.';
 $s['arm64Warning'] = 'This is an <b>ARM64</b> build which is <b>not compatible with common Intel/AMD processors</b>.<br>If you are sure that your target device has an <b>ARM64</b> processor and you didn\'t confuse it with <b>AMD64</b> you can safely continue.';
 
 //Error messages

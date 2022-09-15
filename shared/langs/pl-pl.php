@@ -192,8 +192,6 @@ $s['sizeOfShownFiles'] = 'Rozmiar widocznych plików: %s'; //Size of shown files
 $s['error'] = 'Błąd';
 $s['requestNotSuccessful'] = 'Żądanie nie powiodło się';
 $s['anErrorHasOccurred'] = 'Wystąpił błąd podczas próby przetworzenia Twojego żądania.';
-$s['generatedPackNotAvailable'] = 'Wygenerowana paczka nie jest dostępna';
-$s['generatedPackNotAvailableDesc'] = 'Aktualizacja, którą próbujesz pobrać nie posiada wygenerowanej paczki, która zawiera pełne informacje o dostępnych językach, edycjach i plikach. Zostanie użyta paczka zastępcza, która może nie zawierać poprawnych informacji. Jeżeli pobranie nie powiedzie się z tego powodu, proszę zaczekać aż automatycznie wygenerowana paczka stanie się dostępna.';
 $s['arm64Warning'] = 'To jest kompilacja <b>ARM64</b>, która <b>nie jest kompatybilna z typowymi procesorami Intel/AMD</b>.<br>Tą wiadomość można bezpiecznie zignorować w przypadku pewności, że urządzenie docelowe posiada procesor <b>ARM64</b> i nie zaszła pomyłka z <b>AMD64</b>.';
 
 //Error messages

@@ -393,19 +393,6 @@ ERROR;
     styleLower();
 }
 
-function styleNoPackWarn() {
-    global $s;
-
-    echo <<<INFO
-<table class="ui very basic very compact table">
-    <td class="center aligned"><i class="big red exclamation icon"></i></td>
-    <td><p>{$s['generatedPackNotAvailableDesc']}</p></td>
-</table>
-<div class="ui divider"></div>
-
-INFO;
-}
-
 function styleCluelessUserArm64Warn() {
     global $s;
 
