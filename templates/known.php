@@ -75,16 +75,18 @@ if(!isset($templateOk)) die();
     <?php endforeach; ?>
 </table>
 
-<div class="ui large fluid buttons">
-    <a class="ui <?= $page == 1 ? 'disabled' : '' ?> icon button" href="<?= $prevPageUrl ?>">
-        <i class="arrow left icon"></i>
-    </a>
-    <a class="ui disabled button">
-        <?= $page ?> / <?= $pages ?>
-    </p>
-    <a class="ui <?= $page == $pages ? 'disabled' : '' ?> icon button" href="<?= $nextPageUrl ?>">
-        <i class="arrow right icon"></i>
-    </a>
-</div>
+<a class="ui <?= $page == 1 ? 'disabled' : '' ?> left floated labeled icon button" href="<?= $prevPageUrl ?>">
+    <i class="arrow left icon"></i>
+    Previous
+</a>
+
+<a class="ui <?= $page == $pages ? 'disabled' : '' ?> right floated right labeled icon button" href="<?= $nextPageUrl ?>">
+    <i class="arrow right icon"></i>
+    Next
+</a>
+
+<p class="pagination-text">
+    Page <?= $page ?> of <?= $pages ?>
+</p>
 
 <script>$('.ui.checkbox').checkbox();</script>

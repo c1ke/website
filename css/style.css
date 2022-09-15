@@ -71,6 +71,15 @@ limitations under the License.
     border: 0;
 }
 
+
+.pagination-text {
+    margin-top: 1.4em;
+    margin-bottom: 1.3em;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
 .footer {
     margin-bottom: 0;
     padding-bottom: 1rem;
