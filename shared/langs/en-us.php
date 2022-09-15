@@ -87,19 +87,6 @@ $s['nextPage'] = 'Next';
 $s['prevPage'] = 'Previous';
 $s['pageOf'] = 'Page %d of %d'; //Page 1 of 48
 
-//latest.php
-$s['latestFetchLatest'] = 'Fetch the latest build';
-$s['latestTestingOnly'] = 'Testing purposes only';
-$s['latestTestingOnlyWarn'] = '<b>This page is provided for testing purposes only.</b> Builds retrieved by this page that were not processed by the backend server will be provided using fallback packs, which may provide incomplete results. If you want to download an already known build, please use the known builds page instead.';
-$s['latestDoYouWantKnown'] = 'Would you like to continue by browsing known builds?';
-$s['chooseOptions'] = 'Choose parameters';
-$s['buildOfPretendedClient'] = 'Build number of mock Windows Update client';
-$s['editionOfPretendedClient'] = 'Edition of mock system';
-$s['skipAheadLabel'] = 'Skip ahead flight';
-$s['skipAheadOption'] = 'Use skip ahead flighting (Insider Fast only)';
-$s['fetchUpdates'] = 'Fetch updates';
-$s['fetchUpdatesInfo'] = 'Click the <i>Fetch updates</i> button to send your request to Windows Update servers.';
-
 //fetchupd.php
 $s['responseFromServer'] = 'Server response';
 $s['foundUpdates'] = 'Found %d update(s)'; //Found 1 update(s)

@@ -87,19 +87,6 @@ $s['nextPage'] = 'Następna';
 $s['prevPage'] = 'Poprzednia';
 $s['pageOf'] = 'Strona %d z %d'; //Page 1 of 48
 
-//latest.php
-$s['latestFetchLatest'] = 'Znajdź najnowszą kompilację';
-$s['latestTestingOnly'] = 'Tylko do celów testowych';
-$s['latestTestingOnlyWarn'] = '<b>Ta strona jest przeznaczona wyłącznie do celów testowych.</b> Kompilacje uzyskane przy użyciu tej strony, które nie były przetworzone przez backend będą oferowane przy użyciu paczek zastępcznych, które mogą oferować niekompletne rezultaty. Jeżeli chcesz pobrać znaną już kompilację, dla najlepszych rezultatów proszę użyć strony ze znanymi kompilacjami.';
-$s['latestDoYouWantKnown'] = 'Czy chcesz kontynuować przeglądając stronę znanych kompilacji?';
-$s['chooseOptions'] = 'Wybierz opcje';
-$s['buildOfPretendedClient'] = 'Numer kompilacji udawanego klienta Windows Update';
-$s['editionOfPretendedClient'] = 'Edycja udawanego systemu';
-$s['skipAheadLabel'] = 'Lot <i>Skip Ahead</i>';
-$s['skipAheadOption'] = 'Użyj lotu <i>Skip Ahead</i> (tylko pierścień Insider Fast)';
-$s['fetchUpdates'] = 'Wyszukaj aktualizacje';
-$s['fetchUpdatesInfo'] = 'Kliknij przycisk <i>Wyszukaj aktualizacje</i> w celu wysłania swojego żądania do serwerów Windows Update.';
-
 //fetchupd.php
 $s['responseFromServer'] = 'Odpowiedź serwera';
 $s['foundUpdates'] = 'Odnaleziono aktualizacji: %d'; //Found 1 update(s)
