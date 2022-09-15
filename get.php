@@ -45,6 +45,11 @@ if(!checkUpdateIdValidity($updateId)) {
     die();
 }
 
+if(!uupApiPacksExist($updateId)) {
+    fancyError('UNSUPPORTED_COMBINATION', 'downloads');
+    die();
+}
+
 $resource = hash('sha1', strtolower("get-$updateId"));
 if(checkIfUserIsRateLimited($resource)) {
     fancyError('RATE_LIMITED', 'downloads');
@@ -198,108 +203,19 @@ if($simple) {
     die();
 }
 
+$renameTextArea = "@echo off\n";
+$renameTextArea .= "cd /d \"%~dp0\"\n";
+foreach($filesKeys as $val) {
+    $renameTextArea .= 'rename "'.$files[$val]['uuid'].'" "'.$val."\"\n";
+}
+
+$sha1TextArea = '';
+foreach($filesKeys as $val) {
+    $sha1TextArea .= $files[$val]['sha1'].' *'.$val."\n";
+}
+
+$templateOk = true;
+
 styleUpper('downloads', sprintf($s['listOfFilesFor'], "$updateName $updateArch"));
-?>
-
-<h3 class="ui centered header">
-    <div class="content">
-        <i class="fitted list icon"></i>&nbsp;
-        <?php echo htmlentities($updateName.' '.$updateArch); ?>
-    </div>
-</h3>
-
-<?php
-if(!file_exists('packs/'.$updateId.'.json.gz')) {
-    styleNoPackWarn();
-}
-
-if($updateArch == 'arm64') {
-    styleCluelessUserArm64Warn();
-}
-?>
-
-<table class="ui celled striped table">
-    <thead>
-        <tr>
-            <th><?php echo $s['file']; ?></th>
-            <th><?php echo $s['expires']; ?></th>
-            <th><?php echo $s['sha1']; ?></th>
-            <th><?php echo $s['size']; ?></th>
-        </tr>
-    </thead>
-<?php
-$totalSize = 0;
-foreach($filesKeys as $val) {
-    $size = $files[$val]['size'];
-    $totalSize = $totalSize + $size;
-    $size = readableSize($size);
-
-    echo '<tr><td><a href="'.$files[$val]['url'].'">'.$val.'</a></td><td>'.date("Y-m-d H:i:s T", $files[$val]['expire']).'</td>';
-    echo '<td><code>'.$files[$val]['sha1'].'</code></td><td>'.$size.'</td></tr>'."\n";
-}
-$totalSize = readableSize($totalSize, 2);
-
-if(count($filesKeys)+3 > 30) {
-    $filesRows = 30;
-} else {
-    $filesRows = count($filesKeys)+3;
-}
-?>
-</table>
-<div class="ui info message">
-    <i class="info icon"></i>
-    <?php printf($s['totalSizeOfFiles'], $totalSize); ?>
-</div>
-
-<div class="ui divider"></div>
-
-<div class="ui icon positive message">
-    <i class="terminal icon"></i>
-    <div class="content">
-        <div class="header"><?php echo $s['fileRenamingScript']; ?></div>
-        <p>
-            <?php echo $s['fileRenamingScriptDesc1']; ?><br>
-            <?php echo $s['fileRenamingScriptDesc2']; ?>
-        </p>
-    </div>
-</div>
-
-<div class="ui form">
-    <div class="field">
-        <textarea readonly rows="<?php echo $filesRows ?>" style="font-family: monospace;">
-@echo off
-cd /d "%~dp0"
-<?php
-foreach($filesKeys as $val) {
-    echo 'rename "'.$files[$val]['uuid'].'" "'.$val."\"\n";
-}
-?>
-</textarea>
-    </div>
-</div>
-
-<div class="ui divider"></div>
-
-<div class="ui icon positive message">
-    <i class="check circle outline icon"></i>
-    <div class="content">
-        <div class="header"><?php echo $s['sha1File']; ?></div>
-        <p><?php echo $s['sha1FileDesc']; ?></p>
-    </div>
-</div>
-
-<div class="ui form">
-    <div class="field">
-        <textarea readonly rows="<?php echo $filesRows ?>" style="font-family: monospace;">
-<?php
-foreach($filesKeys as $val) {
-    echo $files[$val]['sha1'].' *'.$val."\n";
-}
-?>
-</textarea>
-    </div>
-</div>
-
-<?php
+require 'templates/get.php';
 styleLower();
-?>
