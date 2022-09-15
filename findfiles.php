@@ -17,6 +17,7 @@ limitations under the License.
 
 $updateId = isset($_GET['id']) ? $_GET['id'] : null;
 $search = isset($_GET['q']) ? $_GET['q'] : null;
+$page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 $aria2 = isset($_GET['aria2']) ? $_GET['aria2'] : null;
 
 require_once 'api/get.php';
@@ -92,6 +93,22 @@ if($aria2) {
     die();
 }
 
+$count = count($filesKeys);
+
+$perPage = 100;
+$pages = ceil($count / $perPage);
+$startItem = ($page - 1) * $perPage;
+
+$prevPageUrl = ($page != 1) ? getUrlWithoutParam('p').'p='.$page - 1 : '';
+$nextPageUrl = ($page != $pages) ? getUrlWithoutParam('p').'p='.$page + 1 : '';
+
+if($page < 1 || $page > $pages) {
+    fancyError('INVALID_PAGE', 'downloads');
+    die();
+}
+
+$filesPaginated = array_splice($filesKeys, $startItem, $perPage);
+
 $htmlQuery = '';
 $pageTitle = sprintf($s['findFilesIn'], "$updateName $updateArch");
 
@@ -101,7 +118,7 @@ if($search != null) {
 }
 
 $sha1TextArea = '';
-foreach($filesKeys as $val) {
+foreach($filesPaginated as $val) {
     $sha1TextArea .= $files[$val]['sha1'].' *'.$val."\n";
 }
 

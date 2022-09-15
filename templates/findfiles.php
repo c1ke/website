@@ -36,7 +36,7 @@ if(!isset($templateOk)) die();
 </div>
 <div class="ui bottom attached success message">
     <i class="search icon"></i>
-    <?php printf($s['weFoundFiles'], count($files)); ?>
+    <?php printf($s['weFoundFiles'], $count); ?>
 </div>
 
 <table class="ui fixed celled striped tablet stackable table">
@@ -47,7 +47,7 @@ if(!isset($templateOk)) die();
             <th class="two wide"><?= $s['size'] ?></th>
         </tr>
     </thead>
-    <?php $totalSize = 0; foreach($filesKeys as $val): ?>
+    <?php $totalSize = 0; foreach($filesPaginated as $val): ?>
         <?php $size = $files[$val]['size']; ?>
         <?php $totalSize = $totalSize + $size; ?>
         <?php $size = readableSize($size, 2); ?>
@@ -64,13 +64,27 @@ if(!isset($templateOk)) die();
     <?php endforeach; ?>
 
     <?php $totalSize = readableSize($totalSize, 2); ?>
-    <?php $filesRows = (count($filesKeys)+3 > 30) ? 30 : count($filesKeys)+3 ?>
+    <?php $filesRows = (count($filesPaginated)+3 > 30) ? 30 : count($filesPaginated)+3 ?>
 </table>
 
 <div class="ui info message">
     <i class="info icon"></i>
-    <?php printf($s['totalSizeOfFiles'], $totalSize); ?>
+    <?php printf($s['sizeOfShownFiles'], $totalSize); ?>
 </div>
+
+<a class="ui <?= $page == 1 ? 'disabled' : '' ?> left floated labeled icon button" href="<?= $prevPageUrl ?>">
+    <i class="arrow left icon"></i>
+    <?= $s['prevPage'] ?>
+</a>
+
+<a class="ui <?= $page == $pages ? 'disabled' : '' ?> right floated right labeled icon button" href="<?= $nextPageUrl ?>">
+    <i class="arrow right icon"></i>
+    <?= $s['nextPage'] ?>
+</a>
+
+<p class="pagination-text">
+    <?php printf($s['pageOf'], $page, $pages); ?>
+</p>
 
 <div class="ui divider"></div>
 

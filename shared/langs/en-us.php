@@ -44,6 +44,7 @@ $s['unknown'] = 'Unknown';
 $s['home'] = 'Home';
 $s['downloads'] = 'Downloads';
 $s['lightMode'] = 'Light mode';
+$s['faq'] = 'FAQ';
 $s['darkMode'] = 'Dark mode';
 $s['sourceCode'] = 'Source code';
 $s['menu'] = 'Menu';
@@ -198,8 +199,7 @@ $s['fileRenamingScriptGenW'] = 'Generate renaming script (Windows)';
 $s['fileRenamingScriptGenL'] = 'Generate renaming script (Linux, macOS)';
 $s['searchForFiles'] = 'Search for files...';
 $s['weFoundFiles'] = 'We have found <b>%d</b> files for your query.'; //We have found <b>692</b> files for your query.
-
-$s['faq'] = 'FAQ';
+$s['sizeOfShownFiles'] = 'Size of shown files: %s'; //Size of shown files: 2.86 GiB
 
 //Error pages
 $s['error'] = 'Error';

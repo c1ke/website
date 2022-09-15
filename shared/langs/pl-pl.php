@@ -43,6 +43,7 @@ $s['unknown'] = 'Brak danych';
 //global
 $s['home'] = 'Strona główna';
 $s['downloads'] = 'Pobrania';
+$s['faq'] = 'Często zadawane pytania';
 $s['lightMode'] = 'Tryb jasny';
 $s['darkMode'] = 'Tryb ciemny';
 $s['sourceCode'] = 'Kod źródłowy';
@@ -198,8 +199,7 @@ $s['fileRenamingScriptGenW'] = 'Wygeneruj skrypt zmiany nazw (wersja dla Windows
 $s['fileRenamingScriptGenL'] = 'Wygeneruj skrypt zmiany nazw (wersja dla Linux oraz macOS)';
 $s['searchForFiles'] = 'Szukaj plików...';
 $s['weFoundFiles'] = 'Znaleźliśmy <b>%d</b> plików dla Twojego zapytania.'; //We have found <b>692</b> files for your query.
-
-$s['faq'] = 'Często zadawane pytania';
+$s['sizeOfShownFiles'] = 'Rozmiar widocznych plików: %s'; //Size of shown files: 2.86 GiB
 
 //Error pages
 $s['error'] = 'Błąd';
