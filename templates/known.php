@@ -77,16 +77,16 @@ if(!isset($templateOk)) die();
 
 <a class="ui <?= $page == 1 ? 'disabled' : '' ?> left floated labeled icon button" href="<?= $prevPageUrl ?>">
     <i class="arrow left icon"></i>
-    Previous
+    <?= $s['prevPage'] ?>
 </a>
 
 <a class="ui <?= $page == $pages ? 'disabled' : '' ?> right floated right labeled icon button" href="<?= $nextPageUrl ?>">
     <i class="arrow right icon"></i>
-    Next
+    <?= $s['nextPage'] ?>
 </a>
 
 <p class="pagination-text">
-    Page <?= $page ?> of <?= $pages ?>
+    <?php printf($s['pageOf'], $page, $pages); ?>
 </p>
 
 <script>$('.ui.checkbox').checkbox();</script>

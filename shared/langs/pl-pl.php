@@ -82,6 +82,9 @@ $s['browseKnown'] = 'Przeglądaj znane kompilacje';
 $s['chooseBuild'] = 'Wybierz kompilację';
 $s['weFoundBuilds'] = 'Znaleźliśmy <b>%d</b> kompilacji dla Twojego zapytania.'; //We have found <b>692</b> builds for your query.
 $s['sortByDate'] = 'Sortuj rezultaty po dacie dodania';
+$s['nextPage'] = 'Następna';
+$s['prevPage'] = 'Poprzednia';
+$s['pageOf'] = 'Strona %d z %d'; //Page 1 of 48
 
 //latest.php
 $s['latestFetchLatest'] = 'Znajdź najnowszą kompilację';
