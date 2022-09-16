@@ -352,6 +352,10 @@ function fancyError($errorCode = 'ERROR', $pageType = 'home', $moreText = 0) {
             $errorNumber = 400;
             $errorFancy = $s['error_VE_UNAVAILABLE'];
             break;
+        case 'INVALID_PAGE':
+            $errorNumber = 400;
+            $errorFancy = $s['error_INVALID_PAGE'];
+            break;
         default:
             $errorFancy = "<i>{$s['errorNoMessage']}</i><br><br>$errorCode";
             break;
@@ -387,19 +391,6 @@ function fancyError($errorCode = 'ERROR', $pageType = 'home', $moreText = 0) {
 ERROR;
 
     styleLower();
-}
-
-function styleNoPackWarn() {
-    global $s;
-
-    echo <<<INFO
-<table class="ui very basic very compact table">
-    <td class="center aligned"><i class="big red exclamation icon"></i></td>
-    <td><p>{$s['generatedPackNotAvailableDesc']}</p></td>
-</table>
-<div class="ui divider"></div>
-
-INFO;
 }
 
 function styleCluelessUserArm64Warn() {

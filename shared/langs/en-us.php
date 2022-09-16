@@ -44,6 +44,7 @@ $s['unknown'] = 'Unknown';
 $s['home'] = 'Home';
 $s['downloads'] = 'Downloads';
 $s['lightMode'] = 'Light mode';
+$s['faq'] = 'FAQ';
 $s['darkMode'] = 'Dark mode';
 $s['sourceCode'] = 'Source code';
 $s['menu'] = 'Menu';
@@ -82,19 +83,9 @@ $s['browseKnown'] = 'Browse known builds';
 $s['chooseBuild'] = 'Choose build';
 $s['weFoundBuilds'] = '<b>%d</b> builds were found for your query.'; //<b>692</b> builds were found for your query.
 $s['sortByDate'] = 'Sort results by addition date';
-
-//latest.php
-$s['latestFetchLatest'] = 'Fetch the latest build';
-$s['latestTestingOnly'] = 'Testing purposes only';
-$s['latestTestingOnlyWarn'] = '<b>This page is provided for testing purposes only.</b> Builds retrieved by this page that were not processed by the backend server will be provided using fallback packs, which may provide incomplete results. If you want to download an already known build, please use the known builds page instead.';
-$s['latestDoYouWantKnown'] = 'Would you like to continue by browsing known builds?';
-$s['chooseOptions'] = 'Choose parameters';
-$s['buildOfPretendedClient'] = 'Build number of mock Windows Update client';
-$s['editionOfPretendedClient'] = 'Edition of mock system';
-$s['skipAheadLabel'] = 'Skip ahead flight';
-$s['skipAheadOption'] = 'Use skip ahead flighting (Insider Fast only)';
-$s['fetchUpdates'] = 'Fetch updates';
-$s['fetchUpdatesInfo'] = 'Click the <i>Fetch updates</i> button to send your request to Windows Update servers.';
+$s['nextPage'] = 'Next';
+$s['prevPage'] = 'Previous';
+$s['pageOf'] = 'Page %d of %d'; //Page 1 of 48
 
 //fetchupd.php
 $s['responseFromServer'] = 'Server response';
@@ -195,15 +186,12 @@ $s['fileRenamingScriptGenW'] = 'Generate renaming script (Windows)';
 $s['fileRenamingScriptGenL'] = 'Generate renaming script (Linux, macOS)';
 $s['searchForFiles'] = 'Search for files...';
 $s['weFoundFiles'] = 'We have found <b>%d</b> files for your query.'; //We have found <b>692</b> files for your query.
-
-$s['faq'] = 'FAQ';
+$s['sizeOfShownFiles'] = 'Size of shown files: %s'; //Size of shown files: 2.86 GiB
 
 //Error pages
 $s['error'] = 'Error';
 $s['requestNotSuccessful'] = 'Request not successful';
 $s['anErrorHasOccurred'] = 'An error has occurred while attempting to process your request.';
-$s['generatedPackNotAvailable'] = 'Generated pack not available';
-$s['generatedPackNotAvailableDesc'] = 'This update does not have a generated pack that provides full information about available languages, editions and files. The fallback pack will be used, and it may not provide the correct information. If the download fails because of this, please wait a while for the pack to become available.';
 $s['arm64Warning'] = 'This is an <b>ARM64</b> build which is <b>not compatible with common Intel/AMD processors</b>.<br>If you are sure that your target device has an <b>ARM64</b> processor and you didn\'t confuse it with <b>AMD64</b> you can safely continue.';
 
 //Error messages
@@ -237,6 +225,7 @@ $s['error_INCORRECT_ID'] = 'Specified Update ID is incorrect. Please make sure t
 $s['error_RATE_LIMITED'] = 'You are being rate limited. Please try again in a few seconds.';
 $s['error_UNSPECIFIED_VE'] = 'You have not selected any additional editions. If do not wish to create additional editions, please use the <i>Download using aria2 and convert</i> option.';
 $s['error_VE_UNAVAILABLE'] = 'Additional editions are not supported for this selection.';
+$s['error_INVALID_PAGE'] = 'Specified page is invalid';
 $s['errorNoMessage'] = 'Error message unavailable.';
 
 //Languages

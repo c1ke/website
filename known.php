@@ -16,6 +16,7 @@ limitations under the License.
 */
 
 $search = isset($_GET['q']) ? $_GET['q'] : null;
+$page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 $sort = isset($_GET['sort']) ? $_GET['sort'] : null;
 
 require_once 'api/listid.php';
@@ -33,6 +34,21 @@ if(!isset($ids['builds']) || empty($ids['builds'])) {
 }
 
 $ids = $ids['builds'];
+$count = count($ids);
+
+$perPage = 100;
+$pages = ceil($count / $perPage);
+$startItem = ($page - 1) * $perPage;
+
+$prevPageUrl = ($page != 1) ? getUrlWithoutParam('p').'p='.$page - 1 : '';
+$nextPageUrl = ($page != $pages) ? getUrlWithoutParam('p').'p='.$page + 1 : '';
+
+if($page < 1 || $page > $pages) {
+    fancyError('INVALID_PAGE', 'downloads');
+    die();
+}
+
+$idsPaginated = array_splice($ids, $startItem, $perPage);
 
 if($search != null) {
     $pageTitle = "$search - {$s['browseKnown']}";
@@ -43,70 +59,8 @@ if($search != null) {
 }
 
 $dateSortChecked = $sort ? 'checked' : '';
+$templateOk = true;
 
 styleUpper('downloads', $pageTitle);
-?>
-
-<h3 class="ui centered header">
-    <div class="content">
-        <i class="fitted shopping basket icon"></i>&nbsp;
-        <?php echo $s['browseKnown']; ?>
-    </div>
-</h3>
-
-<div class="ui top attached segment">
-    <form class="ui form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
-        <div class="field">
-            <div class="ui big action input">
-                <input type="text" name="q" value="<?php echo $htmlQuery ?>" placeholder="<?php echo $s['seachForBuilds']; ?>">
-                <button class="ui big blue icon button" type="submit"><i class="search icon"></i></button>
-            </div>
-        </div>
-        <div class="field">
-            <div class="ui checkbox">
-                <input type="checkbox" name="sort" value="1" <?php echo $dateSortChecked; ?>>
-                <label><?php echo $s['sortByDate']; ?></label>
-            </div>
-        </div>
-    </form>
-</div>
-<div class="ui bottom attached success message">
-    <i class="search icon"></i>
-    <?php printf($s['weFoundBuilds'], count($ids)); ?>
-</div>
-
-<table class="ui celled striped table">
-    <thead>
-        <tr>
-            <th><?php echo $s['build']; ?></th>
-            <th><?php echo $s['arch']; ?></th>
-            <th><?php echo $s['dateAdded']; ?></th>
-        </tr>
-    </thead>
-<?php
-foreach($ids as $val) {
-    $arch = $val['arch'];
-    if($arch == 'amd64') $arch = 'x64';
-
-    echo '<tr><td>';
-    echo '<i class="windows icon"></i>';
-    echo '<a href="./selectlang.php?id='.htmlentities($val['uuid']).'">'
-         .htmlentities($val['title']).' '.htmlentities($val['arch'])."</a>";
-    echo '</td><td>';
-    echo $arch;
-    echo '</td><td>';
-    if($val['created'] == null) {
-       echo 'Unknown';
-    } else {
-       echo date("Y-m-d H:i:s T", $val['created']);
-    }
-    echo "</td></tr>\n";
-}
-?>
-</table>
-
-<script>$('.ui.checkbox').checkbox();</script>
-
-<?php
+require 'templates/known.php';
 styleLower();
-?>

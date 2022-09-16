@@ -34,6 +34,11 @@ if(!checkUpdateIdValidity($updateId)) {
     die();
 }
 
+if(!uupApiPacksExist($updateId)) {
+    fancyError('UNSUPPORTED_LANG', 'downloads');
+    die();
+}
+
 $updateInfo = uupUpdateInfo($updateId, ignoreFiles: true);
 $updateInfo = isset($updateInfo['info']) ? $updateInfo['info'] : array();
 
@@ -56,6 +61,7 @@ if(!isset($updateInfo['sku'])) {
 }
 
 $hiddenEditions = ['PPIPRO'];
+$recommendedEditions = ['CORE', 'PROFESSIONAL'];
 
 $build = isset($updateInfo['build']) ? $updateInfo['build'] : null;
 $buildNum = uupApiBuildMajor($build);
@@ -94,213 +100,13 @@ if($selectedLang) {
 
 $editionsNum = count($editions);
 
-if($editionsNum == 1) foreach($editions as $key => $val) {
-    if($key == 'APP') $disableVE = 1;
-}
+$recommend = !array_diff($recommendedEditions, array_keys($editions));
+
+if($editionsNum == 1 && isset($editions['APP'])) 
+    $disableVE = 1;
+
+$templateOk = true;
 
 styleUpper('downloads', sprintf($s['selectEditionFor'], "$updateTitle, $selectedLangName"));
-?>
-
-<h3 class="ui centered header">
-    <div class="content">
-        <i class="fitted cubes icon"></i>&nbsp;
-        <?php echo htmlentities($updateTitle); ?>
-    </div>
-</h3>
-
-<?php
-if(!file_exists('packs/'.$updateId.'.json.gz')) {
-    styleNoPackWarn();
-}
-
-if($updateArch == 'arm64') {
-    styleCluelessUserArm64Warn();
-}
-?>
-
-<div class="ui equal width mobile stackable grid">
-    <div class="column">
-        <h3 class="ui header">
-            <i class="archive icon"></i>
-            <div class="content">
-                <?php echo $s['chooseEdition']; ?>
-                <div class="sub header"><?php echo $s['chooseEditionDesc']; ?></div>
-            </div>
-        </h3>
-        <form class="ui form" action="prepdl.php" method="post">
-            <input type="hidden" name="id" value="<?php echo $updateId; ?>">
-            <input type="hidden" name="pack" value="<?php echo $selectedLang; ?>">
-
-            <div class="field">
-                <label><?php echo $s['lang']; ?></label>
-                <p>
-                    <i class="green checkmark icon"></i>
-                    <?php echo $selectedLangName; ?>
-                </p>
-            </div>
-
-            <div class="field">
-                <label><?php echo $s['edition']; ?></label>
-                <div class="grouped fields">
-<?php
-foreach($editions as $key => $val) {
-    $isHidden = $editionsNum > 1 && in_array($key, $hiddenEditions);
-    $checked = $isHidden ? '' : 'checked';
-    $classHidden = $isHidden ? 'hidden-edition' : '';
-
-    echo <<<EOD
-<div class="field $classHidden">
-    <div class="ui checkbox">
-        <input type="checkbox" name="edition[]" value="$key" class="edition-selection" $checked>
-        <label>$val</label>
-    </div>
-</div>
-
-EOD;
-}
-?>
-                    <button id="show-hidden-editions" type="button" class="ui mini button" style="display: none;">
-                        <?php echo $s['showHiddenEditions']; ?>
-                    </button>
-                </div>
-            </div>
-
-            <p><?php if(!$disableVE) echo $s['additionalEditionsInfo']; ?></p>
-
-            <button id="edition-selection-confirm" class="ui fluid right labeled icon primary button" type="submit">
-                <i class="right arrow icon"></i>
-                <?php echo $s['next']; ?>
-            </button>
-            <div class="ui info message">
-                <i class="info icon"></i>
-                <?php echo $s['selectEditionInfoText']; ?>
-            </div>
-        </form>
-    </div>
-
-<?php
-if(!$disableVE) {
-    echo <<<EOD
-<div class="column">
-    <table class="ui very compact celled table">
-        <thead>
-            <th>{$s['additionalEdition']}</th>
-            <th>{$s['requiredEdition']}</th>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Windows Home Single Language</td>
-                <td>Windows Home</td>
-            </tr>
-            <tr>
-                <td>Windows Pro for Workstations</td>
-                <td>Windows Pro</td>
-            </tr>
-            <tr>
-                <td>Windows Pro Education</td>
-                <td>Windows Pro</td>
-            </tr>
-            <tr>
-                <td>Windows Education</td>
-                <td>Windows Pro</td>
-            </tr>
-            <tr>
-                <td>Windows Enterprise</td>
-                <td>Windows Pro</td>
-            </tr>
-            <tr>
-                <td>Windows Enterprise multi-session / Virtual Desktops</td>
-                <td>Windows Pro</td>
-            </tr>
-            <tr>
-                <td>Windows IoT Enterprise</td>
-                <td>Windows Pro</td>
-            </tr>
-            <tr>
-                <td>Windows Pro for Workstations N</td>
-                <td>Windows Pro N</td>
-            </tr>
-            <tr>
-                <td>Windows Pro Education N</td>
-                <td>Windows Pro N</td>
-            </tr>
-            <tr>
-                <td>Windows Education N</td>
-                <td>Windows Pro N</td>
-            </tr>
-            <tr>
-                <td>Windows Enterprise N</td>
-                <td>Windows Pro N</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-EOD;
-}
-?>
-
-</div>
-
-<div class="ui fluid tiny three steps">
-      <div class="completed step">
-            <i class="world icon"></i>
-            <div class="content">
-                <div class="title"><?php echo $s['chooseLang']; ?></div>
-                <div class="description"><?php echo $s['chooseLangDesc']; ?></div>
-            </div>
-      </div>
-
-      <div class="active step">
-            <i class="archive icon"></i>
-            <div class="content">
-                <div class="title"><?php echo $s['chooseEdition']; ?></div>
-                <div class="description"><?php echo $s['chooseEditionDesc']; ?></div>
-            </div>
-      </div>
-
-      <div class="step">
-            <i class="briefcase icon"></i>
-            <div class="content">
-                <div class="title"><?php echo $s['summary']; ?></div>
-                <div class="description"><?php echo $s['summaryDesc']; ?></div>
-            </div>
-      </div>
-</div>
-
-<script>
-$('.ui.checkbox').checkbox();
-
-function checkEditions() {
-    if($('.edition-selection:checked').length == 0) {
-        $('#edition-selection-confirm').prop('disabled', 1);
-    } else {
-        $('#edition-selection-confirm').prop('disabled', 0);
-    }
-}
-
-function showHiddenEditions() {
-    $('.hidden-edition').show();
-    $('.hidden-edition .edition-selection').prop('disabled', 0);
-    $('#show-hidden-editions').hide();
-}
-
-$('.edition-selection').on('click change', function() {
-    checkEditions();
-});
-
-$('#show-hidden-editions').on('click', function() {
-    showHiddenEditions();
-});
-
-if($('.hidden-edition').length > 0) {
-    $('#show-hidden-editions').show();
-    $('.hidden-edition .edition-selection').prop('disabled', 1);
-    $('.hidden-edition').hide();    
-}
-
-checkEditions();
-</script>
-
-<?php
+require 'templates/selectedition.php';
 styleLower();
-?>

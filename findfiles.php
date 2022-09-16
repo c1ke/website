@@ -17,12 +17,14 @@ limitations under the License.
 
 $updateId = isset($_GET['id']) ? $_GET['id'] : null;
 $search = isset($_GET['q']) ? $_GET['q'] : null;
+$page = isset($_GET['p']) ? intval($_GET['p']) : 1;
 $aria2 = isset($_GET['aria2']) ? $_GET['aria2'] : null;
 
 require_once 'api/get.php';
 require_once 'api/updateinfo.php';
 require_once 'shared/get.php';
 require_once 'shared/style.php';
+require_once 'shared/ratelimits.php';
 
 if(!$updateId) {
     fancyError('UNSPECIFIED_UPDATE', 'downloads');
@@ -31,6 +33,12 @@ if(!$updateId) {
 
 if(!checkUpdateIdValidity($updateId)) {
     fancyError('INCORRECT_ID', 'downloads');
+    die();
+}
+
+$resource = hash('sha1', strtolower("findfiles-$updateId"));
+if(checkIfUserIsRateLimited($resource, 2, 1)) {
+    fancyError('RATE_LIMITED', 'downloads');
     die();
 }
 
@@ -92,6 +100,22 @@ if($aria2) {
     die();
 }
 
+$count = count($filesKeys);
+
+$perPage = 100;
+$pages = ceil($count / $perPage);
+$startItem = ($page - 1) * $perPage;
+
+$prevPageUrl = ($page != 1) ? getUrlWithoutParam('p').'p='.$page - 1 : '';
+$nextPageUrl = ($page != $pages) ? getUrlWithoutParam('p').'p='.$page + 1 : '';
+
+if($page < 1 || $page > $pages) {
+    fancyError('INVALID_PAGE', 'downloads');
+    die();
+}
+
+$filesPaginated = array_splice($filesKeys, $startItem, $perPage);
+
 $htmlQuery = '';
 $pageTitle = sprintf($s['findFilesIn'], "$updateName $updateArch");
 
@@ -100,116 +124,13 @@ if($search != null) {
     $htmlQuery = htmlentities($search);
 }
 
+$sha1TextArea = '';
+foreach($filesPaginated as $val) {
+    $sha1TextArea .= $files[$val]['sha1'].' *'.$val."\n";
+}
 
+$templateOk = true;
 
 styleUpper('downloads', $pageTitle);
-?>
-
-<h3 class="ui centered header">
-    <div class="content">
-        <i class="fitted list icon"></i>&nbsp;
-        <?php echo htmlentities($updateName.' '.$updateArch); ?>
-    </div>
-</h3>
-
-<div class="ui top attached segment">
-    <form class="ui form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
-        <div class="field">
-            <div class="ui big action input">
-                <input type="hidden" name="id" value="<?php echo htmlentities($updateId); ?>">
-                <input type="text" name="q" value="<?php echo $htmlQuery; ?>" placeholder="<?php echo $s['searchForFiles']; ?>">
-                <button class="ui big blue icon button" type="submit"><i class="search icon"></i></button>
-            </div>
-        </div>
-    </form>
-</div>
-<div class="ui bottom attached success message">
-    <i class="search icon"></i>
-    <?php printf($s['weFoundFiles'], count($files)); ?>
-</div>
-
-<table class="ui fixed celled striped tablet stackable table">
-    <thead>
-        <tr>
-            <th class="eight wide"><?php echo $s['file']; ?></th>
-            <th class="six wide"><?php echo $s['sha1']; ?></th>
-            <th class="two wide"><?php echo $s['size']; ?></th>
-        </tr>
-    </thead>
-<?php
-$totalSize = 0;
-foreach($filesKeys as $val) {
-    $size = $files[$val]['size'];
-    $totalSize = $totalSize + $size;
-    $size = readableSize($size, 2);
-
-    echo "<tr><td><a href=\"$urlBase&file=$val\">$val</a></td>";
-    echo '<td><code>'.$files[$val]['sha1'].'</code></td><td>'.$size.'</td></tr>'."\n";
-}
-$totalSize = readableSize($totalSize, 2);
-
-if(count($filesKeys)+3 > 30) {
-    $filesRows = 30;
-} else {
-    $filesRows = count($filesKeys)+3;
-}
-?>
-</table>
-<div class="ui info message">
-    <i class="info icon"></i>
-    <?php printf($s['totalSizeOfFiles'], $totalSize); ?>
-</div>
-
-<div class="ui divider"></div>
-
-<div class="ui icon message">
-    <i class="terminal icon"></i>
-    <div class="content">
-        <div class="header"><?php echo $s['fileRenamingScript']; ?></div>
-        <p><?php echo $s['fileRenamingScriptDescFindFiles']; ?></p>
-
-        <div class="ui two columns stackable grid">
-            <div class="column">
-                <a class="ui fluid labeled icon button"
-                href="./get.php?id=<?php echo $updateId; ?>&renscript=1">
-                    <i class="windows icon"></i>
-                    <?php echo $s['fileRenamingScriptGenW']; ?>
-                </a>
-            </div>
-
-            <div class="column">
-                <a class="ui fluid labeled icon button"
-                href="./get.php?id=<?php echo $updateId; ?>&renscript=2">
-                    <i class="linux icon"></i>
-                    <?php echo $s['fileRenamingScriptGenL']; ?>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="ui divider"></div>
-
-<div class="ui icon message">
-    <i class="check circle outline icon"></i>
-    <div class="content">
-        <div class="header"><?php echo $s['sha1File']; ?></div>
-        <p><?php echo $s['sha1FileDesc']; ?></p>
-    </div>
-</div>
-
-<div class="ui form">
-    <div class="field">
-        <textarea readonly rows="<?php echo $filesRows ?>" style="font-family: monospace;">
-<?php
-foreach($filesKeys as $val) {
-    echo $files[$val]['sha1'].' *'.$val."\n";
-}
-?>
-</textarea>
-    </div>
-</div>
-
-<?php
+require 'templates/findfiles.php';
 styleLower();
-?>

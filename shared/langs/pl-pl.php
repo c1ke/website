@@ -43,6 +43,7 @@ $s['unknown'] = 'Brak danych';
 //global
 $s['home'] = 'Strona główna';
 $s['downloads'] = 'Pobrania';
+$s['faq'] = 'Często zadawane pytania';
 $s['lightMode'] = 'Tryb jasny';
 $s['darkMode'] = 'Tryb ciemny';
 $s['sourceCode'] = 'Kod źródłowy';
@@ -82,19 +83,9 @@ $s['browseKnown'] = 'Przeglądaj znane kompilacje';
 $s['chooseBuild'] = 'Wybierz kompilację';
 $s['weFoundBuilds'] = 'Znaleźliśmy <b>%d</b> kompilacji dla Twojego zapytania.'; //We have found <b>692</b> builds for your query.
 $s['sortByDate'] = 'Sortuj rezultaty po dacie dodania';
-
-//latest.php
-$s['latestFetchLatest'] = 'Znajdź najnowszą kompilację';
-$s['latestTestingOnly'] = 'Tylko do celów testowych';
-$s['latestTestingOnlyWarn'] = '<b>Ta strona jest przeznaczona wyłącznie do celów testowych.</b> Kompilacje uzyskane przy użyciu tej strony, które nie były przetworzone przez backend będą oferowane przy użyciu paczek zastępcznych, które mogą oferować niekompletne rezultaty. Jeżeli chcesz pobrać znaną już kompilację, dla najlepszych rezultatów proszę użyć strony ze znanymi kompilacjami.';
-$s['latestDoYouWantKnown'] = 'Czy chcesz kontynuować przeglądając stronę znanych kompilacji?';
-$s['chooseOptions'] = 'Wybierz opcje';
-$s['buildOfPretendedClient'] = 'Numer kompilacji udawanego klienta Windows Update';
-$s['editionOfPretendedClient'] = 'Edycja udawanego systemu';
-$s['skipAheadLabel'] = 'Lot <i>Skip Ahead</i>';
-$s['skipAheadOption'] = 'Użyj lotu <i>Skip Ahead</i> (tylko pierścień Insider Fast)';
-$s['fetchUpdates'] = 'Wyszukaj aktualizacje';
-$s['fetchUpdatesInfo'] = 'Kliknij przycisk <i>Wyszukaj aktualizacje</i> w celu wysłania swojego żądania do serwerów Windows Update.';
+$s['nextPage'] = 'Następna';
+$s['prevPage'] = 'Poprzednia';
+$s['pageOf'] = 'Strona %d z %d'; //Page 1 of 48
 
 //fetchupd.php
 $s['responseFromServer'] = 'Odpowiedź serwera';
@@ -129,7 +120,7 @@ $s['chooseEdition'] = 'Wybierz edycję';
 $s['chooseEditionDesc'] = 'Wybierz żądaną edycję';
 $s['allEditions'] = 'Wszystkie edycje';
 $s['selectEditionInfoText'] = 'Kliknij przycisk <i>Dalej</i> w celu otworzenia strony z podsumowaniem wyboru.';
-$s['additionalEditionsInfo'] = 'W przypadku, gdy wymagana jest dodatkowa edycja znajdująca się w tabeli z prawej strony, proszę wybrać odpowiednią wymaganą edycję i kliknąć <i>Dalej</i>. Po przejściu do strony podsumowania można będzie dokonać wyboru żądanej dodatkowej edycji przy użyciu odpowiedniej opcji pobrania.';
+$s['additionalEditionsInfo'] = 'W przypadku, gdy potrzebna jest <b>dodatkowa edycja</b> znajdująca się w tabeli po prawej, wybierz <b>wymaganą edycję</b> powyżej i kontynuuj używając przycisku <i>Dalej</i>.<br>Na stronie podsumowania użyj opcji <b>Utwórz dodatkowe edycje</b>.';
 $s['showHiddenEditions'] = 'Wyświetl ukryte edycje (niezalecane)';
 
 //download.php
@@ -195,15 +186,12 @@ $s['fileRenamingScriptGenW'] = 'Wygeneruj skrypt zmiany nazw (wersja dla Windows
 $s['fileRenamingScriptGenL'] = 'Wygeneruj skrypt zmiany nazw (wersja dla Linux oraz macOS)';
 $s['searchForFiles'] = 'Szukaj plików...';
 $s['weFoundFiles'] = 'Znaleźliśmy <b>%d</b> plików dla Twojego zapytania.'; //We have found <b>692</b> files for your query.
-
-$s['faq'] = 'Często zadawane pytania';
+$s['sizeOfShownFiles'] = 'Rozmiar widocznych plików: %s'; //Size of shown files: 2.86 GiB
 
 //Error pages
 $s['error'] = 'Błąd';
 $s['requestNotSuccessful'] = 'Żądanie nie powiodło się';
 $s['anErrorHasOccurred'] = 'Wystąpił błąd podczas próby przetworzenia Twojego żądania.';
-$s['generatedPackNotAvailable'] = 'Wygenerowana paczka nie jest dostępna';
-$s['generatedPackNotAvailableDesc'] = 'Aktualizacja, którą próbujesz pobrać nie posiada wygenerowanej paczki, która zawiera pełne informacje o dostępnych językach, edycjach i plikach. Zostanie użyta paczka zastępcza, która może nie zawierać poprawnych informacji. Jeżeli pobranie nie powiedzie się z tego powodu, proszę zaczekać aż automatycznie wygenerowana paczka stanie się dostępna.';
 $s['arm64Warning'] = 'To jest kompilacja <b>ARM64</b>, która <b>nie jest kompatybilna z typowymi procesorami Intel/AMD</b>.<br>Tą wiadomość można bezpiecznie zignorować w przypadku pewności, że urządzenie docelowe posiada procesor <b>ARM64</b> i nie zaszła pomyłka z <b>AMD64</b>.';
 
 //Error messages
@@ -237,6 +225,7 @@ $s['error_INCORRECT_ID'] = 'Określony identyfikator aktualizacji nie jest popra
 $s['error_RATE_LIMITED'] = 'Szybkość Twoich żądań została ograniczona. Proszę spróbować ponownie za kilka sekund.';
 $s['error_UNSPECIFIED_VE'] = 'Nie wybrano żadnych edycji dodatkowych. Jeżeli nie chcesz tworzyć edycji dodatkowych, wybierz opcję <i>Pobierz przy użyciu programu aria2 i przekonwertuj</i>.';
 $s['error_VE_UNAVAILABLE'] = 'Dodatkowe edycje nie są obsługiwane dla tego wyboru.';
+$s['error_INVALID_PAGE'] = 'Podana strona jest nieprawidłowa';
 $s['errorNoMessage'] = 'Wiadomość o błędzie nie jest dostępna.';
 
 //Languages

@@ -129,14 +129,10 @@ set "uupConv=files\\uup-converter-wimlib.7z"
 set "aria2Script=files\\aria2_script.%random%.txt"
 set "destDir=UUPs"
 
-if NOT EXIST %aria2% call :DOWNLOAD_ARIA2 || (echo aria2c download failed & exit /b)
-if NOT EXIST ConvertConfig.ini goto :NO_FILE_ERROR
-
-echo Downloading converters...
-"%aria2%" --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j5 --allow-overwrite=true --auto-file-renaming=false -d"files" -i"files/converter_win"
-if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
+powershell -NoProfile -ExecutionPolicy Unrestricted .\\files\\depends_win.ps1 || (pause & exit /b 1)
 echo.
 
+if NOT EXIST ConvertConfig.ini goto :NO_FILE_ERROR
 if NOT EXIST %a7z% goto :NO_FILE_ERROR
 if NOT EXIST %uupConv% goto :NO_FILE_ERROR
 
@@ -169,11 +165,6 @@ goto :EOF
 :START_CONVERT
 call convert-UUP.cmd
 goto :EOF
-
-:DOWNLOAD_ARIA2
-if NOT EXIST files mkdir files
-powershell -NoProfile Invoke-WebRequest -UseBasicParsing -Uri "https://github.com/uup-dump/containment-zone/raw/master/aria2c.exe" -OutFile %aria2%
-exit /b
 
 :NO_FILE_ERROR
 echo We couldn't find one of needed files for this script.
@@ -357,8 +348,8 @@ CONFIG;
         die('converter_multi does not exist');
     }
 
-    if(!file_exists($currDir.'/autodl_files/converter_win')) {
-        die('converter_win does not exist');
+    if(!file_exists($currDir.'/autodl_files/depends_win.ps1')) {
+        die('depends_win.ps1 does not exist');
     }
 
     $zip->addFromString('uup_download_windows.cmd', $cmdScript);
@@ -368,7 +359,7 @@ CONFIG;
     $zip->addFromString('files/convert_config_linux', $convertConfigLinux);
     $zip->addFromString('files/convert_config_macos', $convertConfigLinux);
     $zip->addFile($currDir.'/autodl_files/converter_multi', 'files/converter_multi');
-    $zip->addFile($currDir.'/autodl_files/converter_win', 'files/converter_win');
+    $zip->addFile($currDir.'/autodl_files/depends_win.ps1', 'files/depends_win.ps1');
     $zip->close();
 
     if($virtualEditions) {
@@ -459,7 +450,8 @@ set "aria2Script=files\\aria2_script.%random%.txt"
 set "destDir=UUPs"
 
 cd /d "%~dp0"
-if NOT EXIST %aria2% call :DOWNLOAD_ARIA2 || (echo aria2c download failed & exit /b)
+powershell -NoProfile -ExecutionPolicy Unrestricted .\\files\\depends_win.ps1 -ForDownload || (pause & exit /b 1)
+echo.
 $downloadapp
 echo Retrieving aria2 script...
 "%aria2%" --no-conf --log-level=info --log="aria2_download.log" -o"%aria2Script%" --allow-overwrite=true --auto-file-renaming=false "$url"
@@ -480,11 +472,6 @@ if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
 
 pause
 goto EOF
-
-:DOWNLOAD_ARIA2
-if NOT EXIST files mkdir files
-powershell -NoProfile Invoke-WebRequest -UseBasicParsing -Uri "https://github.com/uup-dump/containment-zone/raw/master/aria2c.exe" -OutFile %aria2%
-exit /b
 
 :DOWNLOAD_ERROR
 echo.
@@ -564,10 +551,15 @@ SCRIPT;
     $archive = @tempnam($currDir.'/tmp', 'zip');
     $open = $zip->open($archive, ZipArchive::CREATE+ZipArchive::OVERWRITE);
 
+    if(!file_exists($currDir.'/autodl_files/depends_win.ps1')) {
+        die('depends_win.ps1 does not exist');
+    }
+
     if($open === TRUE) {
         $zip->addFromString('uup_download_windows.cmd', $cmdScript);
         $zip->addFromString('uup_download_linux.sh', $shellScript);
         $zip->addFromString('uup_download_macos.sh', $shellScript);
+        $zip->addFile($currDir.'/autodl_files/depends_win.ps1', 'files/depends_win.ps1');
         $zip->close();
     } else {
         echo 'Failed to create archive.';
