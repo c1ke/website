@@ -186,7 +186,7 @@ $s['fileRenamingScriptGenW'] = '生成重命名脚本（Windows）';
 $s['fileRenamingScriptGenL'] = '生成重命名脚本（Linux、macOS）';
 $s['searchForFiles'] = '查找文件……';
 $s['weFoundFiles'] = '在你的查询中我们找到了 <b>%d</b> 个文件。'; //We have found <b>692</b> files for your query.
-$s['sizeOfShownFiles'] = 'Size of shown files: %s'; //Size of shown files: 2.86 GiB
+$s['sizeOfShownFiles'] = '显示文件大小：%s'; //Size of shown files: 2.86 GiB
 
 //Error pages
 $s['error'] = '错误';
@@ -224,8 +224,8 @@ $s['error_UNSPECIFIED_UPDATE'] = '未指定更新 ID。';
 $s['error_INCORRECT_ID'] = '指定的更新 ID 不正确。 请确保指定的更新 ID 正确无误。';
 $s['error_RATE_LIMITED'] = '你受到了限制，请在几秒钟后重试。';
 $s['error_UNSPECIFIED_VE'] = '你尚未选择任何其他版本。如果不想创建其他版本，请选择<i>使用 aria2 下载并转换</i>选项。';
-$s['error_VE_UNAVAILABLE'] = 'Additional editions are not supported for this selection.';
-$s['error_INVALID_PAGE'] = 'Specified page is invalid';
+$s['error_VE_UNAVAILABLE'] = '此选择不支持其他版本。';
+$s['error_INVALID_PAGE'] = '指定的页面无效';
 $s['errorNoMessage'] = '错误消息不可用。';
 
 //Languages
