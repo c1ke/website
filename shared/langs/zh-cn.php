@@ -44,6 +44,7 @@ $s['unknown'] = '未知';
 $s['home'] = '首页';
 $s['downloads'] = '下载';
 $s['lightMode'] = '浅色模式';
+$s['faq'] = '常见问题';
 $s['darkMode'] = '深色模式';
 $s['sourceCode'] = '源代码';
 $s['menu'] = '菜单';
@@ -81,20 +82,10 @@ $s['dateAdded'] = '添加日期';
 $s['browseKnown'] = '浏览已知内部版本';
 $s['chooseBuild'] = '选择内部版本';
 $s['weFoundBuilds'] = '根据你的查询，我们找到了 <b>%d</b> 个内部版本。'; //<b>692</b> builds were found for your query.
-
-//latest.php
-$s['latestFetchLatest'] = '获取最新内部版本';
-$s['latestTestingOnly'] = '仅用于测试目的';
-$s['latestTestingOnlyWarn'] = '<b>此页面仅供测试目的。</b>此页面检索到的内部版本未被后端服务器处理，因此仅提供替代包，并且可能仅有不完整的检索结果。如果要下载已知的内部版本，请使用已知内部版本的下载页面。';
-$s['latestDoYouWantKnown'] = '你想继续浏览已知内部版本列表吗？';
-$s['chooseOptions'] = '选择选项';
-$s['buildOfPretendedClient'] = '模拟 Windows 更新客户端内部版本号';
-$s['editionOfPretendedClient'] = '模拟系统版本';
-$s['skipAheadLabel'] = '跳跃预览通道';
-$s['skipAheadOption'] = '使用跳跃预览通道（仅限快速环）';
-$s['fetchUpdates'] = '获取更新';
-$s['fetchUpdatesInfo'] = '点击<i>获取更新</i>按钮将你的请求发送到 Windows 更新服务器。';
 $s['sortByDate'] = '按添加日期排序结果';
+$s['nextPage'] = '下一页';
+$s['prevPage'] = '上一页';
+$s['pageOf'] = '第 %d 页，共 %d 页'; //Page 1 of 48
 
 //fetchupd.php
 $s['responseFromServer'] = '来自服务器的响应';
@@ -195,15 +186,12 @@ $s['fileRenamingScriptGenW'] = '生成重命名脚本（Windows）';
 $s['fileRenamingScriptGenL'] = '生成重命名脚本（Linux、macOS）';
 $s['searchForFiles'] = '查找文件……';
 $s['weFoundFiles'] = '在你的查询中我们找到了 <b>%d</b> 个文件。'; //We have found <b>692</b> files for your query.
-
-$s['faq'] = '常见问题';
+$s['sizeOfShownFiles'] = 'Size of shown files: %s'; //Size of shown files: 2.86 GiB
 
 //Error pages
 $s['error'] = '错误';
 $s['requestNotSuccessful'] = '请求未成功';
 $s['anErrorHasOccurred'] = '在尝试处理你的请求时发生错误。';
-$s['generatedPackNotAvailable'] = '生成的包不可用';
-$s['generatedPackNotAvailableDesc'] = '你尝试下载的更新没有提供包含有关可用语言、版本和文件的完整信息用以生成包，因此将提供替代包。它可能无法提供正确的信息。如果因此导致下载失败，请等待自动生成的可用包。';
 $s['arm64Warning'] = '你选择的 ARM64 版本<b>仅与基于 ARM64 的设备兼容</b>，并且不适用于常规基于 Intel 或 AMD 的 PC。对于 <b>64 位</b>的 PC，请使用 <b>amd64</b> 版本。对于 <b>32 位</b> PC，请使用 <b>x86</b> 版本。如果你确定目标设备是基于 ARM64 的，则可以放心地忽略此消息。';
 
 //Error messages
@@ -236,6 +224,8 @@ $s['error_UNSPECIFIED_UPDATE'] = '未指定更新 ID。';
 $s['error_INCORRECT_ID'] = '指定的更新 ID 不正确。 请确保指定的更新 ID 正确无误。';
 $s['error_RATE_LIMITED'] = '你受到了限制，请在几秒钟后重试。';
 $s['error_UNSPECIFIED_VE'] = '你尚未选择任何其他版本。如果不想创建其他版本，请选择<i>使用 aria2 下载并转换</i>选项。';
+$s['error_VE_UNAVAILABLE'] = 'Additional editions are not supported for this selection.';
+$s['error_INVALID_PAGE'] = 'Specified page is invalid';
 $s['errorNoMessage'] = '错误消息不可用。';
 
 //Languages
@@ -266,7 +256,6 @@ $s['lang_nl-nl'] = '荷兰语';
 $s['lang_pl-pl'] = '波兰语';
 $s['lang_pt-br'] = '葡萄牙语（巴西）';
 $s['lang_pt-pt'] = '葡萄牙语（葡萄牙）';
-$s['lang_qps-ploc'] = '伪本地化环境';
 $s['lang_ro-ro'] = '罗马尼亚语';
 $s['lang_ru-ru'] = '俄语';
 $s['lang_sk-sk'] = '斯洛伐克语';
