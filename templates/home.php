@@ -31,42 +31,66 @@ if(!isset($templateOk)) die();
 </form>
 
 <div class="quick-search-buttons">
-    <i class="thumbtack icon"></i>
+    <div class="ui tiny compact menu">
+        <a class="item" href="known.php?q=regex:(2(?!262|20)[2-9]|[3-9]\d)\d{3}\.">
+            <i class="search icon"></i>
+            <?= $s['channel_dev'] ?>
+        </a>
+    </div>
 
-    <a class="ui mini button" href="known.php?q=regex:(2(?!262|20)[2-9]|[3-9]\d)\d{3}\.">
-        <i class="search icon"></i>
-        <?= $s['channel_dev'] ?>
-    </a>
+    <div class="ui tiny compact menu">
+        <div class="ui simple dropdown item">
+            <i class="search icon"></i>
+            Windows 11
+            <i class="dropdown icon"></i>
 
-    <a class="ui mini button" href="known.php?q=regex:2262\d">
-        <i class="search icon"></i>
-        Windows 11 22H2
-    </a>
+            <div class="menu">
+                <a class="item" href="known.php?q=regex:2262\d">
+                    22H2
+                </a>
 
-    <a class="ui mini button" href="known.php?q=22000">
-        <i class="search icon"></i>
-        Windows 11 21H2
-    </a>
+                <a class="item" href="known.php?q=22000">
+                    21H2
+                </a>
+            </div>
+        </div>
+    </div>
 
-    <a class="ui mini button" href="known.php?q=regex:2034\d">
-        <i class="search icon"></i>
-        Server 21H2/22H2
-    </a>
+    <div class="ui tiny compact menu">
+        <div class="ui simple dropdown item">
+            <i class="search icon"></i>
+            Windows Server
+            <i class="dropdown icon"></i>
 
-    <a class="ui mini button" href="known.php?q=19045">
-        <i class="search icon"></i>
-        22H2
-    </a>
+            <div class="menu">
+                <a class="item" href="known.php?q=regex:2034\d">
+                    Server 21H2/22H2
+                </a>
+            </div>
+        </div>
+    </div>
 
-    <a class="ui mini button" href="known.php?q=19044">
-        <i class="search icon"></i>
-        21H2
-    </a>
+    <div class="ui tiny compact menu">
+        <div class="ui simple dropdown item">
+            <i class="search icon"></i>
+            Windows 10
+            <i class="dropdown icon"></i>
 
-    <a class="ui mini button" href="known.php?q=17763">
-        <i class="search icon"></i>
-        1809
-    </a>
+            <div class="menu">
+                <a class="item" href="known.php?q=19045">
+                    22H2
+                </a>
+
+                <a class="item" href="known.php?q=19044">
+                    21H2
+                </a>
+
+                <a class="item" href="known.php?q=17763">
+                    1809
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <h3 class="ui centered header">
