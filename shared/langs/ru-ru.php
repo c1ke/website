@@ -9,13 +9,13 @@ Language code: ru-RU
 Authors: vanja-san
 */
 
-//Информация о языке
+//Language information
 $s['code'] = 'ru-RU';
-$s['timeZone'] = 'Азия/Новосибирск'; //Поддерживаемые часовые пояса: https://www.php.net/manual/en/timezones.php
+$s['timeZone'] = 'Азия/Новосибирск'; //Supported timezones: https://www.php.net/manual/en/timezones.php
 
-//общие строки
+//shared strings
 $s['uupdump'] = 'UUP dump';
-$s['uupdumpSub'] = '%s - UUP dump'; //Просмотр известных сборок - UUP dump
+$s['uupdumpSub'] = '%s - UUP dump'; //Browse known builds - UUP dump
 $s['build'] = 'Сборка';
 $s['arch'] = 'Архитектура';
 $s['ring'] = 'Канал';
@@ -50,7 +50,7 @@ $s['sourceCode'] = 'Исходный код';
 $s['menu'] = 'Меню';
 $s['websiteDesc'] = 'Легко скачивайте файлы UUP с серверов центра обновления Windows. Этот проект не связан с корпорацией Microsoft.';
 $s['notAffiliated'] = 'Этот проект не связан с корпорацией Microsoft. Windows является зарегистрированной торговой маркой корпорации Microsoft.';
-$s['copyright'] = '© %d %s и соавторы.'; //© 2019 whatever127 и соавторы.
+$s['copyright'] = '© %d %s и соавторы.'; //© 2019 whatever127 and contributors.
 $s['copyrightNew'] = '© %d авторы и соавторы UUP dump.';
 $s['selectLanguage'] = 'Выберите желаемый язык';
 $s['uupDumpDesc'] = 'UUP dump позволяет скачивать файлы платформы унифицированных обновлений, например обновления Windows Insider, непосредственно из Центра обновления Windows.';
@@ -85,13 +85,13 @@ $s['weFoundBuilds'] = 'Найдено сборок: <b>%d</b>'; //Найдено
 $s['sortByDate'] = 'Сортировать результаты по дате добавления';
 $s['nextPage'] = 'След.';
 $s['prevPage'] = 'Пред.';
-$s['pageOf'] = 'Страница %d из %d'; //Страница 1 из 48
+$s['pageOf'] = 'Страница %d из %d'; //Page 1 of 48
 
 //fetchupd.php
 $s['responseFromServer'] = 'Ответ сервера';
 $s['foundUpdates'] = 'Найдено обновлений: %d'; //Найдено обновлений: 1
 $s['foundTheseUpdates'] = 'Были найдены следующие обновления. Нажмите на название нужного обновления, чтобы продолжить.';
-$s['buildNumber'] = 'Номер сборки: %s'; //Номер сборки: 18890.1000
+$s['buildNumber'] = 'Номер сборки: %s'; //Build number: 18890.1000
 
 //selectlang.php
 $s['selectLangFor'] = 'Выберите язык для %s'; //Select language for Windows 10 Insider Preview 18890.1000 (rs_prerelease) amd64
