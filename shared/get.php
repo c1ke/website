@@ -209,13 +209,15 @@ for prog in aria2c cabextract wimlib-imagex chntpw; do
   exit 1
 done
 
-for prog in genisoimage mkisofs; do
-  which \$prog &>/dev/null && break;
+mkiso_present=0
+which genisoimage &>/dev/null && mkiso_present=1
+which mkisofs &>/dev/null && mkiso_present=1
 
+if [ \$mkiso_present -eq 0 ]; then
   echo "genisoimage nor mkisofs does seem to be installed"
   echo "Check the readme.unix.md for details"
   exit 1
-done
+fi
 
 destDir="UUPs"
 tempScript="aria2_script.\$RANDOM.txt"
