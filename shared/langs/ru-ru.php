@@ -83,8 +83,8 @@ $s['browseKnown'] = 'Просмотр изветных сборок';
 $s['chooseBuild'] = 'Выбрать сборку';
 $s['weFoundBuilds'] = 'Найдено сборок: <b>%d</b>'; //Найдено сборок: <b>692</b>
 $s['sortByDate'] = 'Сортировать результаты по дате добавления';
-$s['nextPage'] = 'След.';
-$s['prevPage'] = 'Пред.';
+$s['nextPage'] = 'Следующая';
+$s['prevPage'] = 'Предыдущая';
 $s['pageOf'] = 'Страница %d из %d'; //Page 1 of 48
 
 //fetchupd.php
