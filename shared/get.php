@@ -201,34 +201,21 @@ export all_proxy=""
 
 # End of proxy configuration
 
-if ! which aria2c >/dev/null \\
-|| ! which cabextract >/dev/null \\
-|| ! which wimlib-imagex >/dev/null \\
-|| ! which chntpw >/dev/null \\
-|| ! which genisoimage >/dev/null \\
-&& ! which mkisofs >/dev/null; then
-  echo "One of required applications is not installed."
-  echo "The following applications need to be installed to use this script:"
-  echo " - aria2c"
-  echo " - cabextract"
-  echo " - wimlib-imagex"
-  echo " - chntpw"
-  echo " - genisoimage or mkisofs"
-  echo ""
-  if [ `uname` == "Linux" ]; then
-    # Linux
-    echo "If you use Debian or Ubuntu you can install these using:"
-    echo "sudo apt-get install aria2 cabextract wimtools chntpw genisoimage"
-    echo ""
-    echo "If you use Arch Linux you can install these using:"
-    echo "sudo pacman -S aria2 cabextract wimlib chntpw cdrtools"
-  elif [ `uname` == "Darwin" ]; then
-    # macOS
-    echo "macOS requires Homebrew (https://brew.sh) to install the prerequisite software."
-    echo "If you use Homebrew, you can install these using:"
-    echo "brew tap sidneys/homebrew"
-    echo "brew install aria2 cabextract wimlib cdrtools sidneys/homebrew/chntpw"
-  fi
+for prog in aria2c cabextract wimlib-imagex chntpw; do
+  which \$prog &>/dev/null 2>&1 && continue;
+
+  echo "\$prog does not seem to be installed"
+  echo "Check the readme.unix.md for details"
+  exit 1
+done
+
+mkiso_present=0
+which genisoimage &>/dev/null && mkiso_present=1
+which mkisofs &>/dev/null && mkiso_present=1
+
+if [ \$mkiso_present -eq 0 ]; then
+  echo "genisoimage nor mkisofs does seem to be installed"
+  echo "Check the readme.unix.md for details"
   exit 1
 fi
 
@@ -344,20 +331,13 @@ CONFIG;
         die();
     }
 
-    if(!file_exists($currDir.'/autodl_files/converter_multi')) {
-        die('converter_multi does not exist');
-    }
-
-    if(!file_exists($currDir.'/autodl_files/depends_win.ps1')) {
-        die('depends_win.ps1 does not exist');
-    }
-
     $zip->addFromString('uup_download_windows.cmd', $cmdScript);
     $zip->addFromString('uup_download_linux.sh', $shellScript);
     $zip->addFromString('uup_download_macos.sh', $shellScript);
     $zip->addFromString('ConvertConfig.ini', $convertConfig);
     $zip->addFromString('files/convert_config_linux', $convertConfigLinux);
     $zip->addFromString('files/convert_config_macos', $convertConfigLinux);
+    $zip->addFile($currDir.'/autodl_files/readme.unix.md', 'readme.unix.md');
     $zip->addFile($currDir.'/autodl_files/converter_multi', 'files/converter_multi');
     $zip->addFile($currDir.'/autodl_files/depends_win.ps1', 'files/depends_win.ps1');
     $zip->close();
@@ -503,18 +483,11 @@ export all_proxy=""
 
 # End of proxy configuration
 
-if ! which aria2c >/dev/null; then
-  echo "One of required applications is not installed."
-  echo "The following applications need to be installed to use this script:"
-  echo " - aria2c"
-  echo ""
-  echo "If you use Debian or Ubuntu you can install these using:"
-  echo "sudo apt-get install aria2"
-  echo ""
-  echo "If you use Arch Linux you can install these using:"
-  echo "sudo pacman -S aria2"
+which aria2c &>/dev/null || {
+  echo "aria2c does not seem to be installed"
+  echo "Check the readme.unix.md for details"
   exit 1
-fi
+}
 
 destDir="UUPs"
 tempScript="aria2_script.\$RANDOM.txt"
@@ -551,14 +524,11 @@ SCRIPT;
     $archive = @tempnam($currDir.'/tmp', 'zip');
     $open = $zip->open($archive, ZipArchive::CREATE+ZipArchive::OVERWRITE);
 
-    if(!file_exists($currDir.'/autodl_files/depends_win.ps1')) {
-        die('depends_win.ps1 does not exist');
-    }
-
     if($open === TRUE) {
         $zip->addFromString('uup_download_windows.cmd', $cmdScript);
         $zip->addFromString('uup_download_linux.sh', $shellScript);
         $zip->addFromString('uup_download_macos.sh', $shellScript);
+        $zip->addFile($currDir.'/autodl_files/readme.unix.md', 'readme.unix.md');
         $zip->addFile($currDir.'/autodl_files/depends_win.ps1', 'files/depends_win.ps1');
         $zip->close();
     } else {

@@ -79,7 +79,9 @@ body,
 .ui.steps .active.step,
 .ui.steps .active.step::after,
 .ui.dropdown .menu .item:hover,
-.ui.dropdown .menu .selected.item {
+.ui.dropdown .menu .selected.item,
+.ui.tiny.compact.menu .item:hover,
+.ui.menu .ui.dropdown .menu > .item:hover {
     background-color: #222 !important;
 }
 
@@ -101,7 +103,9 @@ label,
 .ui.steps .step .description,
 .ui.message,
 .ui.message .header,
-.ui.accordion .title {
+.ui.accordion .title,
+.ui.menu .ui.dropdown .menu > .item,
+.ui.menu .ui.dropdown .menu > .item:hover {
     color: #fff !important;
 }
 
@@ -114,7 +118,9 @@ label,
 .ui.steps .step,
 .ui.steps .step::after,
 .ui input,
-.ui textarea {
+.ui textarea,
+.ui.tiny.compact.menu,
+.ui.tiny.compact.menu .item {
     background-color: #1a1a1a !important;
     border-color: #2a2a2a !important;
     color: #fff !important;
