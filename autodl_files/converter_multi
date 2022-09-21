@@ -1,6 +1,6 @@
 https://github.com/uup-dump/converter/raw/7ad2c103efbc972227c8dc78d588b268dea7b333/convert.sh
   out=convert.sh
-  checksum=sha-256=2eb5c7b5628a47a205891bb05bbe2311aa81ac6d1e196c979a1fa76829d9b424
+  checksum=sha-256=2eb5c7b5628a47a205891bb05bbe2311aa81ac6d1e196c979a1fa76829d9b42
 
 https://github.com/uup-dump/converter/raw/7ad2c103efbc972227c8dc78d588b268dea7b333/convert_ve_plugin
   out=convert_ve_plugin
