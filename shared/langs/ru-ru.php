@@ -11,7 +11,7 @@ Authors: vanja-san
 
 //Language information
 $s['code'] = 'ru-RU';
-$s['timeZone'] = 'Азия/Новосибирск'; //Supported timezones: https://www.php.net/manual/en/timezones.php
+$s['timeZone'] = 'Asia/Novosibirsk'; //Supported timezones: https://www.php.net/manual/en/timezones.php
 
 //shared strings
 $s['uupdump'] = 'UUP dump';
