@@ -26,6 +26,8 @@ require_once 'shared/get.php';
 require_once 'shared/style.php';
 require_once 'shared/ratelimits.php';
 
+if($aria2) die();
+
 if(!$updateId) {
     fancyError('UNSPECIFIED_UPDATE', 'downloads');
     die();
@@ -85,20 +87,6 @@ if($search != null) {
 }
 
 $urlBase = "getfile.php?id=$updateId";
-
-if($aria2) {
-    $urlBase = getBaseUrl()."/".$urlBase;
-    header('Content-Type: text/plain');
-
-    usort($filesKeys, 'sortBySize');
-    foreach($filesKeys as $val) {
-        echo "$urlBase&file=$val\n";
-        echo '  out='.$val."\n";
-        echo '  checksum=sha-1='.$files[$val]['sha1']."\n\n";
-    }
-
-    die();
-}
 
 $count = count($filesKeys);
 
