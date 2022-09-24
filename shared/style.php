@@ -109,7 +109,7 @@ EOD;
 
         case 'downloads':
             $navbarLink = '<a class="item" href="./"><i class="home icon"></i>'.$s['home'].'</a>'.
-                          '<a class="active item"><i class="download icon"></i>'.$s['downloads'].'</a>'.
+                          '<a class="active item" href="known.php"><i class="download icon"></i>'.$s['downloads'].'</a>'.
                           '<a class="item" target=_blank href="https://github.com/uup-dump/website/blob/master/FAQ.md"><i class="question circle icon"></i>'.$s['faq'].'</a>';
         break;
 
