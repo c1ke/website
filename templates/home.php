@@ -45,7 +45,11 @@ if(!isset($templateOk)) die();
             <i class="dropdown icon"></i>
 
             <div class="menu">
-                <a class="item" href="known.php?q=regex:2262\d">
+                <a class="item" href="known.php?q=22622">
+                    22H2 (Moment 1)
+                </a>
+
+                <a class="item" href="known.php?q=22621">
                     22H2
                 </a>
 
@@ -63,8 +67,11 @@ if(!isset($templateOk)) die();
             <i class="dropdown icon"></i>
 
             <div class="menu">
-                <a class="item" href="known.php?q=regex:2034\d">
-                    Server 21H2/22H2
+                <a class="item" href="known.php?q=20349">
+                    22H2
+                </a>
+                <a class="item" href="known.php?q=20348">
+                    21H2
                 </a>
             </div>
         </div>
