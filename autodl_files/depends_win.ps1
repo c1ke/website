@@ -14,7 +14,12 @@ There are myths that some Windows versions do not work without this.
 Since I can't be arsed to verify this, I'm just adding this to lower the number
 of reports to which I would normally respond with "works on my machine".
 #>
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+try {
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+} catch {
+    Write-Error "Abandonware operating systems are not supported."
+    Exit 1
+}
 
 $filesDownload = @('aria2c.exe')
 $filesConvert = @('aria2c.exe', '7zr.exe', 'uup-converter-wimlib.7z')
