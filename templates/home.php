@@ -39,7 +39,7 @@ if(!isset($templateOk)) die();
     </div>
 
     <div class="ui tiny compact menu">
-        <div class="ui simple dropdown item">
+        <div class="ui dropdown item">
             <i class="search icon"></i>
             Windows 11
             <i class="dropdown icon"></i>
@@ -61,7 +61,7 @@ if(!isset($templateOk)) die();
     </div>
 
     <div class="ui tiny compact menu">
-        <div class="ui simple dropdown item">
+        <div class="ui dropdown item">
             <i class="search icon"></i>
             Windows Server
             <i class="dropdown icon"></i>
@@ -78,7 +78,7 @@ if(!isset($templateOk)) die();
     </div>
 
     <div class="ui tiny compact menu">
-        <div class="ui simple dropdown item">
+        <div class="ui dropdown item">
             <i class="search icon"></i>
             Windows 10
             <i class="dropdown icon"></i>
@@ -99,6 +99,8 @@ if(!isset($templateOk)) die();
         </div>
     </div>
 </div>
+
+<script>$('.ui.dropdown').dropdown();</script>
 
 <h3 class="ui centered header">
     <div class="content">
