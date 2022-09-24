@@ -192,7 +192,8 @@ $s['sizeOfShownFiles'] = 'Size of shown files: %s'; //Size of shown files: 2.86 
 $s['error'] = 'Error';
 $s['requestNotSuccessful'] = 'Request not successful';
 $s['anErrorHasOccurred'] = 'An error has occurred while attempting to process your request.';
-$s['arm64Warning'] = 'This is an <b>ARM64</b> build which is <b>not compatible with common Intel/AMD processors</b>.<br>If you are sure that your target device has an <b>ARM64</b> processor and you didn\'t confuse it with <b>AMD64</b> you can safely continue.';
+$s['arm64Warning2022h'] = 'This is an ARM64 build';
+$s['arm64Warning2022b'] = '<p>This build is only compatible with:</p><ul><li>Surface Pro X</li><li>Raspberry Pi</li><li>Apple Mac M1</li><li>other glorified mobile phones</li></ul><p>UUP dump authors <i>don\'t have a single one of these</i> and therefore <b>will provide absolutely no support</b>.</p>';
 
 //Error messages
 $s['error_ERROR'] = 'Generic error.';
