@@ -397,11 +397,13 @@ function styleCluelessUserArm64Warn() {
     global $s;
 
     echo <<<INFO
-<table class="ui very basic very compact table">
-    <td class="center aligned"><i class="big bomb icon"></i></td>
-    <td><p>{$s['arm64Warning']}</p></td>
-</table>
-<div class="ui divider"></div>
+<div class="ui negative icon message">
+    <i class="exclamation triangle icon"></i>
+    <div class="content">
+        <div class="header">{$s['arm64Warning2022h']}</div>
+        {$s['arm64Warning2022b']}
+    </div>
+</div>
 
 INFO;
 }

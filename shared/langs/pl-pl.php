@@ -192,7 +192,8 @@ $s['sizeOfShownFiles'] = 'Rozmiar widocznych plików: %s'; //Size of shown files
 $s['error'] = 'Błąd';
 $s['requestNotSuccessful'] = 'Żądanie nie powiodło się';
 $s['anErrorHasOccurred'] = 'Wystąpił błąd podczas próby przetworzenia Twojego żądania.';
-$s['arm64Warning'] = 'To jest kompilacja <b>ARM64</b>, która <b>nie jest kompatybilna z typowymi procesorami Intel/AMD</b>.<br>Tą wiadomość można bezpiecznie zignorować w przypadku pewności, że urządzenie docelowe posiada procesor <b>ARM64</b> i nie zaszła pomyłka z <b>AMD64</b>.';
+$s['arm64Warning2022h'] = 'To jest kompilacja ARM64';
+$s['arm64Warning2022b'] = '<p>Ta kompilacja jest wyłącznie kompatybilna z:</p><ul><li>Surface Pro X</li><li>Raspberry Pi</li><li>Apple Mac M1</li><li>innymi przerośniętymi telefonami komórkowymi</li></ul><p>Autorzy UUP dump <i>nie posiadają żadnego z powyższych</i>, w związku z czym <b>nie będą prowadzić jakiejkolwiek formy wsparcia</b>.</p>';
 
 //Error messages
 $s['error_ERROR'] = 'Błąd ogólny.';
