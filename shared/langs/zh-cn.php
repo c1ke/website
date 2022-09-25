@@ -192,7 +192,8 @@ $s['sizeOfShownFiles'] = '显示文件大小：%s'; //Size of shown files: 2.86 
 $s['error'] = '错误';
 $s['requestNotSuccessful'] = '请求未成功';
 $s['anErrorHasOccurred'] = '在尝试处理你的请求时发生错误。';
-$s['arm64Warning'] = '你选择的 ARM64 版本<b>仅与基于 ARM64 的设备兼容</b>，并且不适用于常规基于 Intel 或 AMD 的 PC。对于 <b>64 位</b>的 PC，请使用 <b>amd64</b> 版本。对于 <b>32 位</b> PC，请使用 <b>x86</b> 版本。如果你确定目标设备是基于 ARM64 的，则可以放心地忽略此消息。';
+$s['arm64Warning2022h'] = '这是一个 ARM64 内部版本';
+$s['arm64Warning2022b'] = '<p>此内部版本仅兼容：</p><ul><li>Surface Pro X</li><li>树莓派</li><li>苹果 Mac M1</li><li>其他美化手机</li></ul><p>UUP dump 的作者们<i>没有其中的任何一个</i>，因此<b>绝对不会提供任何的支持</b>。</p>';
 
 //Error messages
 $s['error_ERROR'] = '一般错误。';
