@@ -45,6 +45,10 @@ if(!isset($templateOk)) die();
             <i class="dropdown icon"></i>
 
             <div class="menu">
+                <a class="item" href="known.php?q=22623">
+                    22H2 (Moment 2)
+                </a>
+
                 <a class="item" href="known.php?q=22622">
                     22H2 (Moment 1)
                 </a>
