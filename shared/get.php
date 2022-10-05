@@ -48,6 +48,7 @@ function createUupConvertPackage(
     if(!empty($app)) {
         $downloadapp = <<<TEXT
 
+:DOWNLOAD_APPS
 echo Retrieving aria2 script for Apps...
 "%aria2%" --no-conf --log-level=info --log="aria2_download.log" -o"%aria2Script%" --allow-overwrite=true --auto-file-renaming=false "$app"
 if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
@@ -63,7 +64,7 @@ if NOT [%DETECTED_ERROR%] == [] (
 
 echo Attempting to download Apps files...
 "%aria2%" --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j25 -c -R -d"%destDir%" -i"%aria2Script%"
-if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
+if %ERRORLEVEL% GTR 0 goto :DOWNLOAD_APPS
 
 TEXT;
     }
@@ -140,6 +141,7 @@ echo Extracting UUP converter...
 "%a7z%" -x!ConvertConfig.ini -y x "%uupConv%" >NUL
 echo.
 $downloadapp
+:DOWNLOAD_UUPS
 echo Retrieving aria2 script...
 "%aria2%" --no-conf --log-level=info --log="aria2_download.log" -o"%aria2Script%" --allow-overwrite=true --auto-file-renaming=false "$url"
 if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
@@ -156,7 +158,7 @@ if NOT [%DETECTED_ERROR%] == [] (
 
 echo Attempting to download files...
 "%aria2%" --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j5 -c -R -d"%destDir%" -i"%aria2Script%"
-if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
+if %ERRORLEVEL% GTR 0 goto :DOWNLOAD_UUPS & exit /b 1
 
 if EXIST convert-UUP.cmd goto :START_CONVERT
 pause
@@ -385,6 +387,7 @@ TEXT;
     if(!empty($app)) {
         $downloadapp = <<<TEXT
 
+:DOWNLOAD_APPS
 echo Retrieving aria2 script for Apps...
 "%aria2%" --no-conf --log-level=info --log="aria2_download.log" -o"%aria2Script%" --allow-overwrite=true --auto-file-renaming=false "$app"
 if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
@@ -400,7 +403,7 @@ if NOT [%DETECTED_ERROR%] == [] (
 
 echo Attempting to download Apps files...
 "%aria2%" --no-conf --log-level=info --log="aria2_download.log" -x16 -s16 -j25 -c -R -d"%destDir%" -i"%aria2Script%"
-if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
+if %ERRORLEVEL% GTR 0 goto :DOWNLOAD_APPS
 
 TEXT;
     }
@@ -433,6 +436,7 @@ cd /d "%~dp0"
 powershell -NoProfile -ExecutionPolicy Unrestricted .\\files\\depends_win.ps1 -ForDownload || (pause & exit /b 1)
 echo.
 $downloadapp
+:DOWNLOAD_UUPS
 echo Retrieving aria2 script...
 "%aria2%" --no-conf --log-level=info --log="aria2_download.log" -o"%aria2Script%" --allow-overwrite=true --auto-file-renaming=false "$url"
 if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
@@ -448,7 +452,7 @@ if NOT [%DETECTED_ERROR%] == [] (
 
 echo Attempting to download files...
 $ariacmd
-if %ERRORLEVEL% GTR 0 call :DOWNLOAD_ERROR & exit /b 1
+if %ERRORLEVEL% GTR 0 goto :DOWNLOAD_UUPS & exit /b 1
 
 pause
 goto EOF
