@@ -32,7 +32,7 @@ if(!checkUpdateIdValidity($updateId)) {
 }
 
 $resource = hash('sha1', strtolower("getfile-$updateId-$file"));
-if(checkIfUserIsRateLimited($resource, 10, 10)) {
+if(checkIfUserIsRateLimited($resource, 5, 1)) {
     fancyError('RATE_LIMITED', 'downloads');
     die();
 }
@@ -65,5 +65,5 @@ if($aria2) {
 }
 
 $url = $files[$file]['url'];
-header('Location: '.$url);
-echo '<h1>Moved to <a href="'.$url.'">here</a>.';
+echo "<h1>$file</h1>";
+echo "<a href=\"$url\">$url</a>";
