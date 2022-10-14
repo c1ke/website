@@ -25,6 +25,7 @@ require_once 'api/updateinfo.php';
 require_once 'shared/get.php';
 require_once 'shared/style.php';
 require_once 'shared/ratelimits.php';
+require_once 'shared/verification.php';
 
 if($aria2) die();
 
@@ -35,6 +36,11 @@ if(!$updateId) {
 
 if(!checkUpdateIdValidity($updateId)) {
     fancyError('INCORRECT_ID', 'downloads');
+    die();
+}
+
+if(!checkVerificationNumber()) {
+    printVerificationPage();
     die();
 }
 

@@ -25,6 +25,7 @@ if(empty($file)) die('Unspecified file');
 require_once 'api/get.php';
 require_once 'shared/style.php';
 require_once 'shared/ratelimits.php';
+require_once 'shared/verification.php';
 
 if(!checkUpdateIdValidity($updateId)) {
     fancyError('INCORRECT_ID', 'downloads');
@@ -34,6 +35,11 @@ if(!checkUpdateIdValidity($updateId)) {
 $resource = hash('sha1', strtolower("getfile-$updateId-$file"));
 if(checkIfUserIsRateLimited($resource, 5, 1)) {
     fancyError('RATE_LIMITED', 'downloads');
+    die();
+}
+
+if(!checkVerificationNumber()) {
+    printVerificationPage();
     die();
 }
 

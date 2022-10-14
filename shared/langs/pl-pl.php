@@ -188,6 +188,10 @@ $s['searchForFiles'] = 'Szukaj plików...';
 $s['weFoundFiles'] = 'Znaleziono <b>%d</b> plików dla Twojego zapytania.'; //We have found <b>692</b> files for your query.
 $s['sizeOfShownFiles'] = 'Rozmiar widocznych plików: %s'; //Size of shown files: 2.86 GiB
 
+//verification.php
+$s['verification'] = 'Weryfikacja';
+$s['clickNumberedButton'] = 'Kliknij przycisk o numerze %d';
+
 //Error pages
 $s['error'] = 'Błąd';
 $s['requestNotSuccessful'] = 'Żądanie nie powiodło się';
