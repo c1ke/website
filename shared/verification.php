@@ -31,6 +31,8 @@ function getVerificationNumber() {
 }
 
 function checkVerificationNumber() {
+    if(uupApiConfigIsTrue('paid_for_uup_dump_pass')) return true;
+
     $number = isset($_GET['verify']) ? $_GET['verify'] : null;
 
     if(!session_start()) {
@@ -38,10 +40,7 @@ function checkVerificationNumber() {
         die();
     }
 
-    if(!isset($_SESSION['verification_number'])) {
-        return false;
-    }
-
+    if(!isset($_SESSION['verification_number'])) return false;
     $result = $_SESSION['verification_number'] == $number;
     unset($_SESSION['verification_number']);
 
