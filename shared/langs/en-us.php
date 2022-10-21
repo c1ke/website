@@ -188,10 +188,6 @@ $s['searchForFiles'] = 'Search for files...';
 $s['weFoundFiles'] = '<b>%d</b> files were found for your query.'; //<b>692</b> files were found for your query.
 $s['sizeOfShownFiles'] = 'Size of shown files: %s'; //Size of shown files: 2.86 GiB
 
-//verification.php
-$s['verification'] = 'Verification';
-$s['clickNumberedButton'] = 'Click a button numbered %d';
-
 //Error pages
 $s['error'] = 'Error';
 $s['requestNotSuccessful'] = 'Request not successful';
