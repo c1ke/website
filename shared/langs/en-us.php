@@ -185,7 +185,7 @@ $s['fileRenamingScriptDescFindFiles'] = 'If you want to quickly rename files dow
 $s['fileRenamingScriptGenW'] = 'Generate renaming script (Windows)';
 $s['fileRenamingScriptGenL'] = 'Generate renaming script (Linux, macOS)';
 $s['searchForFiles'] = 'Search for files...';
-$s['weFoundFiles'] = 'We have found <b>%d</b> files for your query.'; //We have found <b>692</b> files for your query.
+$s['weFoundFiles'] = '<b>%d</b> files were found for your query.'; //<b>692</b> files were found for your query.
 $s['sizeOfShownFiles'] = 'Size of shown files: %s'; //Size of shown files: 2.86 GiB
 
 //verification.php
