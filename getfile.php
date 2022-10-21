@@ -25,7 +25,6 @@ if(empty($file)) die('Unspecified file');
 require_once 'api/get.php';
 require_once 'shared/style.php';
 require_once 'shared/ratelimits.php';
-require_once 'shared/verification.php';
 
 if(!checkUpdateIdValidity($updateId)) {
     fancyError('INCORRECT_ID', 'downloads');
@@ -38,11 +37,6 @@ if(checkIfUserIsRateLimited($resource, 5, 1)) {
     die();
 }
 
-if(!checkVerificationNumber()) {
-    printVerificationPage();
-    die();
-}
-
 $files = uupGetFiles($updateId, 0, 0, 1);
 if(isset($files['error'])) {
     $resource = hash('sha1', strtolower("get-$updateId-failed"));
@@ -52,8 +46,9 @@ if(isset($files['error'])) {
     die();
 }
 
+$updateName = $files['updateName'];
+$updateArch = $files['arch'];
 $files = $files['files'];
-$filesKeys = array_keys($files);
 
 if(!isset($files[$file]['url'])) {
     fancyError('NO_FILES', 'downloads', $file);
@@ -70,6 +65,16 @@ if($aria2) {
     die();
 }
 
-$url = $files[$file]['url'];
-echo "<h1>$file</h1>";
-echo "<a href=\"$url\">$url</a>";
+if(!str_contains($_SERVER['HTTP_USER_AGENT'], 'Mozilla')) {
+    header('Location: '.$files[$file]['url']);
+    echo '<h1>Moved to <a href="'.$url.'">here</a>.';
+    die();
+}
+
+$filesKeys = [$file];
+$skipTextBoxes = true;
+$templateOk = true;
+
+styleUpper('downloads', sprintf($s['listOfFilesFor'], "$updateName $updateArch"));
+require 'templates/get.php';
+styleLower();

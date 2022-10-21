@@ -61,6 +61,8 @@ if(!isset($templateOk)) die();
     <?php printf($s['totalSizeOfFiles'], $totalSize); ?>
 </div>
 
+<?php if(isset($skipTextBoxes) && $skipTextBoxes) return; ?>
+
 <div class="ui divider"></div>
 
 <div class="ui icon positive message">

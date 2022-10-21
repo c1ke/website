@@ -34,7 +34,6 @@ require_once 'shared/get.php';
 require_once 'shared/style.php';
 require_once 'shared/ratelimits.php';
 require_once 'shared/autodl.php';
-require_once 'shared/verification.php';
 
 if(!$updateId) {
     fancyError('UNSPECIFIED_UPDATE', 'downloads');
@@ -78,11 +77,6 @@ if($autoDl && !$aria2) {
     );
 
     $autoDlConfig->createPackage();
-    die();
-}
-
-if(!$aria2 && !checkVerificationNumber()) {
-    printVerificationPage();
     die();
 }
 
