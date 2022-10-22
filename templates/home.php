@@ -16,6 +16,16 @@ limitations under the License.
 */
 if(!isset($templateOk)) die();
 ?>
+<div class="ui negative message">
+    <div class="header">
+        Beware of malicious UUP dump copies
+    </div>
+    <p>
+        Multiple unauthorized copies of the UUP dump website have been sighted. Some of them may offer malicious downloads.</br>
+        <b>Always</b> make sure you are using the official UUP dump website hosted on <b>uupdump.net</b>.
+    </p>
+</div>
+
 <div class="welcome-text">
     <p class="header"><?= $s['uupdump'] ?></p>
     <p class="sub"><i><?= $s['slogan'] ?></i></p>
