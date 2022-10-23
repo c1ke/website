@@ -361,8 +361,10 @@ function fancyError($errorCode = 'ERROR', $pageType = 'home', $moreText = 0) {
             break;
     }
 
+    $safeError = htmlentities($errorFancy);
+
     if($moreText) {
-        $errorFancy = $errorFancy.'<br>'.$moreText;
+        $safeError = $safeError.'<br>'.htmlentities($moreText);
     }
 
     http_response_code($errorNumber);
@@ -385,7 +387,7 @@ function fancyError($errorCode = 'ERROR', $pageType = 'home', $moreText = 0) {
     <div class="content">
         <div class="header">{$s['error']}</div>
         <p>{$s['anErrorHasOccurred']}<br>
-        $errorFancy</p>
+        $safeError</p>
     </div>
 </div>
 ERROR;
