@@ -144,11 +144,11 @@ EOD;
         <meta property="og:image" content="$baseUrl/img/cover.png">
         <meta property="og:url" content="$fullUrl">
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css">
+        <link rel="stylesheet" href="css/semantic.min.css">
         <link rel="stylesheet" href="css/style.css">
         $darkMode
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/semantic.min.js"></script>
 
         <title>$title</title>
 
