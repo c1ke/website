@@ -27,12 +27,13 @@ $pageLanguageOptions = array(
     'samesite' => 'Strict'
 );
 
+$sendCookie = false;
 if(isset($_GET['lang'])) {
     $lang = strtolower($_GET['lang']);
-    setcookie('Page-Language', $lang, $pageLanguageOptions);
+    $sendCookie = true;
 } elseif(isset($_COOKIE['Page-Language'])) {
     $lang = strtolower($_COOKIE['Page-Language']);
-    setcookie('Page-Language', $lang, $pageLanguageOptions);
+    $sendCookie = true;
 }
 
 $supportedLangs = array(
@@ -61,6 +62,10 @@ if(in_array("$lang", $supportedLangs)) {
     require_once "langs/$lang.php";
 } else {
     $lang = 'en-us';
+}
+
+if($sendCookie) {
+    setcookie('Page-Language', $lang, $pageLanguageOptions);
 }
 
 $url = htmlentities(getUrlWithoutParam('lang'));
@@ -101,3 +106,5 @@ EOD;
 
 $s['currentLanguage'] = $s["lang_$lang"];
 date_default_timezone_set($s['timeZone']);
+
+unset($url, $sendCookie, $supportedLangs, $pageLanguageOptions);
