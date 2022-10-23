@@ -83,7 +83,7 @@ if(!isset($templateOk)) die();
         <div class="ui two columns stackable grid">
             <div class="column">
                 <a class="ui fluid labeled icon button"
-                href="./get.php?id=<?= $updateId ?>&renscript=1">
+                href="get.php?id=<?= $updateId ?>&renscript=1">
                     <i class="windows icon"></i>
                     <?= $s['fileRenamingScriptGenW'] ?>
                 </a>
@@ -91,7 +91,7 @@ if(!isset($templateOk)) die();
 
             <div class="column">
                 <a class="ui fluid labeled icon button"
-                href="./get.php?id=<?= $updateId ?>&renscript=2">
+                href="get.php?id=<?= $updateId ?>&renscript=2">
                     <i class="linux icon"></i>
                     <?= $s['fileRenamingScriptGenL'] ?>
                 </a>

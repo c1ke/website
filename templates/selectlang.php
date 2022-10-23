@@ -49,7 +49,7 @@ if(!isset($templateOk)) die();
                 </div>
             </div>
         <?php else: ?>
-            <form class="ui form" action="./selectedition.php" method="get" id="langForm">
+            <form class="ui form" action="selectedition.php" method="get" id="langForm">
                 <input type="hidden" name="id" value="<?= $updateId ?>">
                 <div class="field">
                     <label><?= $s['lang'] ?></label>
@@ -84,7 +84,7 @@ if(!isset($templateOk)) die();
             </div>
         </h3>
 
-        <form class="ui form" action="./findfiles.php" method="get">
+        <form class="ui form" action="findfiles.php" method="get">
             <div class="field">
                 <label><?= $s['searchFiles']; ?></label>
                 <div class="ui action input">

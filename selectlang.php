@@ -123,7 +123,7 @@ if($ring == 'WIF' && $flight == 'Skip') {
     }
 }
 
-$findFilesUrl = "./findfiles.php?id=".htmlentities($updateId);
+$findFilesUrl = "findfiles.php?id=".htmlentities($updateId);
 
 $langsAvailable = count($langs) > 0;
 $packsAvailable = uupApiPacksExist($updateId);
